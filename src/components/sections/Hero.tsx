@@ -25,7 +25,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative bg-white overflow-hidden pt-24 pb-20 lg:pt-28 lg:pb-28">
+    <section className="relative bg-white overflow-hidden pt-24 pb-20 lg:pt-28 lg:pb-36">
       {/* Background decoration with FollowOP logo pattern */}
       <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-gray-50 to-transparent"></div>
       <div className="absolute inset-0 pointer-events-none">
@@ -93,7 +93,7 @@ const Hero = () => {
           {/* Hero Image - Chat Demo */}
           <div className={`${isVisible ? 'animate-fade-in-right' : 'opacity-0'} relative`}>
             {isLoading ? (
-              <ChatSkeleton />
+              <YouTubeStyleSkeleton />
             ) : (
               <div className="relative bg-white p-2 rounded-2xl shadow-2xl rotate-1 animate-float">
                 <div className="rounded-xl overflow-hidden border border-gray-100">
@@ -145,50 +145,50 @@ const Hero = () => {
             )}
           </div>
         </div>
-        
-        {/* Scroll indicator */}
-        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-center">
-          <button 
-            onClick={scrollToFeatures}
-            className="flex flex-col items-center text-gray-400 hover:text-primary transition-colors"
-          >
-            <span className="text-sm mb-2">Descubra mais</span>
-            <ChevronDown size={24} className="animate-bounce" />
-          </button>
-        </div>
+      </div>
+      
+      {/* Scroll indicator moved lower */}
+      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-center mt-20">
+        <button 
+          onClick={scrollToFeatures}
+          className="flex flex-col items-center text-gray-400 hover:text-primary transition-colors"
+        >
+          <span className="text-sm mb-2">Descubra mais</span>
+          <ChevronDown size={24} className="animate-bounce" />
+        </button>
       </div>
     </section>
   );
 };
 
-// Skeleton for chat loading state with Apple-inspired design
-const ChatSkeleton = () => (
+// YouTube-style skeleton for chat loading state with wave animation
+const YouTubeStyleSkeleton = () => (
   <div className="relative bg-white p-2 rounded-2xl shadow-xl rotate-1">
     <div className="rounded-xl overflow-hidden border border-gray-100">
-      {/* Chat Header Skeleton */}
+      {/* Chat Header Skeleton with wave effect */}
       <div className="p-4 flex items-center gap-3">
-        <Skeleton className="w-8 h-8 rounded-full" />
-        <div>
-          <Skeleton className="h-5 w-32 mb-1" />
-          <Skeleton className="h-3 w-16" />
+        <div className="w-8 h-8 rounded-full bg-gray-200 relative overflow-hidden skeleton-wave"></div>
+        <div className="flex-1">
+          <div className="h-5 w-32 mb-1 bg-gray-200 rounded-md relative overflow-hidden skeleton-wave"></div>
+          <div className="h-3 w-16 bg-gray-200 rounded-md relative overflow-hidden skeleton-wave"></div>
         </div>
       </div>
       
-      {/* Chat Body Skeleton */}
+      {/* Chat Body Skeleton with wave effect */}
       <div className="bg-gray-50 p-4 h-[500px] flex flex-col gap-4">
-        <Skeleton className="h-14 w-[80%] rounded-lg rounded-tl-none" />
-        <Skeleton className="h-10 w-[60%] rounded-lg rounded-tr-none self-end" />
-        <Skeleton className="h-20 w-[80%] rounded-lg rounded-tl-none" />
-        <Skeleton className="h-12 w-[50%] rounded-lg rounded-tr-none self-end" />
-        <Skeleton className="h-14 w-[75%] rounded-lg rounded-tl-none" />
+        <div className="h-14 w-[80%] rounded-lg rounded-tl-none bg-gray-200 relative overflow-hidden skeleton-wave"></div>
+        <div className="h-10 w-[60%] rounded-lg rounded-tr-none self-end bg-gray-200 relative overflow-hidden skeleton-wave"></div>
+        <div className="h-20 w-[80%] rounded-lg rounded-tl-none bg-gray-200 relative overflow-hidden skeleton-wave"></div>
+        <div className="h-12 w-[50%] rounded-lg rounded-tr-none self-end bg-gray-200 relative overflow-hidden skeleton-wave"></div>
+        <div className="h-14 w-[75%] rounded-lg rounded-tl-none bg-gray-200 relative overflow-hidden skeleton-wave"></div>
       </div>
     </div>
     
-    {/* Floating Stats Bubble Skeleton */}
+    {/* Floating Stats Bubble Skeleton with wave effect */}
     <div className="absolute -top-6 -right-6 p-4 bg-white rounded-lg shadow-lg">
       <div className="text-center">
-        <Skeleton className="h-8 w-12 mx-auto mb-1" />
-        <Skeleton className="h-3 w-24" />
+        <div className="h-8 w-12 mx-auto mb-1 bg-gray-200 rounded-md relative overflow-hidden skeleton-wave"></div>
+        <div className="h-3 w-24 bg-gray-200 rounded-md relative overflow-hidden skeleton-wave"></div>
       </div>
     </div>
   </div>
