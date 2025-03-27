@@ -24,8 +24,17 @@ const FeatureCard = ({
         className
       )}
     >
+      {/* Background pattern with dots */}
+      <div className="absolute inset-0 opacity-5 pointer-events-none">
+        <div className="absolute inset-0 bg-repeat" style={{ 
+          backgroundImage: "url('/lovable-uploads/669aaab1-10dd-437a-a1b9-789ae5f02809.png')", 
+          backgroundSize: "40px",
+          opacity: 0.1
+        }}></div>
+      </div>
+      
       {/* Background gradient effect on hover */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"></div>
       
       <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-all duration-500">
         <Icon className="w-7 h-7 text-primary" />

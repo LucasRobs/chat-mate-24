@@ -42,11 +42,19 @@ const Index = () => {
         <Hero />
 
         {/* Stats Section */}
-        <section className="py-12 bg-primary">
+        <section className="py-12 bg-gradient-to-r from-primary to-primary/90 relative overflow-hidden">
+          {/* Background pattern */}
+          <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute inset-0 bg-repeat opacity-5" style={{ 
+              backgroundImage: "url('/lovable-uploads/669aaab1-10dd-437a-a1b9-789ae5f02809.png')", 
+              backgroundSize: "40px" 
+            }}></div>
+          </div>
+          
           <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
               <div className="reveal">
-                <h3 className="text-white text-3xl md:text-4xl font-bold">1000+</h3>
+                <h3 className="text-white text-3xl md:text-4xl font-bold">20+</h3>
                 <p className="text-white/80 mt-2">Empresas atendidas</p>
               </div>
               <div className="reveal">
@@ -72,7 +80,14 @@ const Index = () => {
         <Testimonials />
         
         {/* CTA Section */}
-        <section className="py-20 bg-gray-50">
+        <section className="py-20 bg-gray-50 relative overflow-hidden">
+          {/* Background pattern */}
+          <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute inset-0 bg-repeat opacity-5" style={{ 
+              backgroundImage: "url('/lovable-uploads/669aaab1-10dd-437a-a1b9-789ae5f02809.png')", 
+              backgroundSize: "60px" 
+            }}></div>
+          </div>
           <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
             <div className="bg-gradient-to-r from-secondary to-secondary/90 rounded-3xl p-8 md:p-12 lg:p-16 shadow-xl reveal">
               <div className="text-center max-w-3xl mx-auto">
@@ -99,7 +114,7 @@ const Index = () => {
                     <Button 
                       size="lg" 
                       variant="outline" 
-                      className="border-white text-white hover:bg-white/10 btn-hover text-lg w-full md:w-auto"
+                      className="border-white text-primary bg-white hover:bg-white/90 hover:text-primary/90 btn-hover text-lg w-full md:w-auto transition-all duration-300"
                     >
                       <Phone className="mr-2 h-5 w-5" />
                       Fale com nosso time
@@ -120,7 +135,14 @@ const Index = () => {
         <Partners />
         
         {/* Final CTA */}
-        <section className="py-16 bg-gray-50 border-t border-gray-200">
+        <section className="py-16 bg-gray-50 border-t border-gray-200 relative overflow-hidden">
+          {/* Background pattern */}
+          <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute inset-0 bg-repeat opacity-5" style={{ 
+              backgroundImage: "url('/lovable-uploads/669aaab1-10dd-437a-a1b9-789ae5f02809.png')", 
+              backgroundSize: "40px" 
+            }}></div>
+          </div>
           <div className="max-w-4xl mx-auto px-6 md:px-12 text-center">
             <h2 className="text-2xl md:text-3xl font-bold text-secondary reveal">
               Pronto para transformar seu atendimento?
