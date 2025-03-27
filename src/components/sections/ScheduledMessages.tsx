@@ -6,7 +6,7 @@ import FeatureCard from "@/components/ui-custom/FeatureCard";
 const ScheduledMessages = () => {
   return (
     <section className="py-24 bg-white relative overflow-hidden" id="scheduled-messages">
-      {/* Background pattern with the FollowOP logo */}
+      {/* Background pattern with concentric circles */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 opacity-5 followop-pattern"></div>
       </div>
