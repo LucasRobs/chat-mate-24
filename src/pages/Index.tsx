@@ -7,6 +7,7 @@ import Features from "@/components/sections/Features";
 import Pricing from "@/components/sections/Pricing";
 import Partners from "@/components/sections/Partners";
 import ChatDemo from "@/components/sections/ChatDemo";
+import Testimonials from "@/components/sections/Testimonials";
 import { Button } from "@/components/ui/button";
 import { MessageSquare, Phone, ArrowRight } from "lucide-react";
 
@@ -67,6 +68,8 @@ const Index = () => {
         <Features />
         
         <ChatDemo />
+        
+        <Testimonials />
         
         {/* CTA Section */}
         <section className="py-20 bg-gray-50">
