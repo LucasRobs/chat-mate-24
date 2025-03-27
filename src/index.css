@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -185,8 +186,8 @@
   }
 
   .dot-pattern {
-    background-color: #defff2;
-    background-image: radial-gradient(rgba(0, 175, 107, 0.05) 1px, transparent 1px);
+    background-color: #ffffff;
+    background-image: radial-gradient(#defff2 1px, transparent 1px);
     background-size: 40px 40px;
   }
 }

@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Quote } from "lucide-react";
 
@@ -41,7 +42,7 @@ const Testimonials = () => {
   return (
     <section 
       id="testimonials" 
-      className="py-20 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden"
+      className="py-20 bg-white relative overflow-hidden"
     >
       {/* Background pattern with more spread out dots - lighter */}
       <div className="absolute inset-0 pointer-events-none">

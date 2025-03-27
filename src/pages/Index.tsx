@@ -75,7 +75,7 @@ const Index = () => {
         <Testimonials />
         
         {/* CTA Section */}
-        <section className="py-20 bg-gray-50 relative overflow-hidden">
+        <section className="py-20 bg-white relative overflow-hidden">
           {/* Background pattern with scattered dots - lighter */}
           <div className="absolute inset-0 pointer-events-none">
             <div className="absolute inset-0 opacity-5 dot-pattern"></div>
@@ -127,7 +127,7 @@ const Index = () => {
         <Partners />
         
         {/* Final CTA */}
-        <section className="py-16 bg-gray-50 border-t border-gray-200 relative overflow-hidden">
+        <section className="py-16 bg-white border-t border-gray-200 relative overflow-hidden">
           {/* Background pattern with scattered dots - lighter */}
           <div className="absolute inset-0 pointer-events-none">
             <div className="absolute inset-0 opacity-5 dot-pattern"></div>
