@@ -8,6 +8,7 @@ import Pricing from "@/components/sections/Pricing";
 import Partners from "@/components/sections/Partners";
 import ChatDemo from "@/components/sections/ChatDemo";
 import Testimonials from "@/components/sections/Testimonials";
+import ScheduledMessages from "@/components/sections/ScheduledMessages";
 import { Button } from "@/components/ui/button";
 import { MessageSquare, Phone, ArrowRight } from "lucide-react";
 
@@ -76,6 +77,8 @@ const Index = () => {
         <Features />
         
         <ChatDemo />
+        
+        <ScheduledMessages />
         
         <Testimonials />
         

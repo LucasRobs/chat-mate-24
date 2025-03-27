@@ -2,6 +2,7 @@
 import { useState, useRef, useEffect } from "react";
 import { Play, Pause, Volume2, VolumeX } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Skeleton } from "@/components/ui/skeleton";
 
 interface VideoPlayerProps {
   src: string;
@@ -13,8 +14,25 @@ const VideoPlayer = ({ src, poster, className }: VideoPlayerProps) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
   const [progress, setProgress] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const progressBarRef = useRef<HTMLDivElement>(null);
+
+  // Handle Google Drive links
+  useEffect(() => {
+    if (src.includes('drive.google.com') && !src.includes('uc?export=download')) {
+      // Extract file ID from various Google Drive URL formats
+      const fileIdMatch = src.match(/[-\w]{25,}/);
+      if (fileIdMatch && fileIdMatch[0]) {
+        const fileId = fileIdMatch[0];
+        const directUrl = `https://drive.google.com/uc?export=download&id=${fileId}`;
+        if (videoRef.current) {
+          videoRef.current.src = directUrl;
+        }
+      }
+    }
+  }, [src]);
 
   useEffect(() => {
     const videoElement = videoRef.current;
@@ -26,9 +44,23 @@ const VideoPlayer = ({ src, poster, className }: VideoPlayerProps) => {
       setProgress(percentage);
     };
 
+    const handleLoadedData = () => {
+      setIsLoading(false);
+    };
+
+    const handleError = () => {
+      setIsLoading(false);
+      setError("Erro ao carregar o vídeo. Por favor, tente novamente mais tarde.");
+    };
+
     videoElement.addEventListener("timeupdate", updateProgress);
+    videoElement.addEventListener("loadeddata", handleLoadedData);
+    videoElement.addEventListener("error", handleError);
+    
     return () => {
       videoElement.removeEventListener("timeupdate", updateProgress);
+      videoElement.removeEventListener("loadeddata", handleLoadedData);
+      videoElement.removeEventListener("error", handleError);
     };
   }, []);
 
@@ -38,7 +70,9 @@ const VideoPlayer = ({ src, poster, className }: VideoPlayerProps) => {
     if (isPlaying) {
       videoRef.current.pause();
     } else {
-      videoRef.current.play();
+      videoRef.current.play().catch(e => {
+        setError("Não foi possível reproduzir o vídeo automaticamente. Tente clicar no botão de play.");
+      });
     }
     
     setIsPlaying(!isPlaying);
@@ -62,14 +96,29 @@ const VideoPlayer = ({ src, poster, className }: VideoPlayerProps) => {
     videoRef.current.currentTime = seekTime;
   };
 
+  if (error) {
+    return (
+      <div className={cn("relative rounded-xl overflow-hidden bg-gray-100 flex items-center justify-center text-center p-8", className)}>
+        <p className="text-gray-600">{error}</p>
+      </div>
+    );
+  }
+
   return (
     <div className={cn("relative rounded-xl overflow-hidden shadow-xl", className)}>
+      {isLoading && (
+        <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
+          <Skeleton className="w-full h-full" />
+        </div>
+      )}
+      
       <video
         ref={videoRef}
         src={src}
         poster={poster}
         className="w-full h-full object-cover"
         onEnded={() => setIsPlaying(false)}
+        playsInline
       />
       
       <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
@@ -88,6 +137,7 @@ const VideoPlayer = ({ src, poster, className }: VideoPlayerProps) => {
           <button
             onClick={togglePlay}
             className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/30 transition-colors"
+            aria-label={isPlaying ? "Pausar" : "Reproduzir"}
           >
             {isPlaying ? <Pause size={20} /> : <Play size={20} />}
           </button>
@@ -95,6 +145,7 @@ const VideoPlayer = ({ src, poster, className }: VideoPlayerProps) => {
           <button
             onClick={toggleMute}
             className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/30 transition-colors"
+            aria-label={isMuted ? "Ativar som" : "Silenciar"}
           >
             {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
           </button>
