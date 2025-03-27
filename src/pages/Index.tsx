@@ -1,3 +1,4 @@
+
 import { useEffect } from "react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -5,7 +6,6 @@ import Hero from "@/components/sections/Hero";
 import Features from "@/components/sections/Features";
 import Pricing from "@/components/sections/Pricing";
 import Partners from "@/components/sections/Partners";
-import ChatDemo from "@/components/sections/ChatDemo";
 import Testimonials from "@/components/sections/Testimonials";
 import ScheduledMessages from "@/components/sections/ScheduledMessages";
 import { Button } from "@/components/ui/button";
@@ -43,11 +43,11 @@ const Index = () => {
 
         {/* Stats Section */}
         <section className="py-12 bg-gradient-to-r from-primary to-primary/90 relative overflow-hidden">
-          {/* Background pattern with more spread out dots */}
+          {/* Background pattern with scattered dots */}
           <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute inset-0 bg-repeat opacity-5" style={{ 
-              backgroundImage: "url('/lovable-uploads/669aaab1-10dd-437a-a1b9-789ae5f02809.png')", 
-              backgroundSize: "120px",
+            <div className="absolute inset-0 opacity-10" style={{ 
+              backgroundImage: "url('/lovable-uploads/3ce1662f-b8a5-43c2-98f3-000e28c8fc8e.png')", 
+              backgroundSize: "500px",
               backgroundPosition: "center" 
             }}></div>
           </div>
@@ -76,7 +76,7 @@ const Index = () => {
 
         <Features />
         
-        <ChatDemo />
+        {/* Removed ChatDemo section */}
         
         <ScheduledMessages />
         
@@ -84,11 +84,11 @@ const Index = () => {
         
         {/* CTA Section */}
         <section className="py-20 bg-gray-50 relative overflow-hidden">
-          {/* Background pattern with more spread out dots */}
+          {/* Background pattern with scattered dots */}
           <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute inset-0 bg-repeat opacity-5" style={{ 
-              backgroundImage: "url('/lovable-uploads/669aaab1-10dd-437a-a1b9-789ae5f02809.png')", 
-              backgroundSize: "120px",
+            <div className="absolute inset-0 opacity-10" style={{ 
+              backgroundImage: "url('/lovable-uploads/3ce1662f-b8a5-43c2-98f3-000e28c8fc8e.png')", 
+              backgroundSize: "500px",
               backgroundPosition: "center" 
             }}></div>
           </div>
@@ -140,11 +140,11 @@ const Index = () => {
         
         {/* Final CTA */}
         <section className="py-16 bg-gray-50 border-t border-gray-200 relative overflow-hidden">
-          {/* Background pattern with more spread out dots */}
+          {/* Background pattern with scattered dots */}
           <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute inset-0 bg-repeat opacity-5" style={{ 
-              backgroundImage: "url('/lovable-uploads/669aaab1-10dd-437a-a1b9-789ae5f02809.png')", 
-              backgroundSize: "120px",
+            <div className="absolute inset-0 opacity-10" style={{ 
+              backgroundImage: "url('/lovable-uploads/3ce1662f-b8a5-43c2-98f3-000e28c8fc8e.png')", 
+              backgroundSize: "500px",
               backgroundPosition: "center" 
             }}></div>
           </div>
