@@ -88,24 +88,28 @@ const Features = () => {
   ];
 
   return (
-    <section id="features" ref={sectionRef} className="py-20 bg-gray-50">
+    <section id="features" ref={sectionRef} className="py-24 bg-gradient-to-b from-white to-primary/5 relative">
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 opacity-5 followop-pattern"></div>
+        <div className="absolute inset-0 opacity-10 followop-pattern"></div>
       </div>
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
-        <div className="text-center max-w-3xl mx-auto mb-16 animate-on-scroll from-bottom">
+        <div className="text-center max-w-4xl mx-auto mb-16 animate-on-scroll from-bottom">
           <span className="bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-medium">
             Funcionalidades
           </span>
-          <h2 className="mt-6 text-3xl md:text-4xl font-bold text-secondary">
-            Tudo o que você precisa para um atendimento excepcional
+          <h2 className="mt-6 text-4xl md:text-5xl font-bold text-secondary">
+            <span className="relative">
+              <span className="relative z-10">Tudo o que você precisa</span>
+              <span className="absolute bottom-2 left-0 h-3 w-full bg-primary/20 -z-10"></span>
+            </span>
+            {" "}para um atendimento excepcional
           </h2>
           <p className="mt-6 text-xl text-gray-600">
             Nossas funcionalidades foram desenvolvidas para maximizar a eficiência do seu atendimento e proporcionar a melhor experiência para seus clientes.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {features.map((feature, index) => (
             <div 
               key={index} 
@@ -119,6 +123,15 @@ const Features = () => {
               />
             </div>
           ))}
+        </div>
+        
+        <div className="text-center mt-16">
+          <a href="#" className="inline-flex items-center justify-center px-8 py-3 text-base font-medium rounded-md text-white bg-primary hover:bg-primary/90 animate-on-scroll from-bottom">
+            Explorar todas as funcionalidades
+            <svg xmlns="http://www.w3.org/2000/svg" className="ml-2 -mr-1 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </a>
         </div>
       </div>
     </section>
