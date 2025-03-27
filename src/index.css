@@ -142,18 +142,24 @@
     transform: translateY(-100%);
   }
 
-  /* Infinite marquee animation for partners */
+  /* Improved marquee animation for partners */
   .marquee {
     @apply overflow-hidden whitespace-nowrap;
   }
 
   .marquee-content {
-    @apply inline-block animate-slide-left;
+    @apply flex items-center justify-around;
+    animation: scroll 25s linear infinite;
+    width: 100%;
   }
 
-  .marquee-content:nth-child(2) {
-    @apply absolute top-0 left-[100%] animate-slide-left;
-    animation-delay: -25s;
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
   }
 
   /* Loading bar animation */

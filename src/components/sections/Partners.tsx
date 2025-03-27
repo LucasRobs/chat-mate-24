@@ -49,12 +49,12 @@ const Partners = () => {
         </div>
 
         <div className="w-full overflow-hidden">
-          <div className="marquee relative">
-            <div className="marquee-content">
+          <div className="marquee relative flex items-center">
+            <div className="marquee-content flex items-center justify-around w-full">
               {partners.map((partner, index) => (
                 <div 
                   key={index} 
-                  className="inline-block mx-6 md:mx-10 opacity-70 hover:opacity-100 transition-opacity"
+                  className="flex-shrink-0 mx-4 md:mx-8 opacity-70 hover:opacity-100 transition-opacity"
                 >
                   <img
                     src={partner.logo}
@@ -63,12 +63,10 @@ const Partners = () => {
                   />
                 </div>
               ))}
-            </div>
-            <div className="marquee-content">
               {partners.map((partner, index) => (
                 <div 
-                  key={index} 
-                  className="inline-block mx-6 md:mx-10 opacity-70 hover:opacity-100 transition-opacity"
+                  key={`repeat-${index}`} 
+                  className="flex-shrink-0 mx-4 md:mx-8 opacity-70 hover:opacity-100 transition-opacity"
                 >
                   <img
                     src={partner.logo}
