@@ -15,7 +15,6 @@ const VideoPlayer = ({ src, poster, className }: VideoPlayerProps) => {
   const [isMuted, setIsMuted] = useState(false);
   const [progress, setProgress] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const progressBarRef = useRef<HTMLDivElement>(null);
 
@@ -48,19 +47,12 @@ const VideoPlayer = ({ src, poster, className }: VideoPlayerProps) => {
       setIsLoading(false);
     };
 
-    const handleError = () => {
-      setIsLoading(false);
-      setError("Erro ao carregar o vídeo. Por favor, tente novamente mais tarde.");
-    };
-
     videoElement.addEventListener("timeupdate", updateProgress);
     videoElement.addEventListener("loadeddata", handleLoadedData);
-    videoElement.addEventListener("error", handleError);
     
     return () => {
       videoElement.removeEventListener("timeupdate", updateProgress);
       videoElement.removeEventListener("loadeddata", handleLoadedData);
-      videoElement.removeEventListener("error", handleError);
     };
   }, []);
 
@@ -71,7 +63,7 @@ const VideoPlayer = ({ src, poster, className }: VideoPlayerProps) => {
       videoRef.current.pause();
     } else {
       videoRef.current.play().catch(e => {
-        setError("Não foi possível reproduzir o vídeo automaticamente. Tente clicar no botão de play.");
+        console.log("Video play error:", e);
       });
     }
     
@@ -95,14 +87,6 @@ const VideoPlayer = ({ src, poster, className }: VideoPlayerProps) => {
     const seekTime = (widthPercentage / 100) * videoRef.current.duration;
     videoRef.current.currentTime = seekTime;
   };
-
-  if (error) {
-    return (
-      <div className={cn("relative rounded-xl overflow-hidden bg-gray-100 flex items-center justify-center text-center p-8", className)}>
-        <p className="text-gray-600">{error}</p>
-      </div>
-    );
-  }
 
   return (
     <div className={cn("relative rounded-xl overflow-hidden shadow-xl", className)}>
