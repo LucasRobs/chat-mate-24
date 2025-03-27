@@ -1,4 +1,3 @@
-
 import { useEffect } from "react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -13,7 +12,6 @@ import { MessageSquare, Phone, ArrowRight } from "lucide-react";
 
 const Index = () => {
   useEffect(() => {
-    // Scroll animation observer
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -43,9 +41,9 @@ const Index = () => {
 
         {/* Stats Section */}
         <section className="py-12 bg-gradient-to-r from-primary to-primary/90 relative overflow-hidden">
-          {/* Background pattern with scattered dots */}
+          {/* Background pattern with scattered dots - lighter */}
           <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute inset-0 opacity-10" style={{ 
+            <div className="absolute inset-0 opacity-5 dot-pattern" style={{ 
               backgroundImage: "url('/lovable-uploads/3ce1662f-b8a5-43c2-98f3-000e28c8fc8e.png')", 
               backgroundSize: "500px",
               backgroundPosition: "center" 
@@ -76,17 +74,15 @@ const Index = () => {
 
         <Features />
         
-        {/* Removed ChatDemo section */}
-        
         <ScheduledMessages />
         
         <Testimonials />
         
         {/* CTA Section */}
         <section className="py-20 bg-gray-50 relative overflow-hidden">
-          {/* Background pattern with scattered dots */}
+          {/* Background pattern with scattered dots - lighter */}
           <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute inset-0 opacity-10" style={{ 
+            <div className="absolute inset-0 opacity-5 dot-pattern" style={{ 
               backgroundImage: "url('/lovable-uploads/3ce1662f-b8a5-43c2-98f3-000e28c8fc8e.png')", 
               backgroundSize: "500px",
               backgroundPosition: "center" 
@@ -140,9 +136,9 @@ const Index = () => {
         
         {/* Final CTA */}
         <section className="py-16 bg-gray-50 border-t border-gray-200 relative overflow-hidden">
-          {/* Background pattern with scattered dots */}
+          {/* Background pattern with scattered dots - lighter */}
           <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute inset-0 opacity-10" style={{ 
+            <div className="absolute inset-0 opacity-5 dot-pattern" style={{ 
               backgroundImage: "url('/lovable-uploads/3ce1662f-b8a5-43c2-98f3-000e28c8fc8e.png')", 
               backgroundSize: "500px",
               backgroundPosition: "center" 

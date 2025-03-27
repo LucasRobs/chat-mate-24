@@ -44,9 +44,9 @@ const Testimonials = () => {
       id="testimonials" 
       className="py-20 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden"
     >
-      {/* Background pattern with more spread out dots */}
+      {/* Background pattern with more spread out dots - lighter */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-repeat opacity-5" style={{ 
+        <div className="absolute inset-0 bg-repeat opacity-3 dot-pattern" style={{ 
           backgroundImage: "url('/lovable-uploads/669aaab1-10dd-437a-a1b9-789ae5f02809.png')", 
           backgroundSize: "120px",
           backgroundPosition: "center"

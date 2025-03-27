@@ -26,10 +26,10 @@ const Hero = () => {
 
   return (
     <section className="relative bg-white overflow-hidden pt-24 pb-20 lg:pt-28 lg:pb-28">
-      {/* Background decoration with FollowOP logo dots pattern - more spread out */}
+      {/* Background decoration with FollowOP logo dots pattern - more spread out and lighter */}
       <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-gray-50 to-transparent"></div>
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-repeat opacity-5" style={{ 
+        <div className="absolute inset-0 bg-repeat opacity-3 dot-pattern" style={{ 
           backgroundImage: "url('/lovable-uploads/669aaab1-10dd-437a-a1b9-789ae5f02809.png')", 
           backgroundSize: "120px",
           backgroundPosition: "center"
