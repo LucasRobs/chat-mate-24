@@ -18,7 +18,7 @@ const FeatureCard = ({
   return (
     <div 
       className={cn(
-        "bg-white rounded-xl p-8 shadow-md border border-gray-100 text-center",
+        "bg-white/80 backdrop-blur-sm rounded-xl p-8 shadow-md border border-gray-100 text-center",
         "hover:shadow-xl hover:border-primary/30 transition-all duration-500 card-hover",
         "group relative overflow-hidden z-10",
         className

@@ -89,7 +89,7 @@ const Features = () => {
 
   return (
     <section id="features" ref={sectionRef} className="py-24 bg-gradient-to-b from-white to-primary/5 relative">
-      <div className="absolute inset-0 pointer-events-none">
+      <div className="absolute inset-0 pointer-events-none backdrop-blur-[2px]">
         <div className="absolute inset-0 opacity-10 followop-pattern"></div>
       </div>
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
@@ -99,10 +99,11 @@ const Features = () => {
           </span>
           <h2 className="mt-6 text-4xl md:text-5xl font-bold text-secondary">
             <span className="relative">
-              <span className="relative z-10">Tudo o que você precisa</span>
+              <span className="relative z-10">Tudo o que você precisa para um</span>
               <span className="absolute bottom-2 left-0 h-3 w-full bg-primary/20 -z-10"></span>
-            </span>
-            {" "}para um atendimento excepcional
+            </span>{" "}
+            <span className="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">atendimento</span>
+            <span> excepcional</span>
           </h2>
           <p className="mt-6 text-xl text-gray-600">
             Nossas funcionalidades foram desenvolvidas para maximizar a eficiência do seu atendimento e proporcionar a melhor experiência para seus clientes.
@@ -126,7 +127,7 @@ const Features = () => {
         </div>
         
         <div className="text-center mt-16">
-          <a href="#" className="inline-flex items-center justify-center px-8 py-3 text-base font-medium rounded-md text-white bg-primary hover:bg-primary/90 animate-on-scroll from-bottom">
+          <a href="#" className="inline-flex items-center justify-center px-8 py-3 text-base font-medium rounded-md text-white bg-primary hover:bg-primary/90 animate-on-scroll from-bottom backdrop-blur-sm">
             Explorar todas as funcionalidades
             <svg xmlns="http://www.w3.org/2000/svg" className="ml-2 -mr-1 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />

@@ -82,10 +82,10 @@ const Index = () => {
             <div className="absolute inset-0 opacity-5 followop-pattern"></div>
           </div>
           <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
-            <div className="bg-gradient-to-r from-secondary to-secondary/90 rounded-3xl p-8 md:p-12 lg:p-16 shadow-xl reveal">
+            <div className="bg-gradient-to-r from-secondary to-secondary/90 rounded-3xl p-8 md:p-12 lg:p-16 shadow-xl reveal acrylic">
               <div className="text-center max-w-3xl mx-auto">
                 <h2 className="text-3xl md:text-4xl font-bold text-white leading-tight">
-                  Revolucione seu atendimento hoje mesmo
+                  Revolucione seu <span className="gradient-text">atendimento</span> hoje mesmo
                 </h2>
                 <p className="mt-6 text-xl text-white/80">
                   Comece com 7 dias grátis. Sem compromisso. Cancele quando quiser.
@@ -94,7 +94,7 @@ const Index = () => {
                 <div className="mt-10 flex flex-col md:flex-row gap-4 justify-center">
                   <Button 
                     size="lg" 
-                    className="bg-primary hover:bg-primary/90 btn-hover text-lg"
+                    className="bg-primary hover:bg-primary/90 btn-hover text-lg backdrop-blur-sm"
                   >
                     <MessageSquare className="mr-2 h-5 w-5" />
                     Comece seu teste grátis
@@ -107,7 +107,7 @@ const Index = () => {
                     <Button 
                       size="lg" 
                       variant="outline" 
-                      className="border-white text-primary bg-white hover:bg-white/90 hover:text-primary/90 btn-hover text-lg w-full md:w-auto transition-all duration-300"
+                      className="border-white text-primary bg-white/90 backdrop-blur-sm hover:bg-white/90 hover:text-primary/90 btn-hover text-lg w-full md:w-auto transition-all duration-300"
                     >
                       <Phone className="mr-2 h-5 w-5" />
                       Fale com nosso time
@@ -130,12 +130,12 @@ const Index = () => {
         {/* Final CTA */}
         <section className="py-16 bg-white border-t border-gray-200 relative overflow-hidden">
           {/* Background pattern with FollowOP logo */}
-          <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute inset-0 pointer-events-none backdrop-blur-[1px]">
             <div className="absolute inset-0 opacity-5 followop-pattern"></div>
           </div>
           <div className="max-w-4xl mx-auto px-6 md:px-12 text-center">
             <h2 className="text-2xl md:text-3xl font-bold text-secondary reveal">
-              Pronto para transformar seu atendimento?
+              Pronto para transformar seu <span className="gradient-text">atendimento</span>?
             </h2>
             <p className="mt-4 text-lg text-gray-600 reveal">
               Junte-se às empresas que estão revolucionando seu atendimento com FollowOP
@@ -143,7 +143,7 @@ const Index = () => {
             <div className="mt-8 reveal">
               <Button 
                 size="lg" 
-                className="bg-primary hover:bg-primary/90 btn-hover text-lg"
+                className="bg-primary hover:bg-primary/90 btn-hover text-lg backdrop-blur-sm"
               >
                 Começar agora <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
