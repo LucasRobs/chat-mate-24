@@ -263,4 +263,28 @@
   .animate-in {
     @apply opacity-100 translate-y-0 translate-x-0;
   }
+  
+  /* Mobile optimizations */
+  @media (max-width: 640px) {
+    .card-hover:hover {
+      transform: translateY(-3px);
+    }
+    
+    .btn-hover:hover {
+      transform: translateY(-1px);
+    }
+    
+    .from-bottom {
+      @apply translate-y-8;
+    }
+    
+    .from-left, .from-right {
+      @apply translate-x-0 translate-y-8;
+    }
+  }
+
+  /* Fix for mobile overflows */
+  .mobile-container {
+    @apply max-w-full overflow-x-hidden;
+  }
 }
