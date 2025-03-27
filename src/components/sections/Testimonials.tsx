@@ -7,7 +7,7 @@ const testimonials = [
     id: 1,
     name: "Clara Lisle",
     role: "Terapeuta e Criadora do Método AZ30",
-    image: "/lovable-uploads/b2eab6da-a7a1-484a-aa28-151437e291fc.png",
+    image: "/lovable-uploads/35d0d6fb-2ae2-4399-ab6d-2c04f596aac1.png",
     content: "Encontrar a FollowOP foi a melhor coisa que me aconteceu! Um dos maiores problemas que eu tinha na minha empresa era no WhatsApp, contratava pessoas, Call Center e apesar de passar o roteiro para a equipe e treiná-los, sempre saía bem diferente do treinamento, eles demoravam muito nas respostas e isso me trouxe muitas perdas financeiras e de clientes. Quando comecei com a FollowOP isso acabou! Respostas super rápidas, o robô seguindo totalmente o treinamento e foi a primeira IA que eu vi no mercado que humaniza tanto as respostas de acordo com o banco que ela tem, outras que já testei eram extremamente robóticas e absurdas de caras. Fora que eles são sempre MUITO abertos a dar suporte e estão sempre atualizando a plataforma para melhor, o que para mim enquanto empresária é mais que essencial! Indico de olhos fechados❤",
     rating: 5
   }
