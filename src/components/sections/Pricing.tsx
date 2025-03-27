@@ -31,7 +31,7 @@ const Pricing = () => {
   const plans = [
     {
       title: "Plano Aceleração",
-      price: "R$ 290",
+      price: "R$ 297",
       features: [
         { text: "1 Funcionário de IA" },
         { text: "300 atendimentos/mês" },
