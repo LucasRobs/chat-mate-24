@@ -87,25 +87,27 @@ const Pricing = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          {plans.map((plan, index) => (
-            <div
-              key={index}
-              className={`transform transition-all duration-700 ${
-                isVisible
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-20"
-              }`}
-              style={{ transitionDelay: `${index * 200}ms` }}
-            >
-              <PricingCard
-                title={plan.title}
-                price={plan.price}
-                features={plan.features}
-                isPopular={plan.isPopular}
-              />
-            </div>
-          ))}
+        <div className="flex justify-center">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl">
+            {plans.map((plan, index) => (
+              <div
+                key={index}
+                className={`transform transition-all duration-700 ${
+                  isVisible
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-20"
+                }`}
+                style={{ transitionDelay: `${index * 200}ms` }}
+              >
+                <PricingCard
+                  title={plan.title}
+                  price={plan.price}
+                  features={plan.features}
+                  isPopular={plan.isPopular}
+                />
+              </div>
+            ))}
+          </div>
         </div>
 
         <div className="mt-16 text-center">

@@ -1,7 +1,6 @@
 
 import React from "react";
 import { Calendar, Clock, Send, Users } from "lucide-react";
-import VideoPlayer from "@/components/ui-custom/VideoPlayer";
 import FeatureCard from "@/components/ui-custom/FeatureCard";
 
 const ScheduledMessages = () => {
@@ -29,19 +28,9 @@ const ScheduledMessages = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Video Demo */}
-          <div className="reveal">
-            <div className="rounded-2xl overflow-hidden shadow-2xl border border-gray-100 bg-white p-3 rotate-1 hover:rotate-0 transition-all duration-700">
-              <VideoPlayer 
-                src="https://drive.google.com/uc?export=download&id=1TAGD8A4kbT1zp4z3PJR5I0mlUq8qV14g" 
-                className="rounded-xl overflow-hidden w-full h-full aspect-video"
-              />
-            </div>
-          </div>
-          
+        <div className="flex justify-center">
           {/* Features */}
-          <div className="space-y-8 reveal">
+          <div className="space-y-8 reveal max-w-3xl">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <FeatureCard 
                 icon={Calendar} 
