@@ -15,7 +15,8 @@ const LoadingSpinner = () => (
     <div className="absolute inset-0 pointer-events-none">
       <div className="absolute inset-0 bg-repeat opacity-5" style={{ 
         backgroundImage: "url('/lovable-uploads/669aaab1-10dd-437a-a1b9-789ae5f02809.png')", 
-        backgroundSize: "120px" 
+        backgroundSize: "120px",
+        backgroundPosition: "center" 
       }}></div>
     </div>
     <div className="flex flex-col items-center relative z-10">

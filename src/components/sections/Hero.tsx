@@ -31,7 +31,8 @@ const Hero = () => {
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-repeat opacity-5" style={{ 
           backgroundImage: "url('/lovable-uploads/669aaab1-10dd-437a-a1b9-789ae5f02809.png')", 
-          backgroundSize: "80px"
+          backgroundSize: "120px",
+          backgroundPosition: "center"
         }}></div>
       </div>
       <div className="absolute -top-40 -right-40 w-80 h-80 rounded-full bg-primary/5"></div>

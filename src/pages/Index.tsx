@@ -1,4 +1,3 @@
-
 import { useEffect } from "react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -48,7 +47,8 @@ const Index = () => {
           <div className="absolute inset-0 pointer-events-none">
             <div className="absolute inset-0 bg-repeat opacity-5" style={{ 
               backgroundImage: "url('/lovable-uploads/669aaab1-10dd-437a-a1b9-789ae5f02809.png')", 
-              backgroundSize: "80px" 
+              backgroundSize: "120px",
+              backgroundPosition: "center" 
             }}></div>
           </div>
           
@@ -88,7 +88,8 @@ const Index = () => {
           <div className="absolute inset-0 pointer-events-none">
             <div className="absolute inset-0 bg-repeat opacity-5" style={{ 
               backgroundImage: "url('/lovable-uploads/669aaab1-10dd-437a-a1b9-789ae5f02809.png')", 
-              backgroundSize: "80px" 
+              backgroundSize: "120px",
+              backgroundPosition: "center" 
             }}></div>
           </div>
           <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
@@ -143,7 +144,8 @@ const Index = () => {
           <div className="absolute inset-0 pointer-events-none">
             <div className="absolute inset-0 bg-repeat opacity-5" style={{ 
               backgroundImage: "url('/lovable-uploads/669aaab1-10dd-437a-a1b9-789ae5f02809.png')", 
-              backgroundSize: "80px" 
+              backgroundSize: "120px",
+              backgroundPosition: "center" 
             }}></div>
           </div>
           <div className="max-w-4xl mx-auto px-6 md:px-12 text-center">
