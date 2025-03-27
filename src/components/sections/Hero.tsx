@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { MessageSquare, ChevronDown, Check } from "lucide-react";
@@ -25,10 +26,10 @@ const Hero = () => {
 
   return (
     <section className="relative bg-white overflow-hidden pt-24 pb-20 lg:pt-28 lg:pb-28">
-      {/* Background decoration with FollowOP logo dots pattern - more spread out and lighter */}
+      {/* Background decoration with FollowOP logo pattern */}
       <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-gray-50 to-transparent"></div>
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-repeat opacity-3 dot-pattern"></div>
+        <div className="absolute inset-0 followop-pattern opacity-5"></div>
       </div>
       <div className="absolute -top-40 -right-40 w-80 h-80 rounded-full bg-primary/5"></div>
       <div className="absolute top-1/3 -left-20 w-64 h-64 rounded-full bg-primary/5"></div>

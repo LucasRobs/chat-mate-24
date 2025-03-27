@@ -187,7 +187,13 @@
 
   .dot-pattern {
     background-color: #ffffff;
-    background-image: radial-gradient(#defff2 1px, transparent 1px);
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 20m-3 0a3 3 0 1 0 6 0 3 3 0 1 0 -6 0' fill='%23defff2'/%3E%3C/svg%3E");
+    background-size: 40px 40px;
+  }
+  
+  .followop-pattern {
+    background-color: #ffffff;
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 8C13.373 8 8 13.373 8 20C8 26.627 13.373 32 20 32C26.627 32 32 26.627 32 20C32 13.373 26.627 8 20 8ZM20 10C25.523 10 30 14.477 30 20C30 25.523 25.523 30 20 30C14.477 30 10 25.523 10 20C10 14.477 14.477 10 20 10ZM20 14C17.791 14 16 15.791 16 18C16 20.209 17.791 22 20 22C22.209 22 24 20.209 24 18C24 15.791 22.209 14 20 14Z' fill='%23defff2'/%3E%3C/svg%3E");
     background-size: 40px 40px;
   }
 }

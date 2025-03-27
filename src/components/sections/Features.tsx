@@ -89,6 +89,9 @@ const Features = () => {
 
   return (
     <section id="features" ref={sectionRef} className="py-20 bg-gray-50">
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute inset-0 opacity-5 followop-pattern"></div>
+      </div>
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
         <div className="text-center max-w-3xl mx-auto mb-16 animate-on-scroll from-bottom">
           <span className="bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-medium">

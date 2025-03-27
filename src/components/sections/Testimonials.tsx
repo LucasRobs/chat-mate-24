@@ -44,9 +44,9 @@ const Testimonials = () => {
       id="testimonials" 
       className="py-20 bg-white relative overflow-hidden"
     >
-      {/* Background pattern with more spread out dots - lighter */}
+      {/* Background pattern with FollowOP logo */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-repeat opacity-3 dot-pattern"></div>
+        <div className="absolute inset-0 followop-pattern opacity-5"></div>
       </div>
       
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">

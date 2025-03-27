@@ -1,3 +1,4 @@
+
 import { useEffect } from "react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -41,9 +42,9 @@ const Index = () => {
 
         {/* Stats Section */}
         <section className="py-12 bg-gradient-to-r from-primary to-primary/90 relative overflow-hidden">
-          {/* Background pattern with scattered dots - lighter */}
+          {/* Background pattern with FollowOP logo */}
           <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute inset-0 opacity-5 dot-pattern"></div>
+            <div className="absolute inset-0 opacity-10 followop-pattern"></div>
           </div>
           
           <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
@@ -76,9 +77,9 @@ const Index = () => {
         
         {/* CTA Section */}
         <section className="py-20 bg-white relative overflow-hidden">
-          {/* Background pattern with scattered dots - lighter */}
+          {/* Background pattern with FollowOP logo */}
           <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute inset-0 opacity-5 dot-pattern"></div>
+            <div className="absolute inset-0 opacity-5 followop-pattern"></div>
           </div>
           <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
             <div className="bg-gradient-to-r from-secondary to-secondary/90 rounded-3xl p-8 md:p-12 lg:p-16 shadow-xl reveal">
@@ -128,9 +129,9 @@ const Index = () => {
         
         {/* Final CTA */}
         <section className="py-16 bg-white border-t border-gray-200 relative overflow-hidden">
-          {/* Background pattern with scattered dots - lighter */}
+          {/* Background pattern with FollowOP logo */}
           <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute inset-0 opacity-5 dot-pattern"></div>
+            <div className="absolute inset-0 opacity-5 followop-pattern"></div>
           </div>
           <div className="max-w-4xl mx-auto px-6 md:px-12 text-center">
             <h2 className="text-2xl md:text-3xl font-bold text-secondary reveal">
