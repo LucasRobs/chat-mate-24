@@ -102,7 +102,7 @@ const Features = () => {
               <span className="relative z-10">Tudo o que você precisa para um</span>
               <span className="absolute bottom-2 left-0 h-3 w-full bg-primary/20 -z-10"></span>
             </span>{" "}
-            <span className="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">atendimento</span>
+            <span className="dark-to-light-green-gradient">atendimento</span>
             <span> excepcional</span>
           </h2>
           <p className="mt-6 text-xl text-gray-600">

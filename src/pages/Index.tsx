@@ -85,7 +85,7 @@ const Index = () => {
             <div className="bg-gradient-to-r from-secondary to-secondary/90 rounded-3xl p-8 md:p-12 lg:p-16 shadow-xl reveal acrylic">
               <div className="text-center max-w-3xl mx-auto">
                 <h2 className="text-3xl md:text-4xl font-bold text-white leading-tight">
-                  Revolucione seu <span className="gradient-text">atendimento</span> hoje mesmo
+                  Revolucione seu <span className="dark-to-light-green-gradient">atendimento</span> hoje mesmo
                 </h2>
                 <p className="mt-6 text-xl text-white/80">
                   Comece com 7 dias grátis. Sem compromisso. Cancele quando quiser.
@@ -135,7 +135,7 @@ const Index = () => {
           </div>
           <div className="max-w-4xl mx-auto px-6 md:px-12 text-center">
             <h2 className="text-2xl md:text-3xl font-bold text-secondary reveal">
-              Pronto para transformar seu <span className="gradient-text">atendimento</span>?
+              Pronto para transformar seu <span className="dark-to-light-green-gradient">atendimento</span>?
             </h2>
             <p className="mt-4 text-lg text-gray-600 reveal">
               Junte-se às empresas que estão revolucionando seu atendimento com FollowOP
