@@ -1,4 +1,3 @@
-
 import { useEffect } from "react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -8,6 +7,8 @@ import Pricing from "@/components/sections/Pricing";
 import Partners from "@/components/sections/Partners";
 import Testimonials from "@/components/sections/Testimonials";
 import ScheduledMessages from "@/components/sections/ScheduledMessages";
+import HowItWorks from "@/components/sections/HowItWorks";
+import ChatDemo from "@/components/sections/ChatDemo";
 import { Button } from "@/components/ui/button";
 import { MessageSquare, Phone, ArrowRight } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -74,7 +75,11 @@ const Index = () => {
 
         <Features />
         
+        <HowItWorks />
+        
         <ScheduledMessages />
+        
+        <ChatDemo />
         
         <Testimonials />
         
