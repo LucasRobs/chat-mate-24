@@ -98,12 +98,9 @@ const Features = () => {
             Funcionalidades
           </span>
           <h2 className="mt-6 text-4xl md:text-5xl font-bold text-secondary">
-            <span className="relative">
-              <span className="relative z-10">Tudo o que você precisa para um</span>
-              <span className="absolute bottom-2 left-0 h-3 w-full bg-primary/20 -z-10"></span>
-            </span>{" "}
-            <span className="dark-to-light-green-gradient">atendimento</span>
-            <span> excepcional</span>
+            Tudo o que você precisa para um{" "}
+            <span className="text-primary">atendimento</span>{" "}
+            <span>excepcional</span>
           </h2>
           <p className="mt-6 text-xl text-gray-600">
             Nossas funcionalidades foram desenvolvidas para maximizar a eficiência do seu atendimento e proporcionar a melhor experiência para seus clientes.
