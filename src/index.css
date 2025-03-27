@@ -190,10 +190,10 @@
     100% { left: 200%; }
   }
 
-  /* Dot pattern */
+  /* Dot pattern - more spread out */
   .dot-pattern {
     background-image: radial-gradient(#00af6b 1px, transparent 1px);
-    background-size: 20px 20px;
+    background-size: 40px 40px;
   }
 }
 

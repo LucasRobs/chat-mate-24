@@ -32,7 +32,6 @@ export const Navbar = () => {
     { label: "Início", href: "#" },
     { label: "Funcionalidades", href: "#features" },
     { label: "Preços", href: "#pricing" },
-    { label: "Integrações", href: "#integrations" },
   ];
 
   const toggleMenu = () => setIsOpen(!isOpen);

@@ -30,10 +30,6 @@ const Partners = () => {
     { name: "SebrateLab", logo: "/lovable-uploads/c241bc16-7cad-45e8-b380-8f698a4eaa41.png" },
     { name: "Corredores Digitais", logo: "/lovable-uploads/c9324512-b0e3-4543-bbef-c18d92b285d6.png" },
     { name: "Firebase", logo: "/lovable-uploads/6443dfd4-5a5c-403f-aa89-1b43aa9f7f99.png" },
-    { name: "PayPal", logo: "https://via.placeholder.com/180x60?text=PayPal" },
-    { name: "Stripe", logo: "https://via.placeholder.com/180x60?text=Stripe" },
-    { name: "Meta", logo: "https://via.placeholder.com/180x60?text=Meta" },
-    { name: "Google", logo: "https://via.placeholder.com/180x60?text=Google" },
   ];
 
   return (
@@ -151,39 +147,6 @@ const Partners = () => {
               />
             </div>
           </div>
-        </div>
-
-        <div 
-          id="integrations"
-          className={`mt-24 text-center transition-all duration-700 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
-          }`}
-          style={{ transitionDelay: "200ms" }}
-        >
-          <span className="bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-medium">
-            Integrações
-          </span>
-          <h2 className="mt-6 text-2xl md:text-3xl font-bold text-secondary">
-            Integre com seus provedores de pagamento favoritos
-          </h2>
-          
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12 max-w-4xl mx-auto">
-            {["Stripe", "PayPal", "Mercado Pago", "PagSeguro"].map((provider, index) => (
-              <div 
-                key={index}
-                className="h-24 flex items-center justify-center bg-white rounded-lg shadow-sm p-4 animate-pulse"
-              >
-                <div className="w-full">
-                  <div className="h-4 bg-gray-200 rounded mb-2 mx-auto w-2/3"></div>
-                  <div className="h-8 bg-gray-300 rounded mx-auto w-1/2"></div>
-                </div>
-              </div>
-            ))}
-          </div>
-          
-          <p className="mt-8 text-gray-600">
-            E muitos outros através de nossa API de webhook
-          </p>
         </div>
       </div>
     </section>

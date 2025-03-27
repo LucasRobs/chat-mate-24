@@ -43,11 +43,11 @@ const Index = () => {
 
         {/* Stats Section */}
         <section className="py-12 bg-gradient-to-r from-primary to-primary/90 relative overflow-hidden">
-          {/* Background pattern */}
+          {/* Background pattern with more spread out dots */}
           <div className="absolute inset-0 pointer-events-none">
             <div className="absolute inset-0 bg-repeat opacity-5" style={{ 
               backgroundImage: "url('/lovable-uploads/669aaab1-10dd-437a-a1b9-789ae5f02809.png')", 
-              backgroundSize: "40px" 
+              backgroundSize: "80px" 
             }}></div>
           </div>
           
@@ -81,11 +81,11 @@ const Index = () => {
         
         {/* CTA Section */}
         <section className="py-20 bg-gray-50 relative overflow-hidden">
-          {/* Background pattern */}
+          {/* Background pattern with more spread out dots */}
           <div className="absolute inset-0 pointer-events-none">
             <div className="absolute inset-0 bg-repeat opacity-5" style={{ 
               backgroundImage: "url('/lovable-uploads/669aaab1-10dd-437a-a1b9-789ae5f02809.png')", 
-              backgroundSize: "60px" 
+              backgroundSize: "80px" 
             }}></div>
           </div>
           <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
@@ -136,11 +136,11 @@ const Index = () => {
         
         {/* Final CTA */}
         <section className="py-16 bg-gray-50 border-t border-gray-200 relative overflow-hidden">
-          {/* Background pattern */}
+          {/* Background pattern with more spread out dots */}
           <div className="absolute inset-0 pointer-events-none">
             <div className="absolute inset-0 bg-repeat opacity-5" style={{ 
               backgroundImage: "url('/lovable-uploads/669aaab1-10dd-437a-a1b9-789ae5f02809.png')", 
-              backgroundSize: "40px" 
+              backgroundSize: "80px" 
             }}></div>
           </div>
           <div className="max-w-4xl mx-auto px-6 md:px-12 text-center">

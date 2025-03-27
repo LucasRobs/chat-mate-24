@@ -24,11 +24,11 @@ const FeatureCard = ({
         className
       )}
     >
-      {/* Background pattern with dots */}
+      {/* Background pattern with more spread out dots */}
       <div className="absolute inset-0 opacity-5 pointer-events-none">
         <div className="absolute inset-0 bg-repeat" style={{ 
           backgroundImage: "url('/lovable-uploads/669aaab1-10dd-437a-a1b9-789ae5f02809.png')", 
-          backgroundSize: "40px",
+          backgroundSize: "80px",
           opacity: 0.1
         }}></div>
       </div>
