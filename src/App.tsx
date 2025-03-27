@@ -1,4 +1,3 @@
-
 import { Suspense, useState, useEffect } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
@@ -13,11 +12,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 const LoadingSpinner = () => (
   <div className="fixed inset-0 flex items-center justify-center bg-white z-50">
     <div className="absolute inset-0 pointer-events-none">
-      <div className="absolute inset-0 opacity-10" style={{ 
-        backgroundImage: "url('/lovable-uploads/3ce1662f-b8a5-43c2-98f3-000e28c8fc8e.png')", 
-        backgroundSize: "500px",
-        backgroundPosition: "center" 
-      }}></div>
+      <div className="absolute inset-0 opacity-10 dot-pattern"></div>
     </div>
     <div className="flex flex-col items-center relative z-10">
       <div className="relative mb-8">

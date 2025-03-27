@@ -43,11 +43,7 @@ const Index = () => {
         <section className="py-12 bg-gradient-to-r from-primary to-primary/90 relative overflow-hidden">
           {/* Background pattern with scattered dots - lighter */}
           <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute inset-0 opacity-5 dot-pattern" style={{ 
-              backgroundImage: "url('/lovable-uploads/3ce1662f-b8a5-43c2-98f3-000e28c8fc8e.png')", 
-              backgroundSize: "500px",
-              backgroundPosition: "center" 
-            }}></div>
+            <div className="absolute inset-0 opacity-5 dot-pattern"></div>
           </div>
           
           <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
@@ -82,11 +78,7 @@ const Index = () => {
         <section className="py-20 bg-gray-50 relative overflow-hidden">
           {/* Background pattern with scattered dots - lighter */}
           <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute inset-0 opacity-5 dot-pattern" style={{ 
-              backgroundImage: "url('/lovable-uploads/3ce1662f-b8a5-43c2-98f3-000e28c8fc8e.png')", 
-              backgroundSize: "500px",
-              backgroundPosition: "center" 
-            }}></div>
+            <div className="absolute inset-0 opacity-5 dot-pattern"></div>
           </div>
           <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
             <div className="bg-gradient-to-r from-secondary to-secondary/90 rounded-3xl p-8 md:p-12 lg:p-16 shadow-xl reveal">
@@ -138,11 +130,7 @@ const Index = () => {
         <section className="py-16 bg-gray-50 border-t border-gray-200 relative overflow-hidden">
           {/* Background pattern with scattered dots - lighter */}
           <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute inset-0 opacity-5 dot-pattern" style={{ 
-              backgroundImage: "url('/lovable-uploads/3ce1662f-b8a5-43c2-98f3-000e28c8fc8e.png')", 
-              backgroundSize: "500px",
-              backgroundPosition: "center" 
-            }}></div>
+            <div className="absolute inset-0 opacity-5 dot-pattern"></div>
           </div>
           <div className="max-w-4xl mx-auto px-6 md:px-12 text-center">
             <h2 className="text-2xl md:text-3xl font-bold text-secondary reveal">

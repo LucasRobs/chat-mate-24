@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Quote } from "lucide-react";
 
@@ -46,11 +45,7 @@ const Testimonials = () => {
     >
       {/* Background pattern with more spread out dots - lighter */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-repeat opacity-3 dot-pattern" style={{ 
-          backgroundImage: "url('/lovable-uploads/669aaab1-10dd-437a-a1b9-789ae5f02809.png')", 
-          backgroundSize: "120px",
-          backgroundPosition: "center"
-        }}></div>
+        <div className="absolute inset-0 bg-repeat opacity-3 dot-pattern"></div>
       </div>
       
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">

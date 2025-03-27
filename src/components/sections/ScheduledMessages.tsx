@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Calendar, Clock, Send, Users } from "lucide-react";
 import FeatureCard from "@/components/ui-custom/FeatureCard";
@@ -8,11 +7,7 @@ const ScheduledMessages = () => {
     <section className="py-24 bg-gray-50 relative overflow-hidden" id="scheduled-messages">
       {/* Background pattern with scattered dots - lighter */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 opacity-3 dot-pattern" style={{ 
-          backgroundImage: "url('/lovable-uploads/3ce1662f-b8a5-43c2-98f3-000e28c8fc8e.png')", 
-          backgroundSize: "500px",
-          backgroundPosition: "center" 
-        }}></div>
+        <div className="absolute inset-0 opacity-3 dot-pattern"></div>
       </div>
       
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
