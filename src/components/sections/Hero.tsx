@@ -86,7 +86,7 @@ const Hero = () => {
             </p>
           </div>
           
-          {/* Hero Video - Replacing Chat Demo with Wistia Video */}
+          {/* Hero Video - Wistia Video */}
           <div className={`${isVisible ? 'animate-fade-in-right' : 'opacity-0'} relative mt-8 lg:mt-0`}>
             {isLoading ? (
               <div className="relative aspect-video w-full bg-gray-100 rounded-xl overflow-hidden">
@@ -95,15 +95,9 @@ const Hero = () => {
             ) : (
               <div className="relative rounded-2xl shadow-2xl rotate-1 animate-float overflow-hidden">
                 <div className="aspect-video relative">
-                  <wistia-player media-id="k3jvq760qi" aspect="1.7777777777777777"></wistia-player>
-                </div>
-                
-                {/* Floating Stats Bubble */}
-                <div className="absolute -top-6 -right-6 p-4 bg-white rounded-lg shadow-lg">
-                  <div className="text-center">
-                    <span className="block text-2xl font-bold text-primary">97%</span>
-                    <span className="text-xs text-gray-500">Taxa de satisfação</span>
-                  </div>
+                  <div dangerouslySetInnerHTML={{ 
+                    __html: '<wistia-player media-id="k3jvq760qi" aspect="1.7777777777777777"></wistia-player>' 
+                  }} />
                 </div>
               </div>
             )}
@@ -124,7 +118,5 @@ const Hero = () => {
     </section>
   );
 };
-
-// Removed the YouTube-style skeleton
 
 export default Hero;
