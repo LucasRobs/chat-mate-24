@@ -8,23 +8,15 @@ import Autoplay from "embla-carousel-autoplay";
 const partners = [
   {
     name: "Hotmart",
-    logo: "/lovable-uploads/43874e99-23e9-4038-8a31-e3d17f0a7390.png",
+    logo: "/lovable-uploads/d2eb300a-216a-4188-86fe-e79f877db05c.png",
   },
   {
     name: "Eduzz",
-    logo: "/lovable-uploads/5bdc83df-80d5-459b-bc76-a36ab8feadcb.png",
-  },
-  {
-    name: "Udemy",
-    logo: "https://cdn.worldvectorlogo.com/logos/udemy-2.svg",
+    logo: "/lovable-uploads/74050f6a-3a71-4162-b5e1-547d7624bf8c.png",
   },
   {
     name: "Kiwify",
-    logo: "/lovable-uploads/334d07b0-6cc1-4f22-9c43-aac5ba0b381f.png",
-  },
-  {
-    name: "StationPay",
-    logo: "/lovable-uploads/9650769b-d267-4627-bd75-83a24a1ab8f9.png",
+    logo: "/lovable-uploads/71fbeaff-0928-4752-9ae7-7f042a270e23.png",
   },
 ];
 
@@ -39,7 +31,7 @@ const IntegrationPartners = () => {
   );
 
   // Determine slides per view based on screen size
-  const slidesPerView = isMobile ? 2 : 4;
+  const slidesPerView = isMobile ? 1 : 3;
 
   return (
     <section className="py-16 bg-white">
@@ -69,11 +61,11 @@ const IntegrationPartners = () => {
                 <CarouselItem key={index} className={`md:basis-1/${slidesPerView}`}>
                   <Card className="border-none shadow-none hover:shadow-md transition-shadow duration-300">
                     <CardContent className="flex items-center justify-center p-6">
-                      <div className="w-24 h-24 flex items-center justify-center">
+                      <div className="w-32 h-32 sm:w-40 sm:h-40 flex items-center justify-center">
                         <img 
                           src={partner.logo} 
                           alt={partner.name} 
-                          className="max-w-full max-h-full object-contain grayscale hover:grayscale-0 transition-all duration-300"
+                          className="max-w-full max-h-full object-contain transition-all duration-300"
                         />
                       </div>
                     </CardContent>
