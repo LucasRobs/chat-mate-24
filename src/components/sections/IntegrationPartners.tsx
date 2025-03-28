@@ -19,10 +19,6 @@ const partners = [
     logo: "https://cdn.worldvectorlogo.com/logos/udemy-2.svg",
   },
   {
-    name: "Monetizze",
-    logo: "/lovable-uploads/2f45d978-9671-406e-98a0-1b6544611c7a.png",
-  },
-  {
     name: "Kiwify",
     logo: "/lovable-uploads/334d07b0-6cc1-4f22-9c43-aac5ba0b381f.png",
   },
