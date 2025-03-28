@@ -6,7 +6,6 @@ import Features from "@/components/sections/Features";
 import Pricing from "@/components/sections/Pricing";
 import Partners from "@/components/sections/Partners";
 import Testimonials from "@/components/sections/Testimonials";
-import ScheduledMessages from "@/components/sections/ScheduledMessages";
 import HowItWorks from "@/components/sections/HowItWorks";
 import IntegrationPartners from "@/components/sections/IntegrationPartners";
 import { Button } from "@/components/ui/button";
@@ -28,7 +27,6 @@ const Index = () => {
           if (entry.isIntersecting) {
             entry.target.classList.add("active");
             
-            // If this is the stats section and animation hasn't been triggered yet, start the counter animations
             if (entry.target.classList.contains("stats-section") && !animationTriggeredRef.current) {
               animationTriggeredRef.current = true;
               animateCounters();
@@ -48,13 +46,8 @@ const Index = () => {
   }, []);
 
   const animateCounters = () => {
-    // Company counter animation (0 to 20+)
     animateValue(0, 20, 2000, setCompanyCount);
-    
-    // Satisfaction rate counter animation (0 to 97%)
     animateValue(0, 97, 2000, setSatisfactionRate);
-    
-    // Setup time counter animation (0 to 5 min)
     animateValue(0, 5, 2000, setSetupTime);
   };
 
@@ -71,7 +64,6 @@ const Index = () => {
     window.requestAnimationFrame(step);
   };
 
-  // Add Wistia scripts to the document
   useEffect(() => {
     const playerScript = document.createElement('script');
     playerScript.src = 'https://fast.wistia.com/player.js';
@@ -107,13 +99,10 @@ const Index = () => {
     <div className="min-h-screen flex flex-col">
       <Navbar />
 
-      {/* Main Content */}
       <main className="flex-1">
         <Hero />
 
-        {/* Stats Section */}
         <section ref={statsRef} className="py-10 sm:py-12 bg-gradient-to-r from-primary to-primary/90 relative overflow-hidden stats-section reveal">
-          {/* Background pattern with FollowOP logo */}
           <div className="absolute inset-0 pointer-events-none">
             <div className="absolute inset-0 opacity-10 followop-pattern"></div>
           </div>
@@ -146,13 +135,9 @@ const Index = () => {
         
         <HowItWorks />
         
-        <ScheduledMessages />
-        
         <IntegrationPartners />
                 
-        {/* CTA Section */}
         <section className="py-16 sm:py-20 bg-white relative overflow-hidden">
-          {/* Background pattern with FollowOP logo */}
           <div className="absolute inset-0 pointer-events-none">
             <div className="absolute inset-0 opacity-5 followop-pattern"></div>
           </div>
@@ -203,9 +188,7 @@ const Index = () => {
         
         <Partners />
         
-        {/* Final CTA */}
         <section className="py-12 sm:py-16 bg-white border-t border-gray-200 relative overflow-hidden">
-          {/* Background pattern with FollowOP logo */}
           <div className="absolute inset-0 pointer-events-none backdrop-blur-[1px]">
             <div className="absolute inset-0 opacity-5 followop-pattern"></div>
           </div>
