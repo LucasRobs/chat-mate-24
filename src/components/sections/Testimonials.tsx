@@ -7,8 +7,8 @@ const testimonials = [
     id: 1,
     name: "Clara Lisle",
     role: "Terapeuta e Criadora do Método AZ30",
-    image: "/lovable-uploads/35d0d6fb-2ae2-4399-ab6d-2c04f596aac1.png",
-    content: "Encontrar a FollowOP foi a melhor coisa que me aconteceu! Um dos maiores problemas que eu tinha na minha empresa era no WhatsApp, contratava pessoas, Call Center e apesar de passar o roteiro para a equipe e treiná-los, sempre saía bem diferente do treinamento, eles demoravam muito nas respostas e isso me trouxe muitas perdas financeiras e de clientes. Quando comecei com a FollowOP isso acabou! Respostas super rápidas, o robô seguindo totalmente o treinamento e foi a primeira IA que eu vi no mercado que humaniza tanto as respostas de acordo com o banco que ela tem, outras que já testei eram extremamente robóticas e absurdas de caras. Fora que eles são sempre MUITO abertos a dar suporte e estão sempre atualizando a plataforma para melhor, o que para mim enquanto empresária é mais que essencial! Indico de olhos fechados❤",
+    image: "/lovable-uploads/d0b3b40d-b7c8-49cd-a80d-68f0fe56e7d5.png",
+    content: "Encontrar a followop foi a melhor coisa que me aconteceu! Um dos maiores problemas que eu tinha na minha empresa era no WhatsApp, contratava pessoas, Call Center e apesar de passar o roteiro para a equipe e treiná-los, sempre saía bem diferente do treinamento, eles demoravam muito nas respostas e isso me trouxe muitas perdas financeiras e de clientes. Quando comecei com a followop isso acabou! Respostas super rápidas, o robô seguindo totalmente o treinamento e foi a primeira IA que eu vi no mercado que humaniza tanto as respostas de acordo com o banco que ela tem, outras que já testei eram extremamente robóticas e absurdas de caras. Fora que eles são sempre MUITO abertos a dar suporte e estão sempre atualizando a plataforma para melhor, o que para mim enquanto empresária é mais que essencial! Indico de olhos fechados❤",
     rating: 5
   }
 ];
@@ -44,7 +44,7 @@ const Testimonials = () => {
       id="testimonials" 
       className="py-20 bg-white relative overflow-hidden"
     >
-      {/* Background pattern with FollowOP logo */}
+      {/* Background pattern with followop logo */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 followop-pattern opacity-5"></div>
       </div>
@@ -56,13 +56,13 @@ const Testimonials = () => {
           }`}
         >
           <span className="bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-medium">
-            Resultados Reais
+            Depoimentos
           </span>
           <h2 className="mt-6 text-3xl md:text-4xl font-bold text-secondary">
-            Clientes Apaixonados pela FollowOP
+            O que nossos clientes dizem
           </h2>
           <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
-            Veja o que nossos clientes estão dizendo sobre como a FollowOP transformou seus negócios.
+            Veja o que nossos clientes estão dizendo sobre como a followop transformou seus negócios.
           </p>
         </div>
 

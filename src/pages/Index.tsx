@@ -1,4 +1,3 @@
-
 import { useEffect, useState, useRef } from "react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -137,6 +136,8 @@ const Index = () => {
         <HowItWorks />
         
         <IntegrationPartners />
+        
+        <Testimonials />
                 
         <section className="py-16 sm:py-20 bg-white relative overflow-hidden">
           <div className="absolute inset-0 pointer-events-none">
