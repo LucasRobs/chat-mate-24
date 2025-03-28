@@ -44,7 +44,7 @@ const Hero = () => {
               Inteligência artificial para WhatsApp
             </span>
             <h1 className="mt-6 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-secondary leading-tight">
-              IA para <span className="dark-to-light-green-gradient">automatizar</span> seu atendimento no WhatsApp
+              IA para automatizar seu atendimento no WhatsApp
             </h1>
             <p className="mt-6 text-lg sm:text-xl text-gray-600 max-w-xl mx-auto lg:mx-0">
               Nunca mais perca um lead. Atenda seus clientes 24/7 com nossa IA treinada para vender como você.
@@ -78,12 +78,6 @@ const Hero = () => {
                   <Check size={14} className="text-primary" />
                 </div>
                 <p className="text-gray-600">Setup em 5 minutos</p>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center">
-                  <Check size={14} className="text-primary" />
-                </div>
-                <p className="text-gray-600">7 dias grátis</p>
               </div>
             </div>
             
@@ -132,6 +126,14 @@ const Hero = () => {
                     
                     <div className="bg-white p-3 rounded-lg rounded-tl-none shadow-sm max-w-[80%]">
                       <p>Com o plano Growth, você pode ter até 50 atendimentos simultâneos! Seus clientes nunca ficarão esperando.</p>
+                    </div>
+
+                    <div className="bg-primary text-white p-3 rounded-lg rounded-tr-none shadow-sm max-w-[80%] self-end">
+                      <p>Posso ter 3 números de WhatsApp simultâneos?</p>
+                    </div>
+                    
+                    <div className="bg-white p-3 rounded-lg rounded-tl-none shadow-sm max-w-[80%]">
+                      <p>Sim! No plano Growth você pode ter até 3 números de WhatsApp Business diferentes conectados simultaneamente, cada um com sua própria IA treinada.</p>
                     </div>
                   </div>
                 </div>

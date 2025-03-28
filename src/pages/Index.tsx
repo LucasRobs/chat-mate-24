@@ -1,4 +1,5 @@
-import { useEffect } from "react";
+
+import { useEffect, useState, useRef } from "react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Hero from "@/components/sections/Hero";
@@ -8,13 +9,15 @@ import Partners from "@/components/sections/Partners";
 import Testimonials from "@/components/sections/Testimonials";
 import ScheduledMessages from "@/components/sections/ScheduledMessages";
 import HowItWorks from "@/components/sections/HowItWorks";
-import ChatDemo from "@/components/sections/ChatDemo";
+import IntegrationPartners from "@/components/sections/IntegrationPartners";
 import { Button } from "@/components/ui/button";
 import { MessageSquare, Phone, ArrowRight } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 const Index = () => {
   const isMobile = useIsMobile();
+  const [countValue, setCountValue] = useState(0);
+  const countRef = useRef(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -22,6 +25,11 @@ const Index = () => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("active");
+            
+            // If this is the stats section, start the counter animation
+            if (entry.target.classList.contains("stats-section")) {
+              animateCounter();
+            }
           }
         });
       },
@@ -36,6 +44,53 @@ const Index = () => {
     };
   }, []);
 
+  const animateCounter = () => {
+    let start = 0;
+    const end = 20;
+    const duration = 2000;
+    const step = timestamp => {
+      if (!start) start = timestamp;
+      const progress = Math.min((timestamp - start) / duration, 1);
+      setCountValue(Math.floor(progress * end));
+      if (progress < 1) {
+        window.requestAnimationFrame(step);
+      }
+    };
+    window.requestAnimationFrame(step);
+  };
+
+  // Add Wistia scripts to the document
+  useEffect(() => {
+    const playerScript = document.createElement('script');
+    playerScript.src = 'https://fast.wistia.com/player.js';
+    playerScript.async = true;
+    
+    const embedScript = document.createElement('script');
+    embedScript.src = 'https://fast.wistia.com/embed/k3jvq760qi.js';
+    embedScript.async = true;
+    embedScript.type = 'module';
+    
+    document.head.appendChild(playerScript);
+    document.head.appendChild(embedScript);
+    
+    const style = document.createElement('style');
+    style.innerHTML = `
+      wistia-player[media-id='k3jvq760qi']:not(:defined) { 
+        background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/k3jvq760qi/swatch'); 
+        display: block; 
+        filter: blur(5px); 
+        padding-top:56.25%; 
+      }
+    `;
+    document.head.appendChild(style);
+    
+    return () => {
+      document.head.removeChild(playerScript);
+      document.head.removeChild(embedScript);
+      document.head.removeChild(style);
+    };
+  }, []);
+
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
@@ -45,7 +100,7 @@ const Index = () => {
         <Hero />
 
         {/* Stats Section */}
-        <section className="py-10 sm:py-12 bg-gradient-to-r from-primary to-primary/90 relative overflow-hidden">
+        <section className="py-10 sm:py-12 bg-gradient-to-r from-primary to-primary/90 relative overflow-hidden stats-section reveal">
           {/* Background pattern with FollowOP logo */}
           <div className="absolute inset-0 pointer-events-none">
             <div className="absolute inset-0 opacity-10 followop-pattern"></div>
@@ -54,7 +109,7 @@ const Index = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 lg:px-20">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8 text-center">
               <div className="reveal">
-                <h3 className="text-white text-2xl sm:text-3xl md:text-4xl font-bold">20+</h3>
+                <h3 className="text-white text-2xl sm:text-3xl md:text-4xl font-bold">{countValue}+</h3>
                 <p className="text-white/80 mt-2 text-sm sm:text-base">Empresas atendidas</p>
               </div>
               <div className="reveal">
@@ -79,10 +134,8 @@ const Index = () => {
         
         <ScheduledMessages />
         
-        <ChatDemo />
-        
-        <Testimonials />
-        
+        <IntegrationPartners />
+                
         {/* CTA Section */}
         <section className="py-16 sm:py-20 bg-white relative overflow-hidden">
           {/* Background pattern with FollowOP logo */}
@@ -93,10 +146,10 @@ const Index = () => {
             <div className="bg-gradient-to-r from-secondary to-secondary/90 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 lg:p-16 shadow-xl reveal acrylic">
               <div className="text-center max-w-3xl mx-auto">
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-tight">
-                  Revolucione seu <span className="dark-to-light-green-gradient">atendimento</span> hoje mesmo
+                  Revolucione seu atendimento hoje mesmo
                 </h2>
                 <p className="mt-4 sm:mt-6 text-lg sm:text-xl text-white/80">
-                  Comece com 7 dias grátis. Sem compromisso. Cancele quando quiser.
+                  Comece agora. Sem compromisso. Cancele quando quiser.
                 </p>
                 
                 <div className="mt-6 sm:mt-10 flex flex-col md:flex-row gap-4 justify-center">
@@ -105,7 +158,7 @@ const Index = () => {
                     className="bg-primary hover:bg-primary/90 btn-hover text-base sm:text-lg backdrop-blur-sm w-full md:w-auto"
                   >
                     <MessageSquare className="mr-2 h-5 w-5" />
-                    Comece seu teste grátis
+                    Comece agora
                   </Button>
                   <a 
                     href="https://wa.me/5500000000000" 
@@ -144,7 +197,7 @@ const Index = () => {
           </div>
           <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-12 text-center">
             <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-secondary reveal">
-              Pronto para transformar seu <span className="dark-to-light-green-gradient">atendimento</span>?
+              Pronto para transformar seu atendimento?
             </h2>
             <p className="mt-3 sm:mt-4 text-base sm:text-lg text-gray-600 reveal">
               Junte-se às empresas que estão revolucionando seu atendimento com FollowOP
