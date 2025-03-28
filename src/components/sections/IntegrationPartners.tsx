@@ -7,27 +7,23 @@ import { useIsMobile } from "@/hooks/use-mobile";
 const partners = [
   {
     name: "Hotmart",
-    logo: "https://cdn.worldvectorlogo.com/logos/hotmart.svg",
+    logo: "/lovable-uploads/43874e99-23e9-4038-8a31-e3d17f0a7390.png",
   },
   {
     name: "Eduzz",
-    logo: "https://cdn.worldvectorlogo.com/logos/eduzz.svg",
+    logo: "/lovable-uploads/5bdc83df-80d5-459b-bc76-a36ab8feadcb.png",
   },
   {
     name: "Udemy",
     logo: "https://cdn.worldvectorlogo.com/logos/udemy-2.svg",
   },
   {
-    name: "Teachable",
-    logo: "https://cdn.worldvectorlogo.com/logos/teachable-2.svg",
-  },
-  {
     name: "Monetizze",
-    logo: "https://monetizze.com.br/img/layout_monetizze/logo_monetizze_branco.png",
+    logo: "/lovable-uploads/2f45d978-9671-406e-98a0-1b6544611c7a.png",
   },
   {
     name: "Kiwify",
-    logo: "https://kiwify.com.br/assets/img/logo-black.svg",
+    logo: "/lovable-uploads/334d07b0-6cc1-4f22-9c43-aac5ba0b381f.png",
   },
 ];
 
