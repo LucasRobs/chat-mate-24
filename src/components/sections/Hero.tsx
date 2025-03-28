@@ -86,56 +86,16 @@ const Hero = () => {
             </p>
           </div>
           
-          {/* Hero Image - Chat Demo */}
+          {/* Hero Video - Replacing Chat Demo with Wistia Video */}
           <div className={`${isVisible ? 'animate-fade-in-right' : 'opacity-0'} relative mt-8 lg:mt-0`}>
             {isLoading ? (
-              <YouTubeStyleSkeleton />
+              <div className="relative aspect-video w-full bg-gray-100 rounded-xl overflow-hidden">
+                <div className="absolute inset-0 animate-pulse bg-gray-200"></div>
+              </div>
             ) : (
-              <div className="relative bg-white p-2 rounded-2xl shadow-2xl rotate-1 animate-float">
-                <div className="rounded-xl overflow-hidden border border-gray-100">
-                  {/* Chat Header */}
-                  <div className="bg-primary p-4 flex items-center gap-3">
-                    <img 
-                      src="/lovable-uploads/669aaab1-10dd-437a-a1b9-789ae5f02809.png"
-                      alt="FollowOP Logo" 
-                      className="w-8 h-8 rounded-full"
-                    />
-                    <div>
-                      <p className="font-medium text-white">FollowOP Assistant</p>
-                      <p className="text-xs text-white/70">Online 24/7</p>
-                    </div>
-                  </div>
-                  
-                  {/* Chat Body - Adjust height for mobile */}
-                  <div className="bg-gray-50 p-4 h-[350px] md:h-[500px] flex flex-col gap-4">
-                    <div className="bg-white p-3 rounded-lg rounded-tl-none shadow-sm max-w-[80%]">
-                      <p>Olá! Como posso ajudar você hoje?</p>
-                    </div>
-                    
-                    <div className="bg-primary text-white p-3 rounded-lg rounded-tr-none shadow-sm max-w-[80%] self-end">
-                      <p>Quero informações sobre o plano Growth</p>
-                    </div>
-                    
-                    <div className="bg-white p-3 rounded-lg rounded-tl-none shadow-sm max-w-[80%]">
-                      <p>O plano Growth custa R$ 590/mês e inclui 3 Funcionários de IA, 1.500 atendimentos/mês e 20.000 mensagens mensais. Posso te ajudar a começar hoje?</p>
-                    </div>
-                    
-                    <div className="bg-primary text-white p-3 rounded-lg rounded-tr-none shadow-sm max-w-[80%] self-end">
-                      <p>E quantos atendimentos simultâneos posso ter?</p>
-                    </div>
-                    
-                    <div className="bg-white p-3 rounded-lg rounded-tl-none shadow-sm max-w-[80%]">
-                      <p>Com o plano Growth, você pode ter até 50 atendimentos simultâneos! Seus clientes nunca ficarão esperando.</p>
-                    </div>
-
-                    <div className="bg-primary text-white p-3 rounded-lg rounded-tr-none shadow-sm max-w-[80%] self-end">
-                      <p>Posso ter 3 números de WhatsApp simultâneos?</p>
-                    </div>
-                    
-                    <div className="bg-white p-3 rounded-lg rounded-tl-none shadow-sm max-w-[80%]">
-                      <p>Sim! No plano Growth você pode ter até 3 números de WhatsApp Business diferentes conectados simultaneamente, cada um com sua própria IA treinada.</p>
-                    </div>
-                  </div>
+              <div className="relative rounded-2xl shadow-2xl rotate-1 animate-float overflow-hidden">
+                <div className="aspect-video relative">
+                  <wistia-player media-id="k3jvq760qi" aspect="1.7777777777777777"></wistia-player>
                 </div>
                 
                 {/* Floating Stats Bubble */}
@@ -165,37 +125,6 @@ const Hero = () => {
   );
 };
 
-// YouTube-style skeleton for chat loading state with wave animation
-const YouTubeStyleSkeleton = () => (
-  <div className="relative bg-white p-2 rounded-2xl shadow-xl rotate-1">
-    <div className="rounded-xl overflow-hidden border border-gray-100">
-      {/* Chat Header Skeleton with wave effect */}
-      <div className="p-4 flex items-center gap-3">
-        <div className="w-8 h-8 rounded-full bg-gray-200 relative overflow-hidden skeleton-wave"></div>
-        <div className="flex-1">
-          <div className="h-5 w-32 mb-1 bg-gray-200 rounded-md relative overflow-hidden skeleton-wave"></div>
-          <div className="h-3 w-16 bg-gray-200 rounded-md relative overflow-hidden skeleton-wave"></div>
-        </div>
-      </div>
-      
-      {/* Chat Body Skeleton with wave effect - Adjust height for mobile */}
-      <div className="bg-gray-50 p-4 h-[350px] md:h-[500px] flex flex-col gap-4">
-        <div className="h-14 w-[80%] rounded-lg rounded-tl-none bg-gray-200 relative overflow-hidden skeleton-wave"></div>
-        <div className="h-10 w-[60%] rounded-lg rounded-tr-none self-end bg-gray-200 relative overflow-hidden skeleton-wave"></div>
-        <div className="h-20 w-[80%] rounded-lg rounded-tl-none bg-gray-200 relative overflow-hidden skeleton-wave"></div>
-        <div className="h-12 w-[50%] rounded-lg rounded-tr-none self-end bg-gray-200 relative overflow-hidden skeleton-wave"></div>
-        <div className="h-14 w-[75%] rounded-lg rounded-tl-none bg-gray-200 relative overflow-hidden skeleton-wave"></div>
-      </div>
-    </div>
-    
-    {/* Floating Stats Bubble Skeleton with wave effect */}
-    <div className="absolute -top-6 -right-6 p-4 bg-white rounded-lg shadow-lg">
-      <div className="text-center">
-        <div className="h-8 w-12 mx-auto mb-1 bg-gray-200 rounded-md relative overflow-hidden skeleton-wave"></div>
-        <div className="h-3 w-24 bg-gray-200 rounded-md relative overflow-hidden skeleton-wave"></div>
-      </div>
-    </div>
-  </div>
-);
+// Removed the YouTube-style skeleton
 
 export default Hero;
