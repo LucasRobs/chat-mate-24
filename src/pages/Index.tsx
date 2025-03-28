@@ -1,3 +1,4 @@
+
 import { useEffect, useState, useRef } from "react";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Navbar from "@/components/layout/Navbar";
@@ -149,7 +150,7 @@ const Index = () => {
               <div className="bg-gradient-to-r from-secondary to-secondary/90 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 lg:p-16 shadow-xl reveal acrylic">
                 <div className="text-center max-w-3xl mx-auto">
                   <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-tight">
-                    Revolucione seu atendimento hoje mesmo
+                    Revolucione seu <span className="text-primary">atendimento</span> hoje mesmo
                   </h2>
                   <p className="mt-4 sm:mt-6 text-lg sm:text-xl text-white/80">
                     Comece agora. Sem compromisso. Cancele quando quiser.
@@ -198,7 +199,7 @@ const Index = () => {
             </div>
             <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-12 text-center">
               <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-secondary reveal">
-                Pronto para transformar seu atendimento?
+                Pronto para transformar seu <span className="text-primary">atendimento</span>?
               </h2>
               <p className="mt-3 sm:mt-4 text-base sm:text-lg text-gray-600 reveal">
                 Junte-se às empresas que estão revolucionando seu atendimento com followop

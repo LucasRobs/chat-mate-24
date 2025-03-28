@@ -44,7 +44,7 @@ const Hero = () => {
               Inteligência artificial para WhatsApp
             </span>
             <h1 className="mt-6 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-secondary leading-tight">
-              IA para automatizar seu atendimento no WhatsApp
+              IA para automatizar seu <span className="text-primary">atendimento</span> no WhatsApp
             </h1>
             <p className="mt-6 text-lg sm:text-xl text-gray-600 max-w-xl mx-auto lg:mx-0">
               Nunca mais perca um lead. Atenda seus clientes 24/7 com nossa IA treinada para vender como você.
