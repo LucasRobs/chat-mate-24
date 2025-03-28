@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { MessageSquare, ChevronDown, Check } from "lucide-react";
+import { MessageSquare, ChevronDown, Check, Clock } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useIsMobile } from "@/hooks/use-mobile";
 
@@ -66,18 +66,16 @@ const Hero = () => {
               </Button>
             </div>
             
-            <div className="mt-10 space-y-3 text-left max-w-xl mx-auto lg:mx-0">
-              <div className="flex items-center gap-2">
-                <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center">
-                  <Check size={14} className="text-primary" />
+            {/* Atendimento 24/7 com destaque */}
+            <div className="mt-10 max-w-xl mx-auto lg:mx-0">
+              <div className="flex items-center gap-3 p-4 bg-primary/10 rounded-lg border border-primary/20 transition-all hover:bg-primary/15">
+                <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
+                  <Clock size={20} className="text-primary" />
                 </div>
-                <p className="text-gray-600">Atendimento 24/7</p>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center">
-                  <Check size={14} className="text-primary" />
+                <div className="text-left">
+                  <h3 className="font-semibold text-lg text-primary">Atendimento 24/7</h3>
+                  <p className="text-gray-600">Sua empresa disponível para seus clientes a qualquer momento</p>
                 </div>
-                <p className="text-gray-600">Setup em 5 minutos</p>
               </div>
             </div>
             
