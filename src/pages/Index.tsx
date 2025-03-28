@@ -16,8 +16,11 @@ import { useIsMobile } from "@/hooks/use-mobile";
 
 const Index = () => {
   const isMobile = useIsMobile();
-  const [countValue, setCountValue] = useState(0);
-  const countRef = useRef(null);
+  const [companyCount, setCompanyCount] = useState(0);
+  const [satisfactionRate, setSatisfactionRate] = useState(0);
+  const [setupTime, setSetupTime] = useState(0);
+  const statsRef = useRef(null);
+  const animationTriggeredRef = useRef(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -26,9 +29,10 @@ const Index = () => {
           if (entry.isIntersecting) {
             entry.target.classList.add("active");
             
-            // If this is the stats section, start the counter animation
-            if (entry.target.classList.contains("stats-section")) {
-              animateCounter();
+            // If this is the stats section and animation hasn't been triggered yet, start the counter animations
+            if (entry.target.classList.contains("stats-section") && !animationTriggeredRef.current) {
+              animationTriggeredRef.current = true;
+              animateCounters();
             }
           }
         });
@@ -44,14 +48,23 @@ const Index = () => {
     };
   }, []);
 
-  const animateCounter = () => {
-    let start = 0;
-    const end = 20;
-    const duration = 2000;
-    const step = timestamp => {
-      if (!start) start = timestamp;
-      const progress = Math.min((timestamp - start) / duration, 1);
-      setCountValue(Math.floor(progress * end));
+  const animateCounters = () => {
+    // Company counter animation (0 to 20+)
+    animateValue(0, 20, 2000, setCompanyCount);
+    
+    // Satisfaction rate counter animation (0 to 97%)
+    animateValue(0, 97, 2000, setSatisfactionRate);
+    
+    // Setup time counter animation (0 to 5 min)
+    animateValue(0, 5, 2000, setSetupTime);
+  };
+
+  const animateValue = (start, end, duration, setter) => {
+    let startTimestamp = null;
+    const step = (timestamp) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+      setter(Math.floor(progress * (end - start) + start));
       if (progress < 1) {
         window.requestAnimationFrame(step);
       }
@@ -100,7 +113,7 @@ const Index = () => {
         <Hero />
 
         {/* Stats Section */}
-        <section className="py-10 sm:py-12 bg-gradient-to-r from-primary to-primary/90 relative overflow-hidden stats-section reveal">
+        <section ref={statsRef} className="py-10 sm:py-12 bg-gradient-to-r from-primary to-primary/90 relative overflow-hidden stats-section reveal">
           {/* Background pattern with FollowOP logo */}
           <div className="absolute inset-0 pointer-events-none">
             <div className="absolute inset-0 opacity-10 followop-pattern"></div>
@@ -109,7 +122,9 @@ const Index = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 lg:px-20">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8 text-center">
               <div className="reveal">
-                <h3 className="text-white text-2xl sm:text-3xl md:text-4xl font-bold">{countValue}+</h3>
+                <h3 className="text-white text-2xl sm:text-3xl md:text-4xl font-bold">
+                  {companyCount}+
+                </h3>
                 <p className="text-white/80 mt-2 text-sm sm:text-base">Empresas atendidas</p>
               </div>
               <div className="reveal">
@@ -117,11 +132,15 @@ const Index = () => {
                 <p className="text-white/80 mt-2 text-sm sm:text-base">Disponibilidade</p>
               </div>
               <div className="reveal">
-                <h3 className="text-white text-2xl sm:text-3xl md:text-4xl font-bold">97%</h3>
+                <h3 className="text-white text-2xl sm:text-3xl md:text-4xl font-bold">
+                  {satisfactionRate}%
+                </h3>
                 <p className="text-white/80 mt-2 text-sm sm:text-base">Taxa de satisfação</p>
               </div>
               <div className="reveal">
-                <h3 className="text-white text-2xl sm:text-3xl md:text-4xl font-bold">5min</h3>
+                <h3 className="text-white text-2xl sm:text-3xl md:text-4xl font-bold">
+                  {setupTime}min
+                </h3>
                 <p className="text-white/80 mt-2 text-sm sm:text-base">Tempo de setup</p>
               </div>
             </div>
