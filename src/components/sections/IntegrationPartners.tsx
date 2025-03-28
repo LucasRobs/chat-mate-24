@@ -1,5 +1,5 @@
 
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { Card, CardContent } from "@/components/ui/card";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -26,11 +26,14 @@ const partners = [
     name: "Kiwify",
     logo: "/lovable-uploads/334d07b0-6cc1-4f22-9c43-aac5ba0b381f.png",
   },
+  {
+    name: "StationPay",
+    logo: "/lovable-uploads/9650769b-d267-4627-bd75-83a24a1ab8f9.png",
+  },
 ];
 
 const IntegrationPartners = () => {
   const isMobile = useIsMobile();
-  const [api, setApi] = useState(null);
   const autoplayPlugin = useRef(
     Autoplay({
       delay: 3000,
@@ -54,22 +57,21 @@ const IntegrationPartners = () => {
           </p>
         </div>
 
-        <div className="mt-10 relative">
+        <div className="mt-10 relative max-w-4xl mx-auto">
           <Carousel
             opts={{
               loop: true,
-              align: "start",
+              align: "center",
               slidesToScroll: 1,
               containScroll: "trimSnaps",
             }}
             plugins={[autoplayPlugin.current]}
-            setApi={setApi}
             className="w-full"
           >
             <CarouselContent>
               {partners.map((partner, index) => (
                 <CarouselItem key={index} className={`md:basis-1/${slidesPerView}`}>
-                  <Card className="border-none shadow-none">
+                  <Card className="border-none shadow-none hover:shadow-md transition-shadow duration-300">
                     <CardContent className="flex items-center justify-center p-6">
                       <div className="w-24 h-24 flex items-center justify-center">
                         <img 
@@ -83,10 +85,10 @@ const IntegrationPartners = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <div className="absolute -right-4 top-1/2 transform -translate-y-1/2">
+            <div className="absolute -right-4 sm:-right-8 top-1/2 transform -translate-y-1/2">
               <CarouselNext className="right-0" />
             </div>
-            <div className="absolute -left-4 top-1/2 transform -translate-y-1/2">
+            <div className="absolute -left-4 sm:-left-8 top-1/2 transform -translate-y-1/2">
               <CarouselPrevious className="left-0" />
             </div>
           </Carousel>
