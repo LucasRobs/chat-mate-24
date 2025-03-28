@@ -1,8 +1,9 @@
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { Card, CardContent } from "@/components/ui/card";
 import { useIsMobile } from "@/hooks/use-mobile";
+import Autoplay from "embla-carousel-autoplay";
 
 const partners = [
   {
@@ -29,30 +30,17 @@ const partners = [
 
 const IntegrationPartners = () => {
   const isMobile = useIsMobile();
-  const carouselRef = useRef(null);
-  const intervalRef = useRef(null);
+  const [api, setApi] = useState(null);
+  const autoplayPlugin = useRef(
+    Autoplay({
+      delay: 3000,
+      stopOnInteraction: true,
+      stopOnMouseEnter: true,
+    })
+  );
 
-  useEffect(() => {
-    // Auto-scroll the carousel
-    if (carouselRef.current) {
-      intervalRef.current = setInterval(() => {
-        if (carouselRef.current && carouselRef.current.scrollBy) {
-          carouselRef.current.scrollBy({
-            left: isMobile ? 100 : 200,
-            behavior: "smooth",
-          });
-        }
-      }, 3000);
-    }
-
-    return () => {
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current);
-      }
-    };
-  }, [isMobile]);
-
-  const slideSize = isMobile ? 33.33 : 20; // Show 3 slides on mobile, 5 on desktop
+  // Determine slides per view based on screen size
+  const slidesPerView = isMobile ? 2 : 4;
 
   return (
     <section className="py-16 bg-white">
@@ -71,13 +59,16 @@ const IntegrationPartners = () => {
             opts={{
               loop: true,
               align: "start",
-              dragFree: true,
+              slidesToScroll: 1,
+              containScroll: "trimSnaps",
             }}
+            plugins={[autoplayPlugin.current]}
+            setApi={setApi}
             className="w-full"
           >
-            <CarouselContent ref={carouselRef}>
+            <CarouselContent>
               {partners.map((partner, index) => (
-                <CarouselItem key={index} className={`pl-4 basis-1/${Math.round(100/slideSize)}`} style={{ flex: `0 0 ${slideSize}%` }}>
+                <CarouselItem key={index} className={`md:basis-1/${slidesPerView}`}>
                   <Card className="border-none shadow-none">
                     <CardContent className="flex items-center justify-center p-6">
                       <div className="w-24 h-24 flex items-center justify-center">
