@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from "react";
+import { TooltipProvider } from "@/components/ui/tooltip";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Hero from "@/components/sections/Hero";
@@ -96,125 +97,127 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <Navbar />
+    <TooltipProvider>
+      <div className="min-h-screen flex flex-col">
+        <Navbar />
 
-      <main className="flex-1">
-        <Hero />
+        <main className="flex-1">
+          <Hero />
 
-        <section ref={statsRef} className="py-10 sm:py-12 bg-gradient-to-r from-primary to-primary/90 relative overflow-hidden stats-section reveal">
-          <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute inset-0 opacity-10 followop-pattern"></div>
-          </div>
-          
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 lg:px-20">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-8 text-center">
-              <div className="reveal">
-                <h3 className="text-white text-2xl sm:text-3xl md:text-4xl font-bold">
-                  {companyCount}+
-                </h3>
-                <p className="text-white/80 mt-2 text-sm sm:text-base">Empresas atendidas</p>
-              </div>
-              <div className="reveal">
-                <h3 className="text-white text-2xl sm:text-3xl md:text-4xl font-bold">
-                  {satisfactionRate}%
-                </h3>
-                <p className="text-white/80 mt-2 text-sm sm:text-base">Taxa de satisfação</p>
-              </div>
-              <div className="reveal">
-                <h3 className="text-white text-2xl sm:text-3xl md:text-4xl font-bold">
-                  {setupTime}min
-                </h3>
-                <p className="text-white/80 mt-2 text-sm sm:text-base">Tempo de setup</p>
+          <section ref={statsRef} className="py-10 sm:py-12 bg-gradient-to-r from-primary to-primary/90 relative overflow-hidden stats-section reveal">
+            <div className="absolute inset-0 pointer-events-none">
+              <div className="absolute inset-0 opacity-10 followop-pattern"></div>
+            </div>
+            
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 lg:px-20">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-8 text-center">
+                <div className="reveal">
+                  <h3 className="text-white text-2xl sm:text-3xl md:text-4xl font-bold">
+                    {companyCount}+
+                  </h3>
+                  <p className="text-white/80 mt-2 text-sm sm:text-base">Empresas atendidas</p>
+                </div>
+                <div className="reveal">
+                  <h3 className="text-white text-2xl sm:text-3xl md:text-4xl font-bold">
+                    {satisfactionRate}%
+                  </h3>
+                  <p className="text-white/80 mt-2 text-sm sm:text-base">Taxa de satisfação</p>
+                </div>
+                <div className="reveal">
+                  <h3 className="text-white text-2xl sm:text-3xl md:text-4xl font-bold">
+                    {setupTime}min
+                  </h3>
+                  <p className="text-white/80 mt-2 text-sm sm:text-base">Tempo de setup</p>
+                </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        <Features />
-        
-        <HowItWorks />
-        
-        <IntegrationPartners />
-        
-        <Testimonials />
-                
-        <section className="py-16 sm:py-20 bg-white relative overflow-hidden">
-          <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute inset-0 opacity-5 followop-pattern"></div>
-          </div>
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 lg:px-20">
-            <div className="bg-gradient-to-r from-secondary to-secondary/90 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 lg:p-16 shadow-xl reveal acrylic">
-              <div className="text-center max-w-3xl mx-auto">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-tight">
-                  Revolucione seu atendimento hoje mesmo
-                </h2>
-                <p className="mt-4 sm:mt-6 text-lg sm:text-xl text-white/80">
-                  Comece agora. Sem compromisso. Cancele quando quiser.
-                </p>
-                
-                <div className="mt-6 sm:mt-10 flex flex-col md:flex-row gap-4 justify-center">
-                  <Button 
-                    size={isMobile ? "default" : "lg"} 
-                    className="bg-primary hover:bg-primary/90 btn-hover text-base sm:text-lg backdrop-blur-sm w-full md:w-auto"
-                  >
-                    <MessageSquare className="mr-2 h-5 w-5" />
-                    Comece agora
-                  </Button>
-                  <a 
-                    href="https://wa.me/5500000000000" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="w-full md:w-auto"
-                  >
+          <Features />
+          
+          <HowItWorks />
+          
+          <IntegrationPartners />
+          
+          <Testimonials />
+                  
+          <section className="py-16 sm:py-20 bg-white relative overflow-hidden">
+            <div className="absolute inset-0 pointer-events-none">
+              <div className="absolute inset-0 opacity-5 followop-pattern"></div>
+            </div>
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 lg:px-20">
+              <div className="bg-gradient-to-r from-secondary to-secondary/90 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 lg:p-16 shadow-xl reveal acrylic">
+                <div className="text-center max-w-3xl mx-auto">
+                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-tight">
+                    Revolucione seu atendimento hoje mesmo
+                  </h2>
+                  <p className="mt-4 sm:mt-6 text-lg sm:text-xl text-white/80">
+                    Comece agora. Sem compromisso. Cancele quando quiser.
+                  </p>
+                  
+                  <div className="mt-6 sm:mt-10 flex flex-col md:flex-row gap-4 justify-center">
                     <Button 
                       size={isMobile ? "default" : "lg"} 
-                      variant="outline" 
-                      className="border-white text-primary bg-white/90 backdrop-blur-sm hover:bg-white/90 hover:text-primary/90 btn-hover text-base sm:text-lg w-full transition-all duration-300"
+                      className="bg-primary hover:bg-primary/90 btn-hover text-base sm:text-lg backdrop-blur-sm w-full md:w-auto"
                     >
-                      <Phone className="mr-2 h-5 w-5" />
-                      Fale com nosso time
+                      <MessageSquare className="mr-2 h-5 w-5" />
+                      Comece agora
                     </Button>
-                  </a>
+                    <a 
+                      href="https://wa.me/5500000000000" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="w-full md:w-auto"
+                    >
+                      <Button 
+                        size={isMobile ? "default" : "lg"} 
+                        variant="outline" 
+                        className="border-white text-primary bg-white/90 backdrop-blur-sm hover:bg-white/90 hover:text-primary/90 btn-hover text-base sm:text-lg w-full transition-all duration-300"
+                      >
+                        <Phone className="mr-2 h-5 w-5" />
+                        Fale com nosso time
+                      </Button>
+                    </a>
+                  </div>
+                  
+                  <p className="mt-4 sm:mt-6 text-sm text-white/60">
+                    Entre em contato para um plano personalizado para empresas de grande porte
+                  </p>
                 </div>
-                
-                <p className="mt-4 sm:mt-6 text-sm text-white/60">
-                  Entre em contato para um plano personalizado para empresas de grande porte
-                </p>
               </div>
             </div>
-          </div>
-        </section>
-        
-        <Pricing />
-        
-        <Partners />
-        
-        <section className="py-12 sm:py-16 bg-white border-t border-gray-200 relative overflow-hidden">
-          <div className="absolute inset-0 pointer-events-none backdrop-blur-[1px]">
-            <div className="absolute inset-0 opacity-5 followop-pattern"></div>
-          </div>
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-12 text-center">
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-secondary reveal">
-              Pronto para transformar seu atendimento?
-            </h2>
-            <p className="mt-3 sm:mt-4 text-base sm:text-lg text-gray-600 reveal">
-              Junte-se às empresas que estão revolucionando seu atendimento com followop
-            </p>
-            <div className="mt-6 sm:mt-8 reveal">
-              <Button 
-                size={isMobile ? "default" : "lg"} 
-                className="bg-primary hover:bg-primary/90 btn-hover text-base sm:text-lg backdrop-blur-sm w-full sm:w-auto"
-              >
-                Começar agora <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
+          </section>
+          
+          <Pricing />
+          
+          <Partners />
+          
+          <section className="py-12 sm:py-16 bg-white border-t border-gray-200 relative overflow-hidden">
+            <div className="absolute inset-0 pointer-events-none backdrop-blur-[1px]">
+              <div className="absolute inset-0 opacity-5 followop-pattern"></div>
             </div>
-          </div>
-        </section>
-      </main>
+            <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-12 text-center">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-secondary reveal">
+                Pronto para transformar seu atendimento?
+              </h2>
+              <p className="mt-3 sm:mt-4 text-base sm:text-lg text-gray-600 reveal">
+                Junte-se às empresas que estão revolucionando seu atendimento com followop
+              </p>
+              <div className="mt-6 sm:mt-8 reveal">
+                <Button 
+                  size={isMobile ? "default" : "lg"} 
+                  className="bg-primary hover:bg-primary/90 btn-hover text-base sm:text-lg backdrop-blur-sm w-full sm:w-auto"
+                >
+                  Começar agora <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </div>
+            </div>
+          </section>
+        </main>
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </TooltipProvider>
   );
 };
 
