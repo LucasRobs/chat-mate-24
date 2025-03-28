@@ -6,40 +6,28 @@ import { useIsMobile } from "@/hooks/use-mobile";
 
 const partners = [
   {
-    name: "WhatsApp",
-    logo: "/lovable-uploads/669aaab1-10dd-437a-a1b9-789ae5f02809.png",
+    name: "Hotmart",
+    logo: "https://cdn.worldvectorlogo.com/logos/hotmart.svg",
   },
   {
-    name: "Zendesk",
-    logo: "https://cdn.worldvectorlogo.com/logos/zendesk-1.svg",
+    name: "Eduzz",
+    logo: "https://cdn.worldvectorlogo.com/logos/eduzz.svg",
   },
   {
-    name: "HubSpot",
-    logo: "https://cdn.worldvectorlogo.com/logos/hubspot-2.svg",
+    name: "Udemy",
+    logo: "https://cdn.worldvectorlogo.com/logos/udemy-2.svg",
   },
   {
-    name: "Salesforce",
-    logo: "https://cdn.worldvectorlogo.com/logos/salesforce-2.svg",
+    name: "Teachable",
+    logo: "https://cdn.worldvectorlogo.com/logos/teachable-2.svg",
   },
   {
-    name: "Shopify",
-    logo: "https://cdn.worldvectorlogo.com/logos/shopify.svg",
+    name: "Monetizze",
+    logo: "https://monetizze.com.br/img/layout_monetizze/logo_monetizze_branco.png",
   },
   {
-    name: "WooCommerce",
-    logo: "https://cdn.worldvectorlogo.com/logos/woocommerce.svg",
-  },
-  {
-    name: "Magento",
-    logo: "https://cdn.worldvectorlogo.com/logos/magento-2.svg",
-  },
-  {
-    name: "Zoho",
-    logo: "https://cdn.worldvectorlogo.com/logos/zoho-1.svg",
-  },
-  {
-    name: "RD Station",
-    logo: "https://cdn.worldvectorlogo.com/logos/rd-station-2.svg",
+    name: "Kiwify",
+    logo: "https://kiwify.com.br/assets/img/logo-black.svg",
   },
 ];
 
@@ -78,7 +66,7 @@ const IntegrationPartners = () => {
             Integrações disponíveis
           </h2>
           <p className="mt-4 text-gray-600">
-            A FollowOP se integra com as principais ferramentas do mercado
+            A followop se integra com as principais plataformas de cursos e produtos digitais
           </p>
         </div>
 
