@@ -13,6 +13,7 @@ import IntegrationPartners from "@/components/sections/IntegrationPartners";
 import { Button } from "@/components/ui/button";
 import { MessageSquare, Phone, ArrowRight } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { Toaster } from "@/components/ui/toaster";
 
 const Index = () => {
   const isMobile = useIsMobile();
@@ -217,6 +218,7 @@ const Index = () => {
         </main>
 
         <Footer />
+        <Toaster />
       </div>
     </TooltipProvider>
   );
