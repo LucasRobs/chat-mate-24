@@ -12,10 +12,10 @@ const Footer = () => {
             <div className="flex items-center gap-2">
               <img
                 src="/lovable-uploads/669aaab1-10dd-437a-a1b9-789ae5f02809.png"
-                alt="FollowOP Logo"
+                alt="followop Logo"
                 className="h-10 w-auto"
               />
-              <span className="font-bold text-2xl">FollowOP</span>
+              <span className="font-bold text-2xl">followop</span>
             </div>
             <p className="text-gray-300 mt-4">
               Atendimento 24 horas no WhatsApp com IA avançada para o seu negócio.
@@ -106,7 +106,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400">
-          <p>© {new Date().getFullYear()} FollowOP. Todos os direitos reservados.</p>
+          <p>© {new Date().getFullYear()} followop. Todos os direitos reservados.</p>
         </div>
       </div>
     </footer>

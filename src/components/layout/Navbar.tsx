@@ -72,10 +72,10 @@ export const Navbar = () => {
         <a href="#" className="flex items-center gap-2 z-50">
           <img
             src="/lovable-uploads/669aaab1-10dd-437a-a1b9-789ae5f02809.png"
-            alt="FollowOP Logo"
+            alt="followop Logo"
             className="h-8 w-auto sm:h-10"
           />
-          <span className="font-bold text-xl sm:text-2xl text-secondary hidden md:inline-block">FollowOP</span>
+          <span className="font-bold text-xl sm:text-2xl text-secondary hidden md:inline-block">followop</span>
         </a>
 
         {/* Desktop Navigation */}

@@ -28,7 +28,7 @@ const Hero = () => {
 
   return (
     <section className="relative bg-white overflow-hidden pt-20 pb-16 lg:pt-28 lg:pb-36">
-      {/* Background decoration with FollowOP logo pattern */}
+      {/* Background decoration with followop logo pattern */}
       <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-gray-50 to-transparent"></div>
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 followop-pattern opacity-5"></div>
@@ -82,7 +82,7 @@ const Hero = () => {
             </div>
             
             <p className="mt-6 text-sm text-gray-500 text-center lg:text-left">
-              Mais de 20 empresas já usam o FollowOP para automatizar seu atendimento
+              Mais de 20 empresas já usam o followop para automatizar seu atendimento
             </p>
           </div>
           

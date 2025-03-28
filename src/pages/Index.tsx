@@ -1,3 +1,4 @@
+
 import { useEffect, useState, useRef } from "react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -197,7 +198,7 @@ const Index = () => {
               Pronto para transformar seu atendimento?
             </h2>
             <p className="mt-3 sm:mt-4 text-base sm:text-lg text-gray-600 reveal">
-              Junte-se às empresas que estão revolucionando seu atendimento com FollowOP
+              Junte-se às empresas que estão revolucionando seu atendimento com followop
             </p>
             <div className="mt-6 sm:mt-8 reveal">
               <Button 
