@@ -3,7 +3,7 @@ import { useEffect, useRef } from "react";
 import FeatureCard from "../ui-custom/FeatureCard";
 import { 
   Clock, Users, FileText, MessageSquare, Headphones, 
-  Image, FileAudio, QrCode, BarChart3, RefreshCw, Bell
+  Image, FileAudio, QrCode, BarChart3, RefreshCw, Bell, Calendar
 } from "lucide-react";
 
 const Features = () => {
@@ -84,6 +84,11 @@ const Features = () => {
       icon: Bell,
       title: "Lembrete de retorno",
       description: "A IA lembra o lead de voltar após a conversa encerrar, verificando se tudo foi resolvido."
+    },
+    {
+      icon: Calendar,
+      title: "Mensagens agendadas",
+      description: "Programe mensagens para serem enviadas no momento ideal, aumentando suas taxas de conversão."
     }
   ];
 
