@@ -61,7 +61,7 @@ const IntegrationPartners = () => {
                 <CarouselItem key={index} className={`md:basis-1/${slidesPerView}`}>
                   <Card className="border-none shadow-none hover:shadow-md transition-shadow duration-300">
                     <CardContent className="flex items-center justify-center p-6">
-                      <div className="w-32 h-32 sm:w-40 sm:h-40 flex items-center justify-center">
+                      <div className="w-40 h-40 sm:w-48 sm:h-48 flex items-center justify-center">
                         <img 
                           src={partner.logo} 
                           alt={partner.name} 
