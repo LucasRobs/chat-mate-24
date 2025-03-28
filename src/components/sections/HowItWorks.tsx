@@ -1,12 +1,20 @@
 
 import { useState, useEffect } from "react";
-import { MessageCircle, Check, Send } from "lucide-react";
+import { MessageCircle, Check, Send, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
+import { Textarea } from "@/components/ui/textarea";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 
 const HowItWorks = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [activeConversation, setActiveConversation] = useState("vendas");
+  const [userMessage, setUserMessage] = useState("");
+  const [showPhoneDialog, setShowPhoneDialog] = useState(false);
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [showSuccessPopover, setShowSuccessPopover] = useState(false);
   const isMobile = useIsMobile();
   
   useEffect(() => {
@@ -30,6 +38,33 @@ const HowItWorks = () => {
       }
     };
   }, []);
+
+  const handleSendMessage = () => {
+    if (userMessage.trim()) {
+      setShowPhoneDialog(true);
+    }
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      handleSendMessage();
+    }
+  };
+
+  const handleSubmitPhone = (e) => {
+    e.preventDefault();
+    // Here you would typically send this to your backend
+    console.log("Phone number submitted:", phoneNumber);
+    setShowPhoneDialog(false);
+    setUserMessage("");
+    setShowSuccessPopover(true);
+    
+    // Hide success message after 3 seconds
+    setTimeout(() => {
+      setShowSuccessPopover(false);
+    }, 3000);
+  };
 
   const conversationOptions = [
     {
@@ -221,13 +256,27 @@ const HowItWorks = () => {
               
               {/* Chat Input */}
               <div className="p-3 border-t border-gray-200 flex gap-2">
-                <input
-                  type="text"
-                  placeholder="Digite sua mensagem..."
-                  className="flex-1 bg-gray-100 rounded-full px-4 py-2 text-sm focus:outline-none"
-                  disabled
-                />
-                <button className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
+                <Popover open={showSuccessPopover} onOpenChange={setShowSuccessPopover}>
+                  <PopoverTrigger asChild>
+                    <Textarea
+                      value={userMessage}
+                      onChange={(e) => setUserMessage(e.target.value)}
+                      onKeyDown={handleKeyDown}
+                      placeholder="Digite sua mensagem..."
+                      className="flex-1 bg-gray-100 rounded-full px-4 py-2 text-sm focus:outline-none min-h-0 h-10 resize-none"
+                    />
+                  </PopoverTrigger>
+                  <PopoverContent className="w-80 bg-green-50 border-green-200">
+                    <div className="flex flex-col items-center justify-center p-2">
+                      <Check className="h-6 w-6 text-green-500 mb-2" />
+                      <p className="text-green-700 text-center font-medium">Obrigado! Entraremos em contato em breve.</p>
+                    </div>
+                  </PopoverContent>
+                </Popover>
+                <button 
+                  className="w-10 h-10 rounded-full bg-primary flex items-center justify-center"
+                  onClick={handleSendMessage}
+                >
                   <Send size={18} className="text-white" />
                 </button>
               </div>
@@ -243,6 +292,60 @@ const HowItWorks = () => {
           </div>
         </div>
       </div>
+      
+      {/* Phone Dialog */}
+      <Dialog open={showPhoneDialog} onOpenChange={setShowPhoneDialog}>
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle className="text-xl font-bold text-center text-secondary">
+              Experimente agora mesmo!
+            </DialogTitle>
+            <DialogDescription className="text-center">
+              <div className="mt-2 flex flex-col items-center">
+                <div className="bg-primary/10 p-4 rounded-full mb-4">
+                  <MessageCircle className="h-8 w-8 text-primary" />
+                </div>
+                <p className="text-base text-gray-700 mb-2">
+                  Deixe seu WhatsApp para testar a FollowOP <span className="font-bold text-secondary">gratuitamente por 7 dias</span>!
+                </p>
+                <p className="text-sm text-gray-500">
+                  Nossa IA vai entrar em contato para demonstrar o poder da automatização.
+                </p>
+              </div>
+            </DialogDescription>
+          </DialogHeader>
+          <form onSubmit={handleSubmitPhone} className="mt-4">
+            <div className="relative">
+              <input
+                type="tel"
+                value={phoneNumber}
+                onChange={(e) => setPhoneNumber(e.target.value)}
+                className="w-full p-4 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent pl-14"
+                placeholder="(00) 00000-0000"
+                required
+              />
+              <div className="absolute left-4 top-1/2 -translate-y-1/2 flex items-center justify-center">
+                <span className="text-gray-500 flex items-center gap-1">
+                  <img 
+                    src="/lovable-uploads/cf2bafae-8be6-4f2a-aca4-aea026d30b6e.png" 
+                    alt="BR flag" 
+                    className="w-6 h-4 object-cover rounded"
+                  />
+                  +55
+                </span>
+              </div>
+            </div>
+            <DialogFooter className="mt-6">
+              <Button type="submit" className="w-full bg-primary hover:bg-primary/90">
+                Quero testar agora <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </DialogFooter>
+          </form>
+          <div className="mt-4 text-center text-xs text-gray-500">
+            Ao continuar, você concorda com nossos Termos de Serviço e Política de Privacidade.
+          </div>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };
