@@ -1,4 +1,3 @@
-
 import { useEffect, useState, useRef } from "react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -120,16 +119,12 @@ const Index = () => {
           </div>
           
           <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 lg:px-20">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8 text-center">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-8 text-center">
               <div className="reveal">
                 <h3 className="text-white text-2xl sm:text-3xl md:text-4xl font-bold">
                   {companyCount}+
                 </h3>
                 <p className="text-white/80 mt-2 text-sm sm:text-base">Empresas atendidas</p>
-              </div>
-              <div className="reveal">
-                <h3 className="text-white text-2xl sm:text-3xl md:text-4xl font-bold">24/7</h3>
-                <p className="text-white/80 mt-2 text-sm sm:text-base">Disponibilidade</p>
               </div>
               <div className="reveal">
                 <h3 className="text-white text-2xl sm:text-3xl md:text-4xl font-bold">
