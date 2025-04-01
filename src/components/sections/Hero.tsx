@@ -66,9 +66,16 @@ const Hero = () => {
               </Button>
             </div>
             
-            {/* Atendimento 24/7 com destaque */}
-            <div className="mt-10 max-w-xl mx-auto lg:mx-0">
-              <div className="flex items-center gap-3 p-4 bg-primary/10 rounded-lg border border-primary/20 transition-all hover:bg-primary/15">
+            <p className="mt-6 text-sm text-gray-500 text-center lg:text-left">
+              Mais de 20 empresas já usam o followop para automatizar seu atendimento
+            </p>
+          </div>
+          
+          {/* Hero Video - Wistia Video */}
+          <div className={`${isVisible ? 'animate-fade-in-right' : 'opacity-0'} relative mt-8 lg:mt-0`}>
+            {/* 24/7 Highlight - Moved from below to above the video */}
+            <div className="mb-6 p-4 bg-primary/10 rounded-lg border border-primary/20 transition-all hover:bg-primary/15">
+              <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
                   <Clock size={20} className="text-primary" />
                 </div>
@@ -79,19 +86,12 @@ const Hero = () => {
               </div>
             </div>
             
-            <p className="mt-6 text-sm text-gray-500 text-center lg:text-left">
-              Mais de 20 empresas já usam o followop para automatizar seu atendimento
-            </p>
-          </div>
-          
-          {/* Hero Video - Wistia Video */}
-          <div className={`${isVisible ? 'animate-fade-in-right' : 'opacity-0'} relative mt-8 lg:mt-0`}>
             {isLoading ? (
               <div className="relative aspect-video w-full bg-gray-100 rounded-xl overflow-hidden">
                 <div className="absolute inset-0 animate-pulse bg-gray-200"></div>
               </div>
             ) : (
-              <div className="relative rounded-2xl shadow-2xl rotate-1 animate-float overflow-hidden">
+              <div className="relative rounded-2xl shadow-2xl overflow-hidden">
                 <div className="aspect-video relative">
                   <div dangerouslySetInnerHTML={{ 
                     __html: '<wistia-player media-id="k3jvq760qi" aspect="1.7777777777777777"></wistia-player>' 

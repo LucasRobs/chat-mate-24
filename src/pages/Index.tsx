@@ -1,4 +1,3 @@
-
 import { useEffect, useState, useRef } from "react";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Navbar from "@/components/layout/Navbar";
