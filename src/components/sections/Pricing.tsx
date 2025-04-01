@@ -38,7 +38,6 @@ const Pricing = () => {
         { text: "5.000 mensagens" },
         { text: "Atendimento 24/7" },
         { text: "Acesso à comunidade" },
-        { text: "7 dias de teste grátis" },
       ],
     },
     {
@@ -52,7 +51,6 @@ const Pricing = () => {
         { text: "Atendimento 24/7" },
         { text: "Comunidade exclusiva" },
         { text: "Automação de Follow-up inteligente" },
-        { text: "7 dias de teste grátis" },
       ],
     },
     {
@@ -67,7 +65,6 @@ const Pricing = () => {
         { text: "Automação avançada de Follow-up" },
         { text: "Suporte Premium 1:1" },
         { text: "Consultoria estratégica mensal" },
-        { text: "7 dias de teste grátis" },
       ],
     },
   ];
@@ -83,7 +80,7 @@ const Pricing = () => {
             Escolha o plano ideal para o seu negócio
           </h2>
           <p className="mt-6 text-xl text-gray-600">
-            Todos os planos incluem 7 dias de teste grátis. Cancele a qualquer momento.
+            Cancele a qualquer momento. Sem compromisso de fidelidade.
           </p>
         </div>
 
@@ -110,7 +107,11 @@ const Pricing = () => {
           </div>
         </div>
 
-        <div className="mt-16 text-center">
+        <div className="mt-8 text-center">
+          <p className="text-gray-500 mb-4">Comece a automatizar em 5 minutos! Sem necessidade de cartão de crédito.</p>
+        </div>
+
+        <div className="mt-8 text-center">
           <a
             href="https://www.followop.com.br/pricing"
             target="_blank"

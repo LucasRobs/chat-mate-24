@@ -1,3 +1,4 @@
+
 import { useEffect, useState, useRef } from "react";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Navbar from "@/components/layout/Navbar";
@@ -116,19 +117,19 @@ const Index = () => {
                   <h3 className="text-white text-2xl sm:text-3xl md:text-4xl font-bold">
                     {companyCount}+
                   </h3>
-                  <p className="text-white/80 mt-2 text-sm sm:text-base">Empresas atendidas</p>
+                  <p className="text-white/80 mt-2 text-sm sm:text-base">Empresas utilizando com sucesso</p>
                 </div>
                 <div className="reveal">
                   <h3 className="text-white text-2xl sm:text-3xl md:text-4xl font-bold">
                     {satisfactionRate}%
                   </h3>
-                  <p className="text-white/80 mt-2 text-sm sm:text-base">Taxa de satisfação</p>
+                  <p className="text-white/80 mt-2 text-sm sm:text-base">Taxa de satisfação dos clientes</p>
                 </div>
                 <div className="reveal">
                   <h3 className="text-white text-2xl sm:text-3xl md:text-4xl font-bold">
                     {setupTime}min
                   </h3>
-                  <p className="text-white/80 mt-2 text-sm sm:text-base">Tempo de setup</p>
+                  <p className="text-white/80 mt-2 text-sm sm:text-base">Para configuração completa</p>
                 </div>
               </div>
             </div>
@@ -150,7 +151,7 @@ const Index = () => {
               <div className="bg-gradient-to-r from-secondary to-secondary/90 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 lg:p-16 shadow-xl reveal acrylic">
                 <div className="text-center max-w-3xl mx-auto">
                   <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-tight">
-                    Revolucione seu <span className="text-primary">atendimento</span> hoje mesmo
+                    Pronto para um <span className="text-primary">Atendimento WhatsApp</span> que Vende Sozinho?
                   </h2>
                   <p className="mt-4 sm:mt-6 text-lg sm:text-xl text-white/80">
                     Comece agora. Sem compromisso. Cancele quando quiser.
@@ -176,12 +177,12 @@ const Index = () => {
                         className="border-white text-primary bg-white/90 backdrop-blur-sm hover:bg-white/90 hover:text-primary/90 btn-hover text-base sm:text-lg w-full transition-all duration-300"
                       >
                         <Phone className="mr-2 h-5 w-5" />
-                        Fale com nosso time
+                        Agendar Consultoria Gratuita
                       </Button>
                     </a>
                   </div>
                   
-                  <p className="mt-4 sm:mt-6 text-sm text-white/60">
+                  <p className="mt-4 sm:mt-6 text-sm text-white/70">
                     Entre em contato para um plano personalizado para empresas de grande porte
                   </p>
                 </div>
@@ -199,7 +200,7 @@ const Index = () => {
             </div>
             <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-12 text-center">
               <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-secondary reveal">
-                Pronto para transformar seu <span className="text-primary">atendimento</span>?
+                Menos trabalho manual, <span className="text-primary">mais vendas</span>!
               </h2>
               <p className="mt-3 sm:mt-4 text-base sm:text-lg text-gray-600 reveal">
                 Junte-se às empresas que estão revolucionando seu atendimento com followop

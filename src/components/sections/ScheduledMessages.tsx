@@ -17,10 +17,10 @@ const ScheduledMessages = () => {
             Mensagens Agendadas
           </span>
           <h2 className="mt-6 text-3xl md:text-4xl font-bold text-secondary">
-            Programe suas mensagens para o <span className="text-primary">momento ideal</span>
+            Aumente suas vendas com mensagens enviadas no <span className="text-primary">momento ideal</span>
           </h2>
           <p className="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">
-            Aumente suas conversões com mensagens automatizadas que são enviadas no melhor momento para seus clientes.
+            Impulsione sua taxa de conversão com mensagens automatizadas estrategicamente programadas para seus clientes.
           </p>
         </div>
         
@@ -31,22 +31,22 @@ const ScheduledMessages = () => {
               <FeatureCard 
                 icon={Calendar} 
                 title="Agendamento inteligente" 
-                description="Configure mensagens para serem enviadas em datas e horários específicos, maximizando suas taxas de abertura."
+                description="Configure mensagens para momentos de maior engajamento, aumentando drasticamente suas taxas de abertura e resposta."
               />
               <FeatureCard 
                 icon={Users} 
                 title="Segmentação avançada" 
-                description="Envie mensagens personalizadas para diferentes grupos de clientes baseado em seus perfis e comportamentos."
+                description="Envie mensagens personalizadas para diferentes grupos baseado em comportamento, aumentando a relevância e conversão."
               />
               <FeatureCard 
                 icon={Clock} 
-                title="Automação de sequências" 
-                description="Crie sequências de mensagens que são enviadas automaticamente em intervalos estratégicos."
+                title="Sequências automáticas" 
+                description="Crie jornadas de mensagens que são enviadas automaticamente em intervalos estratégicos para nutrir leads."
               />
               <FeatureCard 
                 icon={Send} 
                 title="Campanhas em massa" 
-                description="Alcance centenas ou milhares de clientes simultaneamente com mensagens personalizadas."
+                description="Alcance milhares de clientes simultaneamente com mensagens personalizadas que parecem individuais."
               />
             </div>
             
@@ -55,19 +55,19 @@ const ScheduledMessages = () => {
               <ol className="space-y-3 text-gray-600">
                 <li className="flex items-start gap-3">
                   <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary flex items-center justify-center text-white text-sm">1</span>
-                  <span>Importe sua base de contatos ou conecte com seu CRM</span>
+                  <span>Importe sua base de contatos ou conecte com seu CRM existente</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary flex items-center justify-center text-white text-sm">2</span>
-                  <span>Crie mensagens personalizadas com campos dinâmicos</span>
+                  <span>Crie mensagens persuasivas com campos dinâmicos personalizados</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary flex items-center justify-center text-white text-sm">3</span>
-                  <span>Selecione data, hora ou condições para disparo</span>
+                  <span>Selecione gatilhos inteligentes de disparo baseados em comportamento</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary flex items-center justify-center text-white text-sm">4</span>
-                  <span>Acompanhe métricas de entrega, abertura e conversão</span>
+                  <span>Acompanhe métricas detalhadas de entrega, engajamento e conversão</span>
                 </li>
               </ol>
             </div>
