@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { MessageCircle, Check, Send, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
@@ -53,12 +53,10 @@ const HowItWorks = () => {
 
   const handleSubmitPhone = (e) => {
     e.preventDefault();
-    // Here you would typically send this to your backend
     console.log("Phone number submitted:", phoneNumber);
     setShowPhoneDialog(false);
     setUserMessage("");
     
-    // Show success toast after submission
     toast({
       title: "Obrigado!",
       description: "Entraremos em contato em breve.",
@@ -158,7 +156,6 @@ const HowItWorks = () => {
 
   return (
     <section id="how-it-works" className="py-20 bg-gray-50 relative overflow-hidden">
-      {/* Background decoration */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 opacity-5 followop-pattern"></div>
       </div>
@@ -174,7 +171,6 @@ const HowItWorks = () => {
         </div>
         
         <div className={`grid grid-cols-1 lg:grid-cols-3 gap-8 ${isVisible ? 'reveal active' : 'reveal'}`}>
-          {/* Conversation Selection - Left Side on Desktop */}
           <div className={`${isMobile ? 'order-2' : 'order-1'} bg-white rounded-xl shadow-md overflow-hidden`}>
             <div className="p-4 border-b border-gray-100">
               <h3 className="font-medium text-secondary">Exemplos de conversas</h3>
@@ -201,10 +197,8 @@ const HowItWorks = () => {
             </div>
           </div>
 
-          {/* WhatsApp Chat - Right Side on Desktop */}
           <div className={`${isMobile ? 'order-1' : 'order-2'} lg:col-span-2`}>
             <div className="bg-white rounded-xl shadow-md overflow-hidden">
-              {/* Chat Header */}
               <div className="bg-primary p-4 flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full flex items-center justify-center bg-white/20">
                   <img 
@@ -225,7 +219,6 @@ const HowItWorks = () => {
                 </div>
               </div>
               
-              {/* Chat Body */}
               <div className="bg-[#f0f2f5] p-4 h-96 overflow-y-auto flex flex-col gap-4">
                 {conversationOptions.find(c => c.id === activeConversation)?.conversation.map((message, index) => (
                   <div
@@ -254,7 +247,6 @@ const HowItWorks = () => {
                 ))}
               </div>
               
-              {/* Chat Input */}
               <div className="p-3 border-t border-gray-200 flex gap-2">
                 <Textarea
                   value={userMessage}
@@ -271,7 +263,6 @@ const HowItWorks = () => {
                 </button>
               </div>
               
-              {/* End-to-end encryption */}
               <div className="py-2 px-4 bg-gray-50 border-t border-gray-100">
                 <p className="text-xs text-gray-500 text-center flex items-center justify-center gap-1">
                   <Check size={12} className="text-gray-400" />
@@ -283,27 +274,26 @@ const HowItWorks = () => {
         </div>
       </div>
       
-      {/* Phone Dialog */}
       <Dialog open={showPhoneDialog} onOpenChange={setShowPhoneDialog}>
         <DialogContent className="sm:max-w-md">
           <DialogHeader>
             <DialogTitle className="text-xl font-bold text-center text-secondary">
               Experimente agora mesmo!
             </DialogTitle>
-            <DialogDescription className="text-center">
-              <div className="mt-2 flex flex-col items-center">
-                <div className="bg-primary/10 p-4 rounded-full mb-4">
-                  <MessageCircle className="h-8 w-8 text-primary" />
-                </div>
-                <p className="text-base text-gray-700 mb-2">
-                  Deixe seu WhatsApp para testar a FollowOP <span className="font-bold text-secondary">gratuitamente por 7 dias</span>!
-                </p>
-                <p className="text-sm text-gray-500">
-                  Nossa IA vai entrar em contato para demonstrar o poder da automatização.
-                </p>
-              </div>
-            </DialogDescription>
           </DialogHeader>
+          
+          <div className="mt-2 flex flex-col items-center">
+            <div className="bg-primary/10 p-4 rounded-full mb-4">
+              <MessageCircle className="h-8 w-8 text-primary" />
+            </div>
+            <div className="text-base text-gray-700 mb-2 text-center">
+              Deixe seu WhatsApp para testar a FollowOP <span className="font-bold text-secondary">gratuitamente por 7 dias</span>!
+            </div>
+            <div className="text-sm text-gray-500 text-center">
+              Nossa IA vai entrar em contato para demonstrar o poder da automatização.
+            </div>
+          </div>
+          
           <form onSubmit={handleSubmitPhone} className="mt-4">
             <div className="relative">
               <input
