@@ -1,10 +1,11 @@
+
 import { useState, useEffect } from "react";
-import { MessageCircle, Check, Send, ArrowRight } from "lucide-react";
+import { MessageCircle, Check, Send, ArrowRight, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
+import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 
 const HowItWorks = () => {
@@ -62,6 +63,10 @@ const HowItWorks = () => {
       description: "Entraremos em contato em breve.",
       variant: "default",
     });
+  };
+
+  const closeModal = () => {
+    setShowPhoneDialog(false);
   };
 
   const conversationOptions = [
@@ -274,58 +279,71 @@ const HowItWorks = () => {
         </div>
       </div>
       
-      <Dialog open={showPhoneDialog} onOpenChange={setShowPhoneDialog}>
-        <DialogContent className="sm:max-w-md">
-          <DialogHeader>
-            <DialogTitle className="text-xl font-bold text-center text-secondary">
-              Experimente agora mesmo!
-            </DialogTitle>
-          </DialogHeader>
+      {/* Custom Modal Dialog */}
+      {showPhoneDialog && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center">
+          <div className="fixed inset-0 bg-black/80" onClick={closeModal}></div>
           
-          <div className="mt-2 flex flex-col items-center">
-            <div className="bg-primary/10 p-4 rounded-full mb-4">
-              <MessageCircle className="h-8 w-8 text-primary" />
-            </div>
-            <div className="text-base text-gray-700 mb-2 text-center">
-              Deixe seu WhatsApp para testar a FollowOP <span className="font-bold text-secondary">gratuitamente por 7 dias</span>!
-            </div>
-            <div className="text-sm text-gray-500 text-center">
-              Nossa IA vai entrar em contato para demonstrar o poder da automatização.
-            </div>
-          </div>
-          
-          <form onSubmit={handleSubmitPhone} className="mt-4">
-            <div className="relative">
-              <input
-                type="tel"
-                value={phoneNumber}
-                onChange={(e) => setPhoneNumber(e.target.value)}
-                className="w-full p-4 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent pl-14"
-                placeholder="(00) 00000-0000"
-                required
-              />
-              <div className="absolute left-4 top-1/2 -translate-y-1/2 flex items-center justify-center">
-                <span className="text-gray-500 flex items-center gap-1">
-                  <img 
-                    src="/lovable-uploads/cf2bafae-8be6-4f2a-aca4-aea026d30b6e.png" 
-                    alt="BR flag" 
-                    className="w-6 h-4 object-cover rounded"
-                  />
-                  +55
-                </span>
+          <div className="bg-white relative z-50 rounded-lg p-6 w-full max-w-md mx-4">
+            <button 
+              onClick={closeModal} 
+              className="absolute right-4 top-4 text-gray-500 hover:text-gray-800"
+            >
+              <X size={20} />
+            </button>
+            
+            <div className="flex flex-col items-center">
+              <h2 className="text-2xl font-bold text-center text-secondary mb-4">
+                Experimente agora mesmo!
+              </h2>
+              
+              <div className="bg-primary/10 p-4 rounded-full mb-4">
+                <MessageCircle className="h-8 w-8 text-primary" />
               </div>
+              
+              <div className="text-center space-y-2 mb-6">
+                <div className="text-base text-gray-700">
+                  Deixe seu WhatsApp para testar a FollowOP <span className="font-bold text-secondary">gratuitamente por 7 dias</span>!
+                </div>
+                <div className="text-sm text-gray-500">
+                  Nossa IA vai entrar em contato para demonstrar o poder da automatização.
+                </div>
+              </div>
+              
+              <form onSubmit={handleSubmitPhone} className="w-full">
+                <div className="relative mb-4">
+                  <Input
+                    type="tel"
+                    value={phoneNumber}
+                    onChange={(e) => setPhoneNumber(e.target.value)}
+                    className="w-full p-4 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent pl-14"
+                    placeholder="(00) 00000-0000"
+                    required
+                  />
+                  <div className="absolute left-4 top-1/2 -translate-y-1/2 flex items-center justify-center">
+                    <span className="text-gray-500 flex items-center gap-1">
+                      <img 
+                        src="/lovable-uploads/cf2bafae-8be6-4f2a-aca4-aea026d30b6e.png" 
+                        alt="BR flag" 
+                        className="w-6 h-4 object-cover rounded"
+                      />
+                      +55
+                    </span>
+                  </div>
+                </div>
+                
+                <Button type="submit" className="w-full bg-primary hover:bg-primary/90">
+                  Quero testar agora <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+                
+                <div className="mt-4 text-center text-xs text-gray-500">
+                  Ao continuar, você concorda com nossos Termos de Serviço e Política de Privacidade.
+                </div>
+              </form>
             </div>
-            <DialogFooter className="mt-6">
-              <Button type="submit" className="w-full bg-primary hover:bg-primary/90">
-                Quero testar agora <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </DialogFooter>
-          </form>
-          <div className="mt-4 text-center text-xs text-gray-500">
-            Ao continuar, você concorda com nossos Termos de Serviço e Política de Privacidade.
           </div>
-        </DialogContent>
-      </Dialog>
+        </div>
+      )}
     </section>
   );
 };
