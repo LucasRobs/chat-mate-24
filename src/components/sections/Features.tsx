@@ -32,7 +32,7 @@ const Features = () => {
   const features = [
     {
       icon: Clock,
-      title: "Atendimento 24/7",
+      title: "Disponibilidade Total",
       description: "Sua empresa disponível para atender clientes a qualquer hora do dia ou da noite."
     },
     {

@@ -68,7 +68,7 @@ const PricingCard = ({
               : "bg-secondary hover:bg-secondary/90"
           )}
         >
-          Teste Grátis por 7 dias
+          Comece Agora
         </Button>
         <p className="text-center text-gray-500 text-xs mt-4">
           Sem necessidade de cartão de crédito

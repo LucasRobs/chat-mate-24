@@ -41,13 +41,13 @@ const Hero = () => {
           {/* Hero Text */}
           <div className={`${isVisible ? 'animate-fade-in-left' : 'opacity-0'} text-center lg:text-left`}>
             <span className="bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-medium">
-              WhatsApp Inteligente: Atendimento 24/7 que Converte
+              WhatsApp Inteligente: Atendimento que Converte
             </span>
             <h1 className="mt-6 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-secondary leading-tight">
-              Transforme seu WhatsApp Numa <span className="text-primary">Máquina de Vendas</span> 24h com IA
+              Transforme seu WhatsApp Numa <span className="text-primary">Máquina de Vendas</span> Automática com IA
             </h1>
             <p className="mt-6 text-lg sm:text-xl text-gray-600 max-w-xl mx-auto lg:mx-0">
-              Nunca mais perca um lead. Atenda seus clientes 24/7 com nossa IA treinada para vender como você.
+              Nunca mais perca um lead. Atenda seus clientes a qualquer hora com nossa IA treinada para vender como você.
             </p>
             
             <div className="mt-8 flex flex-wrap justify-center lg:justify-start gap-4">
@@ -80,7 +80,7 @@ const Hero = () => {
                   <Clock size={20} className="text-primary" />
                 </div>
                 <div className="text-left">
-                  <h3 className="font-semibold text-lg text-primary">Atendimento 24/7</h3>
+                  <h3 className="font-semibold text-lg text-primary">Disponibilidade Total</h3>
                   <p className="text-gray-600">Sua empresa disponível para seus clientes a qualquer momento</p>
                 </div>
               </div>
