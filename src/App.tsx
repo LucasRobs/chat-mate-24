@@ -17,7 +17,7 @@ const LoadingSpinner = () => (
       <div className="relative mb-8">
         <img
           src="/lovable-uploads/669aaab1-10dd-437a-a1b9-789ae5f02809.png"
-          alt="Impulso IA Logo"
+          alt="followop Logo"
           className="h-16 animate-pulse"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/30 to-primary/0 animate-slide-left"></div>

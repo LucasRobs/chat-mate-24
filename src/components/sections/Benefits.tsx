@@ -74,7 +74,7 @@ const Benefits = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
         <div className={`text-center mb-16 ${isVisible ? 'reveal active' : 'reveal'}`}>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-            Benefícios do Impulso IA
+            Benefícios do followop
           </h2>
           <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
             Tecnologia avançada com resultados imediatos para seu negócio

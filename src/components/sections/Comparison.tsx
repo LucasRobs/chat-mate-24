@@ -34,7 +34,7 @@ const Comparison = () => {
             Comparativo
           </span>
           <h2 className="mt-6 text-3xl md:text-4xl font-bold text-gray-900">
-            SDR Humano vs. Impulso IA
+            SDR Humano vs. followop
           </h2>
           <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
             Veja como nossa solução de IA supera o atendimento tradicional em todos os aspectos importantes
@@ -50,7 +50,7 @@ const Comparison = () => {
                 <tr className="bg-gray-50">
                   <th className="w-1/3 p-4 text-left font-medium text-gray-500">Característica</th>
                   <th className="w-1/3 p-4 text-center font-medium text-gray-500">SDR Humano</th>
-                  <th className="w-1/3 p-4 text-center font-medium bg-primary/5 text-primary">Impulso IA</th>
+                  <th className="w-1/3 p-4 text-center font-medium bg-primary/5 text-primary">followop</th>
                 </tr>
               </thead>
               <tbody>
@@ -93,7 +93,7 @@ const Comparison = () => {
               <div className="mr-4 flex-shrink-0 bg-primary/10 rounded-full p-2">
                 <Check className="h-5 w-5 text-primary" />
               </div>
-              <p className="text-gray-600"><span className="font-medium text-gray-900">Economia real:</span> Com Impulso IA, você economiza mais de 90% nos custos de atendimento ao cliente.</p>
+              <p className="text-gray-600"><span className="font-medium text-gray-900">Economia real:</span> Com followop, você economiza mais de 90% nos custos de atendimento ao cliente.</p>
             </div>
           </div>
         </div>

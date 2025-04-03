@@ -98,12 +98,12 @@ const ChatDemo = () => {
   ];
   
   const interactiveChat = [
-    { sender: "bot", text: "Olá! Sou o assistente virtual da FollowOP. Gostaria de receber uma demonstração no seu WhatsApp?" },
+    { sender: "bot", text: "Olá! Sou o assistente virtual da followop. Gostaria de receber uma demonstração no seu WhatsApp?" },
     { sender: "user", text: "Sim, gostaria de ver como funciona" },
     { sender: "bot", text: "Ótimo! Para enviar a demonstração, precisamos do seu número de WhatsApp:" },
     { sender: "input", type: "phone" },
     { sender: "bot", text: `Perfeito! Acabamos de enviar uma mensagem para o número ${phoneNumber}. Por favor, verifique seu WhatsApp.` },
-    { sender: "bot", text: "Você receberá exemplos práticos de como a FollowOP pode automatizar seu atendimento. Fique à vontade para testar todas as funcionalidades!" },
+    { sender: "bot", text: "Você receberá exemplos práticos de como a followop pode automatizar seu atendimento. Fique à vontade para testar todas as funcionalidades!" },
   ];
 
   return (
@@ -150,7 +150,7 @@ const ChatDemo = () => {
             <div className="bg-gray-100 rounded-xl p-4 shadow-inner h-[500px] flex flex-col">
               <div className="bg-white rounded-t-lg p-3 border-b border-gray-200 flex items-center">
                 <Bot size={20} className="text-primary mr-2" />
-                <span className="font-medium">FollowOP AI</span>
+                <span className="font-medium">followop AI</span>
                 <span className="ml-2 text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full">Online</span>
               </div>
               

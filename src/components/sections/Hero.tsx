@@ -31,7 +31,7 @@ const Hero = () => {
           {/* Hero Text */}
           <div className={`${isVisible ? 'animate-fade-in-left' : 'opacity-0'}`}>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight tracking-tight">
-              Transforme seu WhatsApp em uma <br className="hidden sm:inline" /><span className="text-primary">Máquina de Vendas Automática</span> com IA
+              Transforme seu WhatsApp em uma <span className="text-primary">Máquina de Vendas Automática</span> com IA
             </h1>
             
             <p className="mt-6 text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">

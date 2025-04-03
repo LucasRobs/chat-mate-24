@@ -159,7 +159,7 @@ const Index = () => {
                       size={isMobile ? "default" : "lg"} 
                       className="bg-primary hover:bg-primary/90 btn-hover text-base sm:text-lg backdrop-blur-sm px-8 py-6"
                     >
-                      Quero testar o Impulso IA <ArrowRight className="ml-2 h-5 w-5" />
+                      Quero testar o followop <ArrowRight className="ml-2 h-5 w-5" />
                     </Button>
                   </div>
                 </div>
@@ -180,7 +180,7 @@ const Index = () => {
                 Menos trabalho manual, <span className="text-primary">mais vendas</span>!
               </h2>
               <p className="mt-3 sm:mt-4 text-base sm:text-lg text-gray-600 reveal">
-                Junte-se às empresas que estão revolucionando seu atendimento com Impulso IA
+                Junte-se às empresas que estão revolucionando seu atendimento com followop
               </p>
               <div className="mt-6 sm:mt-8 reveal">
                 <Button 
