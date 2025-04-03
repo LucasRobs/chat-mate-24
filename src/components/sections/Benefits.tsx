@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Clock, DollarSign, MessageCircle, HeadSet, Zap } from "lucide-react";
+import { Clock, DollarSign, MessageCircle, headset, Zap } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 const BenefitItem = ({ icon: Icon, title, description, delay }) => {
@@ -57,7 +57,7 @@ const Benefits = () => {
       description: "Sistema automatizado que aumenta suas taxas de conversão."
     },
     {
-      icon: HeadSet,
+      icon: headset,
       title: "Atendimento Preciso e Ágil",
       description: "A IA responde com alta precisão e rapidez, garantindo interações eficientes e satisfatórias para seus clientes."
     },
