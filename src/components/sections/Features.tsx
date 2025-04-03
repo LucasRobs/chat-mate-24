@@ -1,5 +1,4 @@
-
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import FeatureCard from "../ui-custom/FeatureCard";
 import { 
   Clock, Users, FileText, MessageSquare, Headphones, 
@@ -8,6 +7,7 @@ import {
 
 const Features = () => {
   const sectionRef = useRef<HTMLElement>(null);
+  const [showAll, setShowAll] = useState(false);
   
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -113,7 +113,7 @@ const Features = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {features.map((feature, index) => (
+          {(showAll ? features : features.slice(0, 6)).map((feature, index) => (
             <div 
               key={index} 
               className={`animate-on-scroll ${index % 2 === 0 ? 'from-left' : 'from-right'}`}
@@ -128,14 +128,16 @@ const Features = () => {
           ))}
         </div>
         
-        <div className="text-center mt-16">
-          <a href="#" className="inline-flex items-center justify-center px-8 py-3 text-base font-medium rounded-md text-white bg-primary hover:bg-primary/90 animate-on-scroll from-bottom backdrop-blur-sm">
-            Explorar todas as funcionalidades
-            <svg xmlns="http://www.w3.org/2000/svg" className="ml-2 -mr-1 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
-          </a>
-        </div>
+        {!showAll && (
+          <div className="text-center mt-16">
+            <button 
+              onClick={() => setShowAll(true)} 
+              className="inline-flex items-center justify-center px-8 py-3 text-base font-medium rounded-md text-white bg-primary hover:bg-primary/90 animate-on-scroll from-bottom backdrop-blur-sm"
+            >
+              Explorar todas as funcionalidades
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );
