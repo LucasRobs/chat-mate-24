@@ -1,90 +1,130 @@
-import { useEffect, useRef, useState } from "react";
-import FeatureCard from "../ui-custom/FeatureCard";
-import { 
-  Clock, Users, FileText, MessageSquare, Headphones, 
-  Image, FileAudio, QrCode, BarChart3, RefreshCw, Bell, Calendar
-} from "lucide-react";
+import { useState, useEffect } from "react";
+import PricingCard from "../ui-custom/PricingCard";
+import { Button } from "@/components/ui/button";
 
-const Features = () => {
-  const sectionRef = useRef<HTMLElement>(null);
-  const [visibleFeatures, setVisibleFeatures] = useState(6);
+const Pricing = () => {
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("animate-in");
-          }
-        });
+        if (entries[0].isIntersecting) {
+          setIsVisible(true);
+        }
       },
       { threshold: 0.1 }
     );
 
-    const elements = document.querySelectorAll(".animate-on-scroll");
-    elements.forEach((el) => {
-      observer.observe(el);
-    });
+    if (document.getElementById("pricing")) {
+      observer.observe(document.getElementById("pricing")!);
+    }
 
-    return () => elements.forEach((el) => observer.unobserve(el));
+    return () => {
+      if (document.getElementById("pricing")) {
+        observer.unobserve(document.getElementById("pricing")!);
+      }
+    };
   }, []);
 
-  const features = [
-    { icon: Clock, title: "Disponibilidade Total", description: "Sua empresa disponível para atender clientes a qualquer hora do dia ou da noite." },
-    { icon: Users, title: "Transição para humano", description: "A IA reconhece quando um atendente entra no chat e abre espaço para interação humana." },
-    { icon: FileText, title: "Envio de arquivos", description: "Resolva dúvidas mais rápido: Compartilhe facilmente fotos, vídeos e PDFs direto no chat." },
-    { icon: MessageSquare, title: "Compreensão contextual", description: "A IA entende mensagens enviadas em partes, garantindo um atendimento fluido e natural." },
-    { icon: FileAudio, title: "Interpretação de áudios", description: "Capaz de compreender mensagens de áudio para uma interação mais completa e humana." },
-    { icon: Image, title: "Reconhecimento de imagens", description: "Responda mais rápido: A IA pode interpretar imagens enviadas pelos clientes." },
-    { icon: Headphones, title: "Atendimento personalizado", description: "Encante clientes: Nossa IA aprende sobre seu negócio para oferecer um atendimento único e personalizado." },
-    { icon: QrCode, title: "Integração via QR Code", description: "Comece em minutos: Com um simples escaneamento, a IA é integrada ao seu WhatsApp em menos de 5 minutos." },
-    { icon: BarChart3, title: "Monitoramento em tempo real", description: "Controle total: Monitore conversas ao vivo e assuma o controle sempre que precisar, direto no painel." },
-    { icon: RefreshCw, title: "Follow-up pós-checkout", description: "Venda mais no pós-venda: Automatize o follow-up pós-checkout e aumente a retenção de clientes." },
-    { icon: Bell, title: "Recuperação de conversas", description: "Recupere conversas paradas: A IA entra em contato automaticamente para reengajar leads e garantir a satisfação." },
-    { icon: Calendar, title: "Mensagens agendadas", description: "Aumente conversões: Programe mensagens para serem enviadas no momento ideal para seus clientes." }
+  const plans = [
+    {
+      title: "Essencial",
+      price: "R$ 297",
+      for: "Pequenos negócios e autônomos",
+      features: [
+        { text: "1 Funcionário de IA" },
+        { text: "300 atendimentos/mês" },
+        { text: "5.000 mensagens" },
+        { text: "Atendimento contínuo" },
+        { text: "Acesso à comunidade" },
+      ],
+    },
+    {
+      title: "Growth",
+      price: "R$ 590",
+      isPopular: true,
+      for: "Empresas em crescimento",
+      features: [
+        { text: "3 Funcionários de IA" },
+        { text: "1.500 atendimentos/mês" },
+        { text: "20.000 mensagens" },
+        { text: "Sempre disponível" },
+        { text: "Comunidade exclusiva" },
+        { text: "Automação de Follow-up inteligente" },
+      ],
+    },
+    {
+      title: "Scale Up",
+      price: "R$ 1.290",
+      for: "Operações de alto volume",
+      features: [
+        { text: "10 Funcionários de IA" },
+        { text: "5.000 atendimentos/mês" },
+        { text: "50.000 mensagens" },
+        { text: "Atendimento prioritário" },
+        { text: "Comunidade VIP exclusiva" },
+        { text: "Automação avançada de Follow-up" },
+        { text: "Suporte Premium 1:1" },
+        { text: "Consultoria estratégica mensal" },
+      ],
+    },
   ];
 
   return (
-    <section id="features" ref={sectionRef} className="py-24 bg-gradient-to-b from-white to-primary/5 relative">
-      <div className="absolute inset-0 pointer-events-none backdrop-blur-[2px]">
-        <div className="absolute inset-0 opacity-10 followop-pattern"></div>
-      </div>
+    <section id="pricing" className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
-        <div className="text-center max-w-4xl mx-auto mb-16 animate-on-scroll from-bottom">
-          <span className="bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-medium">Funcionalidades</span>
-          <h2 className="mt-6 text-4xl md:text-5xl font-bold text-secondary">
-            Tudo o que você precisa para <span className="text-primary">vender mais</span> <span>no WhatsApp</span>
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <span className="bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-medium">
+            Planos e Preços
+          </span>
+          <h2 className="mt-6 text-3xl md:text-4xl font-bold text-gray-900">
+            Escolha o plano ideal para o seu negócio
           </h2>
           <p className="mt-6 text-xl text-gray-600">
-            Nossas funcionalidades foram desenvolvidas para maximizar suas vendas e proporcionar a melhor experiência para seus clientes.
+            Cancele a qualquer momento. Sem compromisso de fidelidade.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {features.slice(0, visibleFeatures).map((feature, index) => (
-            <div 
-              key={index} 
-              className={`animate-on-scroll opacity-0 transform translate-y-10 transition-opacity duration-700 ease-in-out delay-${index * 100}ms flex flex-col items-center justify-center text-center p-6 bg-white shadow-lg rounded-lg h-full`}
-              style={{ opacity: 1, transform: 'translateY(0)', transition: 'opacity 0.6s ease-in-out, transform 0.6s ease-in-out' }}
-            >
-              <FeatureCard icon={feature.icon} title={feature.title} description={feature.description} />
-            </div>
-          ))}
-        </div>
-        
-        {visibleFeatures < features.length && (
-          <div className="text-center mt-16">
-            <button 
-              onClick={() => setVisibleFeatures(features.length)} 
-              className="inline-flex items-center justify-center px-8 py-3 text-base font-medium rounded-md text-white bg-primary hover:bg-primary/90 animate-on-scroll from-bottom backdrop-blur-sm transition-all duration-500"
-            >
-              Explorar todas as funcionalidades
-            </button>
+        <div className="flex justify-center">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl">
+            {plans.map((plan, index) => (
+              <div
+                key={index}
+                className={`transform transition-all duration-700 ${
+                  isVisible
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-20"
+                }`}
+                style={{ transitionDelay: `${index * 200}ms` }}
+              >
+                <PricingCard
+                  title={plan.title}
+                  price={plan.price}
+                  for={plan.for}
+                  features={plan.features}
+                  isPopular={plan.isPopular}
+                />
+              </div>
+            ))}
           </div>
-        )}
+        </div>
+
+        <div className="mt-12 text-center">
+          <p className="text-gray-500 mb-6">
+            Precisa de um plano personalizado para atender suas necessidades?
+          </p>
+          <Button
+            variant="outline"
+            className="border-primary text-primary hover:bg-primary/5"
+            onClick={() => window.open("https://calendar.app.google/UYSBZ6HwfDj39UeCA", "_blank")}
+          >
+            Agende uma reunião estratégica
+          </Button>
+        </div>
       </div>
     </section>
   );
 };
 
-export default Features;
+export default Pricing;
+\
