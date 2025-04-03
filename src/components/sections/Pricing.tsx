@@ -32,20 +32,38 @@ const Pricing = () => {
       title: "Essencial",
       price: "R$ 297",
       for: "Pequenos negócios e autônomos",
-      features: ["1 Funcionário de IA", "300 atendimentos/mês", "5.000 mensagens"],
+      features: [
+        "1 Funcionário de IA",
+        "300 atendimentos/mês",
+        "5.000 mensagens",
+        "Atendimento contínuo",
+        "Acesso à comunidade",
+      ],
     },
     {
       title: "Growth",
       price: "R$ 590",
       isPopular: true,
       for: "Empresas em crescimento",
-      features: ["3 Funcionários de IA", "1.500 atendimentos/mês", "20.000 mensagens"],
+      features: [
+        "3 Funcionários de IA",
+        "1.500 atendimentos/mês",
+        "20.000 mensagens",
+        "Automação de Follow-up",
+        "Comunidade exclusiva",
+      ],
     },
     {
       title: "Scale Up",
       price: "R$ 1.290",
       for: "Operações de alto volume",
-      features: ["10 Funcionários de IA", "5.000 atendimentos/mês", "50.000 mensagens"],
+      features: [
+        "10 Funcionários de IA",
+        "5.000 atendimentos/mês",
+        "50.000 mensagens",
+        "Suporte Premium 1:1",
+        "Consultoria estratégica mensal",
+      ],
     },
   ];
 
@@ -67,7 +85,7 @@ const Pricing = () => {
           {plans.map((plan, index) => (
             <div
               key={index}
-              className={`transform transition-all duration-700 p-8 bg-white shadow-lg rounded-xl min-h-[400px] flex flex-col justify-between ${
+              className={`transform transition-all duration-700 p-8 bg-white shadow-lg rounded-xl min-h-[450px] flex flex-col justify-between ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
               }`}
               style={{ transitionDelay: `${index * 200}ms` }}
@@ -76,7 +94,7 @@ const Pricing = () => {
                 title={plan.title}
                 price={plan.price}
                 for={plan.for}
-                features={plan.features}
+                features={plan.features.slice(0, 4)} // Mostra apenas algumas funcionalidades
                 isPopular={plan.isPopular}
               />
             </div>
