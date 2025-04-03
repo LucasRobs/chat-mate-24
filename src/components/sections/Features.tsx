@@ -46,43 +46,32 @@ const Features = () => {
 
   return (
     <section id="features" ref={sectionRef} className="py-24 bg-gradient-to-b from-white to-primary/5 relative">
-      <div className="absolute inset-0 pointer-events-none backdrop-blur-[2px]">
-        <div className="absolute inset-0 opacity-10 followop-pattern"></div>
+      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 text-center">
+        <span className="bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-medium">Funcionalidades</span>
+        <h2 className="mt-6 text-4xl md:text-5xl font-bold text-secondary">
+          Tudo o que você precisa para <span className="text-primary">vender mais</span> <span>no WhatsApp</span>
+        </h2>
+        <p className="mt-6 text-xl text-gray-600">
+          Nossas funcionalidades foram desenvolvidas para maximizar suas vendas e proporcionar a melhor experiência para seus clientes.
+        </p>
       </div>
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
-        <div className="text-center max-w-4xl mx-auto mb-16 animate-on-scroll from-bottom">
-          <span className="bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-medium">Funcionalidades</span>
-          <h2 className="mt-6 text-4xl md:text-5xl font-bold text-secondary">
-            Tudo o que você precisa para <span className="text-primary">vender mais</span> <span>no WhatsApp</span>
-          </h2>
-          <p className="mt-6 text-xl text-gray-600">
-            Nossas funcionalidades foram desenvolvidas para maximizar suas vendas e proporcionar a melhor experiência para seus clientes.
-          </p>
-        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto text-center">
-          {features.slice(0, visibleFeatures).map((feature, index) => (
-            <div 
-              key={index} 
-              className={`animate-on-scroll opacity-0 transform translate-y-10 transition-opacity duration-700 ease-in-out flex flex-col items-center justify-center p-6 bg-white shadow-lg rounded-lg h-full`}
-              style={{ opacity: 1, transform: 'translateY(0)' }}
-            >
-              <FeatureCard icon={feature.icon} title={feature.title} description={feature.description} />
-            </div>
-          ))}
-        </div>
-        
-        {visibleFeatures < features.length && (
-          <div className="text-center mt-16">
-            <button 
-              onClick={() => setVisibleFeatures(features.length)} 
-              className="inline-flex items-center justify-center px-8 py-3 text-base font-medium rounded-md text-white bg-primary hover:bg-primary/90 animate-on-scroll from-bottom backdrop-blur-sm transition-all duration-500"
-            >
-              Explorar todas as funcionalidades
-            </button>
-          </div>
-        )}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto text-center mt-12">
+        {features.slice(0, visibleFeatures).map((feature, index) => (
+          <FeatureCard key={index} icon={feature.icon} title={feature.title} description={feature.description} />
+        ))}
       </div>
+      
+      {visibleFeatures < features.length && (
+        <div className="text-center mt-16">
+          <button 
+            onClick={() => setVisibleFeatures(features.length)} 
+            className="inline-flex items-center justify-center px-8 py-3 text-base font-medium rounded-md text-white bg-primary hover:bg-primary/90 backdrop-blur-sm transition-all duration-500"
+          >
+            Explorar todas as funcionalidades
+          </button>
+        </div>
+      )}
     </section>
   );
 };
