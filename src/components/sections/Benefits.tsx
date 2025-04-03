@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Clock, DollarSign, MessageCircle, BookOpen, Zap } from "lucide-react";
+import { Clock, DollarSign, MessageCircle, headset, Zap } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 const BenefitItem = ({ icon: Icon, title, description, delay }) => {
@@ -57,9 +57,9 @@ const Benefits = () => {
       description: "Sistema automatizado que aumenta suas taxas de conversão."
     },
     {
-      icon: BookOpen,
-      title: "Treinamento Contínuo Incluso",
-      description: "A IA aprende constantemente, sem taxas adicionais."
+      icon: headset,
+      title: "Atendimento Preciso e Ágil",
+      description: "A IA responde com alta precisão e rapidez, garantindo interações eficientes e satisfatórias para seus clientes."
     },
     {
       icon: Zap,
@@ -72,7 +72,7 @@ const Benefits = () => {
     <section id="benefits" className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 text-center">
         <div className={`mb-16 transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-          <h2 className="text-4xl font-bold text-gray-900">Benefícios do Followop</h2>
+          <h2 className="text-4xl font-bold text-gray-900">Benefícios da followop</h2>
           <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
             Tecnologia avançada com resultados imediatos para seu negócio
           </p>
