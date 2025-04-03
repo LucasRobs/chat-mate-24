@@ -111,7 +111,7 @@ const Pricing = () => {
 
         <div className="mt-12 text-center">
           <p className="text-gray-500 mb-6">
-            Precisa de um plano personalizado para atender suas necessidades?
+            Ficou com alguma dúvida ou quer saber mais?
           </p>
           <Button
             variant="outline"
