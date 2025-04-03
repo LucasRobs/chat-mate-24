@@ -15,13 +15,14 @@ const Pricing = () => {
       { threshold: 0.1 }
     );
 
-    if (document.getElementById("pricing")) {
-      observer.observe(document.getElementById("pricing")!);
+    const pricingElement = document.getElementById("pricing");
+    if (pricingElement) {
+      observer.observe(pricingElement);
     }
 
     return () => {
-      if (document.getElementById("pricing")) {
-        observer.unobserve(document.getElementById("pricing")!);
+      if (pricingElement) {
+        observer.unobserve(pricingElement);
       }
     };
   }, []);
@@ -85,12 +86,13 @@ const Pricing = () => {
           </p>
         </div>
 
+        {/* Grid de Planos */}
         <div className="flex justify-center">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl">
             {plans.map((plan, index) => (
               <div
                 key={index}
-                className={`transform transition-all duration-700 ${
+                className={`transform transition-all duration-700 flex flex-col justify-between p-8 bg-white shadow-lg rounded-xl min-h-[550px] ${
                   isVisible
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-20"
@@ -104,21 +106,35 @@ const Pricing = () => {
                   features={plan.features}
                   isPopular={plan.isPopular}
                 />
+                <div className="mt-auto text-center">
+                  <Button
+                    variant="outline"
+                    className="border-primary text-primary hover:bg-primary/5 w-full mt-4"
+                    onClick={() =>
+                      window.open("https://calendar.app.google/UYSBZ6HwfDj39UeCA", "_blank")
+                    }
+                  >
+                    Agende uma reunião estratégica
+                  </Button>
+                </div>
               </div>
             ))}
           </div>
         </div>
 
+        {/* CTA final chamativo */}
         <div className="mt-12 text-center">
-          <p className="text-gray-500 mb-6">
-            Ficou com alguma dúvida ou quer saber mais?
+          <p className="text-gray-500 mb-6 text-lg font-medium">
+            Quer entender melhor como podemos ajudar seu negócio? Vamos conversar!
           </p>
           <Button
             variant="outline"
-            className="border-primary text-primary hover:bg-primary/5"
-            onClick={() => window.open("https://calendar.app.google/UYSBZ6HwfDj39UeCA", "_blank")}
+            className="border-primary text-primary hover:bg-primary/5 px-6 py-3 text-lg font-semibold"
+            onClick={() =>
+              window.open("https://calendar.app.google/UYSBZ6HwfDj39UeCA", "_blank")
+            }
           >
-            Agende uma reunião estratégica
+            Agendar uma reunião agora
           </Button>
         </div>
       </div>
