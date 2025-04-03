@@ -4,7 +4,7 @@ import { useIsMobile } from "@/hooks/use-mobile";
 
 const BenefitItem = ({ icon: Icon, title, description, delay }) => {
   return (
-    <div className="flex flex-col items-center p-6 reveal text-center" style={{ transitionDelay: `${delay}ms` }}>
+    <div className="flex flex-col items-center p-6 reveal text-center h-full" style={{ transitionDelay: `${delay}ms` }}>
       <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
         <Icon className="w-6 h-6 text-primary" />
       </div>
