@@ -8,7 +8,7 @@ const BenefitItem = ({ icon: Icon, title, description, delay }) => {
       <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4">
         <Icon className="w-8 h-8 text-primary" />
       </div>
-      <h3 className="text-xl font-semibold text-gray-900 mb-2">{title}</h3>
+      <h3 className="text-lg font-semibold text-gray-900 mb-2 whitespace-normal">{title}</h3>
       <p className="text-base text-gray-600 leading-relaxed max-w-xs">{description}</p>
     </div>
   );
@@ -78,9 +78,9 @@ const Benefits = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {benefits.map((benefit, index) => (
-            <div key={index} className={`flex justify-center transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+            <div key={index} className={`flex flex-col items-center transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}> 
               <BenefitItem
                 icon={benefit.icon}
                 title={benefit.title}
