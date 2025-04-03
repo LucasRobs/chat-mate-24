@@ -59,7 +59,7 @@ const Benefits = () => {
     {
       icon: Headphones,
       title: "Atendimento Preciso e Ágil",
-      description: "A IA responde com precisão e rapidez, garantindo interações ágeis e eficazes."
+      description: "A IA responde com precisão e agilidade, garantindo eficiência."
     },
     {
       icon: Zap,
