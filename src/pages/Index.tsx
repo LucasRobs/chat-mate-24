@@ -4,14 +4,13 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Hero from "@/components/sections/Hero";
-import Features from "@/components/sections/Features";
+import Benefits from "@/components/sections/Benefits";
+import Comparison from "@/components/sections/Comparison";
 import Pricing from "@/components/sections/Pricing";
 import Partners from "@/components/sections/Partners";
 import Testimonials from "@/components/sections/Testimonials";
-import HowItWorks from "@/components/sections/HowItWorks";
-import IntegrationPartners from "@/components/sections/IntegrationPartners";
 import { Button } from "@/components/ui/button";
-import { MessageSquare, Phone, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { Toaster } from "@/components/ui/toaster";
 
@@ -108,7 +107,7 @@ const Index = () => {
 
           <section ref={statsRef} className="py-10 sm:py-12 bg-gradient-to-r from-primary to-primary/90 relative overflow-hidden stats-section reveal">
             <div className="absolute inset-0 pointer-events-none">
-              <div className="absolute inset-0 opacity-10 followop-pattern"></div>
+              <div className="absolute inset-0 opacity-10 impulso-pattern"></div>
             </div>
             
             <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 lg:px-20">
@@ -135,20 +134,18 @@ const Index = () => {
             </div>
           </section>
 
-          <Features />
+          <Benefits />
           
-          <HowItWorks />
-          
-          <IntegrationPartners />
+          <Comparison />
           
           <Testimonials />
                   
           <section className="py-16 sm:py-20 bg-white relative overflow-hidden">
             <div className="absolute inset-0 pointer-events-none">
-              <div className="absolute inset-0 opacity-5 followop-pattern"></div>
+              <div className="absolute inset-0 opacity-5 impulso-pattern"></div>
             </div>
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 lg:px-20">
-              <div className="bg-gradient-to-r from-secondary to-secondary/90 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 lg:p-16 shadow-xl reveal acrylic">
+            <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-12 lg:px-20">
+              <div className="bg-gradient-to-r from-gray-900 to-gray-800 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 lg:p-16 shadow-xl reveal acrylic">
                 <div className="text-center max-w-3xl mx-auto">
                   <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-tight">
                     Pronto para um <span className="text-primary">Atendimento WhatsApp</span> que Vende Sozinho?
@@ -157,34 +154,14 @@ const Index = () => {
                     Comece agora. Sem compromisso. Cancele quando quiser.
                   </p>
                   
-                  <div className="mt-6 sm:mt-10 flex flex-col md:flex-row gap-4 justify-center">
+                  <div className="mt-8 sm:mt-10">
                     <Button 
                       size={isMobile ? "default" : "lg"} 
-                      className="bg-primary hover:bg-primary/90 btn-hover text-base sm:text-lg backdrop-blur-sm w-full md:w-auto"
+                      className="bg-primary hover:bg-primary/90 btn-hover text-base sm:text-lg backdrop-blur-sm px-8 py-6"
                     >
-                      <MessageSquare className="mr-2 h-5 w-5" />
-                      Comece agora
+                      Quero testar o Impulso IA <ArrowRight className="ml-2 h-5 w-5" />
                     </Button>
-                    <a 
-                      href="https://wa.me/5500000000000" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="w-full md:w-auto"
-                    >
-                      <Button 
-                        size={isMobile ? "default" : "lg"} 
-                        variant="outline" 
-                        className="border-white text-primary bg-white/90 backdrop-blur-sm hover:bg-white/90 hover:text-primary/90 btn-hover text-base sm:text-lg w-full transition-all duration-300"
-                      >
-                        <Phone className="mr-2 h-5 w-5" />
-                        Agendar Consultoria Gratuita
-                      </Button>
-                    </a>
                   </div>
-                  
-                  <p className="mt-4 sm:mt-6 text-sm text-white/70">
-                    Entre em contato para um plano personalizado para empresas de grande porte
-                  </p>
                 </div>
               </div>
             </div>
@@ -194,23 +171,23 @@ const Index = () => {
           
           <Partners />
           
-          <section className="py-12 sm:py-16 bg-white border-t border-gray-200 relative overflow-hidden">
+          <section className="py-12 sm:py-16 bg-white border-t border-gray-100 relative overflow-hidden">
             <div className="absolute inset-0 pointer-events-none backdrop-blur-[1px]">
-              <div className="absolute inset-0 opacity-5 followop-pattern"></div>
+              <div className="absolute inset-0 opacity-5 impulso-pattern"></div>
             </div>
             <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-12 text-center">
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-secondary reveal">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 reveal">
                 Menos trabalho manual, <span className="text-primary">mais vendas</span>!
               </h2>
               <p className="mt-3 sm:mt-4 text-base sm:text-lg text-gray-600 reveal">
-                Junte-se às empresas que estão revolucionando seu atendimento com followop
+                Junte-se às empresas que estão revolucionando seu atendimento com Impulso IA
               </p>
               <div className="mt-6 sm:mt-8 reveal">
                 <Button 
                   size={isMobile ? "default" : "lg"} 
                   className="bg-primary hover:bg-primary/90 btn-hover text-base sm:text-lg backdrop-blur-sm w-full sm:w-auto"
                 >
-                  Começar agora <ArrowRight className="ml-2 h-5 w-5" />
+                  Comece agora e aumente suas vendas no WhatsApp! <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </div>
             </div>

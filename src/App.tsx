@@ -11,13 +11,13 @@ import NotFound from "./pages/NotFound";
 const LoadingSpinner = () => (
   <div className="fixed inset-0 flex items-center justify-center bg-white z-50">
     <div className="absolute inset-0 pointer-events-none">
-      <div className="absolute inset-0 opacity-10 dot-pattern"></div>
+      <div className="absolute inset-0 opacity-10 impulso-pattern"></div>
     </div>
     <div className="flex flex-col items-center relative z-10">
       <div className="relative mb-8">
         <img
           src="/lovable-uploads/669aaab1-10dd-437a-a1b9-789ae5f02809.png"
-          alt="followop Logo"
+          alt="Impulso IA Logo"
           className="h-16 animate-pulse"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/30 to-primary/0 animate-slide-left"></div>

@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { MessageSquare, ChevronDown, Check, Clock } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useIsMobile } from "@/hooks/use-mobile";
 
@@ -19,79 +19,43 @@ const Hero = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  const scrollToFeatures = () => {
-    const featuresSection = document.getElementById("features");
-    if (featuresSection) {
-      featuresSection.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
-    <section className="relative bg-white overflow-hidden pt-20 pb-16 lg:pt-28 lg:pb-36">
-      {/* Background decoration with followop logo pattern */}
-      <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-gray-50 to-transparent"></div>
+    <section className="relative bg-white overflow-hidden pt-24 pb-16 lg:pt-32 lg:pb-28">
+      {/* Background decoration with subtle dot pattern */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 followop-pattern opacity-5"></div>
+        <div className="absolute inset-0 impulso-pattern opacity-5"></div>
       </div>
-      <div className="absolute -top-40 -right-40 w-80 h-80 rounded-full bg-primary/5"></div>
-      <div className="absolute top-1/3 -left-20 w-64 h-64 rounded-full bg-primary/5"></div>
       
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 md:px-12 lg:px-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20 items-center">
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
+        <div className="flex flex-col items-center text-center max-w-3xl mx-auto">
           {/* Hero Text */}
-          <div className={`${isVisible ? 'animate-fade-in-left' : 'opacity-0'} text-center lg:text-left`}>
-            <span className="bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-medium">
-              WhatsApp Inteligente: Atendimento que Converte
-            </span>
-            <h1 className="mt-6 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-secondary leading-tight">
-              Transforme seu WhatsApp Numa <span className="text-primary">Máquina de Vendas</span> Automática com IA
+          <div className={`${isVisible ? 'animate-fade-in-left' : 'opacity-0'}`}>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight tracking-tight">
+              Transforme seu WhatsApp em uma <span className="text-primary">Máquina de Vendas</span> Automática com IA
             </h1>
-            <p className="mt-6 text-lg sm:text-xl text-gray-600 max-w-xl mx-auto lg:mx-0">
-              Nunca mais perca um lead. Atenda seus clientes a qualquer hora com nossa IA treinada para vender como você.
+            
+            <p className="mt-6 text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+              A IA que atende, qualifica e converte seus leads 24h por dia, sem interrupções e <span className="font-semibold">7x mais barata</span> que um SDR humano.
             </p>
             
-            <div className="mt-8 flex flex-wrap justify-center lg:justify-start gap-4">
+            <div className="mt-10">
               <Button 
                 size="lg" 
-                className="bg-secondary hover:bg-secondary/90 btn-hover text-lg flex items-center gap-2 w-full sm:w-auto"
+                className="bg-primary hover:bg-primary/90 btn-hover text-lg px-10 py-6"
               >
-                Começar agora <MessageSquare size={20} />
-              </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="border-secondary text-secondary hover:bg-secondary/5 btn-hover text-lg w-full sm:w-auto"
-              >
-                Ver como funciona
+                Quero vender mais agora <ArrowRight size={20} className="ml-2" />
               </Button>
             </div>
-            
-            <p className="mt-6 text-sm text-gray-500 text-center lg:text-left">
-              Mais de 20 empresas já usam o followop para automatizar seu atendimento
-            </p>
           </div>
           
-          {/* Hero Video - Wistia Video */}
-          <div className={`${isVisible ? 'animate-fade-in-right' : 'opacity-0'} relative mt-8 lg:mt-0`}>
-            {/* 24/7 Highlight - Moved from below to above the video */}
-            <div className="mb-6 p-4 bg-primary/10 rounded-lg border border-primary/20 transition-all hover:bg-primary/15">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
-                  <Clock size={20} className="text-primary" />
-                </div>
-                <div className="text-left">
-                  <h3 className="font-semibold text-lg text-primary">Disponibilidade Total</h3>
-                  <p className="text-gray-600">Sua empresa disponível para seus clientes a qualquer momento</p>
-                </div>
-              </div>
-            </div>
-            
+          {/* Hero Image/Video */}
+          <div className={`${isVisible ? 'animate-fade-in-up' : 'opacity-0'} mt-16 w-full max-w-4xl`}>
             {isLoading ? (
-              <div className="relative aspect-video w-full bg-gray-100 rounded-xl overflow-hidden">
+              <div className="relative aspect-[16/9] w-full bg-gray-100 rounded-xl overflow-hidden">
                 <div className="absolute inset-0 animate-pulse bg-gray-200"></div>
               </div>
             ) : (
-              <div className="relative rounded-2xl shadow-2xl overflow-hidden">
+              <div className="relative rounded-2xl shadow-lg overflow-hidden border border-gray-100">
                 <div className="aspect-video relative">
                   <div dangerouslySetInnerHTML={{ 
                     __html: '<wistia-player media-id="k3jvq760qi" aspect="1.7777777777777777"></wistia-player>' 
@@ -101,17 +65,6 @@ const Hero = () => {
             )}
           </div>
         </div>
-      </div>
-      
-      {/* Scroll indicator moved lower */}
-      <div className="absolute bottom-4 sm:bottom-10 left-1/2 transform -translate-x-1/2 text-center mt-20">
-        <button 
-          onClick={scrollToFeatures}
-          className="flex flex-col items-center text-gray-400 hover:text-primary transition-colors"
-        >
-          <span className="text-sm mb-2">Descubra mais</span>
-          <ChevronDown size={24} className="animate-bounce" />
-        </button>
       </div>
     </section>
   );

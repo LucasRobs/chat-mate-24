@@ -11,6 +11,7 @@ interface PricingCardProps {
   title: string;
   price: string;
   description?: string;
+  for?: string;
   features: PricingFeature[];
   isPopular?: boolean;
   className?: string;
@@ -20,6 +21,7 @@ const PricingCard = ({
   title,
   price,
   description,
+  for: forText,
   features,
   isPopular = false,
   className,
@@ -30,7 +32,7 @@ const PricingCard = ({
         "relative rounded-2xl p-8 transition-all",
         isPopular 
           ? "bg-white border-2 border-primary shadow-xl" 
-          : "bg-white/80 border border-gray-200 shadow-lg",
+          : "bg-white border border-gray-100 shadow-sm",
         "transform hover:-translate-y-1 transition-all duration-300",
         className
       )}
@@ -42,7 +44,8 @@ const PricingCard = ({
       )}
 
       <div className="text-center mb-8">
-        <h3 className="text-xl font-semibold text-secondary mb-2">{title}</h3>
+        <h3 className="text-xl font-semibold text-gray-900 mb-2">{title}</h3>
+        {forText && <p className="text-gray-500 text-sm mb-1">{forText}</p>}
         {description && <p className="text-gray-500 text-sm">{description}</p>}
         <div className="mt-4">
           <span className="text-3xl font-bold text-gray-900">{price}</span>
@@ -65,7 +68,7 @@ const PricingCard = ({
             "w-full btn-hover",
             isPopular 
               ? "bg-primary hover:bg-primary/90" 
-              : "bg-secondary hover:bg-secondary/90"
+              : "bg-gray-900 hover:bg-gray-800"
           )}
         >
           Comece Agora

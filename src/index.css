@@ -1,3 +1,6 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -13,10 +16,11 @@
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 3.9%;
 
-    --primary: 142.1 70.6% 45.3%;
+    /* Updated colors to match more Apple-like aesthetics */
+    --primary: 210 100% 50%; /* Apple blue */
     --primary-foreground: 0 0% 98%;
 
-    --secondary: 240 24% 25%;
+    --secondary: 240 5% 25%;
     --secondary-foreground: 0 0% 98%;
 
     --muted: 240 4.8% 95.9%;
@@ -30,9 +34,9 @@
 
     --border: 240 5.9% 90%;
     --input: 240 5.9% 90%;
-    --ring: 142.1 76.2% 36.3%;
+    --ring: 210 100% 50%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
   }
 
   * {
@@ -42,6 +46,7 @@
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
+    font-family: 'Inter', sans-serif;
   }
 
   html {
@@ -57,35 +62,36 @@
   }
   
   ::-webkit-scrollbar-thumb {
-    background: #00af6b;
+    background: #007aff;
     border-radius: 4px;
   }
   
   ::-webkit-scrollbar-thumb:hover {
-    background: #008f56;
+    background: #0063cc;
   }
 }
 
 @layer components {
   .glass {
-    background: rgba(255, 255, 255, 0.6);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.18);
   }
 
   .acrylic {
-    background: rgba(255, 255, 255, 0.4);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
     border: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
   }
 
+  /* Apple-inspired animations and transitions */
   .reveal {
     opacity: 0;
-    transform: translateY(40px);
-    transition: all 1s ease;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .reveal.active {
@@ -102,12 +108,12 @@
     position: absolute;
     width: 100%;
     transform: scaleX(0);
-    height: 2px;
+    height: 1px;
     bottom: -2px;
     left: 0;
-    background-color: #00af6b;
+    background-color: #007aff;
     transform-origin: bottom right;
-    transition: transform 0.3s ease-out;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .link-underline:hover:after {
@@ -116,21 +122,21 @@
   }
 
   .btn-hover {
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .btn-hover:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 175, 107, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 122, 255, 0.2);
   }
 
   .card-hover {
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .card-hover:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
   }
 
   .sticky-nav {
@@ -163,7 +169,7 @@
   .loading-bar {
     width: 100%;
     background-size: 200% 100%;
-    animation: loading 1.5s infinite linear;
+    animation: loading 1.5s infinite cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   @keyframes loading {
@@ -171,75 +177,61 @@
     100% { transform: translateX(100%); }
   }
 
-  .highlight-pulse {
-    position: relative;
-    overflow: hidden;
-  }
-
-  .highlight-pulse::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 50%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-    animation: highlight-pulse 2s infinite;
-  }
-
-  @keyframes highlight-pulse {
-    0% { left: -100%; }
-    100% { left: 200%; }
-  }
-
+  /* Apple-style dot pattern */
   .dot-pattern {
     background-color: #ffffff;
-    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 20m-3 0a3 3 0 1 0 6 0 3 3 0 1 0 -6 0' fill='%23cafae7'/%3E%3C/svg%3E");
-    background-size: 40px 40px;
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 20m-1 0a1 1 0 1 0 2 0 1 1 0 1 0 -2 0' fill='%23e0e0e0'/%3E%3C/svg%3E");
+    background-size: 20px 20px;
   }
   
-  .followop-pattern {
+  /* Apple-style subtle pattern */
+  .impulso-pattern {
     background-color: #ffffff;
-    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='20' cy='20' r='15' stroke='%23cafae7' stroke-width='2' fill='none'/%3E%3Ccircle cx='20' cy='20' r='10' stroke='%23cafae7' stroke-width='2' fill='none'/%3E%3Ccircle cx='20' cy='20' r='5' stroke='%23cafae7' stroke-width='2' fill='none'/%3E%3C/svg%3E");
-    background-size: 40px 40px;
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='20' cy='20' r='0.5' stroke='%23e6e6e6' fill='none'/%3E%3C/svg%3E");
+    background-size: 20px 20px;
   }
 
-  .gradient-text {
-    @apply bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent;
+  /* Precision borders */
+  .precision-border {
+    @apply border border-gray-100 shadow-sm;
   }
   
-  .dark-to-light-green-gradient {
-    @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(to right, #005f3b, #00af6b, #63e6a8);
+  /* Apple-style cards */
+  .apple-card {
+    @apply bg-white rounded-2xl precision-border p-6 shadow-sm;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  .apple-card:hover {
+    @apply shadow-md;
+    transform: translateY(-2px);
   }
 
-  /* YouTube-style skeleton wave animation */
-  .skeleton-wave {
-    position: relative;
-    overflow: hidden;
+  /* Section styles */
+  .section-padding {
+    @apply py-20 px-6 sm:px-8 md:px-12 lg:px-16;
   }
   
-  .skeleton-wave::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    transform: translateX(-100%);
-    background: linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0) 0%,
-      rgba(255, 255, 255, 0.3) 50%,
-      rgba(255, 255, 255, 0) 100%
-    );
-    animation: shimmer 1.5s infinite;
+  /* Comparison table */
+  .comparison-table {
+    @apply w-full border-collapse;
   }
   
-  @keyframes shimmer {
-    100% {
-      transform: translateX(100%);
-    }
+  .comparison-table th,
+  .comparison-table td {
+    @apply p-4 text-left border-b border-gray-100;
+  }
+  
+  .comparison-table th {
+    @apply font-medium text-gray-500;
+  }
+  
+  .comparison-table tbody tr:last-child td {
+    @apply border-none;
+  }
+  
+  .comparison-highlight {
+    @apply text-primary font-medium;
   }
 }
 
@@ -249,15 +241,15 @@
   }
   
   .from-bottom {
-    @apply translate-y-16;
+    @apply translate-y-12;
   }
   
   .from-left {
-    @apply -translate-x-16;
+    @apply -translate-x-12;
   }
   
   .from-right {
-    @apply translate-x-16;
+    @apply translate-x-12;
   }
   
   .animate-in {
@@ -267,7 +259,7 @@
   /* Mobile optimizations */
   @media (max-width: 640px) {
     .card-hover:hover {
-      transform: translateY(-3px);
+      transform: translateY(-2px);
     }
     
     .btn-hover:hover {
@@ -275,11 +267,11 @@
     }
     
     .from-bottom {
-      @apply translate-y-8;
+      @apply translate-y-6;
     }
     
     .from-left, .from-right {
-      @apply translate-x-0 translate-y-8;
+      @apply translate-x-0 translate-y-6;
     }
   }
 
