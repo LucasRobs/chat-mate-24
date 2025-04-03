@@ -37,7 +37,6 @@ const Pricing = () => {
         "300 atendimentos/mês",
         "5.000 mensagens",
         "Atendimento contínuo",
-        "Acesso à comunidade",
       ],
     },
     {
@@ -49,8 +48,7 @@ const Pricing = () => {
         "3 Funcionários de IA",
         "1.500 atendimentos/mês",
         "20.000 mensagens",
-        "Automação de Follow-up",
-        "Comunidade exclusiva",
+        "Automação de Follow-up inteligente",
       ],
     },
     {
@@ -62,7 +60,6 @@ const Pricing = () => {
         "5.000 atendimentos/mês",
         "50.000 mensagens",
         "Suporte Premium 1:1",
-        "Consultoria estratégica mensal",
       ],
     },
   ];
@@ -85,7 +82,7 @@ const Pricing = () => {
           {plans.map((plan, index) => (
             <div
               key={index}
-              className={`transform transition-all duration-700 p-8 bg-white shadow-lg rounded-xl min-h-[450px] flex flex-col justify-between ${
+              className={`transform transition-all duration-700 p-8 bg-white shadow-lg rounded-xl min-h-[480px] flex flex-col justify-between ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
               }`}
               style={{ transitionDelay: `${index * 200}ms` }}
@@ -94,21 +91,29 @@ const Pricing = () => {
                 title={plan.title}
                 price={plan.price}
                 for={plan.for}
-                features={plan.features.slice(0, 4)} // Mostra apenas algumas funcionalidades
+                features={plan.features}
                 isPopular={plan.isPopular}
               />
             </div>
           ))}
         </div>
 
-        {/* Botão para página completa de preços */}
-        <div className="mt-12">
+        {/* Botões */}
+        <div className="mt-12 flex flex-col md:flex-row items-center justify-center gap-6">
           <Button
             variant="outline"
             className="border-primary text-primary hover:bg-primary/5 px-6 py-3 text-lg font-semibold"
             onClick={() => window.open("https://www.followop.com.br/pricing", "_blank")}
           >
             Veja todos os detalhes dos planos
+          </Button>
+
+          <Button
+            variant="default"
+            className="bg-primary text-white hover:bg-primary-dark px-6 py-3 text-lg font-semibold"
+            onClick={() => window.open("https://calendar.app.google/UYSBZ6HwfDj39UeCA", "_blank")}
+          >
+            Agende uma reunião estratégica
           </Button>
         </div>
       </div>
