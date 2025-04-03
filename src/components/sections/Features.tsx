@@ -64,7 +64,7 @@ const Features = () => {
           {features.slice(0, visibleFeatures).map((feature, index) => (
             <div 
               key={index} 
-              className={`animate-on-scroll opacity-0 transform translate-y-10 transition-opacity duration-700 ease-in-out delay-${index * 100}ms`}
+              className={`animate-on-scroll opacity-0 transform translate-y-10 transition-opacity duration-700 ease-in-out delay-${index * 100}ms flex flex-col items-center justify-center text-center p-6 bg-white shadow-lg rounded-lg h-full`}
               style={{ opacity: 1, transform: 'translateY(0)' }}
             >
               <FeatureCard icon={feature.icon} title={feature.title} description={feature.description} />
