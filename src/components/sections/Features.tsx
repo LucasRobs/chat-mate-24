@@ -116,8 +116,8 @@ const Features = () => {
           {(showAll ? features : features.slice(0, 6)).map((feature, index) => (
             <div 
               key={index} 
-              className={`animate-on-scroll fade-in ${showAll ? 'visible' : 'hidden'}`}
-              style={{ animationDelay: `${index * 0.1}s` }}
+              className={`animate-on-scroll ${index % 2 === 0 ? 'from-left' : 'from-right'}`}
+              style={{ animationDelay: `${index * 0.1}s`, opacity: showAll ? 1 : 0, transform: showAll ? 'translateY(0)' : 'translateY(20px)', transition: 'opacity 0.5s ease, transform 0.5s ease' }}
             >
               <FeatureCard
                 icon={feature.icon}
