@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import PricingCard from "../ui-custom/PricingCard";
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
 
@@ -85,9 +84,14 @@ const Pricing = () => {
               key={index}
               className={`transform transition-all duration-700 p-8 bg-white shadow-lg rounded-xl min-h-[500px] flex flex-col justify-between ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
-              }`}
+              } ${plan.isPopular ? "border-2 border-primary" : ""}`} // Adiciona borda ao plano Growth
               style={{ transitionDelay: `${index * 200}ms` }}
             >
+              {plan.isPopular && (
+                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-primary text-white px-3 py-1 rounded-full text-sm font-semibold">
+                  Mais Popular
+                </div>
+              )}
               <h3 className="text-2xl font-semibold text-gray-900">{plan.title}</h3>
               <p className="text-gray-600 mt-2">{plan.for}</p>
               <p className="text-3xl font-bold text-primary mt-4">{plan.price} <span className="text-lg font-medium">/mês</span></p>
