@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import PricingCard from "../ui-custom/PricingCard";
 import { Button } from "@/components/ui/button";
+import { Check } from "lucide-react";
 
 const Pricing = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -82,18 +83,24 @@ const Pricing = () => {
           {plans.map((plan, index) => (
             <div
               key={index}
-              className={`transform transition-all duration-700 p-8 bg-white shadow-lg rounded-xl min-h-[480px] flex flex-col justify-between ${
+              className={`transform transition-all duration-700 p-8 bg-white shadow-lg rounded-xl min-h-[500px] flex flex-col justify-between ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
               }`}
               style={{ transitionDelay: `${index * 200}ms` }}
             >
-              <PricingCard
-                title={plan.title}
-                price={plan.price}
-                for={plan.for}
-                features={plan.features}
-                isPopular={plan.isPopular}
-              />
+              <h3 className="text-2xl font-semibold text-gray-900">{plan.title}</h3>
+              <p className="text-gray-600 mt-2">{plan.for}</p>
+              <p className="text-3xl font-bold text-primary mt-4">{plan.price} <span className="text-lg font-medium">/mês</span></p>
+
+              {/* Lista de funcionalidades */}
+              <ul className="mt-6 space-y-3 text-left">
+                {plan.features.map((feature, idx) => (
+                  <li key={idx} className="flex items-center gap-3 text-gray-700">
+                    <Check className="text-green-500" size={20} />
+                    {feature}
+                  </li>
+                ))}
+              </ul>
             </div>
           ))}
         </div>
