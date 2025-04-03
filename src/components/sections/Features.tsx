@@ -117,7 +117,7 @@ const Features = () => {
             <div 
               key={index} 
               className={`animate-on-scroll ${index % 2 === 0 ? 'from-left' : 'from-right'}`}
-              style={{ animationDelay: `${index * 0.1}s`, opacity: showAll ? 1 : 0, transform: showAll ? 'translateY(0)' : 'translateY(20px)', transition: 'opacity 0.5s ease, transform 0.5s ease' }}
+              style={{ animationDelay: `${index * 0.1}s`, opacity: 1, transform: 'translateY(0)', transition: 'opacity 0.5s ease, transform 0.5s ease' }}
             >
               <FeatureCard
                 icon={feature.icon}
