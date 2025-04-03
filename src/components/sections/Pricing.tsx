@@ -1,7 +1,6 @@
-
 import { useState, useEffect } from "react";
-import PricingCard from "../ui-custom/PricingCard";
 import { Button } from "@/components/ui/button";
+import { Check } from "lucide-react";
 
 const Pricing = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -16,13 +15,14 @@ const Pricing = () => {
       { threshold: 0.1 }
     );
 
-    if (document.getElementById("pricing")) {
-      observer.observe(document.getElementById("pricing")!);
+    const pricingElement = document.getElementById("pricing");
+    if (pricingElement) {
+      observer.observe(pricingElement);
     }
 
     return () => {
-      if (document.getElementById("pricing")) {
-        observer.unobserve(document.getElementById("pricing")!);
+      if (pricingElement) {
+        observer.unobserve(pricingElement);
       }
     };
   }, []);
@@ -33,11 +33,10 @@ const Pricing = () => {
       price: "R$ 297",
       for: "Pequenos negócios e autônomos",
       features: [
-        { text: "1 Funcionário de IA" },
-        { text: "300 atendimentos/mês" },
-        { text: "5.000 mensagens" },
-        { text: "Atendimento contínuo" },
-        { text: "Acesso à comunidade" },
+        "1 Funcionário de IA",
+        "300 atendimentos/mês",
+        "5.000 mensagens",
+        "Atendimento contínuo",
       ],
     },
     {
@@ -46,12 +45,10 @@ const Pricing = () => {
       isPopular: true,
       for: "Empresas em crescimento",
       features: [
-        { text: "3 Funcionários de IA" },
-        { text: "1.500 atendimentos/mês" },
-        { text: "20.000 mensagens" },
-        { text: "Sempre disponível" },
-        { text: "Comunidade exclusiva" },
-        { text: "Automação de Follow-up inteligente" },
+        "3 Funcionários de IA",
+        "1.500 atendimentos/mês",
+        "20.000 mensagens",
+        "Automação de Follow-up inteligente",
       ],
     },
     {
@@ -59,66 +56,75 @@ const Pricing = () => {
       price: "R$ 1.290",
       for: "Operações de alto volume",
       features: [
-        { text: "10 Funcionários de IA" },
-        { text: "5.000 atendimentos/mês" },
-        { text: "50.000 mensagens" },
-        { text: "Atendimento prioritário" },
-        { text: "Comunidade VIP exclusiva" },
-        { text: "Automação avançada de Follow-up" },
-        { text: "Suporte Premium 1:1" },
-        { text: "Consultoria estratégica mensal" },
+        "10 Funcionários de IA",
+        "5.000 atendimentos/mês",
+        "50.000 mensagens",
+        "Suporte Premium 1:1",
       ],
     },
   ];
 
   return (
     <section id="pricing" className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-medium">
-            Planos e Preços
-          </span>
-          <h2 className="mt-6 text-3xl md:text-4xl font-bold text-gray-900">
-            Escolha o plano ideal para o seu negócio
-          </h2>
-          <p className="mt-6 text-xl text-gray-600">
-            Cancele a qualquer momento. Sem compromisso de fidelidade.
-          </p>
+      <div className="max-w-6xl mx-auto px-6 md:px-12 lg:px-20 text-center">
+        <span className="bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-medium">
+          Planos e Preços
+        </span>
+        <h2 className="mt-6 text-3xl md:text-4xl font-bold text-gray-900">
+          Escolha o plano ideal para o seu negócio
+        </h2>
+        <p className="mt-6 text-xl text-gray-600">
+          Cancele a qualquer momento. Sem compromisso de fidelidade.
+        </p>
+
+        {/* Planos centralizados */}
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 justify-center">
+          {plans.map((plan, index) => (
+            <div
+              key={index}
+              className={`transform transition-all duration-700 p-8 bg-white shadow-lg rounded-xl min-h-[500px] flex flex-col justify-between ${
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
+              } ${plan.isPopular ? "border-2 border-primary" : ""}`} // Adiciona borda ao plano Growth
+              style={{ transitionDelay: `${index * 200}ms` }}
+            >
+              {plan.isPopular && (
+                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-primary text-white px-3 py-1 rounded-full text-sm font-semibold">
+                  Mais Popular
+                </div>
+              )}
+              <h3 className="text-2xl font-semibold text-gray-900">{plan.title}</h3>
+              <p className="text-gray-600 mt-2">{plan.for}</p>
+              <p className="text-3xl font-bold text-primary mt-4">{plan.price} <span className="text-lg font-medium">/mês</span></p>
+
+              {/* Lista de funcionalidades */}
+              <ul className="mt-6 space-y-3 text-left">
+                {plan.features.map((feature, idx) => (
+                  <li key={idx} className="flex items-center gap-3 text-gray-700">
+                    <Check className="text-green-500" size={20} />
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
 
-        <div className="flex justify-center">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl">
-            {plans.map((plan, index) => (
-              <div
-                key={index}
-                className={transform transition-all duration-700 ${
-                  isVisible
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-20"
-                }}
-                style={{ transitionDelay: ${index * 200}ms }}
-              >
-                <PricingCard
-                  title={plan.title}
-                  price={plan.price}
-                  for={plan.for}
-                  features={plan.features}
-                  isPopular={plan.isPopular}
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="mt-12 text-center">
-          <p className="text-gray-500 mb-6">
-            Precisa de um plano personalizado para necessidades específicas?
-          </p>
+        {/* Botões */}
+        <div className="mt-12 flex flex-col md:flex-row items-center justify-center gap-6">
           <Button
             variant="outline"
-            className="border-primary text-primary hover:bg-primary/5"
+            className="border-primary text-primary hover:bg-primary/5 px-6 py-3 text-lg font-semibold"
+            onClick={() => window.open("https://www.followop.com.br/pricing", "_blank")}
           >
-            Entre em contato para um plano sob medida
+            Veja todos os detalhes dos planos
+          </Button>
+
+          <Button
+            variant="default"
+            className="bg-primary text-white hover:bg-primary-dark px-6 py-3 text-lg font-semibold"
+            onClick={() => window.open("https://calendar.app.google/UYSBZ6HwfDj39UeCA", "_blank")}
+          >
+            Agende uma reunião estratégica
           </Button>
         </div>
       </div>
