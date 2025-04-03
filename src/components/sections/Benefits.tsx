@@ -4,12 +4,12 @@ import { useIsMobile } from "@/hooks/use-mobile";
 
 const BenefitItem = ({ icon: Icon, title, description, delay }) => {
   return (
-    <div className="flex flex-col items-center p-6 reveal text-center h-full" style={{ transitionDelay: `${delay}ms` }}>
-      <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
-        <Icon className="w-6 h-6 text-primary" />
+    <div className="flex flex-col items-center p-6 text-center h-full transition-opacity duration-500 ease-in-out" style={{ transitionDelay: `${delay}ms` }}>
+      <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+        <Icon className="w-8 h-8 text-primary" />
       </div>
-      <h3 className="text-lg font-semibold text-gray-900 mb-2 whitespace-nowrap">{title}</h3>
-      <p className="text-sm text-gray-600">{description}</p>
+      <h3 className="text-xl font-semibold text-gray-900 mb-2">{title}</h3>
+      <p className="text-base text-gray-600 leading-relaxed max-w-xs">{description}</p>
     </div>
   );
 };
@@ -70,19 +70,17 @@ const Benefits = () => {
 
   return (
     <section id="benefits" className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
-        <div className={`text-center mb-16 ${isVisible ? 'reveal active' : 'reveal'}`}>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-            Benefícios do followop
-          </h2>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 text-center">
+        <div className={`mb-16 transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+          <h2 className="text-4xl font-bold text-gray-900">Benefícios do Followop</h2>
           <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
             Tecnologia avançada com resultados imediatos para seu negócio
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
           {benefits.map((benefit, index) => (
-            <div key={index} className={`flex justify-center ${isVisible ? 'reveal active' : 'reveal'}`}>
+            <div key={index} className={`flex justify-center transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
               <BenefitItem
                 icon={benefit.icon}
                 title={benefit.title}
