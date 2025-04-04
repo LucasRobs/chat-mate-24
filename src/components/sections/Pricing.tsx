@@ -109,22 +109,14 @@ const Pricing = () => {
           ))}
         </div>
 
-        {/* Botões */}
-        <div className="mt-12 flex flex-col md:flex-row items-center justify-center gap-6">
+        {/* Botão */}
+        <div className="mt-12 flex items-center justify-center">
           <Button
             variant="outline"
             className="border-primary text-primary hover:bg-primary/5 px-6 py-3 text-lg font-semibold"
             onClick={() => window.open("https://www.followop.com.br/pricing", "_blank")}
           >
             Veja todos os detalhes dos planos
-          </Button>
-
-          <Button
-            variant="default"
-            className="bg-primary text-white hover:bg-primary-dark px-6 py-3 text-lg font-semibold"
-            onClick={() => window.open("https://calendar.app.google/UYSBZ6HwfDj39UeCA", "_blank")}
-          >
-            Agende uma reunião estratégica
           </Button>
         </div>
       </div>
