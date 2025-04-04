@@ -62,7 +62,7 @@ const Testimonials = () => {
             Empresas que transformaram seu atendimento
           </h2>
           <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
-            Veja o que nossos clientes estão dizendo sobre como a followop transformou seus negócios.
+            Clientes que confiam na followop para impulsionar seu negócios.
           </p>
         </div>
 
