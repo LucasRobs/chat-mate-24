@@ -49,7 +49,7 @@ const IntegrationPartners = () => {
                       <img 
                         src={partner.logo} 
                         alt={partner.name} 
-                        className="h-16 md:h-20 w-auto grayscale transition-all"
+                        className="h-16 md:h-20 w-auto transition-all"
                       />
                     </CardContent>
                   </Card>
