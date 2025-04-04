@@ -9,6 +9,7 @@ import Comparison from "@/components/sections/Comparison";
 import Pricing from "@/components/sections/Pricing";
 import Partners from "@/components/sections/Partners";
 import Testimonials from "@/components/sections/Testimonials";
+import IntegrationPartners from "@/components/sections/IntegrationPartners";
 import Features from "@/components/sections/Features";
 import StatsSection from "@/components/sections/StatsSection";
 import CtaSection from "@/components/sections/CtaSection";
