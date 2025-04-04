@@ -88,7 +88,7 @@ export const Navbar = () => {
 
         <div className="hidden md:flex items-center gap-4">
           <a 
-            href="https://wa.me/5500000000000" 
+            href="https://wa.me/5588997492536" 
             target="_blank" 
             rel="noopener noreferrer"
             className="flex items-center gap-2 text-secondary font-medium"
