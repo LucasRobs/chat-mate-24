@@ -1,6 +1,4 @@
-
 import { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
 import { Menu, X, Phone } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -38,7 +36,6 @@ export const Navbar = () => {
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
-    // Prevent body scroll when menu is open on mobile
     if (!isOpen) {
       document.body.style.overflow = 'hidden';
     } else {
@@ -46,7 +43,6 @@ export const Navbar = () => {
     }
   };
 
-  // Close mobile menu when resizing to desktop
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 768 && isOpen) {
@@ -78,7 +74,6 @@ export const Navbar = () => {
           <span className="font-bold text-xl sm:text-2xl text-secondary hidden md:inline-block">followop</span>
         </a>
 
-        {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
           {navItems.map((item, index) => (
             <a
@@ -101,12 +96,8 @@ export const Navbar = () => {
             <Phone size={18} />
             <span>Contato</span>
           </a>
-          <Button className="bg-primary hover:bg-primary/90 btn-hover">
-            Teste Grátis
-          </Button>
         </div>
 
-        {/* Mobile Navigation Toggle */}
         <button 
           className="md:hidden z-50" 
           onClick={toggleMenu}
@@ -116,7 +107,6 @@ export const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile Navigation Menu */}
       {isOpen && (
         <div className="fixed inset-0 z-40 bg-white pt-20 px-6 overflow-y-auto md:hidden animate-fade-in">
           <div className="flex flex-col space-y-6">
@@ -140,9 +130,6 @@ export const Navbar = () => {
                 <Phone size={18} />
                 <span>Contato</span>
               </a>
-              <Button className="bg-primary hover:bg-primary/90 btn-hover w-full mt-2">
-                Teste Grátis
-              </Button>
             </div>
           </div>
         </div>
