@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -22,6 +21,7 @@ const ClosingCtaSection = () => {
           <Button 
             size={isMobile ? "default" : "lg"} 
             className="bg-primary hover:bg-primary/90 btn-hover text-base sm:text-lg backdrop-blur-sm w-full sm:w-auto"
+            onClick={() => window.open("https://calendar.app.google/UYSBZ6HwfDj39UeCA", "_blank")}
           >
             Agende uma reunião estratégica <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
