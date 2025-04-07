@@ -14,6 +14,9 @@ import Features from "@/components/sections/Features";
 import StatsSection from "@/components/sections/StatsSection";
 import CtaSection from "@/components/sections/CtaSection";
 import ClosingCtaSection from "@/components/sections/ClosingCtaSection";
+import HowItWorks from "@/components/sections/HowItWorks";
+import ChatDemo from "@/components/sections/ChatDemo";
+import ScheduledMessages from "@/components/sections/ScheduledMessages";
 import WistiaScriptLoader from "@/components/utils/WistiaScriptLoader";
 import { Toaster } from "@/components/ui/toaster";
 
@@ -96,7 +99,10 @@ const Index = () => {
           <StatsSection />
           <Benefits />
           <Features />
+          <HowItWorks />
           <Comparison />
+          <ChatDemo />
+          <ScheduledMessages />
           <Testimonials />
           <IntegrationPartners />
           <CtaSection />
