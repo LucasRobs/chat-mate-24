@@ -5,10 +5,10 @@ import { Quote } from "lucide-react";
 const testimonials = [
   {
     id: 1,
-    name: "Clara Lisle",
-    role: "Terapeuta e Criadora do Método AZ30",
-    image: "/lovable-uploads/d0b3b40d-b7c8-49cd-a80d-68f0fe56e7d5.png",
-    content: "Encontrar a followop foi a melhor coisa que me aconteceu! Um dos maiores problemas que eu tinha na minha empresa era no WhatsApp, contratava pessoas, Call Center e apesar de passar o roteiro para a equipe e treiná-los, sempre saía bem diferente do treinamento, eles demoravam muito nas respostas e isso me trouxe muitas perdas financeiras e de clientes. Quando comecei com a followop isso acabou! Respostas super rápidas, o robô seguindo totalmente o treinamento e foi a primeira IA que eu vi no mercado que humaniza tanto as respostas de acordo com o banco que ela tem, outras que já testei eram extremamente robóticas e absurdas de caras. Fora que eles são sempre MUITO abertos a dar suporte e estão sempre atualizando a plataforma para melhor, o que para mim enquanto empresária é mais que essencial! Indico de olhos fechados❤",
+    name: "Dr. Daniel Aguiar",
+    role: "Cardiologista",
+    image: "/lovable-uploads/983bcc88-4e6a-416d-8abb-315429e7ce28.png",
+    content: "Clareza, agilidade e precisão, 24 horas por dia, sete dias por semana. A IA conversa com vários pacientes ao mesmo tempo — algo que, humanamente, seria impossível. O tempo de resposta caiu, a perda de leads praticamente desapareceu e, o mais surpreendente: ela vende. E vende bem, de forma natural, sem soar robótica. Enquanto isso, minha secretária pode se dedicar ao que realmente importa: oferecer atenção e suporte de qualidade aos pacientes que já confiam no nosso trabalho. A IA não veio para substituir — veio para potencializar o atendimento. Se você é médico e ainda não está utilizando uma tecnologia como essa, é sinal de que está na hora de evoluir.",
     rating: 5
   }
 ];
@@ -59,10 +59,10 @@ const Testimonials = () => {
             Depoimentos
           </span>
           <h2 className="mt-6 text-3xl md:text-4xl font-bold text-secondary">
-            Empresas que transformaram seu atendimento
+            Profissionais que transformaram seu atendimento
           </h2>
           <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
-            Clientes que confiam na followop para impulsionar seu negócios.
+            Clientes que confiam na followop para impulsionar seus negócios
           </p>
         </div>
 
@@ -77,7 +77,7 @@ const Testimonials = () => {
             <Quote size={120} className="text-primary" />
           </div>
           
-          <div className="bg-white rounded-2xl shadow-xl p-6 md:p-10 relative overflow-hidden border border-gray-100">
+          <div className="testimonial-card p-6 md:p-10 relative overflow-hidden">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-center">
               {/* Customer Image */}
               <div className="md:col-span-1 flex justify-center">
@@ -110,7 +110,7 @@ const Testimonials = () => {
                   ))}
                 </div>
                 
-                <p className="text-gray-700 text-lg italic leading-relaxed">
+                <p className="text-gray-700 text-lg leading-relaxed">
                   "{testimonial.content}"
                 </p>
                 

@@ -7,11 +7,17 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --border-radius: 12px;
+  --border-radius-lg: 16px;
+  --border-radius-xl: 20px;
 }
 
 body {
   color: rgb(var(--foreground-rgb));
   background: rgb(var(--background-end-rgb));
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* Animations */
@@ -46,7 +52,7 @@ body {
 }
 
 .hover-scale:hover {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 
 /* Add responsive text alignment */
@@ -63,4 +69,29 @@ body {
 /* Add smooth scrolling */
 html {
   scroll-behavior: smooth;
+}
+
+/* Apple-inspired design elements */
+.apple-card {
+  @apply bg-white rounded-2xl shadow-sm border border-gray-100;
+}
+
+.apple-button {
+  @apply rounded-full transition-all duration-300 backdrop-blur-sm;
+}
+
+/* Testimonial styles */
+.testimonial-card {
+  @apply bg-white rounded-3xl shadow-lg border border-gray-100 overflow-hidden;
+}
+
+.followop-pattern {
+  background-image: radial-gradient(circle at 2px 2px, rgba(0,175,107,0.09) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+.impulso-pattern {
+  background-image: linear-gradient(rgba(0,175,107,0.07) 1px, transparent 1px), 
+                    linear-gradient(90deg, rgba(0,175,107,0.07) 1px, transparent 1px);
+  background-size: 24px 24px;
 }

@@ -108,7 +108,7 @@ const Features = () => {
           <div className="flex justify-center mt-12">
             <Button 
               onClick={() => setShowMore(true)}
-              className="group bg-primary hover:bg-primary/90 text-white px-6 py-2 rounded-md flex items-center gap-2 transition-all duration-300 transform hover:scale-105"
+              className="group bg-primary hover:bg-primary/90 text-white px-6 py-2 rounded-full flex items-center gap-2 transition-all duration-300 transform hover:scale-105"
             >
               Exibir mais funcionalidades
               <span className="transition-transform duration-300 group-hover:translate-y-1">

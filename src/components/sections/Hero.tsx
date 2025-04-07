@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
@@ -34,13 +35,13 @@ const Hero = () => {
             </h1>
             
             <p className="mt-6 text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-              A IA que atende, qualifica e converte seus leads 24h por dia, sem interrupções e <span className="font-semibold">7x mais barata</span> que um SDR humano.
+              A IA que atende, qualifica e converte seus leads 24h por dia, sem interrupções e <span className="font-semibold">7x mais barata</span> que um atendente.
             </p>
             
             <div className="mt-10">
               <Button 
                 size="lg" 
-                className="bg-primary hover:bg-primary/90 btn-hover text-lg px-10 py-6"
+                className="bg-primary hover:bg-primary/90 apple-button text-lg px-10 py-6"
                 asChild
               >
                 <a href="http://followop.com.br/register" target="_blank" rel="noopener noreferrer">
@@ -53,7 +54,7 @@ const Hero = () => {
           {/* Hero Image/Video */}
           <div className={isVisible ? "animate-fade-in-up mt-16 w-full max-w-4xl" : "opacity-0 mt-16 w-full max-w-4xl"}>
             {isLoading ? (
-              <div className="relative aspect-[16/9] w-full bg-gray-100 rounded-xl overflow-hidden">
+              <div className="relative aspect-[16/9] w-full bg-gray-100 rounded-2xl overflow-hidden">
                 <div className="absolute inset-0 animate-pulse bg-gray-200"></div>
               </div>
             ) : (
