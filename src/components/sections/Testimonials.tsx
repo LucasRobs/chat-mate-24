@@ -18,7 +18,7 @@ const testimonials = [
     id: 2,
     name: "Dr. Daniel Aguiar",
     role: "Cardiologista",
-    image: "/lovable-uploads/dotodaniel.png", // Substitua pela imagem real quando disponível
+    image: "/lovable-uploads/danieldoto.png", // Substitua pela imagem real quando disponível
     content:
       "Clareza, agilidade e precisão, 24 horas por dia, sete dias por semana. A IA conversa com vários pacientes ao mesmo tempo — algo que, humanamente, seria impossível. O tempo de resposta caiu, a perda de leads praticamente desapareceu e, o mais surpreendente: ela vende. E vende bem, de forma natural, sem soar robótica.\n\nEnquanto isso, minha secretária pode se dedicar ao que realmente importa: oferecer atenção e suporte de qualidade aos pacientes que já confiam no nosso trabalho. A IA não veio para substituir — veio para potencializar o atendimento.\n\nSe você é médico e ainda não está utilizando uma tecnologia como essa, é sinal de que está na hora de evoluir."
   }
