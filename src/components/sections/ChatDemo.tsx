@@ -22,7 +22,7 @@ const ChatDemo = () => {
         
         <div className="max-w-4xl mx-auto h-[225px] sm:h-[300px] md:h-[400px] lg:h-[500px] rounded-xl overflow-hidden shadow-2xl">
           {videoPlaying ? (
-            <VideoPlayer videoId="123456789" hashedId="123456789" />
+            <VideoPlayer src="https://example.com/video.mp4" videoId="123456789" poster="/lovable-uploads/240e98ed-eab0-4c12-b92a-802196862efd.png" />
           ) : (
             <VideoThumbnail
               thumbnailSrc="/lovable-uploads/240e98ed-eab0-4c12-b92a-802196862efd.png"
