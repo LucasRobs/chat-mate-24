@@ -1,10 +1,13 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import FeatureCard from '../ui-custom/FeatureCard';
-import { MessageSquare, Clock, BarChart, Zap, Globe, Shield } from 'lucide-react';
+import { MessageSquare, Clock, BarChart, Zap, Globe, Shield, Users, FileText, Brain, Bot, Database, Lightbulb } from 'lucide-react';
+import { Button } from '../ui/button';
 
 const Features = () => {
-  const features = [
+  const [showMore, setShowMore] = useState(false);
+  
+  const initialFeatures = [
     {
       icon: MessageSquare,
       title: 'Respostas Inteligentes',
@@ -37,6 +40,43 @@ const Features = () => {
     },
   ];
 
+  const additionalFeatures = [
+    {
+      icon: Users,
+      title: 'Gestão de Leads',
+      description: 'Organize automaticamente seus leads com base em interesses e estágio no funil.',
+    },
+    {
+      icon: FileText,
+      title: 'Templates Personalizados',
+      description: 'Crie e salve templates de mensagens para diferentes situações de atendimento.',
+    },
+    {
+      icon: Brain,
+      title: 'Aprendizado Contínuo',
+      description: 'IA que aprende com cada interação para melhorar constantemente as respostas.',
+    },
+    {
+      icon: Bot,
+      title: 'Personalidade Customizável',
+      description: 'Configure o tom e estilo de comunicação do seu assistente virtual.',
+    },
+    {
+      icon: Database,
+      title: 'Integração com CRM',
+      description: 'Conecte-se facilmente com os principais sistemas de CRM do mercado.',
+    },
+    {
+      icon: Lightbulb,
+      title: 'Sugestões Inteligentes',
+      description: 'Recomendações para melhorar suas taxas de conversão com base em dados.',
+    },
+  ];
+
+  const visibleFeatures = showMore 
+    ? [...initialFeatures, ...additionalFeatures] 
+    : initialFeatures;
+
   return (
     <section id="features" className="py-16 md:py-24 bg-gray-50">
       <div className="container mx-auto px-4">
@@ -48,7 +88,7 @@ const Features = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {features.map((feature, index) => (
+          {visibleFeatures.map((feature, index) => (
             <div 
               key={index}
               className="animate-fade-in"
@@ -63,6 +103,22 @@ const Features = () => {
             </div>
           ))}
         </div>
+        
+        {!showMore && (
+          <div className="flex justify-center mt-12">
+            <Button 
+              onClick={() => setShowMore(true)}
+              className="group bg-primary hover:bg-primary/90 text-white px-6 py-2 rounded-md flex items-center gap-2 transition-all duration-300 transform hover:scale-105"
+            >
+              Exibir mais funcionalidades
+              <span className="transition-transform duration-300 group-hover:translate-y-1">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6 9L12 15L18 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </span>
+            </Button>
+          </div>
+        )}
       </div>
     </section>
   );
