@@ -6,32 +6,32 @@ import { MessageSquare, Clock, BarChart, Zap, Globe, Shield } from 'lucide-react
 const Features = () => {
   const features = [
     {
-      icon: <MessageSquare className="h-10 w-10 text-emerald-500" />,
+      icon: MessageSquare,
       title: 'Respostas Inteligentes',
       description: 'IA treinada para responder dúvidas dos clientes com precisão e personalidade.',
     },
     {
-      icon: <Clock className="h-10 w-10 text-emerald-500" />,
+      icon: Clock,
       title: 'Disponibilidade 24/7',
       description: 'Atendimento automatizado disponível a qualquer hora, todos os dias da semana.',
     },
     {
-      icon: <BarChart className="h-10 w-10 text-emerald-500" />,
+      icon: BarChart,
       title: 'Relatórios Detalhados',
       description: 'Análise completa das interações para melhorar seu atendimento.',
     },
     {
-      icon: <Zap className="h-10 w-10 text-emerald-500" />,
+      icon: Zap,
       title: 'Integração Rápida',
       description: 'Configure em minutos e comece a usar imediatamente em sua plataforma.',
     },
     {
-      icon: <Globe className="h-10 w-10 text-emerald-500" />,
+      icon: Globe,
       title: 'Múltiplos Canais',
       description: 'Funciona com WhatsApp, Instagram, Facebook e seu próprio site.',
     },
     {
-      icon: <Shield className="h-10 w-10 text-emerald-500" />,
+      icon: Shield,
       title: 'Segurança Total',
       description: 'Protocolos avançados para garantir a segurança dos dados dos clientes.',
     },
