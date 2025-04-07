@@ -5,13 +5,12 @@ import { cn } from "@/lib/utils";
 import { Skeleton } from "@/components/ui/skeleton";
 
 interface VideoPlayerProps {
-  src?: string;
+  src: string;
   poster?: string;
   className?: string;
-  videoId?: string;
 }
 
-const VideoPlayer = ({ src, poster, className, videoId }: VideoPlayerProps) => {
+const VideoPlayer = ({ src, poster, className }: VideoPlayerProps) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
   const [progress, setProgress] = useState(0);
@@ -21,7 +20,7 @@ const VideoPlayer = ({ src, poster, className, videoId }: VideoPlayerProps) => {
 
   // Handle Google Drive links
   useEffect(() => {
-    if (src && src.includes('drive.google.com') && !src.includes('uc?export=download')) {
+    if (src.includes('drive.google.com') && !src.includes('uc?export=download')) {
       // Extract file ID from various Google Drive URL formats
       const fileIdMatch = src.match(/[-\w]{25,}/);
       if (fileIdMatch && fileIdMatch[0]) {
