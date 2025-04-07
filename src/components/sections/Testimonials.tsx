@@ -11,7 +11,7 @@ const testimonials = [
     role: "Terapeuta e Criadora do Método AZ30",
     image: "/lovable-uploads/d0b3b40d-b7c8-49cd-a80d-68f0fe56e7d5.png",
     content:
-      "Encontrar a followop foi a melhor coisa que me aconteceu! Um dos maiores problemas que eu tinha na minha empresa era no WhatsApp, contratava pessoas, Call Center e apesar de passar o roteiro para a equipe e treiná-los, sempre saía bem diferente do treinamento, eles demoravam muito nas respostas e isso me trouxe muitas perdas financeiras e de clientes. Quando comecei com a followop isso acabou! Respostas super rápidas, o robô seguindo totalmente o treinamento e foi a primeira IA que eu vi no mercado que humaniza tanto as respostas de acordo com o banco que ela tem, outras que já testei eram extremamente robóticas e absurdas de caras. Fora que eles são sempre MUITO abertos a dar suporte e estão sempre atualizando a plataforma para melhor, o que para mim enquanto empresária é mais que essencial! Indico de olhos fechados❤",
+      "Encontrar a followop foi a melhor coisa que me aconteceu! Um dos maiores problemas que eu tinha na minha empresa era no WhatsApp [...] Indico de olhos fechados❤",
     rating: 5,
   },
   {
@@ -20,7 +20,7 @@ const testimonials = [
     role: "Cardiologista",
     image: "/lovable-uploads/testimonial-daniel.png",
     content:
-      "Clareza, agilidade e precisão, 24 horas por dia, sete dias por semana. A IA conversa com vários pacientes ao mesmo tempo — algo que, humanamente, seria impossível. O tempo de resposta caiu, a perda de leads praticamente desapareceu e, o mais surpreendente: ela vende. E vende bem, de forma natural, sem soar robótica.\n\nEnquanto isso, minha secretária pode se dedicar ao que realmente importa: oferecer atenção e suporte de qualidade aos pacientes que já confiam no nosso trabalho. A IA não veio para substituir — veio para potencializar o atendimento.\n\nSe você é médico e ainda não está utilizando uma tecnologia como essa, é sinal de que está na hora de evoluir.",
+      "Clareza, agilidade e precisão, 24 horas por dia, sete dias por semana [...] é sinal de que está na hora de evoluir.",
     rating: 5,
   },
 ];
@@ -29,7 +29,7 @@ const Testimonials = () => {
   const [isVisible, setIsVisible] = useState(false);
   const autoplayPlugin = useRef(
     Autoplay({
-      delay: 10000,
+      delay: 5000,
       stopOnInteraction: false,
       stopOnMouseEnter: true,
     })
@@ -77,7 +77,12 @@ const Testimonials = () => {
         </div>
 
         <Carousel
-          opts={{ loop: true, align: "center", slidesToScroll: 1 }}
+          opts={{
+            loop: true,
+            align: "center",
+            slidesToScroll: 1,
+            duration: 500,
+          }}
           plugins={[autoplayPlugin.current]}
           className="w-full"
         >
@@ -85,22 +90,25 @@ const Testimonials = () => {
             {testimonials.map((testimonial) => (
               <CarouselItem
                 key={testimonial.id}
-                className="flex-shrink-0 px-4 md:px-8 w-full md:w-1/2 lg:w-1/2"
+                className="flex-shrink-0 px-4 md:px-8 w-full md:w-1/2 lg:w-1/2 flex justify-center"
               >
-                <Card className="bg-white rounded-2xl shadow-xl p-6 md:p-10 relative border border-gray-100 h-full transition-transform duration-300 hover:scale-[1.01]">
-                  <CardContent className="h-full flex flex-col justify-between gap-6">
-                    <div className="absolute -top-4 -left-4 bg-primary text-white rounded-full p-3 z-10 shadow-md">
+                <Card className="bg-white rounded-2xl shadow-lg hover:shadow-2xl p-6 md:p-10 border border-gray-100 max-w-xl w-full relative transition-transform duration-300 hover:scale-[1.01]">
+                  <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 z-20">
+                    <div className="bg-primary text-white rounded-full p-3 shadow-lg border-4 border-white">
                       <Quote size={32} />
                     </div>
+                  </div>
 
+                  <CardContent className="h-full flex flex-col justify-between gap-6 mt-6">
                     <div className="flex flex-col items-center text-center">
-                      <div className="w-28 h-28 md:w-36 md:h-36 rounded-full overflow-hidden border-4 border-primary/20 mb-4">
+                      <div className="w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden border-4 border-primary/20 mb-4">
                         <img
                           src={testimonial.image}
                           alt={testimonial.name}
                           className="w-full h-full object-cover"
                         />
                       </div>
+
                       <div className="flex gap-1 mb-4">
                         {[...Array(testimonial.rating)].map((_, i) => (
                           <svg
@@ -113,6 +121,7 @@ const Testimonials = () => {
                           </svg>
                         ))}
                       </div>
+
                       <p className="text-gray-700 text-md italic leading-relaxed max-w-xl">
                         "{testimonial.content}"
                       </p>
