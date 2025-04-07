@@ -1,81 +1,41 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import FeatureCard from '../ui-custom/FeatureCard';
-import { MessageSquare, Clock, BarChart, Zap, Globe, Shield, Users, FileText, Brain, Bot, Database, Lightbulb } from 'lucide-react';
-import { Button } from '../ui/button';
+import { MessageSquare, Clock, BarChart, Zap, Globe, Shield } from 'lucide-react';
 
 const Features = () => {
-  const [showMore, setShowMore] = useState(false);
-  
-  const initialFeatures = [
+  const features = [
     {
-      icon: MessageSquare,
+      icon: <MessageSquare className="h-10 w-10 text-emerald-500" />,
       title: 'Respostas Inteligentes',
       description: 'IA treinada para responder dúvidas dos clientes com precisão e personalidade.',
     },
     {
-      icon: Clock,
+      icon: <Clock className="h-10 w-10 text-emerald-500" />,
       title: 'Disponibilidade 24/7',
       description: 'Atendimento automatizado disponível a qualquer hora, todos os dias da semana.',
     },
     {
-      icon: BarChart,
+      icon: <BarChart className="h-10 w-10 text-emerald-500" />,
       title: 'Relatórios Detalhados',
       description: 'Análise completa das interações para melhorar seu atendimento.',
     },
     {
-      icon: Zap,
+      icon: <Zap className="h-10 w-10 text-emerald-500" />,
       title: 'Integração Rápida',
       description: 'Configure em minutos e comece a usar imediatamente em sua plataforma.',
     },
     {
-      icon: Globe,
+      icon: <Globe className="h-10 w-10 text-emerald-500" />,
       title: 'Múltiplos Canais',
       description: 'Funciona com WhatsApp, Instagram, Facebook e seu próprio site.',
     },
     {
-      icon: Shield,
+      icon: <Shield className="h-10 w-10 text-emerald-500" />,
       title: 'Segurança Total',
       description: 'Protocolos avançados para garantir a segurança dos dados dos clientes.',
     },
   ];
-
-  const additionalFeatures = [
-    {
-      icon: Users,
-      title: 'Gestão de Leads',
-      description: 'Organize automaticamente seus leads com base em interesses e estágio no funil.',
-    },
-    {
-      icon: FileText,
-      title: 'Templates Personalizados',
-      description: 'Crie e salve templates de mensagens para diferentes situações de atendimento.',
-    },
-    {
-      icon: Brain,
-      title: 'Aprendizado Contínuo',
-      description: 'IA que aprende com cada interação para melhorar constantemente as respostas.',
-    },
-    {
-      icon: Bot,
-      title: 'Personalidade Customizável',
-      description: 'Configure o tom e estilo de comunicação do seu assistente virtual.',
-    },
-    {
-      icon: Database,
-      title: 'Integração com CRM',
-      description: 'Conecte-se facilmente com os principais sistemas de CRM do mercado.',
-    },
-    {
-      icon: Lightbulb,
-      title: 'Sugestões Inteligentes',
-      description: 'Recomendações para melhorar suas taxas de conversão com base em dados.',
-    },
-  ];
-
-  const visibleFeatures = showMore 
-    ? [...initialFeatures, ...additionalFeatures] 
-    : initialFeatures;
 
   return (
     <section id="features" className="py-16 md:py-24 bg-gray-50">
@@ -88,7 +48,7 @@ const Features = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {visibleFeatures.map((feature, index) => (
+          {features.map((feature, index) => (
             <div 
               key={index}
               className="animate-fade-in"
@@ -103,22 +63,6 @@ const Features = () => {
             </div>
           ))}
         </div>
-        
-        {!showMore && (
-          <div className="flex justify-center mt-12">
-            <Button 
-              onClick={() => setShowMore(true)}
-              className="group bg-primary hover:bg-primary/90 text-white px-6 py-2 rounded-md flex items-center gap-2 transition-all duration-300 transform hover:scale-105"
-            >
-              Exibir mais funcionalidades
-              <span className="transition-transform duration-300 group-hover:translate-y-1">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M6 9L12 15L18 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </span>
-            </Button>
-          </div>
-        )}
       </div>
     </section>
   );
