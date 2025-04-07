@@ -1,8 +1,8 @@
-import { useRef, useState, useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import { Card, CardContent } from "@/components/ui/card";
-import Autoplay from "embla-carousel-autoplay";
 import { Quote } from "lucide-react";
+import Autoplay from "embla-carousel-autoplay";
 
 const testimonials = [
   {
@@ -18,7 +18,7 @@ const testimonials = [
     id: 2,
     name: "Dr. Daniel Aguiar",
     role: "Cardiologista",
-    image: "/lovable-uploads/placeholder-dr-daniel.png",
+    image: "/lovable-uploads/testimonial-daniel.png",
     content:
       "Clareza, agilidade e precisão, 24 horas por dia, sete dias por semana. A IA conversa com vários pacientes ao mesmo tempo — algo que, humanamente, seria impossível. O tempo de resposta caiu, a perda de leads praticamente desapareceu e, o mais surpreendente: ela vende. E vende bem, de forma natural, sem soar robótica.\n\nEnquanto isso, minha secretária pode se dedicar ao que realmente importa: oferecer atenção e suporte de qualidade aos pacientes que já confiam no nosso trabalho. A IA não veio para substituir — veio para potencializar o atendimento.\n\nSe você é médico e ainda não está utilizando uma tecnologia como essa, é sinal de que está na hora de evoluir.",
     rating: 5,
@@ -28,7 +28,11 @@ const testimonials = [
 const Testimonials = () => {
   const [isVisible, setIsVisible] = useState(false);
   const autoplayPlugin = useRef(
-    Autoplay({ delay: 7000, stopOnInteraction: false, stopOnMouseEnter: false })
+    Autoplay({
+      delay: 10000,
+      stopOnInteraction: false,
+      stopOnMouseEnter: true,
+    })
   );
 
   useEffect(() => {
@@ -41,11 +45,11 @@ const Testimonials = () => {
       { threshold: 0.1 }
     );
 
-    const section = document.getElementById("testimonials");
-    if (section) observer.observe(section);
+    const el = document.getElementById("testimonials");
+    if (el) observer.observe(el);
 
     return () => {
-      if (section) observer.unobserve(section);
+      if (el) observer.unobserve(el);
     };
   }, []);
 
@@ -73,59 +77,50 @@ const Testimonials = () => {
         </div>
 
         <Carousel
-          opts={{ loop: true, align: "start", slidesToScroll: 1 }}
+          opts={{ loop: true, align: "center", slidesToScroll: 1 }}
           plugins={[autoplayPlugin.current]}
-          className="w-full max-w-4xl mx-auto"
+          className="w-full"
         >
-          <CarouselContent>
+          <CarouselContent className="flex">
             {testimonials.map((testimonial) => (
-              <CarouselItem key={testimonial.id} className="px-2 md:px-4">
-                <Card className="bg-white rounded-2xl shadow-xl p-6 md:p-10 border border-gray-100 relative overflow-visible">
-                  {/* Citação de fundo */}
-                  <div className="absolute -top-6 -left-6 z-10 text-primary opacity-10">
-                    <Quote size={100} />
-                  </div>
+              <CarouselItem
+                key={testimonial.id}
+                className="flex-shrink-0 px-4 md:px-8 w-full md:w-1/2 lg:w-1/2"
+              >
+                <Card className="bg-white rounded-2xl shadow-xl p-6 md:p-10 relative border border-gray-100 h-full transition-transform duration-300 hover:scale-[1.01]">
+                  <CardContent className="h-full flex flex-col justify-between gap-6">
+                    <div className="absolute -top-4 -left-4 bg-primary text-white rounded-full p-3 z-10 shadow-md">
+                      <Quote size={32} />
+                    </div>
 
-                  <CardContent className="relative z-20">
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-center">
-                      <div className="md:col-span-1 flex justify-center">
-                        <div className="relative">
-                          <div className="w-32 h-32 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-primary/20">
-                            <img
-                              src={testimonial.image}
-                              alt={testimonial.name}
-                              className="w-full h-full object-cover"
-                            />
-                          </div>
-                          <div className="absolute -bottom-2 -right-2 bg-primary text-white rounded-full p-2 shadow-md">
-                            <Quote size={20} />
-                          </div>
-                        </div>
+                    <div className="flex flex-col items-center text-center">
+                      <div className="w-28 h-28 md:w-36 md:h-36 rounded-full overflow-hidden border-4 border-primary/20 mb-4">
+                        <img
+                          src={testimonial.image}
+                          alt={testimonial.name}
+                          className="w-full h-full object-cover"
+                        />
                       </div>
-
-                      <div className="md:col-span-2">
-                        <div className="flex gap-1 mb-4">
-                          {[...Array(testimonial.rating)].map((_, i) => (
-                            <svg
-                              key={i}
-                              className="w-5 h-5 text-yellow-500"
-                              fill="currentColor"
-                              viewBox="0 0 20 20"
-                            >
-                              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                            </svg>
-                          ))}
-                        </div>
-
-                        <p className="text-gray-700 text-lg italic leading-relaxed">
-                          "{testimonial.content}"
-                        </p>
-
-                        <div className="mt-6">
-                          <h4 className="font-bold text-xl text-secondary">{testimonial.name}</h4>
-                          <p className="text-gray-600">{testimonial.role}</p>
-                        </div>
+                      <div className="flex gap-1 mb-4">
+                        {[...Array(testimonial.rating)].map((_, i) => (
+                          <svg
+                            key={i}
+                            className="w-5 h-5 text-yellow-500"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                          >
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                          </svg>
+                        ))}
                       </div>
+                      <p className="text-gray-700 text-md italic leading-relaxed max-w-xl">
+                        "{testimonial.content}"
+                      </p>
+                    </div>
+
+                    <div className="text-center mt-6">
+                      <h4 className="font-bold text-xl text-secondary">{testimonial.name}</h4>
+                      <p className="text-gray-600">{testimonial.role}</p>
                     </div>
                   </CardContent>
                 </Card>
