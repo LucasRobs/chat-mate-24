@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
@@ -20,31 +19,28 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="relative bg-gradient-bg overflow-hidden pt-28 pb-16 lg:pt-36 lg:pb-28">
-      {/* Background decoration elements */}
+    <section className="relative bg-white overflow-hidden pt-24 pb-16 lg:pt-32 lg:pb-28">
+      {/* Background decoration with subtle dot pattern */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 impulso-pattern opacity-5"></div>
-        <div className="absolute top-1/3 right-1/4 w-96 h-96 rounded-full bg-primary/5 blur-3xl"></div>
-        <div className="absolute bottom-1/4 left-1/4 w-72 h-72 rounded-full bg-primary/5 blur-3xl"></div>
-        <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-white to-transparent"></div>
       </div>
       
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
         <div className="flex flex-col items-center text-center max-w-3xl mx-auto">
           {/* Hero Text */}
-          <div className={isVisible ? "animate-fade-in" : "opacity-0"}>
+          <div className={isVisible ? "animate-fade-in-left" : "opacity-0"}>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight tracking-tight">
-              Transforme seu WhatsApp em <span className="gradient-text whitespace-nowrap">uma Máquina de Vendas Automática</span> com Inteligência Artificial
+              Transforme seu WhatsApp em <span className="text-primary whitespace-nowrap">uma Máquina de Vendas Automática</span> com Inteligência Artificial
             </h1>
             
             <p className="mt-6 text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-              A IA que atende, qualifica e converte seus leads 24h por dia, sem interrupções e <span className="font-semibold">7x mais barata</span> que um atendente.
+              A IA que atende, qualifica e converte seus leads 24h por dia, sem interrupções e <span className="font-semibold">7x mais barata</span> que um SDR humano.
             </p>
             
             <div className="mt-10">
               <Button 
                 size="lg" 
-                className="bg-primary hover:bg-primary/90 apple-button text-lg px-10 py-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                className="bg-primary hover:bg-primary/90 btn-hover text-lg px-10 py-6"
                 asChild
               >
                 <a href="http://followop.com.br/register" target="_blank" rel="noopener noreferrer">
@@ -55,13 +51,13 @@ const Hero = () => {
           </div>
           
           {/* Hero Image/Video */}
-          <div className={`${isVisible ? "animate-fade-in" : "opacity-0"} mt-16 w-full max-w-4xl`}>
+          <div className={isVisible ? "animate-fade-in-up mt-16 w-full max-w-4xl" : "opacity-0 mt-16 w-full max-w-4xl"}>
             {isLoading ? (
-              <div className="relative aspect-[16/9] w-full bg-gray-100 rounded-2xl overflow-hidden">
+              <div className="relative aspect-[16/9] w-full bg-gray-100 rounded-xl overflow-hidden">
                 <div className="absolute inset-0 animate-pulse bg-gray-200"></div>
               </div>
             ) : (
-              <div className="relative rounded-3xl shadow-2xl overflow-hidden border-4 border-primary/20 hover-scale animate-float">
+              <div className="relative rounded-2xl shadow-lg overflow-hidden border-4 border-primary/20">
                 <div className="aspect-video relative">
                   <div dangerouslySetInnerHTML={{ 
                     __html: '<wistia-player media-id="k3jvq760qi" aspect="1.7777777777777777"></wistia-player>' 

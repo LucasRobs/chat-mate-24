@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Menu, X, Phone } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -59,12 +58,10 @@ export const Navbar = () => {
   return (
     <nav
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 py-3 sm:py-4 px-4 sm:px-6 md:px-12 lg:px-20 transition-all duration-500 border-b",
-        scrollY > 20 
-          ? "bg-white/80 backdrop-blur-md shadow-sm border-transparent" 
-          : "bg-transparent border-transparent",
-        isNavHidden && !isOpen ? "translate-y-[-100%]" : "translate-y-0",
-        isOpen ? "bg-white shadow-sm" : ""
+        "sticky-nav bg-white py-3 sm:py-4 px-4 sm:px-6 md:px-12 lg:px-20 shadow-sm",
+        scrollY > 100 ? "glass" : "",
+        isNavHidden && !isOpen ? "hidden-nav" : "",
+        isOpen ? "fixed inset-0 z-50 bg-white" : ""
       )}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
@@ -82,7 +79,7 @@ export const Navbar = () => {
             <a
               key={index}
               href={item.href}
-              className="text-gray-700 font-medium hover:text-primary transition-colors relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
+              className="text-gray-700 font-medium hover:text-primary link-underline transition-colors"
             >
               {item.label}
             </a>
@@ -94,7 +91,7 @@ export const Navbar = () => {
             href="https://wa.me/5588997492536" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="flex items-center gap-2 text-white font-medium bg-primary hover:bg-primary/90 rounded-full px-5 py-2 transition-all duration-300"
+            className="flex items-center gap-2 text-secondary font-medium"
           >
             <Phone size={18} />
             <span>Contato</span>
@@ -102,7 +99,7 @@ export const Navbar = () => {
         </div>
 
         <button 
-          className="md:hidden z-50 rounded-full p-2 hover:bg-gray-100 transition-colors" 
+          className="md:hidden z-50" 
           onClick={toggleMenu}
           aria-label={isOpen ? "Fechar menu" : "Abrir menu"}
         >
@@ -125,10 +122,10 @@ export const Navbar = () => {
             ))}
             <div className="flex flex-col gap-4 pt-4">
               <a 
-                href="https://wa.me/5588997492536" 
+                href="https://wa.me/5500000000000" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 text-white font-medium bg-primary hover:bg-primary/90 rounded-full px-5 py-3 transition-all duration-300"
+                className="flex items-center gap-2 text-secondary font-medium py-2"
               >
                 <Phone size={18} />
                 <span>Contato</span>
