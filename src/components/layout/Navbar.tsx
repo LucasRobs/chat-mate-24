@@ -59,15 +59,13 @@ export const Navbar = () => {
   return (
     <nav
       className={cn(
-        "sticky-nav py-3 sm:py-4 px-4 sm:px-6 md:px-12 lg:px-20 backdrop-blur-md transition-all duration-300",
-        scrollY > 100 ? "bg-white/80 shadow-sm" : "bg-white",
-        isNavHidden && !isOpen ? "hidden-nav" : "",
-        isOpen ? "fixed inset-0 z-50 bg-white" : "z-40"
+        "fixed top-0 left-0 right-0 z-50 py-3 sm:py-4 px-4 sm:px-6 md:px-12 lg:px-20 transition-all duration-500 border-b",
+        scrollY > 20 
+          ? "bg-white/80 backdrop-blur-md shadow-sm border-transparent" 
+          : "bg-transparent border-transparent",
+        isNavHidden && !isOpen ? "translate-y-[-100%]" : "translate-y-0",
+        isOpen ? "bg-white shadow-sm" : ""
       )}
-      style={{
-        transform: isNavHidden && !isOpen ? "translateY(-100%)" : "translateY(0)",
-        borderRadius: scrollY > 100 ? "0 0 24px 24px" : "0",
-      }}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <a href="#" className="flex items-center gap-2 z-50">
