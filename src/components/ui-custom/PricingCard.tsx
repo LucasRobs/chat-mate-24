@@ -1,81 +1,66 @@
 
-import { Button } from "@/components/ui/button";
-import { Check } from "lucide-react";
-import { cn } from "@/lib/utils";
-
-interface PricingFeature {
-  text: string;
-}
+import React from 'react';
+import { Button } from '../ui/button';
+import { Check } from 'lucide-react';
 
 interface PricingCardProps {
-  title: string;
+  name: string;
   price: string;
-  description?: string;
-  for?: string;
-  features: PricingFeature[];
+  description: string;
+  period: string;
+  features: string[];
+  cta: string;
   isPopular?: boolean;
-  className?: string;
 }
 
-const PricingCard = ({
-  title,
+const PricingCard: React.FC<PricingCardProps> = ({
+  name,
   price,
   description,
-  for: forText,
+  period,
   features,
+  cta,
   isPopular = false,
-  className,
-}: PricingCardProps) => {
+}) => {
   return (
     <div
-      className={cn(
-        "relative rounded-2xl p-8 transition-all",
-        isPopular 
-          ? "bg-white border-2 border-primary shadow-xl" 
-          : "bg-white border border-gray-100 shadow-sm",
-        "transform hover:-translate-y-1 transition-all duration-300",
-        className
-      )}
+      className={`h-full rounded-xl overflow-hidden transition-all duration-300 transform hover:scale-[1.02] ${
+        isPopular
+          ? 'bg-gradient-to-b from-emerald-50 to-white border-2 border-emerald-500 shadow-xl scale-[1.02]'
+          : 'bg-white border border-gray-200 shadow-md'
+      }`}
     >
       {isPopular && (
-        <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-primary text-white px-4 py-1 rounded-full text-sm font-medium">
+        <div className="bg-emerald-500 text-white text-center py-1 text-sm font-medium">
           Mais popular
         </div>
       )}
-
-      <div className="text-center mb-8">
-        <h3 className="text-xl font-semibold text-gray-900 mb-2">{title}</h3>
-        {forText && <p className="text-gray-500 text-sm mb-1">{forText}</p>}
-        {description && <p className="text-gray-500 text-sm">{description}</p>}
-        <div className="mt-4">
-          <span className="text-3xl font-bold text-gray-900">{price}</span>
-          <span className="text-gray-500 ml-2">/mês</span>
+      <div className="p-6 sm:p-8 flex flex-col h-full">
+        <h3 className="text-xl font-bold mb-2 text-center">{name}</h3>
+        <p className="text-gray-600 mb-4 text-center text-sm">{description}</p>
+        <div className="text-center mb-6">
+          <span className="text-3xl sm:text-4xl font-bold">{price}</span>
+          <span className="text-gray-600">{period}</span>
         </div>
-      </div>
-
-      <ul className="space-y-4 mb-8">
-        {features.map((feature, index) => (
-          <li key={index} className="flex items-start">
-            <Check className="w-5 h-5 text-primary flex-shrink-0 mr-3 mt-0.5" />
-            <span className="text-gray-700">{feature.text}</span>
-          </li>
-        ))}
-      </ul>
-
-      <div className="pt-4">
-        <Button
-          className={cn(
-            "w-full btn-hover",
-            isPopular 
-              ? "bg-primary hover:bg-primary/90" 
-              : "bg-gray-900 hover:bg-gray-800"
-          )}
-        >
-          Comece Agora
-        </Button>
-        <p className="text-center text-gray-500 text-xs mt-4">
-          Sem necessidade de cartão de crédito
-        </p>
+        <ul className="space-y-3 mb-8">
+          {features.map((feature, index) => (
+            <li key={index} className="flex items-start">
+              <Check className="h-5 w-5 text-emerald-500 mr-2 mt-0.5 flex-shrink-0" />
+              <span className="text-gray-700">{feature}</span>
+            </li>
+          ))}
+        </ul>
+        <div className="mt-auto text-center">
+          <Button
+            className={`w-full ${
+              isPopular
+                ? 'bg-emerald-500 hover:bg-emerald-600'
+                : 'bg-gray-900 hover:bg-gray-800'
+            }`}
+          >
+            {cta}
+          </Button>
+        </div>
       </div>
     </div>
   );
