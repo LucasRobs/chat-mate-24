@@ -15,7 +15,7 @@ const testimonials = [
     id: 2,
     name: "Dr. Daniel Aguiar",
     role: "Cardiologista",
-    image: "/danieldoto.png",
+    image: "/lovable-uploads/danieldoto.png",
     content: `Clareza, agilidade e precisão, 24 horas por dia [...]`,
     rating: 5,
   },
