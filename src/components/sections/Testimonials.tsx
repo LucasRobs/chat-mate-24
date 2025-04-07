@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import { Quote } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
 
 const testimonials = [
   {
@@ -22,6 +23,8 @@ const testimonials = [
 
 const Testimonials = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [current, setCurrent] = useState(0);
+  const [direction, setDirection] = useState(1);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -38,6 +41,14 @@ const Testimonials = () => {
     return () => {
       if (el) observer.unobserve(el);
     };
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setDirection(1);
+      setCurrent((prev) => (prev + 1) % testimonials.length);
+    }, 5000); // 5 segundos
+    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -57,37 +68,50 @@ const Testimonials = () => {
             Empresas que transformaram seu atendimento
           </h2>
           <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
-            Clientes que confiam na followop para impulsionar seu negócios.
+            Clientes que confiam na followop para impulsionar seus negócios.
           </p>
         </div>
 
-        <div className="w-full overflow-hidden">
-          <div className="marquee relative flex items-center">
-            <div className="marquee-content flex items-center w-full animate-scroll-x">
-              {[...testimonials, ...testimonials].map((t, index) => (
-                <div
-                  key={index}
-                  className="flex-shrink-0 mx-4 md:mx-8 w-[320px] md:w-[480px] bg-white rounded-2xl shadow-xl p-6 md:p-8 border border-gray-100"
-                >
-                  <div className="flex flex-col md:flex-row items-center gap-6">
-                    <div className="relative">
-                      <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-4 border-primary/20">
-                        <img
-                          src={t.image}
-                          alt={t.name}
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                      <div className="absolute -bottom-2 -right-2 bg-primary text-white rounded-full p-2">
-                        <Quote size={16} />
+        <div className={`relative transition-all duration-1000 ${
+          isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"
+        }`} style={{ transitionDelay: "200ms" }}>
+          <div className="absolute -top-10 -left-10 opacity-5">
+            <Quote size={120} className="text-primary" />
+          </div>
+
+          <div className="relative h-[480px] md:h-[400px] overflow-hidden">
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.div
+                key={testimonials[current].id}
+                initial={{ x: direction > 0 ? 200 : -200, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                exit={{ x: direction > 0 ? -200 : 200, opacity: 0 }}
+                transition={{ duration: 0.6 }}
+                className="absolute w-full"
+              >
+                <div className="bg-white rounded-2xl shadow-xl p-6 md:p-10 border border-gray-100">
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-center">
+                    <div className="md:col-span-1 flex justify-center">
+                      <div className="relative">
+                        <div className="w-32 h-32 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-primary/20">
+                          <img
+                            src={testimonials[current].image}
+                            alt={testimonials[current].name}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                        <div className="absolute -bottom-2 -right-2 bg-primary text-white rounded-full p-2">
+                          <Quote size={20} />
+                        </div>
                       </div>
                     </div>
-                    <div>
-                      <div className="flex gap-1 mb-2">
-                        {[...Array(t.rating)].map((_, i) => (
+
+                    <div className="md:col-span-2">
+                      <div className="flex gap-1 mb-4">
+                        {[...Array(testimonials[current].rating)].map((_, i) => (
                           <svg
                             key={i}
-                            className="w-4 h-4 text-yellow-500"
+                            className="w-5 h-5 text-yellow-500"
                             fill="currentColor"
                             viewBox="0 0 20 20"
                           >
@@ -95,18 +119,20 @@ const Testimonials = () => {
                           </svg>
                         ))}
                       </div>
-                      <p className="text-gray-700 text-sm md:text-base italic leading-relaxed line-clamp-6">
-                        "{t.content}"
+
+                      <p className="text-gray-700 text-lg italic leading-relaxed whitespace-pre-line">
+                        "{testimonials[current].content}"
                       </p>
-                      <div className="mt-4">
-                        <h4 className="font-bold text-lg text-secondary">{t.name}</h4>
-                        <p className="text-gray-600 text-sm">{t.role}</p>
+
+                      <div className="mt-6">
+                        <h4 className="font-bold text-xl text-secondary">{testimonials[current].name}</h4>
+                        <p className="text-gray-600">{testimonials[current].role}</p>
                       </div>
                     </div>
                   </div>
                 </div>
-              ))}
-            </div>
+              </motion.div>
+            </AnimatePresence>
           </div>
         </div>
       </div>
