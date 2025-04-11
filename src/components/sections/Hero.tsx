@@ -28,9 +28,9 @@ const Hero = () => {
           {/* Texto principal */}
           <div className={isVisible ? "animate-fade-in-left" : "opacity-0"}>
             <h1 className="text-xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-snug tracking-tight mx-auto max-w-[90%] sm:max-w-3xl md:max-w-4xl">
-              Transforme seu WhatsApp em{" "}
+              Transforme seu WhatsApp em uma{" "}
               <span className="text-primary whitespace-nowrap">
-                uma Máquina de Vendas Automática
+                Máquina de Vendas Automática
               </span>{" "}
               com Inteligência Artificial
             </h1>
