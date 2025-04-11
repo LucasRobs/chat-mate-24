@@ -13,13 +13,11 @@ export const Navbar = () => {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      
       if (currentScrollY > 100) {
         setIsNavHidden(currentScrollY > prevScrollY);
       } else {
         setIsNavHidden(false);
       }
-      
       setPrevScrollY(currentScrollY);
       setScrollY(currentScrollY);
     };
@@ -36,42 +34,38 @@ export const Navbar = () => {
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
-    if (!isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'auto';
-    }
+    document.body.style.overflow = !isOpen ? "hidden" : "auto";
   };
 
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 768 && isOpen) {
         setIsOpen(false);
-        document.body.style.overflow = 'auto';
+        document.body.style.overflow = "auto";
       }
     };
 
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, [isOpen]);
 
   return (
     <nav
       className={cn(
-        "sticky-nav bg-white py-3 sm:py-4 px-4 sm:px-6 md:px-12 lg:px-20 shadow-sm",
+        "sticky-nav bg-white py-3 sm:py-4 px-4 sm:px-6 md:px-12 lg:px-20 shadow-sm transition-all duration-300",
         scrollY > 100 ? "glass" : "",
         isNavHidden && !isOpen ? "hidden-nav" : "",
         isOpen ? "fixed inset-0 z-50 bg-white" : ""
       )}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        <a href="#" className="flex items-center gap-2 z-50">
+        <a href="#" className="flex items-center gap-2 z-50 animate-fade-in-down">
           <img
             src="/lovable-uploads/669aaab1-10dd-437a-a1b9-789ae5f02809.png"
             alt="followop Logo"
             className="h-8 w-auto sm:h-10"
           />
-          <span className="font-bold text-xl sm:text-2xl text-secondary hidden md:inline-block">followop</span>
+          <span className="font-bold text-xl sm:text-2xl text-secondary">followop</span>
         </a>
 
         <div className="hidden md:flex items-center space-x-8">
@@ -87,9 +81,9 @@ export const Navbar = () => {
         </div>
 
         <div className="hidden md:flex items-center gap-4">
-          <a 
-            href="https://wa.me/5588997492536" 
-            target="_blank" 
+          <a
+            href="https://wa.me/5588997492536"
+            target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 text-secondary font-medium"
           >
@@ -98,8 +92,8 @@ export const Navbar = () => {
           </a>
         </div>
 
-        <button 
-          className="md:hidden z-50" 
+        <button
+          className="md:hidden z-50"
           onClick={toggleMenu}
           aria-label={isOpen ? "Fechar menu" : "Abrir menu"}
         >
@@ -108,7 +102,7 @@ export const Navbar = () => {
       </div>
 
       {isOpen && (
-        <div className="fixed inset-0 z-40 bg-white pt-20 px-6 overflow-y-auto md:hidden animate-fade-in">
+        <div className="fixed inset-0 z-40 bg-white pt-20 px-6 overflow-y-auto md:hidden animate-fade-in-down">
           <div className="flex flex-col space-y-6">
             {navItems.map((item, index) => (
               <a
@@ -121,9 +115,9 @@ export const Navbar = () => {
               </a>
             ))}
             <div className="flex flex-col gap-4 pt-4">
-              <a 
-                href="https://wa.me/5500000000000" 
-                target="_blank" 
+              <a
+                href="https://wa.me/5588997492536"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-secondary font-medium py-2"
               >
