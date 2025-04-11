@@ -15,7 +15,7 @@ const testimonials = [
     id: 2,
     name: "Dr. Daniel Aguiar",
     role: "Cardiologista",
-    image: "/danieldoto.png",
+    image: "/lovable-uploads/danieldoto.png",
     content:
       "A IA da Followop transformou minha rotina médica. Ela atende em tempo real, com clareza, 24h por dia, reduzindo a perda de leads e aumentando a conversão com um atendimento que realmente sabe vender. Minha secretária agora foca no que importa: cuidar dos pacientes já fidelizados. A IA veio para somar, não substituir.",
     rating: 5,
