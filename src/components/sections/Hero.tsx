@@ -17,29 +17,26 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="relative bg-white overflow-hidden pt-20 pb-16 md:pt-28 md:pb-24 lg:pt-32 lg:pb-28">
+    <section className="relative bg-white overflow-hidden py-20 md:py-28 lg:py-32">
       {/* Background pattern */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 impulso-pattern opacity-5"></div>
       </div>
 
-      <div className="relative container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
+      <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+        <div className="flex flex-col items-center justify-center text-center w-full">
           {/* Texto principal */}
           <div className={isVisible ? "animate-fade-in-left" : "opacity-0"}>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight tracking-tight">
+            <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-snug tracking-tight max-w-4xl mx-auto">
               Transforme seu WhatsApp em{" "}
-              <span className="text-primary whitespace-nowrap">
-                uma Máquina de Vendas Automática
-              </span>{" "}
+              <span className="text-primary">uma Máquina de Vendas Automática</span>{" "}
               com Inteligência Artificial
             </h1>
 
             <p className="mt-6 text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
               A IA que atende, qualifica e converte seus leads 24h por dia, sem
-              interrupções e{" "}
-              <span className="font-semibold">7x mais barata</span> que um SDR
-              humano.
+              interrupções e <span className="font-semibold">7x mais barata</span>{" "}
+              que um Atendente.
             </p>
 
             <div className="mt-8 sm:mt-10">
@@ -53,8 +50,7 @@ const Hero = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Quero vender mais agora{" "}
-                  <ArrowRight size={20} className="ml-2" />
+                  Quero vender mais agora <ArrowRight size={20} className="ml-2" />
                 </a>
               </Button>
             </div>
@@ -62,12 +58,12 @@ const Hero = () => {
 
           {/* Vídeo responsivo */}
           <div
-            className={`w-full mt-12 sm:mt-16 ${
+            className={`w-full mt-12 sm:mt-16 px-2 ${
               isVisible ? "animate-fade-in-up" : "opacity-0"
             }`}
           >
             {isLoading ? (
-              <div className="relative aspect-[16/9] w-full bg-gray-100 rounded-xl overflow-hidden">
+              <div className="relative aspect-[16/9] w-full bg-gray-100 rounded-xl overflow-hidden max-w-5xl mx-auto">
                 <div className="absolute inset-0 animate-pulse bg-gray-200"></div>
               </div>
             ) : (
