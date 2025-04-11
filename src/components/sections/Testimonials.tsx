@@ -79,16 +79,16 @@ const Testimonials = () => {
           {testimonials.map((testimonial) => (
             <div
               key={testimonial.id}
-              className="relative bg-white rounded-2xl shadow-xl p-6 md:p-10 overflow-hidden border border-gray-100"
+              className="relative bg-white rounded-2xl shadow-xl p-6 md:p-10 overflow-hidden border border-gray-100 min-h-[420px] flex flex-col justify-between"
             >
               <div className="absolute -top-10 -left-10 opacity-5">
                 <Quote size={120} className="text-primary" />
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
-                <div className="flex justify-center md:col-span-1">
+                <div className="flex justify-center md:justify-start md:col-span-1">
                   <div className="relative">
-                    <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-primary/20">
+                    <div className="w-28 h-28 md:w-36 md:h-36 rounded-full overflow-hidden border-4 border-primary/20 mx-auto">
                       <img
                         src={testimonial.image}
                         alt={testimonial.name}
@@ -101,8 +101,8 @@ const Testimonials = () => {
                   </div>
                 </div>
 
-                <div className="md:col-span-2">
-                  <div className="flex gap-1 mb-4">
+                <div className="md:col-span-2 text-center md:text-left flex flex-col justify-center">
+                  <div className="flex justify-center md:justify-start gap-1 mb-4">
                     {[...Array(testimonial.rating)].map((_, i) => (
                       <svg
                         key={i}
@@ -115,12 +115,12 @@ const Testimonials = () => {
                     ))}
                   </div>
 
-                  <p className="text-gray-700 text-lg italic leading-relaxed">
+                  <p className="text-gray-700 text-base md:text-lg italic leading-relaxed">
                     "{testimonial.content}"
                   </p>
 
                   <div className="mt-6">
-                    <h4 className="font-bold text-xl text-secondary">
+                    <h4 className="font-bold text-lg md:text-xl text-secondary">
                       {testimonial.name}
                     </h4>
                     <p className="text-gray-600">{testimonial.role}</p>
