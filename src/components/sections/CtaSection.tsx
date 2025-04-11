@@ -1,11 +1,16 @@
-
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 const CtaSection = () => {
   const isMobile = useIsMobile();
-  
+
+  const whatsappMessage = encodeURIComponent(
+    "Olá! Vi a followop e fiquei curioso... como exatamente vocês podem melhorar meu atendimento no WhatsApp?"
+  );
+
+  const whatsappLink = `https://wa.me/558897492536?text=${whatsappMessage}`;
+
   return (
     <section className="py-16 sm:py-20 bg-white relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
@@ -20,14 +25,16 @@ const CtaSection = () => {
             <p className="mt-4 sm:mt-6 text-lg sm:text-xl text-white/80">
               Comece agora. Sem compromisso. Cancele quando quiser.
             </p>
-            
+
             <div className="mt-8 sm:mt-10">
-              <Button 
-                size={isMobile ? "default" : "lg"} 
-                className="bg-primary hover:bg-primary/90 btn-hover text-base sm:text-lg backdrop-blur-sm px-8 py-6"
-              >
-                Quero testar o followop <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
+              <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+                <Button
+                  size={isMobile ? "default" : "lg"}
+                  className="bg-primary hover:bg-primary/90 btn-hover text-base sm:text-lg backdrop-blur-sm px-8 py-6"
+                >
+                  Quero testar a followop <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </a>
             </div>
           </div>
         </div>
