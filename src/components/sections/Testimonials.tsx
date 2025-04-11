@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Quote } from "lucide-react";
 
@@ -8,9 +7,19 @@ const testimonials = [
     name: "Clara Lisle",
     role: "Terapeuta e Criadora do Método AZ30",
     image: "/lovable-uploads/d0b3b40d-b7c8-49cd-a80d-68f0fe56e7d5.png",
-    content: "Encontrar a followop foi a melhor coisa que me aconteceu! Um dos maiores problemas que eu tinha na minha empresa era no WhatsApp, contratava pessoas, Call Center e apesar de passar o roteiro para a equipe e treiná-los, sempre saía bem diferente do treinamento, eles demoravam muito nas respostas e isso me trouxe muitas perdas financeiras e de clientes. Quando comecei com a followop isso acabou! Respostas super rápidas, o robô seguindo totalmente o treinamento e foi a primeira IA que eu vi no mercado que humaniza tanto as respostas de acordo com o banco que ela tem, outras que já testei eram extremamente robóticas e absurdas de caras. Fora que eles são sempre MUITO abertos a dar suporte e estão sempre atualizando a plataforma para melhor, o que para mim enquanto empresária é mais que essencial! Indico de olhos fechados❤",
-    rating: 5
-  }
+    content:
+      "Encontrar a followop foi a melhor coisa que me aconteceu! Tinha grandes problemas com atendimento no WhatsApp, mesmo com treinamento a equipe não entregava como o esperado. Com a followop, tudo mudou: respostas rápidas, scripts seguidos com precisão e um atendimento super humanizado. Além disso, o suporte é excelente e a plataforma está em constante evolução. Indico de olhos fechados❤",
+    rating: 5,
+  },
+  {
+    id: 2,
+    name: "Dr. Daniel Aguiar",
+    role: "Cardiologista",
+    image: "/danieldoto.png",
+    content:
+      "A IA da Followop transformou minha rotina médica. Ela atende em tempo real, com clareza, 24h por dia, reduzindo a perda de leads e aumentando a conversão com um atendimento que realmente sabe vender. Minha secretária agora foca no que importa: cuidar dos pacientes já fidelizados. A IA veio para somar, não substituir.",
+    rating: 5,
+  },
 ];
 
 const Testimonials = () => {
@@ -26,31 +35,26 @@ const Testimonials = () => {
       { threshold: 0.1 }
     );
 
-    if (document.getElementById("testimonials")) {
-      observer.observe(document.getElementById("testimonials")!);
-    }
+    const target = document.getElementById("testimonials");
+    if (target) observer.observe(target);
 
     return () => {
-      if (document.getElementById("testimonials")) {
-        observer.unobserve(document.getElementById("testimonials")!);
-      }
+      if (target) observer.unobserve(target);
     };
   }, []);
 
-  const testimonial = testimonials[0];
-
   return (
-    <section 
-      id="testimonials" 
+    <section
+      id="testimonials"
       className="py-20 bg-white relative overflow-hidden"
     >
-      {/* Background pattern with followop logo */}
+      {/* Background pattern */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 followop-pattern opacity-5"></div>
       </div>
-      
+
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
-        <div 
+        <div
           className={`text-center mb-12 transition-all duration-700 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
           }`}
@@ -66,61 +70,65 @@ const Testimonials = () => {
           </p>
         </div>
 
-        <div 
-          className={`relative transition-all duration-1000 ${
+        <div
+          className={`grid grid-cols-1 md:grid-cols-2 gap-10 transition-all duration-1000 ${
             isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"
           }`}
           style={{ transitionDelay: "200ms" }}
         >
-          {/* Quote Icon Background */}
-          <div className="absolute -top-10 -left-10 opacity-5">
-            <Quote size={120} className="text-primary" />
-          </div>
-          
-          <div className="bg-white rounded-2xl shadow-xl p-6 md:p-10 relative overflow-hidden border border-gray-100">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-center">
-              {/* Customer Image */}
-              <div className="md:col-span-1 flex justify-center">
-                <div className="relative">
-                  <div className="w-32 h-32 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-primary/20">
-                    <img 
-                      src={testimonial.image}
-                      alt={testimonial.name}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div className="absolute -bottom-2 -right-2 bg-primary text-white rounded-full p-2">
-                    <Quote size={20} />
-                  </div>
-                </div>
+          {testimonials.map((testimonial) => (
+            <div
+              key={testimonial.id}
+              className="relative bg-white rounded-2xl shadow-xl p-6 md:p-10 overflow-hidden border border-gray-100"
+            >
+              <div className="absolute -top-10 -left-10 opacity-5">
+                <Quote size={120} className="text-primary" />
               </div>
-              
-              {/* Testimonial Content */}
-              <div className="md:col-span-2">
-                <div className="flex gap-1 mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <svg 
-                      key={i} 
-                      className="w-5 h-5 text-yellow-500" 
-                      fill="currentColor" 
-                      viewBox="0 0 20 20"
-                    >
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  ))}
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+                <div className="flex justify-center md:col-span-1">
+                  <div className="relative">
+                    <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-primary/20">
+                      <img
+                        src={testimonial.image}
+                        alt={testimonial.name}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="absolute -bottom-2 -right-2 bg-primary text-white rounded-full p-2">
+                      <Quote size={20} />
+                    </div>
+                  </div>
                 </div>
-                
-                <p className="text-gray-700 text-lg italic leading-relaxed">
-                  "{testimonial.content}"
-                </p>
-                
-                <div className="mt-6">
-                  <h4 className="font-bold text-xl text-secondary">{testimonial.name}</h4>
-                  <p className="text-gray-600">{testimonial.role}</p>
+
+                <div className="md:col-span-2">
+                  <div className="flex gap-1 mb-4">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <svg
+                        key={i}
+                        className="w-5 h-5 text-yellow-500"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                    ))}
+                  </div>
+
+                  <p className="text-gray-700 text-lg italic leading-relaxed">
+                    "{testimonial.content}"
+                  </p>
+
+                  <div className="mt-6">
+                    <h4 className="font-bold text-xl text-secondary">
+                      {testimonial.name}
+                    </h4>
+                    <p className="text-gray-600">{testimonial.role}</p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>
