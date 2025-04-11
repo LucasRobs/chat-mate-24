@@ -99,7 +99,17 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-gray-700 mt-12 pt-8 text-center text-sm text-gray-400">
+        {/* Logo e nome mobile */}
+        <div className="flex flex-col items-center mt-12 lg:hidden">
+          <img
+            src="/lovable-uploads/669aaab1-10dd-437a-a1b9-789ae5f02809.png"
+            alt="followop Logo"
+            className="h-8 w-auto mb-2"
+          />
+          <span className="text-lg font-semibold">followop</span>
+        </div>
+
+        <div className="border-t border-gray-700 mt-8 pt-6 text-center text-sm text-gray-400">
           <p>© {new Date().getFullYear()} followop. Todos os direitos reservados.</p>
         </div>
       </div>
