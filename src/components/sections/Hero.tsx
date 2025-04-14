@@ -19,7 +19,7 @@ const Hero = () => {
 
   useEffect(() => {
     if (!isLoading && videoContainerRef.current) {
-      const wistiaUrl = `https://fast.wistia.net/embed/iframe/k3jvq760qi?web_component=true&seo=true&autoPlay=true&muted=false`;
+      const wistiaUrl = `https://gabdrawed14.wistia.com/medias/k3jvq760qi?embedType=web_component&seo=true&autoPlay=true&muted=false`;
       const wistiaScript = document.createElement('script');
       wistiaScript.src = 'https://fast.wistia.net/player.js';
       wistiaScript.async = true;
@@ -54,7 +54,7 @@ const Hero = () => {
       videoContainerRef.current.appendChild(wistiaDiv);
       document.head.appendChild(wistiaScript);
 
-      // Limpeza ao desmontar o componente (opcional, dependendo do seu caso)
+      // Limpeza ao desmontar o componente (opcional)
       return () => {
         if (wistiaScript.parentNode) {
           wistiaScript.parentNode.removeChild(wistiaScript);
