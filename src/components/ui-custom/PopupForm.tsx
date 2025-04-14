@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
@@ -39,12 +40,16 @@ interface PopupFormProps {
   children: React.ReactNode;
   buttonClassName?: string;
   onClick?: () => void;
+  redirectUrl?: string;
+  redirectToPhone?: boolean;
 }
 
 const PopupForm: React.FC<PopupFormProps> = ({
   children,
   buttonClassName,
   onClick,
+  redirectUrl = "https://www.followop.com.br/register",
+  redirectToPhone = false,
 }) => {
   const [open, setOpen] = useState(false);
   const { hasSubmitted, setHasSubmitted, setUserInfo } = useUserForm();
@@ -68,6 +73,13 @@ const PopupForm: React.FC<PopupFormProps> = ({
           "Em breve nossa IA vai entrar em ação. Fique ligado!",
         duration: 5000,
       });
+      
+      // Redirect after showing toast if user already submitted
+      if (redirectToPhone) {
+        window.location.href = "tel:+5588997492536";
+      } else if (redirectUrl) {
+        window.open(redirectUrl, "_blank");
+      }
     } else {
       setOpen(true);
     }
@@ -84,6 +96,15 @@ const PopupForm: React.FC<PopupFormProps> = ({
         "Nossa IA já está se preparando para te gerar resultados incríveis!",
       duration: 5000,
     });
+    
+    // Redirect after form submission
+    setTimeout(() => {
+      if (redirectToPhone) {
+        window.location.href = "tel:+5588997492536";
+      } else if (redirectUrl) {
+        window.open(redirectUrl, "_blank");
+      }
+    }, 1500);
   };
 
   return (

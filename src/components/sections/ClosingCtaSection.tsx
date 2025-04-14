@@ -24,6 +24,7 @@ const ClosingCtaSection = () => {
             buttonClassName={`bg-primary hover:bg-primary/90 btn-hover text-base sm:text-lg backdrop-blur-sm w-full sm:w-auto ${
               isMobile ? "h-10 px-4 py-2" : "h-11 px-8 py-6"
             }`}
+            redirectToPhone={true}
           >
             Agende uma reunião estratégica
           </PopupForm>

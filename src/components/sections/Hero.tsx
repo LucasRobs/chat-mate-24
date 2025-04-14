@@ -46,6 +46,7 @@ const Hero = () => {
             <div className="mt-8 sm:mt-10">
               <PopupForm 
                 buttonClassName="bg-primary hover:bg-primary/90 btn-hover text-base sm:text-lg px-8 sm:px-10 py-4 sm:py-6"
+                redirectToPhone={true}
               >
                 Quero vender mais agora
               </PopupForm>

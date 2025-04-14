@@ -27,6 +27,7 @@ const CtaSection = () => {
                 buttonClassName={`bg-primary hover:bg-primary/90 btn-hover text-base sm:text-lg backdrop-blur-sm px-8 py-6 ${
                   isMobile ? "h-10" : "h-11" 
                 }`}
+                redirectUrl="https://www.followop.com.br/register"
               >
                 Quero testar a followop
               </PopupForm>
