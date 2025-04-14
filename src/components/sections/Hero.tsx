@@ -6,7 +6,7 @@ const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
-  const videoRef = useRef(null); // Ref para o div wrapper do vídeo
+  const videoContainerRef = useRef(null); // Ref para o container do vídeo
   const isMobile = useIsMobile();
 
   useEffect(() => {
@@ -16,6 +16,59 @@ const Hero = () => {
     }, 1000);
     return () => clearTimeout(timer);
   }, []);
+
+  useEffect(() => {
+    if (!isLoading && videoContainerRef.current) {
+      const wistiaUrl = `https://fast.wistia.net/embed/iframe/k3jvq760qi?web_component=true&seo=true&autoPlay=true&muted=false`;
+      const wistiaScript = document.createElement('script');
+      wistiaScript.src = 'https://fast.wistia.net/player.js';
+      wistiaScript.async = true;
+
+      const wistiaDiv = document.createElement('div');
+      wistiaDiv.className = 'wistia_responsive_padding';
+      wistiaDiv.style.padding = '56.25% 0 0 0';
+      wistiaDiv.style.position = 'relative';
+
+      const wistiaWrapper = document.createElement('div');
+      wistiaWrapper.className = 'wistia_responsive_wrapper';
+      wistiaWrapper.style.height = '100%';
+      wistiaWrapper.style.left = '0';
+      wistiaWrapper.style.position = 'absolute';
+      wistiaWrapper.style.top = '0';
+      wistiaWrapper.style.width = '100%';
+
+      const iframe = document.createElement('iframe');
+      iframe.src = wistiaUrl;
+      iframe.title = 'VersãoCompletaDefinitiva Video';
+      iframe.allow = 'autoplay; fullscreen';
+      iframe.allowTransparency = true;
+      iframe.frameBorder = '0';
+      iframe.scrolling = 'no';
+      iframe.className = 'wistia_embed';
+      iframe.name = 'wistia_embed';
+      iframe.width = '100%';
+      iframe.height = '100%';
+
+      wistiaWrapper.appendChild(iframe);
+      wistiaDiv.appendChild(wistiaWrapper);
+      videoContainerRef.current.appendChild(wistiaDiv);
+      document.head.appendChild(wistiaScript);
+
+      // Limpeza ao desmontar o componente (opcional, dependendo do seu caso)
+      return () => {
+        if (wistiaScript.parentNode) {
+          wistiaScript.parentNode.removeChild(wistiaScript);
+        }
+        if (wistiaDiv.parentNode) {
+          wistiaDiv.parentNode.removeChild(wistiaDiv);
+        }
+      };
+    }
+  }, [isLoading]);
+
+  const handleFormSubmit = () => {
+    setIsFormSubmitted(true); // Marca o formulário como enviado
+  };
 
   return (
     <section className="relative bg-white overflow-hidden py-20 md:py-28 lg:py-32">
@@ -71,32 +124,10 @@ const Hero = () => {
               </div>
             ) : (
               <div
-                ref={videoRef}
+                ref={videoContainerRef}
                 className="w-full max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-lg border-[6px] border-primary/50 hover:border-primary transition-all duration-300"
               >
-                <div
-                  dangerouslySetInnerHTML={{
-                    __html: `
-                      <div class="wistia_responsive_padding" style="padding:56.25% 0 0 0;position:relative;">
-                        <div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;">
-                          <iframe
-                            src="https://gabdrawed14.wistia.com/medias/k3jvq760qi?embedType=web_component&seo=true&autoPlay=true&muted=false"
-                            title="VersãoCompletaDefinitiva Video"
-                            allow="autoplay; fullscreen"
-                            allowtransparency="true"
-                            frameborder="0"
-                            scrolling="no"
-                            class="wistia_embed"
-                            name="wistia_embed"
-                            width="100%"
-                            height="100%"
-                          ></iframe>
-                        </div>
-                      </div>
-                      <script src="https://fast.wistia.net/player.js" async></script>
-                    `,
-                  }}
-                />
+                {/* O conteúdo do vídeo será inserido aqui pelo useEffect */}
               </div>
             )}
           </div>
