@@ -96,18 +96,33 @@ const Hero = () => {
                 <div className="absolute inset-0 animate-pulse bg-gray-200"></div>
               </div>
             ) : (
-              <div className="w-full max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-lg border-[6px] border-primary/50 hover:border-primary transition-all duration-300">
-                <div className="relative w-full h-0 pb-[56.25%]">
-                  <iframe
-                    ref={videoRef}
-                    src="https://fast.wistia.net/embed/iframe/k3jvq760qi?autoPlay=true&muted=false&captions=false"
-                    title="Wistia video player"
-                    allow="autoplay; fullscreen"
-                    allowFullScreen
-                    className="absolute top-0 left-0 w-full h-full rounded-2xl"
-                    style={{ border: "0" }}
-                  ></iframe>
-                </div>
+              <div
+                ref={videoRef}
+                className="w-full max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-lg border-[6px] border-primary/50 hover:border-primary transition-all duration-300"
+              >
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: `
+                      <div class="wistia_responsive_padding" style="padding:56.25% 0 0 0;position:relative;">
+                        <div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;">
+                          <iframe
+                            src="https://fast.wistia.net/embed/iframe/k3jvq760qi?web_component=true&seo=true&autoPlay=true&muted=false"
+                            title="VersãoCompletaDefinitiva Video"
+                            allow="autoplay; fullscreen"
+                            allowtransparency="true"
+                            frameborder="0"
+                            scrolling="no"
+                            class="wistia_embed"
+                            name="wistia_embed"
+                            width="100%"
+                            height="100%"
+                          ></iframe>
+                        </div>
+                      </div>
+                      <script src="https://fast.wistia.net/player.js" async></script>
+                    `,
+                  }}
+                />
               </div>
             )}
           </div>
