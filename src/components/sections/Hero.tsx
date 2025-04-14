@@ -96,7 +96,7 @@ const Hero = () => {
                 <div className="absolute inset-0 animate-pulse bg-gray-200"></div>
               </div>
             ) : (
-              <div className="w-full max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-lg border-4 border-primary/20">
+              <div className="w-full max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-lg border-[6px] border-primary/50 hover:border-primary transition-all duration-300">
                 <div className="relative w-full h-0 pb-[56.25%]">
                   <iframe
                     ref={videoRef}
