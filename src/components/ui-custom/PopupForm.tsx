@@ -1,8 +1,20 @@
-
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
-import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from "@/components/ui/form";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
+import {
+  Form,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormControl,
+  FormMessage,
+} from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
@@ -12,8 +24,13 @@ import { useToast } from "@/hooks/use-toast";
 import { ArrowRight } from "lucide-react";
 
 const formSchema = z.object({
-  name: z.string().min(2, { message: "O nome deve ter pelo menos 2 caracteres" }),
-  phone: z.string().min(10, { message: "O telefone deve ter pelo menos 10 dígitos" }).regex(/^\d+$/, { message: "O telefone deve conter apenas números" }),
+  name: z
+    .string()
+    .min(2, { message: "O nome deve ter pelo menos 2 caracteres" }),
+  phone: z
+    .string()
+    .min(10, { message: "O telefone deve ter pelo menos 10 dígitos" })
+    .regex(/^\d+$/, { message: "O telefone deve conter apenas números" }),
 });
 
 type FormValues = z.infer<typeof formSchema>;
@@ -24,7 +41,11 @@ interface PopupFormProps {
   onClick?: () => void;
 }
 
-const PopupForm: React.FC<PopupFormProps> = ({ children, buttonClassName, onClick }) => {
+const PopupForm: React.FC<PopupFormProps> = ({
+  children,
+  buttonClassName,
+  onClick,
+}) => {
   const [open, setOpen] = useState(false);
   const { hasSubmitted, setHasSubmitted, setUserInfo } = useUserForm();
   const { toast } = useToast();
@@ -42,8 +63,9 @@ const PopupForm: React.FC<PopupFormProps> = ({ children, buttonClassName, onClic
 
     if (hasSubmitted) {
       toast({
-        title: "Você já demonstrou interesse!",
-        description: "Em breve nossa IA entrará em contato com você.",
+        title: "Calma! Já recebemos seu interesse 😉",
+        description:
+          "Em breve nossa IA vai entrar em ação. Fique ligado!",
         duration: 5000,
       });
     } else {
@@ -57,8 +79,9 @@ const PopupForm: React.FC<PopupFormProps> = ({ children, buttonClassName, onClic
     setOpen(false);
 
     toast({
-      title: "Transformando seu Negócio!",
-      description: "Recebemos suas informações. Nossa IA vai revolucionar suas vendas!",
+      title: "Parabéns, seu negócio acaba de evoluir!",
+      description:
+        "Nossa IA já está se preparando para te gerar resultados incríveis!",
       duration: 5000,
     });
   };
@@ -75,16 +98,23 @@ const PopupForm: React.FC<PopupFormProps> = ({ children, buttonClassName, onClic
 
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogContent
-          className="sm:max-w-md max-h-screen overflow-y-auto rounded-3xl shadow-2xl border-none fixed left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 p-4 w-[95%] sm:w-full"
-          style={{ margin: 0 }}
+          className="sm:max-w-md max-h-screen overflow-y-auto rounded-3xl shadow-2xl border-none p-4 w-[95%] sm:w-full"
+          style={{
+            margin: 0,
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            position: "fixed",
+          }}
         >
           <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-primary/20 to-primary/10 opacity-80 blur-2xl -z-10" />
+
           <DialogHeader className="text-center">
             <DialogTitle className="text-3xl font-bold text-gray-900 mb-2 tracking-tight">
-              Vamos Decolar? 🚀
+              Pronto para Vender Muito Mais com IA? 💥
             </DialogTitle>
             <DialogDescription className="text-base text-gray-600 max-w-sm mx-auto">
-              Preencha seus dados e transforme seu negócio com IA em minutos!
+              Garanta sua vantagem agora. Preencha seus dados e veja a IA impulsionar seu faturamento!
             </DialogDescription>
           </DialogHeader>
 
@@ -131,7 +161,7 @@ const PopupForm: React.FC<PopupFormProps> = ({ children, buttonClassName, onClic
                 type="submit"
                 className="w-full bg-primary hover:bg-primary/90 mt-4 group"
               >
-                Quero Revolucionar Meu Negócio
+                Quero Vender Mais Agora
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Button>
             </form>
