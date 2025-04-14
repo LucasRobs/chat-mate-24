@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import PopupForm from "@/components/ui-custom/PopupForm";
 
@@ -8,6 +8,7 @@ const Hero = () => {
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
   const [isPhoneRegistered, setIsPhoneRegistered] = useState(false); 
   const [userPhone, setUserPhone] = useState(null); 
+  const videoRef = useRef(null); // Ref para o iframe
   const isMobile = useIsMobile();
 
   useEffect(() => {
@@ -18,6 +19,18 @@ const Hero = () => {
 
     return () => clearTimeout(timer);
   }, []);
+
+  useEffect(() => {
+    // Verifica se o vídeo está pronto e ativa o som
+    const videoElement = videoRef.current;
+    if (videoElement) {
+      videoElement.muted = false; // Garante que o vídeo não esteja mudo
+      videoElement.play().catch((error) => {
+        // Fallback em caso de erro na reprodução automática
+        console.error("Erro ao tentar reproduzir o vídeo com som:", error);
+      });
+    }
+  }, [isLoading]);
 
   const handleFormSubmit = (phone) => {
     setUserPhone(phone);
@@ -93,7 +106,8 @@ const Hero = () => {
               <div className="w-full max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-lg border-4 border-primary/20">
                 <div className="relative w-full h-0 pb-[56.25%]">
                   <iframe
-                    src="https://fast.wistia.net/embed/iframe/k3jvq760qi?autoPlay=true&muted=false" // O 'muted=false' garante que o som estará ativado.
+                    ref={videoRef} // Referência para o iframe
+                    src="https://fast.wistia.net/embed/iframe/k3jvq760qi?autoPlay=true&muted=false"
                     title="Wistia video player"
                     allow="autoplay; fullscreen"
                     allowFullScreen
