@@ -63,6 +63,14 @@ const PopupForm: React.FC<PopupFormProps> = ({
     },
   });
 
+  const handleRedirect = () => {
+    if (redirectToPhone) {
+      window.location.href = "tel:+5588997492536";
+    } else if (redirectUrl) {
+      window.open(redirectUrl, "_blank");
+    }
+  };
+
   const handleButtonClick = () => {
     if (onClick) onClick();
 
@@ -71,15 +79,13 @@ const PopupForm: React.FC<PopupFormProps> = ({
         title: "Calma! Já recebemos seu interesse 😉",
         description:
           "Em breve nossa IA vai entrar em ação. Fique ligado!",
-        duration: 5000,
+        duration: 3000,
       });
       
-      // Redirect after showing toast if user already submitted
-      if (redirectToPhone) {
-        window.location.href = "tel:+5588997492536";
-      } else if (redirectUrl) {
-        window.open(redirectUrl, "_blank");
-      }
+      // Automatic redirect for return users
+      setTimeout(() => {
+        handleRedirect();
+      }, 500);
     } else {
       setOpen(true);
     }
@@ -94,17 +100,13 @@ const PopupForm: React.FC<PopupFormProps> = ({
       title: "Parabéns, seu negócio acaba de evoluir!",
       description:
         "Nossa IA já está se preparando para te gerar resultados incríveis!",
-      duration: 5000,
+      duration: 3000,
     });
     
-    // Redirect after form submission
+    // Automatic redirect after form submission
     setTimeout(() => {
-      if (redirectToPhone) {
-        window.location.href = "tel:+5588997492536";
-      } else if (redirectUrl) {
-        window.open(redirectUrl, "_blank");
-      }
-    }, 1500);
+      handleRedirect();
+    }, 1000);
   };
 
   return (
