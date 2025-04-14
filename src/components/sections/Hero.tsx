@@ -6,6 +6,8 @@ const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
+  const [isPhoneRegistered, setIsPhoneRegistered] = useState(false); // Estado para verificar se o telefone está cadastrado
+  const [userPhone, setUserPhone] = useState(null); // Estado para armazenar o telefone do usuário
   const isMobile = useIsMobile();
 
   useEffect(() => {
@@ -17,8 +19,23 @@ const Hero = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  const handleFormSubmit = () => {
+  const handleFormSubmit = (phone) => {
+    setUserPhone(phone);
     setIsFormSubmitted(true);
+    // Simula a verificação do telefone cadastrado
+    if (phone) {
+      setIsPhoneRegistered(true); // Assume que o telefone foi cadastrado após preenchido
+    } else {
+      setIsPhoneRegistered(false);
+    }
+  };
+
+  const handleButtonClick = () => {
+    if (isPhoneRegistered) {
+      window.location.href = "https://www.followop.com.br/register"; // Redireciona para o link de registro
+    } else {
+      window.location.href = "https://wa.me/5588997492536"; // Redireciona para o WhatsApp
+    }
   };
 
   return (
@@ -46,19 +63,17 @@ const Hero = () => {
 
             <div className="mt-8 sm:mt-10">
               {isFormSubmitted ? (
-                <a
-                  href="https://wa.me/5588997492536"
+                <button
+                  onClick={handleButtonClick}
                   className="bg-primary hover:bg-primary/90 btn-hover text-base sm:text-lg px-8 sm:px-10 py-4 sm:py-6 inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
                 >
-                  Quero vender mais agora
-                </a>
+                  Quero testar agora
+                </button>
               ) : (
                 <PopupForm
                   buttonClassName="bg-primary hover:bg-primary/90 btn-hover text-base sm:text-lg px-8 sm:px-10 py-4 sm:py-6"
-                  redirectToPhone={true}
-                  onSubmit={handleFormSubmit}
+                  redirectToPhone={false}
+                  onSubmit={handleFormSubmit} // Passa a função para lidar com o envio do formulário
                 >
                   Quero vender mais agora
                 </PopupForm>
