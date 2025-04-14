@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import PopupForm from "@/components/ui-custom/PopupForm";
 
@@ -6,8 +6,9 @@ const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
-  const [isPhoneRegistered, setIsPhoneRegistered] = useState(false); 
-  const [userPhone, setUserPhone] = useState(null); 
+  const [isPhoneRegistered, setIsPhoneRegistered] = useState(false);
+  const [userPhone, setUserPhone] = useState(null);
+  const videoRef = useRef(null); // Ref para o iframe
   const isMobile = useIsMobile();
 
   useEffect(() => {
@@ -19,11 +20,20 @@ const Hero = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.muted = false; // Garantir que o vídeo não esteja mudo
+      videoRef.current.play().catch((error) => {
+        console.error("Erro ao tentar reproduzir o vídeo com som:", error);
+      });
+    }
+  }, []);
+
   const handleFormSubmit = (phone) => {
     setUserPhone(phone);
     setIsFormSubmitted(true);
     if (phone) {
-      setIsPhoneRegistered(true); 
+      setIsPhoneRegistered(true);
     } else {
       setIsPhoneRegistered(false);
     }
@@ -31,9 +41,9 @@ const Hero = () => {
 
   const handleButtonClick = () => {
     if (isPhoneRegistered) {
-      window.location.href = "https://www.followop.com.br/register"; 
+      window.location.href = "https://www.followop.com.br/register";
     } else {
-      window.location.href = "https://wa.me/5588997492536"; 
+      window.location.href = "https://wa.me/5588997492536";
     }
   };
 
@@ -93,7 +103,8 @@ const Hero = () => {
               <div className="w-full max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-lg border-4 border-primary/20">
                 <div className="relative w-full h-0 pb-[56.25%]">
                   <iframe
-                    src="https://fast.wistia.net/embed/iframe/k3jvq760qi?autoPlay=true&muted=false" // O 'muted=false' garante que o som estará ativado.
+                    ref={videoRef}
+                    src="https://fast.wistia.net/embed/iframe/k3jvq760qi?autoPlay=true&muted=false"
                     title="Wistia video player"
                     allow="autoplay; fullscreen"
                     allowFullScreen
