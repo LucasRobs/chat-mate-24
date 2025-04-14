@@ -28,7 +28,7 @@ const CtaSection = () => {
                   isMobile ? "h-10" : "h-11" 
                 }`}
               >
-                Quero testar a followop <ArrowRight className="ml-2 h-5 w-5" />
+                Quero testar a followop
               </PopupForm>
             </div>
           </div>

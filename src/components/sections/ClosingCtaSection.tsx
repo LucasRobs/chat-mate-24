@@ -25,7 +25,7 @@ const ClosingCtaSection = () => {
               isMobile ? "h-10 px-4 py-2" : "h-11 px-8 py-6"
             }`}
           >
-            Agende uma reunião estratégica <ArrowRight className="ml-2 h-5 w-5" />
+            Agende uma reunião estratégica
           </PopupForm>
         </div>
       </div>

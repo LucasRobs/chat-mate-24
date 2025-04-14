@@ -47,7 +47,7 @@ const Hero = () => {
               <PopupForm 
                 buttonClassName="bg-primary hover:bg-primary/90 btn-hover text-base sm:text-lg px-8 sm:px-10 py-4 sm:py-6"
               >
-                Quero vender mais agora <ArrowRight size={20} className="ml-2" />
+                Quero vender mais agora
               </PopupForm>
             </div>
           </div>

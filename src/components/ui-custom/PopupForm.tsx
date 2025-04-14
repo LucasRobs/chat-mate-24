@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
@@ -70,14 +71,14 @@ const PopupForm: React.FC<PopupFormProps> = ({ children, buttonClassName, onClic
         {...(onClick ? {} : { type: "button" })}
       >
         {children}
-        <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
       </Button>
 
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogContent
-          className="max-w-full sm:max-w-md max-h-screen overflow-y-auto rounded-3xl shadow-2xl border-none fixed inset-0 flex items-center justify-center p-4"
+          className="sm:max-w-md max-h-screen overflow-y-auto rounded-3xl shadow-2xl border-none fixed left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 p-4 w-[95%] sm:w-full"
+          style={{ margin: 0 }}
         >
-          <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-primary/10 to-primary/5 opacity-50 blur-2xl -z-10" />
+          <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-primary/20 to-primary/10 opacity-80 blur-2xl -z-10" />
           <DialogHeader className="text-center">
             <DialogTitle className="text-3xl font-bold text-gray-900 mb-2 tracking-tight">
               Vamos Decolar? 🚀
