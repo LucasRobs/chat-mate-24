@@ -6,8 +6,8 @@ const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
-  const [isPhoneRegistered, setIsPhoneRegistered] = useState(false); 
-  const [userPhone, setUserPhone] = useState(null); 
+  const [isPhoneRegistered, setIsPhoneRegistered] = useState(false);
+  const [userPhone, setUserPhone] = useState(null);
   const videoRef = useRef(null); // Ref para o iframe
   const isMobile = useIsMobile();
 
@@ -21,14 +21,14 @@ const Hero = () => {
   }, []);
 
   useEffect(() => {
-    // Verifica se o vídeo está pronto e ativa o som
     const videoElement = videoRef.current;
     if (videoElement) {
       videoElement.muted = false; // Garante que o vídeo não esteja mudo
       videoElement.play().catch((error) => {
-        // Fallback em caso de erro na reprodução automática
         console.error("Erro ao tentar reproduzir o vídeo com som:", error);
       });
+    } else {
+      console.error("O vídeo não foi encontrado.");
     }
   }, [isLoading]);
 
@@ -36,7 +36,7 @@ const Hero = () => {
     setUserPhone(phone);
     setIsFormSubmitted(true);
     if (phone) {
-      setIsPhoneRegistered(true); 
+      setIsPhoneRegistered(true);
     } else {
       setIsPhoneRegistered(false);
     }
@@ -44,9 +44,9 @@ const Hero = () => {
 
   const handleButtonClick = () => {
     if (isPhoneRegistered) {
-      window.location.href = "https://www.followop.com.br/register"; 
+      window.location.href = "https://www.followop.com.br/register";
     } else {
-      window.location.href = "https://wa.me/5588997492536"; 
+      window.location.href = "https://wa.me/5588997492536";
     }
   };
 
