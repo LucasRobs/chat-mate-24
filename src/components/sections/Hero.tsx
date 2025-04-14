@@ -6,7 +6,7 @@ const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
-  const videoRef = useRef(null); // Ref para o iframe do vídeo
+  const videoRef = useRef(null); // Ref para o div wrapper do vídeo
   const isMobile = useIsMobile();
 
   useEffect(() => {
@@ -16,32 +16,6 @@ const Hero = () => {
     }, 1000);
     return () => clearTimeout(timer);
   }, []);
-
-  useEffect(() => {
-    if (videoRef.current) {
-      const iframe = videoRef.current;
-      iframe.muted = false; // Tenta iniciar o vídeo com áudio
-
-      // Adiciona um evento de 'play' para tentar reproduzir o áudio novamente
-      iframe.addEventListener('play', () => {
-        if (iframe.muted) {
-          iframe.muted = false;
-        }
-      });
-
-      iframe.play().catch((error) => {
-        console.error("Erro ao tentar reproduzir o vídeo automaticamente com som:", error);
-        // Se a reprodução automática com som falhar, você pode:
-        // 1. Mostrar uma mensagem ao usuário para interagir com o vídeo.
-        // 2. Tentar reproduzir sem som (muted: true) como fallback.
-        // 3. Adicionar um botão de "play" customizado.
-      });
-    }
-  }, []);
-
-  const handleFormSubmit = () => {
-    setIsFormSubmitted(true); // Marca o formulário como enviado
-  };
 
   return (
     <section className="relative bg-white overflow-hidden py-20 md:py-28 lg:py-32">
@@ -106,7 +80,7 @@ const Hero = () => {
                       <div class="wistia_responsive_padding" style="padding:56.25% 0 0 0;position:relative;">
                         <div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;">
                           <iframe
-                            src="https://fast.wistia.net/embed/iframe/k3jvq760qi?web_component=true&seo=true&autoPlay=true&muted=false"
+                            src="https://gabdrawed14.wistia.com/medias/k3jvq760qi?embedType=web_component&seo=true&autoPlay=true&muted=false"
                             title="VersãoCompletaDefinitiva Video"
                             allow="autoplay; fullscreen"
                             allowtransparency="true"
