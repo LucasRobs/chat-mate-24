@@ -93,7 +93,7 @@ const Hero = () => {
               <div className="w-full max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-lg border-4 border-primary/20">
                 <div className="relative w-full h-0 pb-[56.25%]">
                   <iframe
-                    src="https://fast.wistia.net/embed/iframe/k3jvq760qi?autoPlay=true&muted=false"
+                    src="https://fast.wistia.net/embed/iframe/k3jvq760qi?autoPlay=true&muted=false" // O 'muted=false' garante que o som estará ativado.
                     title="Wistia video player"
                     allow="autoplay; fullscreen"
                     allowFullScreen
