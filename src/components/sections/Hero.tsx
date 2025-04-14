@@ -1,7 +1,9 @@
+
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
+import PopupForm from "@/components/ui-custom/PopupForm";
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -42,19 +44,11 @@ const Hero = () => {
             </p>
 
             <div className="mt-8 sm:mt-10">
-              <Button
-                size="lg"
-                className="bg-primary hover:bg-primary/90 btn-hover text-base sm:text-lg px-8 sm:px-10 py-4 sm:py-6"
-                asChild
+              <PopupForm 
+                buttonClassName="bg-primary hover:bg-primary/90 btn-hover text-base sm:text-lg px-8 sm:px-10 py-4 sm:py-6"
               >
-                <a
-                  href="http://followop.com.br/register"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Quero vender mais agora <ArrowRight size={20} className="ml-2" />
-                </a>
-              </Button>
+                Quero vender mais agora <ArrowRight size={20} className="ml-2" />
+              </PopupForm>
             </div>
           </div>
 

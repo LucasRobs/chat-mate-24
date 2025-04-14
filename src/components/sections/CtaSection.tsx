@@ -1,15 +1,11 @@
+
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
+import PopupForm from "@/components/ui-custom/PopupForm";
 
 const CtaSection = () => {
   const isMobile = useIsMobile();
-
-  const whatsappMessage = encodeURIComponent(
-    "Olá! Vi a followop e fiquei curioso... como exatamente vocês podem melhorar meu atendimento no WhatsApp?"
-  );
-
-  const whatsappLink = `https://wa.me/558897492536?text=${whatsappMessage}`;
 
   return (
     <section className="py-16 sm:py-20 bg-white relative overflow-hidden">
@@ -27,14 +23,13 @@ const CtaSection = () => {
             </p>
 
             <div className="mt-8 sm:mt-10">
-              <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
-                <Button
-                  size={isMobile ? "default" : "lg"}
-                  className="bg-primary hover:bg-primary/90 btn-hover text-base sm:text-lg backdrop-blur-sm px-8 py-6"
-                >
-                  Quero testar a followop <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </a>
+              <PopupForm
+                buttonClassName={`bg-primary hover:bg-primary/90 btn-hover text-base sm:text-lg backdrop-blur-sm px-8 py-6 ${
+                  isMobile ? "h-10" : "h-11" 
+                }`}
+              >
+                Quero testar a followop <ArrowRight className="ml-2 h-5 w-5" />
+              </PopupForm>
             </div>
           </div>
         </div>
