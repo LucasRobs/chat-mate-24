@@ -5,7 +5,7 @@ import PopupForm from "@/components/ui-custom/PopupForm";
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const [isFormSubmitted, setIsFormSubmitted] = useState(false); // Estado para saber se o formulário foi enviado
+  const [isFormSubmitted, setIsFormSubmitted] = useState(false);
   const isMobile = useIsMobile();
 
   useEffect(() => {
@@ -13,23 +13,22 @@ const Hero = () => {
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 1000);
+
     return () => clearTimeout(timer);
   }, []);
 
   const handleFormSubmit = () => {
-    setIsFormSubmitted(true); // Marca o formulário como enviado
+    setIsFormSubmitted(true);
   };
 
   return (
     <section className="relative bg-white overflow-hidden py-20 md:py-28 lg:py-32">
-      {/* Background pattern */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 impulso-pattern opacity-5"></div>
       </div>
 
       <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div className="flex flex-col items-center justify-center text-center w-full">
-          {/* Texto principal */}
           <div className={isVisible ? "animate-fade-in-left" : "opacity-0"}>
             <h1 className="text-xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-snug tracking-tight mx-auto max-w-[90%] sm:max-w-3xl md:max-w-4xl">
               Transforme seu WhatsApp em{" "}
@@ -47,7 +46,6 @@ const Hero = () => {
 
             <div className="mt-8 sm:mt-10">
               {isFormSubmitted ? (
-                // Redireciona para o WhatsApp após o envio do formulário
                 <a
                   href="https://wa.me/5588997492536"
                   className="bg-primary hover:bg-primary/90 btn-hover text-base sm:text-lg px-8 sm:px-10 py-4 sm:py-6 inline-block"
@@ -57,11 +55,10 @@ const Hero = () => {
                   Quero vender mais agora
                 </a>
               ) : (
-                // Mostra o formulário inicialmente
                 <PopupForm
                   buttonClassName="bg-primary hover:bg-primary/90 btn-hover text-base sm:text-lg px-8 sm:px-10 py-4 sm:py-6"
                   redirectToPhone={true}
-                  onSubmit={handleFormSubmit} // Chama a função ao submeter
+                  onSubmit={handleFormSubmit}
                 >
                   Quero vender mais agora
                 </PopupForm>
@@ -69,7 +66,6 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Vídeo responsivo */}
           <div
             className={`w-full mt-12 sm:mt-16 px-2 ${
               isVisible ? "animate-fade-in-up" : "opacity-0"
@@ -83,7 +79,7 @@ const Hero = () => {
               <div className="w-full max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-lg border-4 border-primary/20">
                 <div className="relative w-full h-0 pb-[56.25%]">
                   <iframe
-                    src="https://fast.wistia.net/embed/iframe/k3jvq760qi?autoPlay=true&muted=true"
+                    src="https://fast.wistia.net/embed/iframe/k3jvq760qi?autoPlay=true&muted=false"
                     title="Wistia video player"
                     allow="autoplay; fullscreen"
                     allowFullScreen
