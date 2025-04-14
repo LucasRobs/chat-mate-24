@@ -19,9 +19,8 @@ const Hero = () => {
 
   useEffect(() => {
     if (videoRef.current) {
-      // Configuração do som e reprodução
       const iframe = videoRef.current;
-      iframe.muted = false; // Garante que o som seja ativado
+      iframe.muted = false; // Garante que o áudio esteja ativado
       iframe.play().catch((error) => {
         console.error("Erro ao tentar reproduzir o vídeo automaticamente com som:", error);
       });
@@ -89,7 +88,7 @@ const Hero = () => {
                 <div className="relative w-full h-0 pb-[56.25%]">
                   <iframe
                     ref={videoRef}
-                    src="https://fast.wistia.net/embed/iframe/k3jvq760qi?autoPlay=true&muted=false"
+                    src="https://fast.wistia.net/embed/iframe/k3jvq760qi?autoPlay=true&muted=false&captions=false"
                     title="Wistia video player"
                     allow="autoplay; fullscreen"
                     allowFullScreen
