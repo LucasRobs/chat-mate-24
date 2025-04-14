@@ -9,6 +9,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useUserForm } from "@/context/UserFormContext";
 import { useToast } from "@/hooks/use-toast";
+import { ArrowRight } from "lucide-react";
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "O nome deve ter pelo menos 2 caracteres" }),
@@ -41,8 +42,8 @@ const PopupForm: React.FC<PopupFormProps> = ({ children, buttonClassName, onClic
     
     if (hasSubmitted) {
       toast({
-        title: "Obrigado pelo seu interesse!",
-        description: "Você já demonstrou interesse, em breve a nossa IA entrará em contato com você.",
+        title: "Você já demonstrou interesse!",
+        description: "Em breve nossa IA entrará em contato com você.",
         duration: 5000,
       });
     } else {
@@ -56,8 +57,8 @@ const PopupForm: React.FC<PopupFormProps> = ({ children, buttonClassName, onClic
     setOpen(false);
     
     toast({
-      title: "Informações recebidas!",
-      description: "Obrigado! Em breve entraremos em contato com você.",
+      title: "Transformando seu Negócio!",
+      description: "Recebemos suas informações. Nossa IA vai revolucionar suas vendas!",
       duration: 5000,
     });
   };
@@ -65,35 +66,38 @@ const PopupForm: React.FC<PopupFormProps> = ({ children, buttonClassName, onClic
   return (
     <>
       <Button 
-        className={buttonClassName} 
+        className={`${buttonClassName} relative group`} 
         onClick={handleButtonClick}
         {...(onClick ? {} : { type: "button" })}
       >
         {children}
+        <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
       </Button>
 
       <Dialog open={open} onOpenChange={setOpen}>
-        <DialogContent className="max-w-md mx-auto">
-          <DialogHeader>
-            <DialogTitle className="text-2xl font-bold text-center">
-              Transforme seu Atendimento Agora!
+        <DialogContent className="max-w-md mx-auto rounded-3xl shadow-2xl border-none">
+          <div className="bg-gradient-to-br from-primary/10 to-primary/5 absolute inset-0 rounded-3xl opacity-50 blur-2xl -z-10"></div>
+          <DialogHeader className="text-center">
+            <DialogTitle className="text-3xl font-bold text-gray-900 mb-2 tracking-tight">
+              Vamos Decolar? 🚀
             </DialogTitle>
-            <DialogDescription className="text-center mt-2">
-              Deixe seus dados para a nossa IA entrar em contato e revolucionar seu negócio!
+            <DialogDescription className="text-base text-gray-600 max-w-sm mx-auto">
+              Preencha seus dados e transforme seu negócio com IA em minutos!
             </DialogDescription>
           </DialogHeader>
 
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 mt-4">
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 mt-6">
               <FormField
                 control={form.control}
                 name="name"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Nome</FormLabel>
+                    <FormLabel className="text-gray-700">Nome Completo</FormLabel>
                     <FormControl>
                       <Input 
-                        placeholder="Seu nome completo" 
+                        placeholder="Como podemos te chamar?" 
+                        className="border-primary/20 focus:ring-primary/50"
                         {...field} 
                       />
                     </FormControl>
@@ -107,11 +111,12 @@ const PopupForm: React.FC<PopupFormProps> = ({ children, buttonClassName, onClic
                 name="phone"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Telefone (com DDD)</FormLabel>
+                    <FormLabel className="text-gray-700">Telefone</FormLabel>
                     <FormControl>
                       <Input 
-                        placeholder="Ex: 11999999999" 
+                        placeholder="WhatsApp para contato" 
                         type="tel"
+                        className="border-primary/20 focus:ring-primary/50"
                         {...field} 
                       />
                     </FormControl>
@@ -122,9 +127,10 @@ const PopupForm: React.FC<PopupFormProps> = ({ children, buttonClassName, onClic
 
               <Button 
                 type="submit" 
-                className="w-full bg-primary hover:bg-primary/90 mt-4"
+                className="w-full bg-primary hover:bg-primary/90 mt-4 group"
               >
-                Quero Vender Mais Agora
+                Quero Revolucionar Meu Negócio
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Button>
             </form>
           </Form>
@@ -135,3 +141,4 @@ const PopupForm: React.FC<PopupFormProps> = ({ children, buttonClassName, onClic
 };
 
 export default PopupForm;
+
