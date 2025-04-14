@@ -1,13 +1,11 @@
-
 import { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import PopupForm from "@/components/ui-custom/PopupForm";
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [isFormSubmitted, setIsFormSubmitted] = useState(false); // Novo estado
   const isMobile = useIsMobile();
 
   useEffect(() => {
@@ -17,6 +15,10 @@ const Hero = () => {
     }, 1000);
     return () => clearTimeout(timer);
   }, []);
+
+  const handleFormSubmit = () => {
+    setIsFormSubmitted(true); // Atualiza o estado quando o formulário é preenchido
+  };
 
   return (
     <section className="relative bg-white overflow-hidden py-20 md:py-28 lg:py-32">
@@ -44,12 +46,24 @@ const Hero = () => {
             </p>
 
             <div className="mt-8 sm:mt-10">
-              <PopupForm 
-                buttonClassName="bg-primary hover:bg-primary/90 btn-hover text-base sm:text-lg px-8 sm:px-10 py-4 sm:py-6"
-                redirectToPhone={true}
-              >
-                Quero vender mais agora
-              </PopupForm>
+              {isFormSubmitted ? (
+                // Redireciona o botão para o link após submissão
+                <a
+                  href="https://www.followop.com.br/register"
+                  className="bg-primary hover:bg-primary/90 btn-hover text-base sm:text-lg px-8 sm:px-10 py-4 sm:py-6 inline-block"
+                >
+                  Quero vender mais agora
+                </a>
+              ) : (
+                // Mostra o formulário inicialmente
+                <PopupForm
+                  buttonClassName="bg-primary hover:bg-primary/90 btn-hover text-base sm:text-lg px-8 sm:px-10 py-4 sm:py-6"
+                  redirectToPhone={true}
+                  onSubmit={handleFormSubmit} // Chama a função ao submeter
+                >
+                  Quero vender mais agora
+                </PopupForm>
+              )}
             </div>
           </div>
 
