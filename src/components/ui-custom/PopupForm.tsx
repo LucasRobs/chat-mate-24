@@ -64,8 +64,8 @@ const PopupForm: React.FC<PopupFormProps> = ({ children, buttonClassName, onClic
 
   return (
     <>
-      <Button 
-        className={`${buttonClassName} relative group`} 
+      <Button
+        className={`${buttonClassName} relative group`}
         onClick={handleButtonClick}
         {...(onClick ? {} : { type: "button" })}
       >
@@ -74,7 +74,9 @@ const PopupForm: React.FC<PopupFormProps> = ({ children, buttonClassName, onClic
       </Button>
 
       <Dialog open={open} onOpenChange={setOpen}>
-        <DialogContent className="max-w-md max-h-screen overflow-y-auto rounded-3xl shadow-2xl border-none fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+        <DialogContent
+          className="max-w-full sm:max-w-md max-h-screen overflow-y-auto rounded-3xl shadow-2xl border-none fixed inset-0 flex items-center justify-center p-4"
+        >
           <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-primary/10 to-primary/5 opacity-50 blur-2xl -z-10" />
           <DialogHeader className="text-center">
             <DialogTitle className="text-3xl font-bold text-gray-900 mb-2 tracking-tight">
@@ -94,10 +96,10 @@ const PopupForm: React.FC<PopupFormProps> = ({ children, buttonClassName, onClic
                   <FormItem>
                     <FormLabel className="text-gray-700">Nome Completo</FormLabel>
                     <FormControl>
-                      <Input 
-                        placeholder="Como podemos te chamar?" 
+                      <Input
+                        placeholder="Como podemos te chamar?"
                         className="border-primary/20 focus:ring-primary/50"
-                        {...field} 
+                        {...field}
                       />
                     </FormControl>
                     <FormMessage />
@@ -112,11 +114,11 @@ const PopupForm: React.FC<PopupFormProps> = ({ children, buttonClassName, onClic
                   <FormItem>
                     <FormLabel className="text-gray-700">Telefone</FormLabel>
                     <FormControl>
-                      <Input 
-                        placeholder="WhatsApp para contato" 
+                      <Input
+                        placeholder="WhatsApp para contato"
                         type="tel"
                         className="border-primary/20 focus:ring-primary/50"
-                        {...field} 
+                        {...field}
                       />
                     </FormControl>
                     <FormMessage />
@@ -124,8 +126,8 @@ const PopupForm: React.FC<PopupFormProps> = ({ children, buttonClassName, onClic
                 )}
               />
 
-              <Button 
-                type="submit" 
+              <Button
+                type="submit"
                 className="w-full bg-primary hover:bg-primary/90 mt-4 group"
               >
                 Quero Revolucionar Meu Negócio
