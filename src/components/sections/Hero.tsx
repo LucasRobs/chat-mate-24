@@ -5,6 +5,7 @@ import PopupForm from "@/components/ui-custom/PopupForm";
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [isFormSubmitted, setIsFormSubmitted] = useState(false); // Estado para saber se o formulário foi enviado
   const isMobile = useIsMobile();
 
   useEffect(() => {
@@ -16,7 +17,7 @@ const Hero = () => {
   }, []);
 
   const handleFormSubmit = () => {
-    window.location.href = "https://www.followop.com.br/register"; // Redireciona automaticamente
+    setIsFormSubmitted(true); // Marca o formulário como enviado
   };
 
   return (
@@ -45,14 +46,24 @@ const Hero = () => {
             </p>
 
             <div className="mt-8 sm:mt-10">
-              {/* PopupForm com redirecionamento automático */}
-              <PopupForm
-                buttonClassName="bg-primary hover:bg-primary/90 btn-hover text-base sm:text-lg px-8 sm:px-10 py-4 sm:py-6"
-                redirectToPhone={true}
-                onSubmit={handleFormSubmit} // Chama a função para redirecionar
-              >
-                Quero vender mais agora
-              </PopupForm>
+              {isFormSubmitted ? (
+                // Renderiza um botão de redirecionamento após o envio do formulário
+                <a
+                  href="https://www.followop.com.br/register"
+                  className="bg-primary hover:bg-primary/90 btn-hover text-base sm:text-lg px-8 sm:px-10 py-4 sm:py-6 inline-block"
+                >
+                  Quero vender mais agora
+                </a>
+              ) : (
+                // Mostra o formulário inicialmente
+                <PopupForm
+                  buttonClassName="bg-primary hover:bg-primary/90 btn-hover text-base sm:text-lg px-8 sm:px-10 py-4 sm:py-6"
+                  redirectToPhone={true}
+                  onSubmit={handleFormSubmit} // Chama a função ao submeter
+                >
+                  Quero vender mais agora
+                </PopupForm>
+              )}
             </div>
           </div>
 
