@@ -47,10 +47,12 @@ const Hero = () => {
 
             <div className="mt-8 sm:mt-10">
               {isFormSubmitted ? (
-                // Renderiza um botão de redirecionamento após o envio do formulário
+                // Redireciona para o WhatsApp após o envio do formulário
                 <a
-                  href="https://www.followop.com.br/register"
+                  href="https://wa.me/5588997492536"
                   className="bg-primary hover:bg-primary/90 btn-hover text-base sm:text-lg px-8 sm:px-10 py-4 sm:py-6 inline-block"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   Quero vender mais agora
                 </a>
