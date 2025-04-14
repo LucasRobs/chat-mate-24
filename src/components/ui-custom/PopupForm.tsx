@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
@@ -39,7 +38,7 @@ const PopupForm: React.FC<PopupFormProps> = ({ children, buttonClassName, onClic
 
   const handleButtonClick = () => {
     if (onClick) onClick();
-    
+
     if (hasSubmitted) {
       toast({
         title: "Você já demonstrou interesse!",
@@ -55,7 +54,7 @@ const PopupForm: React.FC<PopupFormProps> = ({ children, buttonClassName, onClic
     setUserInfo({ name: data.name, phone: data.phone });
     setHasSubmitted(true);
     setOpen(false);
-    
+
     toast({
       title: "Transformando seu Negócio!",
       description: "Recebemos suas informações. Nossa IA vai revolucionar suas vendas!",
@@ -75,8 +74,8 @@ const PopupForm: React.FC<PopupFormProps> = ({ children, buttonClassName, onClic
       </Button>
 
       <Dialog open={open} onOpenChange={setOpen}>
-        <DialogContent className="max-w-md mx-auto rounded-3xl shadow-2xl border-none">
-          <div className="bg-gradient-to-br from-primary/10 to-primary/5 absolute inset-0 rounded-3xl opacity-50 blur-2xl -z-10"></div>
+        <DialogContent className="max-w-md max-h-screen overflow-y-auto rounded-3xl shadow-2xl border-none fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+          <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-primary/10 to-primary/5 opacity-50 blur-2xl -z-10" />
           <DialogHeader className="text-center">
             <DialogTitle className="text-3xl font-bold text-gray-900 mb-2 tracking-tight">
               Vamos Decolar? 🚀
@@ -141,4 +140,3 @@ const PopupForm: React.FC<PopupFormProps> = ({ children, buttonClassName, onClic
 };
 
 export default PopupForm;
-
