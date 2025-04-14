@@ -20,9 +20,12 @@ const Hero = () => {
   useEffect(() => {
     if (videoRef.current) {
       const iframe = videoRef.current;
-      iframe.muted = false; // Garante que o áudio esteja ativado
+      // A tentativa de reproduzir automaticamente com áudio pode ser bloqueada pelos navegadores
+      // É melhor deixar o usuário iniciar o vídeo ou remover o muted=false
+      iframe.muted = true; // Mantém o vídeo mudo para evitar problemas de autoplay
       iframe.play().catch((error) => {
-        console.error("Erro ao tentar reproduzir o vídeo automaticamente com som:", error);
+        console.error("Erro ao tentar reproduzir o vídeo automaticamente:", error);
+        // Adicione uma lógica para mostrar um botão de play se a reprodução automática falhar
       });
     }
   }, []);
@@ -88,7 +91,7 @@ const Hero = () => {
                 <div className="relative w-full h-0 pb-[56.25%]">
                   <iframe
                     ref={videoRef}
-                    src="https://fast.wistia.net/embed/iframe/k3jvq760qi?autoPlay=true&muted=false&captions=false"
+                    src="https://fast.wistia.net/embed/iframe/k3jvq760qi?autoPlay=true&muted=true&captions=false"
                     title="Wistia video player"
                     allow="autoplay; fullscreen"
                     allowFullScreen
