@@ -6,8 +6,8 @@ const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
-  const [isPhoneRegistered, setIsPhoneRegistered] = useState(false); // Estado para verificar se o telefone está cadastrado
-  const [userPhone, setUserPhone] = useState(null); // Estado para armazenar o telefone do usuário
+  const [isPhoneRegistered, setIsPhoneRegistered] = useState(false); 
+  const [userPhone, setUserPhone] = useState(null); 
   const isMobile = useIsMobile();
 
   useEffect(() => {
@@ -22,9 +22,8 @@ const Hero = () => {
   const handleFormSubmit = (phone) => {
     setUserPhone(phone);
     setIsFormSubmitted(true);
-    // Simula a verificação do telefone cadastrado
     if (phone) {
-      setIsPhoneRegistered(true); // Assume que o telefone foi cadastrado após preenchido
+      setIsPhoneRegistered(true); 
     } else {
       setIsPhoneRegistered(false);
     }
@@ -32,9 +31,9 @@ const Hero = () => {
 
   const handleButtonClick = () => {
     if (isPhoneRegistered) {
-      window.location.href = "https://www.followop.com.br/register"; // Redireciona para o link de registro
+      window.location.href = "https://www.followop.com.br/register"; 
     } else {
-      window.location.href = "https://wa.me/5588997492536"; // Redireciona para o WhatsApp
+      window.location.href = "https://wa.me/5588997492536"; 
     }
   };
 
@@ -73,7 +72,7 @@ const Hero = () => {
                 <PopupForm
                   buttonClassName="bg-primary hover:bg-primary/90 btn-hover text-base sm:text-lg px-8 sm:px-10 py-4 sm:py-6"
                   redirectToPhone={false}
-                  onSubmit={handleFormSubmit} // Passa a função para lidar com o envio do formulário
+                  onSubmit={handleFormSubmit}
                 >
                   Quero vender mais agora
                 </PopupForm>
