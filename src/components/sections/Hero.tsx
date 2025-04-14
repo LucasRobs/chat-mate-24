@@ -6,9 +6,7 @@ const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
-  const [isPhoneRegistered, setIsPhoneRegistered] = useState(false);
-  const [userPhone, setUserPhone] = useState(null);
-  const videoRef = useRef(null); // Ref para o iframe
+  const videoRef = useRef(null); // Ref para o iframe do vídeo
   const isMobile = useIsMobile();
 
   useEffect(() => {
@@ -16,35 +14,22 @@ const Hero = () => {
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 1000);
-
     return () => clearTimeout(timer);
   }, []);
 
   useEffect(() => {
     if (videoRef.current) {
-      videoRef.current.muted = false; // Garantir que o vídeo não esteja mudo
-      videoRef.current.play().catch((error) => {
-        console.error("Erro ao tentar reproduzir o vídeo com som:", error);
+      // Configuração do som e reprodução
+      const iframe = videoRef.current;
+      iframe.muted = false; // Garante que o som seja ativado
+      iframe.play().catch((error) => {
+        console.error("Erro ao tentar reproduzir o vídeo automaticamente com som:", error);
       });
     }
   }, []);
 
-  const handleFormSubmit = (phone) => {
-    setUserPhone(phone);
-    setIsFormSubmitted(true);
-    if (phone) {
-      setIsPhoneRegistered(true);
-    } else {
-      setIsPhoneRegistered(false);
-    }
-  };
-
-  const handleButtonClick = () => {
-    if (isPhoneRegistered) {
-      window.location.href = "https://www.followop.com.br/register";
-    } else {
-      window.location.href = "https://wa.me/5588997492536";
-    }
+  const handleFormSubmit = () => {
+    setIsFormSubmitted(true); // Marca o formulário como enviado
   };
 
   return (
@@ -73,15 +58,14 @@ const Hero = () => {
             <div className="mt-8 sm:mt-10">
               {isFormSubmitted ? (
                 <button
-                  onClick={handleButtonClick}
                   className="bg-primary hover:bg-primary/90 btn-hover text-base sm:text-lg px-8 sm:px-10 py-4 sm:py-6 inline-block"
                 >
-                  Quero testar agora
+                  Quero vender mais agora
                 </button>
               ) : (
                 <PopupForm
                   buttonClassName="bg-primary hover:bg-primary/90 btn-hover text-base sm:text-lg px-8 sm:px-10 py-4 sm:py-6"
-                  redirectToPhone={false}
+                  redirectToPhone={true}
                   onSubmit={handleFormSubmit}
                 >
                   Quero vender mais agora
@@ -90,6 +74,7 @@ const Hero = () => {
             </div>
           </div>
 
+          {/* Vídeo responsivo */}
           <div
             className={`w-full mt-12 sm:mt-16 px-2 ${
               isVisible ? "animate-fade-in-up" : "opacity-0"
