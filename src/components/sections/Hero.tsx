@@ -19,50 +19,21 @@ const Hero = () => {
 
   useEffect(() => {
     if (!isLoading && videoContainerRef.current) {
-      const wistiaUrl = `https://gabdrawed14.wistia.com/medias/k3jvq760qi?embedType=web_component&seo=true&autoPlay=true&muted=false`;
-      const wistiaScript = document.createElement('script');
-      wistiaScript.src = 'https://fast.wistia.net/player.js';
-      wistiaScript.async = true;
+      const wistiaEmbedCode = `
+        <style>
+          wistia-player[media-id='k3jvq760qi']:not(:defined) {
+            background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/k3jvq760qi/swatch');
+            display: block;
+            filter: blur(5px);
+            padding-top: 56.25%;
+          }
+        </style>
+        <wistia-player media-id="k3jvq760qi" aspect="1.7777777777777777" autoplay muted></wistia-player>
+        <script src="https://fast.wistia.com/player.js" async></script>
+        <script src="https://fast.wistia.com/embed/k3jvq760qi.js" async type="module"></script>
+      `;
 
-      const wistiaDiv = document.createElement('div');
-      wistiaDiv.className = 'wistia_responsive_padding';
-      wistiaDiv.style.padding = '56.25% 0 0 0';
-      wistiaDiv.style.position = 'relative';
-
-      const wistiaWrapper = document.createElement('div');
-      wistiaWrapper.className = 'wistia_responsive_wrapper';
-      wistiaWrapper.style.height = '100%';
-      wistiaWrapper.style.left = '0';
-      wistiaWrapper.style.position = 'absolute';
-      wistiaWrapper.style.top = '0';
-      wistiaWrapper.style.width = '100%';
-
-      const iframe = document.createElement('iframe');
-      iframe.src = wistiaUrl;
-      iframe.title = 'VersãoCompletaDefinitiva Video';
-      iframe.allow = 'autoplay; fullscreen';
-      iframe.allowTransparency = true;
-      iframe.frameBorder = '0';
-      iframe.scrolling = 'no';
-      iframe.className = 'wistia_embed';
-      iframe.name = 'wistia_embed';
-      iframe.width = '100%';
-      iframe.height = '100%';
-
-      wistiaWrapper.appendChild(iframe);
-      wistiaDiv.appendChild(wistiaWrapper);
-      videoContainerRef.current.appendChild(wistiaDiv);
-      document.head.appendChild(wistiaScript);
-
-      // Limpeza ao desmontar o componente (opcional)
-      return () => {
-        if (wistiaScript.parentNode) {
-          wistiaScript.parentNode.removeChild(wistiaScript);
-        }
-        if (wistiaDiv.parentNode) {
-          wistiaDiv.parentNode.removeChild(wistiaDiv);
-        }
-      };
+      videoContainerRef.current.innerHTML = wistiaEmbedCode;
     }
   }, [isLoading]);
 
@@ -127,7 +98,7 @@ const Hero = () => {
                 ref={videoContainerRef}
                 className="w-full max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-lg border-[6px] border-primary/50 hover:border-primary transition-all duration-300"
               >
-                {/* O conteúdo do vídeo será inserido aqui pelo useEffect */}
+                {/* O conteúdo do vídeo será inserido aqui */}
               </div>
             )}
           </div>
