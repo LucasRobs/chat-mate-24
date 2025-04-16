@@ -4,7 +4,10 @@ import { useIsMobile } from "@/hooks/use-mobile";
 
 const BenefitItem = ({ icon: Icon, title, description, delay }) => {
   return (
-    <div className="flex flex-col items-center p-6 text-center h-full transition-opacity duration-500 ease-in-out" style={{ transitionDelay: `${delay}ms` }}>
+    <div
+      className="flex flex-col items-center p-6 text-center h-full transition-opacity duration-500 ease-in-out"
+      style={{ transitionDelay: `${delay}ms`, minHeight: '200px' }}
+    >
       <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4">
         <Icon className="w-8 h-8 text-primary" />
       </div>
@@ -43,28 +46,28 @@ const Benefits = () => {
   const benefits = [
     {
       icon: Clock,
-      title: "Tempo é Ouro: Atendimento **24/7**",
-      description: "Seu atendimento **sempre ativo**, dia e noite, **aumentando suas chances de venda**."
+      title: "Tempo é Ouro: Atendimento 24/7",
+      description: "Seu atendimento sempre ativo, dia e noite, aumentando suas chances de venda."
     },
     {
       icon: DollarSign,
-      title: "Lucro Inteligente: Custo Reduzido em **97%**",
-      description: "Substitua gastos com SDR humano por uma solução de **apenas R$ 0,44/hora**, focando no seu **retorno sobre investimento**."
+      title: "Lucro Inteligente: Custo Reduzido em 97%",
+      description: "Substitua gastos com SDR humano por uma solução de apenas R$ 0,44/hora, focando no seu retorno sobre investimento."
     },
     {
       icon: MessageCircle,
-      title: "Conversão Turbinada: Follow-up **Que Vende**",
-      description: "Não perca nenhuma oportunidade! Nosso sistema automatizado **engaja leads** e **acelera suas conversões**."
+      title: "Conversão Turbinada: Follow-up Que Vende",
+      description: "Não perca nenhuma oportunidade! Nosso sistema automatizado engaja leads e acelera suas conversões."
     },
     {
       icon: Headphones,
-      title: "Eficiência Máxima: Atendimento **Rápido e Preciso**",
-      description: "Respostas **instantâneas e assertivas** com IA, garantindo a **melhor experiência para o cliente**."
+      title: "Eficiência Máxima: Atendimento Rápido e Preciso",
+      description: "Respostas instantâneas e assertivas com IA, garantindo a melhor experiência para o cliente."
     },
     {
       icon: Zap,
-      title: "Comece Já: Integração **Super Simples**",
-      description: "Ative em minutos! Conecte ao seu WhatsApp e veja a **transformação acontecer**."
+      title: "Comece Já: Integração Super Simples",
+      description: "Ative em minutos! Conecte ao seu WhatsApp e veja a transformação acontecer."
     }
   ];
 
@@ -74,7 +77,7 @@ const Benefits = () => {
         <div className={`mb-16 transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">Turbine Suas Vendas com Followop!</h2>
           <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
-            Tecnologia de ponta gerando **resultados incríveis** para o seu negócio.
+            Tecnologia de ponta gerando resultados incríveis para o seu negócio.
           </p>
         </div>
 
