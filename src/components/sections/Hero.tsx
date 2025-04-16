@@ -7,7 +7,7 @@ const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const hasSubmittedForm = useRef(false);
-  const videoContainerRef = useRef(null);
+  const videoContainerRef = useRef<HTMLDivElement | null>(null);
   const router = useRouter();
   const isMobile = useIsMobile();
 
@@ -18,7 +18,7 @@ const Hero = () => {
   }, []);
 
   useEffect(() => {
-    if (!isLoading && videoContainerRef.current) {
+    if (!isLoading && typeof window !== "undefined" && videoContainerRef.current) {
       videoContainerRef.current.innerHTML = `
         <style>
           wistia-player[media-id='k3jvq760qi']:not(:defined) {
@@ -29,16 +29,25 @@ const Hero = () => {
           }
         </style>
         <wistia-player media-id="k3jvq760qi" aspect="1.7777777777777777" autoplay muted></wistia-player>
-        <script src="https://fast.wistia.com/player.js" async></script>
-        <script src="https://fast.wistia.com/embed/k3jvq760qi.js" async type="module"></script>
       `;
+
+      const script1 = document.createElement("script");
+      script1.src = "https://fast.wistia.com/player.js";
+      script1.async = true;
+
+      const script2 = document.createElement("script");
+      script2.src = "https://fast.wistia.com/embed/k3jvq760qi.js";
+      script2.type = "module";
+      script2.async = true;
+
+      videoContainerRef.current.appendChild(script1);
+      videoContainerRef.current.appendChild(script2);
     }
   }, [isLoading]);
 
-  const handleFormSubmit = (formData) => {
+  const handleFormSubmit = (formData: any) => {
     hasSubmittedForm.current = true;
     console.log("Dados do formulário:", formData);
-    // Lógica para salvar os dados do formulário iria aqui
   };
 
   const handleButtonClick = () => {
@@ -65,23 +74,27 @@ const Hero = () => {
             </h1>
 
             <p className="mt-6 text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-              A IA que atende, qualifica e converte seus leads 24h por dia, sem
-              interrupções e <span className="font-semibold">7x mais barata</span> que um Atendente.
+              A IA que atende, qualifica e converte seus leads 24h por dia, sem interrupções e{" "}
+              <span className="font-semibold">7x mais barata</span> que um Atendente.
             </p>
 
             <div className="mt-8 sm:mt-10">
-              <PopupForm
-                buttonClassName={`bg-primary hover:bg-primary/90 btn-hover text-base sm:text-lg px-8 sm:px-10 py-4 sm:py-6 inline-block rounded-md ${hasSubmittedForm.current ? 'cursor-pointer' : ''}`}
-                redirectToPhone={true}
-                onSubmit={handleFormSubmit}
-                trigger={
-                  <button onClick={handleButtonClick} disabled={hasSubmittedForm.current} className="rounded-md">
-                    {hasSubmittedForm.current ? "Ir para Cadastro" : "Quero vender mais agora"}
-                  </button>
-                }
-              >
-                Quero vender mais agora
-              </PopupForm>
+              {!hasSubmittedForm.current ? (
+                <PopupForm
+                  buttonClassName={`bg-primary hover:bg-primary/90 btn-hover text-base sm:text-lg px-8 sm:px-10 py-4 sm:py-6 inline-block rounded-md`}
+                  redirectToPhone={true}
+                  onSubmit={handleFormSubmit}
+                >
+                  Quero vender mais agora
+                </PopupForm>
+              ) : (
+                <button
+                  onClick={handleButtonClick}
+                  className="bg-primary text-white font-medium text-base sm:text-lg px-8 sm:px-10 py-4 sm:py-6 inline-block rounded-md hover:bg-primary/90 transition"
+                >
+                  Ir para Cadastro
+                </button>
+              )}
             </div>
           </div>
 
@@ -98,9 +111,7 @@ const Hero = () => {
               <div
                 ref={videoContainerRef}
                 className="w-full max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-lg border-[6px] border-primary/50 hover:border-primary transition-all duration-300"
-              >
-                {/* O conteúdo do vídeo será inserido aqui */}
-              </div>
+              />
             )}
           </div>
         </div>
