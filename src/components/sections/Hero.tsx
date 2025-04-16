@@ -1,12 +1,10 @@
 import { useState, useEffect, useRef } from "react";
-import { useRouter } from 'next/router';
-import PopupForm from "@/components/ui-custom/PopupForm";
+import { useRouter } from "next/router";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const hasSubmittedForm = useRef(false);
   const videoContainerRef = useRef<HTMLDivElement | null>(null);
   const router = useRouter();
   const isMobile = useIsMobile();
@@ -45,15 +43,8 @@ const Hero = () => {
     }
   }, [isLoading]);
 
-  const handleFormSubmit = (formData: any) => {
-    hasSubmittedForm.current = true;
-    console.log("Dados do formulário:", formData);
-  };
-
   const handleButtonClick = () => {
-    if (hasSubmittedForm.current) {
-      router.push("https://www.followop.com.br/register");
-    }
+    router.push("https://www.followop.com.br/register");
   };
 
   return (
@@ -74,27 +65,17 @@ const Hero = () => {
             </h1>
 
             <p className="mt-6 text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-              A IA que atende, qualifica e converte seus leads 24h por dia, sem interrupções e{" "}
-              <span className="font-semibold">7x mais barata</span> que um Atendente.
+              A IA que atende, qualifica e converte seus leads 24h por dia, sem
+              interrupções e <span className="font-semibold">7x mais barata</span> que um Atendente.
             </p>
 
             <div className="mt-8 sm:mt-10">
-              {!hasSubmittedForm.current ? (
-                <PopupForm
-                  buttonClassName={`bg-primary hover:bg-primary/90 btn-hover text-base sm:text-lg px-8 sm:px-10 py-4 sm:py-6 inline-block rounded-md`}
-                  redirectToPhone={true}
-                  onSubmit={handleFormSubmit}
-                >
-                  Quero vender mais agora
-                </PopupForm>
-              ) : (
-                <button
-                  onClick={handleButtonClick}
-                  className="bg-primary text-white font-medium text-base sm:text-lg px-8 sm:px-10 py-4 sm:py-6 inline-block rounded-md hover:bg-primary/90 transition"
-                >
-                  Ir para Cadastro
-                </button>
-              )}
+              <button
+                onClick={handleButtonClick}
+                className="bg-primary text-white font-medium text-base sm:text-lg px-8 sm:px-10 py-4 sm:py-6 inline-block rounded-full hover:bg-primary/90 transition"
+              >
+                Quero vender mais agora
+              </button>
             </div>
           </div>
 
