@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import { Flame, Rocket, Heart } from "lucide-react";
 
+const primaryIconColor = "#33334F";
+
 const StatsSection = () => {
   const [efficiency, setEfficiency] = useState(0);
   const [conversionRate, setConversionRate] = useState(0);
@@ -60,8 +62,8 @@ const StatsSection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 lg:px-20">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
           <div className="reveal">
-            <div className="flex items-center justify-center text-green-500 text-2xl">
-              <Flame className="w-8 h-8 mr-2" />
+            <div className="flex items-center justify-center text-[${primaryIconColor}] text-2xl">
+              <Flame className="w-8 h-8 mr-2" color={primaryIconColor} />
             </div>
             <h3 className="text-green-500 text-2xl sm:text-3xl md:text-4xl font-bold mt-2">
               +{efficiency}%
@@ -71,8 +73,8 @@ const StatsSection = () => {
             <p className="text-gray-700 text-sm sm:text-base">Sua equipe foca no que realmente importa.</p>
           </div>
           <div className="reveal">
-            <div className="flex items-center justify-center text-green-500 text-2xl">
-              <Rocket className="w-8 h-8 mr-2" />
+            <div className="flex items-center justify-center text-[${primaryIconColor}] text-2xl">
+              <Rocket className="w-8 h-8 mr-2" color={primaryIconColor} />
             </div>
             <h3 className="text-green-500 text-2xl sm:text-3xl md:text-4xl font-bold mt-2">
               +{conversionRate}%
@@ -82,8 +84,8 @@ const StatsSection = () => {
             <p className="text-gray-700 text-sm sm:text-base">Cada conversa vira uma oportunidade real.</p>
           </div>
           <div className="reveal">
-            <div className="flex items-center justify-center text-green-500 text-2xl">
-              <Heart className="w-8 h-8 mr-2" />
+            <div className="flex items-center justify-center text-[${primaryIconColor}] text-2xl">
+              <Heart className="w-8 h-8 mr-2" color={primaryIconColor} />
             </div>
             <h3 className="text-green-500 text-2xl sm:text-3xl md:text-4xl font-bold mt-2">
               +{satisfaction}%
