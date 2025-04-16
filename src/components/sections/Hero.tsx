@@ -10,7 +10,7 @@ const Hero = () => {
   const videoContainerRef = useRef(null); // Ref para o container do vídeo
   const isMobile = useIsMobile();
   const router = useRouter();
-  const hasRegistered = useRef(false); // Ref para verificar se o usuário já registrou
+  const hasSubmittedForm = useRef(false); // Ref para verificar se o formulário foi enviado
 
   useEffect(() => {
     setIsVisible(true);
@@ -42,17 +42,14 @@ const Hero = () => {
 
   const handleFormSubmit = (formData) => {
     setIsFormSubmitted(true);
+    hasSubmittedForm.current = true; // Marca que o formulário foi enviado
     // Aqui você implementaria a lógica para salvar os dados do formulário (formData)
     console.log("Dados do formulário:", formData);
-    hasRegistered.current = true; // Marca o usuário como registrado após o envio
   };
 
   const handleButtonClick = () => {
-    if (hasRegistered.current) {
+    if (hasSubmittedForm.current) {
       router.push("https://www.followop.com.br/register");
-    } else {
-      // Se o formulário ainda não foi enviado, o comportamento padrão do PopupForm será acionado
-      // (abrir o popup). A lógica de redirecionamento ocorre após o envio do formulário.
     }
   };
 
@@ -81,12 +78,12 @@ const Hero = () => {
 
             <div className="mt-8 sm:mt-10">
               <PopupForm
-                buttonClassName={`bg-primary hover:bg-primary/90 btn-hover text-base sm:text-lg px-8 sm:px-10 py-4 sm:py-6 inline-block ${isFormSubmitted ? 'cursor-pointer' : ''}`}
+                buttonClassName={`bg-primary hover:bg-primary/90 btn-hover text-base sm:text-lg px-8 sm:px-10 py-4 sm:py-6 inline-block rounded-md ${hasSubmittedForm.current ? 'cursor-pointer' : ''}`}
                 redirectToPhone={true}
                 onSubmit={handleFormSubmit}
                 trigger={
-                  <button onClick={handleButtonClick} disabled={isFormSubmitted}>
-                    Quero vender mais agora
+                  <button onClick={handleButtonClick} disabled={hasSubmittedForm.current} className="rounded-md">
+                    {hasSubmittedForm.current ? "Ir para Cadastro" : "Quero vender mais agora"}
                   </button>
                 }
               >
