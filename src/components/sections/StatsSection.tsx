@@ -1,13 +1,13 @@
-
 import { useState, useEffect, useRef } from "react";
+import { Flame, Rocket, Heart } from "lucide-react";
 
 const StatsSection = () => {
-  const [companyCount, setCompanyCount] = useState(0);
-  const [satisfactionRate, setSatisfactionRate] = useState(0);
-  const [setupTime, setSetupTime] = useState(0);
+  const [efficiency, setEfficiency] = useState(0);
+  const [conversionRate, setConversionRate] = useState(0);
+  const [satisfaction, setSatisfaction] = useState(0);
   const statsRef = useRef(null);
   const animationTriggeredRef = useRef(false);
-  
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -33,9 +33,9 @@ const StatsSection = () => {
   }, []);
 
   const animateCounters = () => {
-    animateValue(0, 20, 2000, setCompanyCount);
-    animateValue(0, 97, 2000, setSatisfactionRate);
-    animateValue(0, 5, 2000, setSetupTime);
+    animateValue(0, 73, 2000, setEfficiency);
+    animateValue(0, 65, 2000, setConversionRate);
+    animateValue(0, 88, 2000, setSatisfaction);
   };
 
   const animateValue = (start, end, duration, setter) => {
@@ -52,30 +52,45 @@ const StatsSection = () => {
   };
 
   return (
-    <section ref={statsRef} className="py-10 sm:py-12 bg-gradient-to-r from-primary to-primary/90 relative overflow-hidden stats-section reveal">
+    <section ref={statsRef} className="py-10 sm:py-12 bg-white relative overflow-hidden stats-section reveal">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 opacity-10 impulso-pattern"></div>
       </div>
-      
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 lg:px-20">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-8 text-center">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
           <div className="reveal">
-            <h3 className="text-white text-2xl sm:text-3xl md:text-4xl font-bold">
-              {companyCount}+
+            <div className="flex items-center justify-center text-green-500 text-2xl">
+              <Flame className="w-8 h-8 mr-2" />
+            </div>
+            <h3 className="text-green-500 text-2xl sm:text-3xl md:text-4xl font-bold mt-2">
+              +{efficiency}%
             </h3>
-            <p className="text-white/80 mt-2 text-sm sm:text-base">Empresas utilizando com sucesso</p>
+            <p className="text-gray-700 mt-2 text-sm sm:text-base">de eficiência no atendimento</p>
+            <p className="text-gray-700 text-sm sm:text-base">Sem precisar acionar um atendente humano</p>
+            <p className="text-gray-700 text-sm sm:text-base">Sua equipe foca no que realmente importa.</p>
           </div>
           <div className="reveal">
-            <h3 className="text-white text-2xl sm:text-3xl md:text-4xl font-bold">
-              {satisfactionRate}%
+            <div className="flex items-center justify-center text-green-500 text-2xl">
+              <Rocket className="w-8 h-8 mr-2" />
+            </div>
+            <h3 className="text-green-500 text-2xl sm:text-3xl md:text-4xl font-bold mt-2">
+              +{conversionRate}%
             </h3>
-            <p className="text-white/80 mt-2 text-sm sm:text-base">Taxa de satisfação dos clientes</p>
+            <p className="text-gray-700 mt-2 text-sm sm:text-base">mais chances de conversão</p>
+            <p className="text-gray-700 text-sm sm:text-base">Leads engajados avançam com automações personalizadas</p>
+            <p className="text-gray-700 text-sm sm:text-base">Cada conversa vira uma oportunidade real.</p>
           </div>
           <div className="reveal">
-            <h3 className="text-white text-2xl sm:text-3xl md:text-4xl font-bold">
-              {setupTime}min
+            <div className="flex items-center justify-center text-green-500 text-2xl">
+              <Heart className="w-8 h-8 mr-2" />
+            </div>
+            <h3 className="text-green-500 text-2xl sm:text-3xl md:text-4xl font-bold mt-2">
+              +{satisfaction}%
             </h3>
-            <p className="text-white/80 mt-2 text-sm sm:text-base">Para configuração completa</p>
+            <p className="text-gray-700 mt-2 text-sm sm:text-base">de satisfação do cliente</p>
+            <p className="text-gray-700 text-sm sm:text-base">Respostas rápidas, atendimento humanizado</p>
+            <p className="text-gray-700 text-sm sm:text-base">Quem recebe atenção imediata, volta a comprar.</p>
           </div>
         </div>
       </div>
