@@ -1,28 +1,25 @@
 import { useState, useEffect, useRef } from "react";
-import { useIsMobile } from "@/hooks/use-mobile";
-import PopupForm from "@/components/ui-custom/PopupForm";
 import { useRouter } from 'next/router';
+import PopupForm from "@/components/ui-custom/PopupForm";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const [isFormSubmitted, setIsFormSubmitted] = useState(false);
-  const videoContainerRef = useRef(null); // Ref para o container do vídeo
-  const isMobile = useIsMobile();
+  const hasSubmittedForm = useRef(false);
+  const videoContainerRef = useRef(null);
   const router = useRouter();
-  const hasSubmittedForm = useRef(false); // Ref para verificar se o formulário foi enviado
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     setIsVisible(true);
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
+    const timer = setTimeout(() => setIsLoading(false), 1000);
     return () => clearTimeout(timer);
   }, []);
 
   useEffect(() => {
     if (!isLoading && videoContainerRef.current) {
-      const wistiaEmbedCode = `
+      videoContainerRef.current.innerHTML = `
         <style>
           wistia-player[media-id='k3jvq760qi']:not(:defined) {
             background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/k3jvq760qi/swatch');
@@ -35,16 +32,13 @@ const Hero = () => {
         <script src="https://fast.wistia.com/player.js" async></script>
         <script src="https://fast.wistia.com/embed/k3jvq760qi.js" async type="module"></script>
       `;
-
-      videoContainerRef.current.innerHTML = wistiaEmbedCode;
     }
   }, [isLoading]);
 
   const handleFormSubmit = (formData) => {
-    setIsFormSubmitted(true);
-    hasSubmittedForm.current = true; // Marca que o formulário foi enviado
-    // Aqui você implementaria a lógica para salvar os dados do formulário (formData)
+    hasSubmittedForm.current = true;
     console.log("Dados do formulário:", formData);
+    // Lógica para salvar os dados do formulário iria aqui
   };
 
   const handleButtonClick = () => {
@@ -72,8 +66,7 @@ const Hero = () => {
 
             <p className="mt-6 text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
               A IA que atende, qualifica e converte seus leads 24h por dia, sem
-              interrupções e <span className="font-semibold">7x mais barata</span>{" "}
-              que um Atendente.
+              interrupções e <span className="font-semibold">7x mais barata</span> que um Atendente.
             </p>
 
             <div className="mt-8 sm:mt-10">
@@ -92,7 +85,6 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Vídeo responsivo */}
           <div
             className={`w-full mt-12 sm:mt-16 px-2 ${
               isVisible ? "animate-fade-in-up" : "opacity-0"
