@@ -8,7 +8,8 @@ const ClosingCtaSection = () => {
   return (
     <section className="py-12 sm:py-16 bg-white border-t border-gray-100 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none backdrop-blur-[1px]">
-        <div className="absolute inset-0 opacity-5 impulso-pattern"></div>
+        {/* Substituto temporário para impulso-pattern */}
+        <div className="absolute inset-0 opacity-5 bg-gray-100"></div>
       </div>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-12 text-center">
         <motion.h2
@@ -36,7 +37,7 @@ const ClosingCtaSection = () => {
           transition={{ delay: 0.2, duration: 0.5 }}
         >
           <a
-            href="https://calendar.app.google/u1BC1ghvHA7LXS2CA"
+            href="https://calendar.app.google/u/1BC1ghvHA7LXS2CA"
             target="_blank"
             rel="noopener noreferrer"
             className={`inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 btn-hover text-white font-medium text-base sm:text-lg rounded-full backdrop-blur-sm transition ${
