@@ -26,7 +26,7 @@ const Hero = () => {
             padding-top: 56.25%;
           }
         </style>
-        <wistia-player media-id="k3jvq760qi" aspect="1.7777777777777777"></wistia-player>
+        <wistia-player media-id="k3jvq760qi" aspect="1.7777777777777777" autoplay></wistia-player>
       `;
 
       const script1 = document.createElement("script");
@@ -45,13 +45,6 @@ const Hero = () => {
 
   const handleButtonClick = () => {
     if (typeof window !== "undefined") {
-      // Evento GA4 opcional
-      window.gtag?.("event", "click_cta_hero", {
-        event_category: "CTA",
-        event_label: "Quero vender mais agora",
-        value: 1,
-      });
-
       window.open("https://www.followop.com.br/register", "_blank");
     }
   };
