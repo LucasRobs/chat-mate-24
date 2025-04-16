@@ -6,9 +6,6 @@ const ClosingCtaSection = () => {
 
   return (
     <section className="py-12 sm:py-16 bg-white border-t border-gray-100 relative overflow-hidden">
-      <div className="absolute inset-0 pointer-events-none backdrop-blur-[1px]">
-        <div className="absolute inset-0 opacity-5 bg-gray-100"></div>
-      </div>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-12 text-center">
         <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900">
           Menos trabalho manual, <span className="text-primary">mais vendas</span>!
