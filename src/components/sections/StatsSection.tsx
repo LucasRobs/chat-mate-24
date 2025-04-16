@@ -33,9 +33,9 @@ const StatsSection = () => {
   }, []);
 
   const animateCounters = () => {
-    animateValue(0, 73, 2000, setEfficiency);
-    animateValue(0, 65, 2000, setConversionRate);
-    animateValue(0, 88, 2000, setSatisfaction);
+    animateValue(0, 73, 5000, setEfficiency);
+    animateValue(0, 65, 5000, setConversionRate);
+    animateValue(0, 88, 5000, setSatisfaction);
   };
 
   const animateValue = (start, end, duration, setter) => {
