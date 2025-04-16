@@ -43,27 +43,27 @@ const Benefits = () => {
   const benefits = [
     {
       icon: Clock,
-      title: "🚀 Tempo é Ouro: Atendimento **24/7**!",
+      title: "Tempo é Ouro: Atendimento **24/7**",
       description: "Seu atendimento **sempre ativo**, dia e noite, **aumentando suas chances de venda**."
     },
     {
       icon: DollarSign,
-      title: "💰 Lucro Inteligente: Custo Reduzido em **97%**!",
+      title: "Lucro Inteligente: Custo Reduzido em **97%**",
       description: "Substitua gastos com SDR humano por uma solução de **apenas R$ 0,44/hora**, focando no seu **retorno sobre investimento**."
     },
     {
       icon: MessageCircle,
-      title: "🎯 Conversão Turbinada: Follow-up **Que Vende**!",
+      title: "Conversão Turbinada: Follow-up **Que Vende**",
       description: "Não perca nenhuma oportunidade! Nosso sistema automatizado **engaja leads** e **acelera suas conversões**."
     },
     {
       icon: Headphones,
-      title: "✅ Eficiência Máxima: Atendimento **Rápido e Preciso**!",
+      title: "Eficiência Máxima: Atendimento **Rápido e Preciso**",
       description: "Respostas **instantâneas e assertivas** com IA, garantindo a **melhor experiência para o cliente**."
     },
     {
       icon: Zap,
-      title: "⚡️ Comece Já: Integração **Super Simples**!",
+      title: "Comece Já: Integração **Super Simples**",
       description: "Ative em minutos! Conecte ao seu WhatsApp e veja a **transformação acontecer**."
     }
   ];
@@ -72,7 +72,7 @@ const Benefits = () => {
     <section id="benefits" className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 text-center">
         <div className={`mb-16 transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">🚀 Turbine Suas Vendas com Followop!</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">Turbine Suas Vendas com Followop!</h2>
           <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
             Tecnologia de ponta gerando **resultados incríveis** para o seu negócio.
           </p>
