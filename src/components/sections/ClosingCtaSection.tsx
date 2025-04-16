@@ -1,12 +1,8 @@
-
-import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
-import PopupForm from "@/components/ui-custom/PopupForm";
 
 const ClosingCtaSection = () => {
   const isMobile = useIsMobile();
-  
+
   return (
     <section className="py-12 sm:py-16 bg-white border-t border-gray-100 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none backdrop-blur-[1px]">
@@ -20,14 +16,16 @@ const ClosingCtaSection = () => {
           Comece agora e aumente suas vendas no WhatsApp!
         </p>
         <div className="mt-6 sm:mt-8 reveal">
-          <PopupForm 
-            buttonClassName={`bg-primary hover:bg-primary/90 btn-hover text-base sm:text-lg backdrop-blur-sm w-full sm:w-auto ${
+          <a
+            href="https://calendar.app.google/u1BC1ghvHA7LXS2CA"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`bg-primary hover:bg-primary/90 btn-hover text-white font-medium text-base sm:text-lg rounded backdrop-blur-sm ${
               isMobile ? "h-10 px-4 py-2" : "h-11 px-8 py-6"
             }`}
-            redirectToPhone={true}
           >
             Agende uma reunião estratégica
-          </PopupForm>
+          </a>
         </div>
       </div>
     </section>
