@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import PopupForm from "@/components/ui-custom/PopupForm";
+import { useRouter } from 'next/router';
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -8,6 +9,8 @@ const Hero = () => {
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
   const videoContainerRef = useRef(null); // Ref para o container do vídeo
   const isMobile = useIsMobile();
+  const router = useRouter();
+  const hasRegistered = useRef(false); // Ref para verificar se o usuário já registrou
 
   useEffect(() => {
     setIsVisible(true);
@@ -37,8 +40,20 @@ const Hero = () => {
     }
   }, [isLoading]);
 
-  const handleFormSubmit = () => {
-    setIsFormSubmitted(true); // Marca o formulário como enviado
+  const handleFormSubmit = (formData) => {
+    setIsFormSubmitted(true);
+    // Aqui você implementaria a lógica para salvar os dados do formulário (formData)
+    console.log("Dados do formulário:", formData);
+    hasRegistered.current = true; // Marca o usuário como registrado após o envio
+  };
+
+  const handleButtonClick = () => {
+    if (hasRegistered.current) {
+      router.push("https://www.followop.com.br/register");
+    } else {
+      // Se o formulário ainda não foi enviado, o comportamento padrão do PopupForm será acionado
+      // (abrir o popup). A lógica de redirecionamento ocorre após o envio do formulário.
+    }
   };
 
   return (
@@ -65,21 +80,18 @@ const Hero = () => {
             </p>
 
             <div className="mt-8 sm:mt-10">
-              {isFormSubmitted ? (
-                <button
-                  className="bg-primary hover:bg-primary/90 btn-hover text-base sm:text-lg px-8 sm:px-10 py-4 sm:py-6 inline-block"
-                >
-                  Quero vender mais agora
-                </button>
-              ) : (
-                <PopupForm
-                  buttonClassName="bg-primary hover:bg-primary/90 btn-hover text-base sm:text-lg px-8 sm:px-10 py-4 sm:py-6"
-                  redirectToPhone={true}
-                  onSubmit={handleFormSubmit}
-                >
-                  Quero vender mais agora
-                </PopupForm>
-              )}
+              <PopupForm
+                buttonClassName={`bg-primary hover:bg-primary/90 btn-hover text-base sm:text-lg px-8 sm:px-10 py-4 sm:py-6 inline-block ${isFormSubmitted ? 'cursor-pointer' : ''}`}
+                redirectToPhone={true}
+                onSubmit={handleFormSubmit}
+                trigger={
+                  <button onClick={handleButtonClick} disabled={isFormSubmitted}>
+                    Quero vender mais agora
+                  </button>
+                }
+              >
+                Quero vender mais agora
+              </PopupForm>
             </div>
           </div>
 
