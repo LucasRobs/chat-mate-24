@@ -1,12 +1,11 @@
+
 import { useState, useEffect, useRef } from "react";
-import { useRouter } from "next/router";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const videoContainerRef = useRef<HTMLDivElement | null>(null);
-  const router = useRouter();
   const isMobile = useIsMobile();
 
   useEffect(() => {
