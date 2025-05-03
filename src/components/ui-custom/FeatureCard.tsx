@@ -26,11 +26,7 @@ const FeatureCard = ({
     >
       {/* Background pattern with concentric circles */}
       <div className="absolute inset-0 opacity-5 pointer-events-none">
-        <div className="absolute inset-0 bg-repeat" style={{ 
-          backgroundImage: "url('data:image/svg+xml,%3Csvg width=\"40\" height=\"40\" viewBox=\"0 0 40 40\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Ccircle cx=\"20\" cy=\"20\" r=\"15\" stroke=\"%23cafae7\" stroke-width=\"2\" fill=\"none\"/%3E%3Ccircle cx=\"20\" cy=\"20\" r=\"10\" stroke=\"%23cafae7\" stroke-width=\"2\" fill=\"none\"/%3E%3Ccircle cx=\"20\" cy=\"20\" r=\"5\" stroke=\"%23cafae7\" stroke-width=\"2\" fill=\"none\"/%3E%3C/svg%3E')", 
-          backgroundSize: "80px",
-          opacity: 0.1
-        }}></div>
+        <div className="absolute inset-0 impulso-pattern"></div>
       </div>
       
       {/* Background gradient effect on hover */}

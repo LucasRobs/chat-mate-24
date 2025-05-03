@@ -1,23 +1,16 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
 
+/* Custom styles that complement Tailwind */
 .logo {
   height: 6em;
-  padding: 1.5em;
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  filter: drop-shadow(0 0 1em rgba(0, 175, 107, 0.6));
 }
 
+/* Custom animation for logo spin if needed */
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
@@ -28,15 +21,21 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
+  .animate-spin {
     animation: logo-spin infinite 20s linear;
   }
 }
 
-.card {
+/* Custom styles for cards if needed */
+.custom-card {
   padding: 2em;
+  border-radius: 0.75rem;
+  background-color: white;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
 }
 
-.read-the-docs {
-  color: #888;
+.custom-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }

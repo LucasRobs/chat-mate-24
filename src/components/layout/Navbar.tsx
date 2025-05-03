@@ -1,8 +1,9 @@
 
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { Button } from "@/components/ui/button";
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -54,7 +55,7 @@ export const Navbar = () => {
     <nav
       className={cn(
         "sticky-nav bg-white py-4 sm:py-6 px-4 sm:px-6 md:px-12 lg:px-20 transition-all duration-300",
-        scrollY > 100 ? "glass" : "",
+        scrollY > 100 ? "shadow-md glass" : "",
         isNavHidden && !isOpen ? "hidden-nav" : "",
         isOpen ? "fixed inset-0 z-50 bg-white" : ""
       )}
@@ -66,7 +67,7 @@ export const Navbar = () => {
             alt="followop Logo"
             className="h-8 w-auto sm:h-10 transition-transform duration-300 hover:scale-110"
           />
-          <span className="font-bold text-xl sm:text-2xl text-black">followop</span>
+          <span className="font-bold text-xl sm:text-2xl text-secondary">followop</span>
         </a>
 
         <div className="hidden md:flex items-center">
@@ -84,18 +85,23 @@ export const Navbar = () => {
         </div>
 
         <div className="hidden md:flex">
-          <a
-            href="https://www.followop.com.br/register"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-[#173824] hover:bg-[#173824]/90 text-white font-medium px-8 py-2 rounded-full transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
+          <Button
+            asChild
+            variant="default"
+            className="bg-secondary hover:bg-secondary/90 text-white font-medium px-8 py-2 rounded-full transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
           >
-            Entrar
-          </a>
+            <a
+              href="https://www.followop.com.br/register"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Entrar
+            </a>
+          </Button>
         </div>
 
         <button
-          className="md:hidden z-50"
+          className="md:hidden z-50 text-secondary"
           onClick={toggleMenu}
           aria-label={isOpen ? "Fechar menu" : "Abrir menu"}
         >
@@ -110,21 +116,27 @@ export const Navbar = () => {
               <a
                 key={index}
                 href={item.href}
-                className="text-xl text-gray-800 font-medium py-2 border-b border-gray-100 hover:text-primary transition-colors"
+                className="text-xl text-gray-800 font-medium py-2 border-b border-gray-100 hover:text-primary transition-colors flex items-center justify-between"
                 onClick={toggleMenu}
               >
                 {item.label}
+                <ChevronDown size={20} className="text-gray-400" />
               </a>
             ))}
             <div className="flex flex-col gap-4 pt-4">
-              <a
-                href="https://www.followop.com.br/register"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-[#173824] text-white font-medium py-2 px-4 rounded-full text-center hover:bg-[#173824]/90 transition-colors"
+              <Button
+                asChild
+                variant="default"
+                className="bg-secondary text-white font-medium py-2 px-4 rounded-full text-center hover:bg-secondary/90 transition-colors"
               >
-                Entrar
-              </a>
+                <a
+                  href="https://www.followop.com.br/register"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Entrar
+                </a>
+              </Button>
             </div>
           </div>
         </div>

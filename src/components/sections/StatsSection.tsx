@@ -1,3 +1,4 @@
+
 import { useState, useEffect, useRef } from "react";
 import { Flame, Rocket, Heart } from "lucide-react";
 
@@ -33,9 +34,9 @@ const StatsSection = () => {
   }, []);
 
   const animateCounters = () => {
-    animateValue(0, 73, 5000, setEfficiency);
-    animateValue(0, 65, 5000, setConversionRate);
-    animateValue(0, 88, 5000, setSatisfaction);
+    animateValue(0, 73, 2500, setEfficiency);
+    animateValue(0, 65, 2500, setConversionRate);
+    animateValue(0, 88, 2500, setSatisfaction);
   };
 
   const animateValue = (start, end, duration, setter) => {
@@ -52,45 +53,65 @@ const StatsSection = () => {
   };
 
   return (
-    <section ref={statsRef} className="py-10 sm:py-12 bg-white relative overflow-hidden stats-section reveal">
+    <section ref={statsRef} className="py-10 sm:py-16 bg-white relative overflow-hidden stats-section reveal">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 opacity-10 impulso-pattern"></div>
       </div>
 
+      {/* Decorative elements */}
+      <div className="absolute top-10 right-10 w-12 h-12 rounded-full border-[3px] border-primary/40 opacity-70 animate-float"></div>
+      <div className="absolute bottom-10 left-10 w-16 h-16 animate-float" style={{ animationDelay: "1.2s" }}>
+        <div className="w-full h-full rounded-full border-[3px] border-primary/40 opacity-70"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full border-[3px] border-primary/40 opacity-70"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-5 h-5 rounded-full border-[3px] border-primary/40 opacity-70"></div>
+      </div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 lg:px-20">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-          <div className="reveal">
-            <div className="flex items-center justify-center text-green-500 text-2xl">
-              <Flame className="w-8 h-8 mr-2" />
+          <div className="reveal bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300">
+            <div className="flex items-center justify-center text-primary text-2xl">
+              <div className="h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center">
+                <Flame className="w-8 h-8" />
+              </div>
             </div>
-            <h3 className="text-green-500 text-2xl sm:text-3xl md:text-4xl font-bold mt-2">
+            <h3 className="text-primary text-2xl sm:text-3xl md:text-4xl font-bold mt-4">
               +{efficiency}%
             </h3>
-            <p className="text-gray-700 mt-2 text-sm sm:text-base">de eficiência no atendimento</p>
-            <p className="text-gray-700 text-sm sm:text-base">Sem precisar acionar um atendente humano</p>
-            <p className="text-gray-700 text-sm sm:text-base">Sua equipe foca no que realmente importa.</p>
-          </div>
-          <div className="reveal">
-            <div className="flex items-center justify-center text-green-500 text-2xl">
-              <Rocket className="w-8 h-8 mr-2" />
+            <p className="text-gray-700 mt-2 text-sm sm:text-base font-medium">de eficiência no atendimento</p>
+            <div className="mt-3 space-y-1">
+              <p className="text-gray-600 text-sm">Sem precisar acionar um atendente humano</p>
+              <p className="text-gray-600 text-sm">Sua equipe foca no que realmente importa.</p>
             </div>
-            <h3 className="text-green-500 text-2xl sm:text-3xl md:text-4xl font-bold mt-2">
+          </div>
+          <div className="reveal bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300" style={{ animationDelay: "0.2s" }}>
+            <div className="flex items-center justify-center text-primary text-2xl">
+              <div className="h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center">
+                <Rocket className="w-8 h-8" />
+              </div>
+            </div>
+            <h3 className="text-primary text-2xl sm:text-3xl md:text-4xl font-bold mt-4">
               +{conversionRate}%
             </h3>
-            <p className="text-gray-700 mt-2 text-sm sm:text-base">mais chances de conversão</p>
-            <p className="text-gray-700 text-sm sm:text-base">Leads engajados avançam com automações personalizadas</p>
-            <p className="text-gray-700 text-sm sm:text-base">Cada conversa vira uma oportunidade real.</p>
-          </div>
-          <div className="reveal">
-            <div className="flex items-center justify-center text-green-500 text-2xl">
-              <Heart className="w-8 h-8 mr-2" />
+            <p className="text-gray-700 mt-2 text-sm sm:text-base font-medium">mais chances de conversão</p>
+            <div className="mt-3 space-y-1">
+              <p className="text-gray-600 text-sm">Leads engajados avançam com automações personalizadas</p>
+              <p className="text-gray-600 text-sm">Cada conversa vira uma oportunidade real.</p>
             </div>
-            <h3 className="text-green-500 text-2xl sm:text-3xl md:text-4xl font-bold mt-2">
+          </div>
+          <div className="reveal bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300" style={{ animationDelay: "0.4s" }}>
+            <div className="flex items-center justify-center text-primary text-2xl">
+              <div className="h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center">
+                <Heart className="w-8 h-8" />
+              </div>
+            </div>
+            <h3 className="text-primary text-2xl sm:text-3xl md:text-4xl font-bold mt-4">
               +{satisfaction}%
             </h3>
-            <p className="text-gray-700 mt-2 text-sm sm:text-base">de satisfação do cliente</p>
-            <p className="text-gray-700 text-sm sm:text-base">Respostas rápidas, atendimento humanizado</p>
-            <p className="text-gray-700 text-sm sm:text-base">Quem recebe atenção imediata, volta a comprar.</p>
+            <p className="text-gray-700 mt-2 text-sm sm:text-base font-medium">de satisfação do cliente</p>
+            <div className="mt-3 space-y-1">
+              <p className="text-gray-600 text-sm">Respostas rápidas, atendimento humanizado</p>
+              <p className="text-gray-600 text-sm">Quem recebe atenção imediata, volta a comprar.</p>
+            </div>
           </div>
         </div>
       </div>

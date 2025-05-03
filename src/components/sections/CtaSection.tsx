@@ -2,6 +2,7 @@
 import { ArrowRight } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import PopupForm from "@/components/ui-custom/PopupForm";
+import { Button } from "@/components/ui/button";
 
 const CtaSection = () => {
   const isMobile = useIsMobile();
@@ -12,7 +13,7 @@ const CtaSection = () => {
         <div className="absolute inset-0 opacity-5 impulso-pattern"></div>
       </div>
       <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-12 lg:px-20">
-        <div className="bg-gradient-to-r from-gray-900 to-gray-800 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 lg:p-16 shadow-xl reveal acrylic">
+        <div className="bg-gradient-to-r from-secondary to-secondary/90 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 lg:p-16 shadow-xl reveal acrylic">
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-tight">
               Pronto para um <span className="text-primary">Atendimento WhatsApp</span> que Vende Sozinho?
@@ -27,7 +28,7 @@ const CtaSection = () => {
                 redirectUrl="https://www.followop.com.br/register"
               >
                 <span>TESTE GRÁTIS 7 DIAS</span>
-                <span className="bg-[#173824] text-white p-2 rounded-full group-hover:translate-x-1 transition-transform">
+                <span className="bg-secondary text-white p-2 rounded-full group-hover:translate-x-1 transition-transform">
                   <ArrowRight size={16} />
                 </span>
               </PopupForm>
