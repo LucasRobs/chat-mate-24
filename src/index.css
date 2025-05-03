@@ -184,7 +184,7 @@
     background-size: 20px 20px;
   }
   
-  /* Apple-style subtle pattern */
+  /* Padrão de pontos para elementos decorativos - similar à terceira imagem */
   .impulso-pattern {
     background-color: #ffffff;
     background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='20' cy='20' r='0.5' stroke='%23e6e6e6' fill='none'/%3E%3C/svg%3E");
@@ -254,6 +254,20 @@
   
   .animate-in {
     @apply opacity-100 translate-y-0 translate-x-0;
+  }
+
+  /* Animação de flutuação para os círculos decorativos */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
   }
   
   /* Mobile optimizations */

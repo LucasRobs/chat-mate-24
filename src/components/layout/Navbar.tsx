@@ -64,7 +64,7 @@ export const Navbar = () => {
           <img
             src="/lovable-uploads/669aaab1-10dd-437a-a1b9-789ae5f02809.png"
             alt="followop Logo"
-            className="h-8 w-auto sm:h-10"
+            className="h-8 w-auto sm:h-10 transition-transform duration-300 hover:scale-110"
           />
           <span className="font-bold text-xl sm:text-2xl text-black">followop</span>
         </a>
@@ -75,7 +75,7 @@ export const Navbar = () => {
               <a
                 key={index}
                 href={item.href}
-                className="text-gray-700 font-medium hover:text-primary px-6 py-1 transition-colors"
+                className="text-gray-700 font-medium hover:text-primary px-6 py-1 transition-colors relative before:content-[''] before:absolute before:bottom-0 before:left-0 before:w-full before:h-0.5 before:bg-primary before:scale-x-0 before:origin-right before:transition-transform hover:before:scale-x-100 hover:before:origin-left"
               >
                 {item.label}
               </a>
@@ -88,7 +88,7 @@ export const Navbar = () => {
             href="https://www.followop.com.br/register"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-[#173824] hover:bg-[#173824]/90 text-white font-medium px-8 py-2 rounded-full transition-colors"
+            className="bg-[#173824] hover:bg-[#173824]/90 text-white font-medium px-8 py-2 rounded-full transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
           >
             Entrar
           </a>
@@ -110,7 +110,7 @@ export const Navbar = () => {
               <a
                 key={index}
                 href={item.href}
-                className="text-xl text-gray-800 font-medium py-2 border-b border-gray-100"
+                className="text-xl text-gray-800 font-medium py-2 border-b border-gray-100 hover:text-primary transition-colors"
                 onClick={toggleMenu}
               >
                 {item.label}
@@ -121,7 +121,7 @@ export const Navbar = () => {
                 href="https://www.followop.com.br/register"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-[#173824] text-white font-medium py-2 px-4 rounded-full text-center"
+                className="bg-[#173824] text-white font-medium py-2 px-4 rounded-full text-center hover:bg-[#173824]/90 transition-colors"
               >
                 Entrar
               </a>
