@@ -1,3 +1,4 @@
+
 import { useIsMobile } from "@/hooks/use-mobile";
 import { ArrowRight } from "lucide-react";
 
@@ -5,7 +6,11 @@ const ClosingCtaSection = () => {
   const isMobile = useIsMobile();
 
   return (
-    <section className="py-12 sm:py-16 md:py-20 lg:py-24 bg-white border-t border-gray-100 relative overflow-hidden">
+    <section className="py-12 sm:py-16 md:py-20 lg:py-24 bg-white relative overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute inset-0 impulso-pattern opacity-5"></div>
+      </div>
+      
       <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-12 text-center">
         <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900">
           Menos trabalho manual, <span className="text-primary">mais vendas</span>!
@@ -17,15 +22,15 @@ const ClosingCtaSection = () => {
 
         <div className="mt-6 sm:mt-8">
           <a
-            href="https://calendar.app.google/u1BC1ghvHA7LXS2CA"
+            href="https://www.followop.com.br/register"
             target="_blank"
             rel="noopener noreferrer"
-            className={`inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-white font-medium text-base sm:text-lg rounded-full transition ${
-              isMobile ? "h-10 px-4 py-2" : "h-11 px-8 py-3" // Ajustei o padding vertical para web
-            }`}
+            className="inline-flex items-center justify-center gap-2 bg-[#A2DE5D] hover:bg-[#A2DE5D]/90 text-gray-800 font-medium text-base sm:text-lg rounded-full transition px-6 py-3 group"
           >
-            Quero agendar uma reunião estratégica
-            <ArrowRight className="w-4 h-4" />
+            TESTE GRÁTIS 7 DIAS
+            <span className="bg-[#173824] text-white p-2 rounded-full group-hover:translate-x-1 transition-transform">
+              <ArrowRight size={16} />
+            </span>
           </a>
         </div>
       </div>

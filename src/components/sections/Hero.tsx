@@ -1,6 +1,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { ArrowRight } from "lucide-react";
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -49,53 +50,60 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative bg-white overflow-hidden py-20 md:py-28 lg:py-32">
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 impulso-pattern opacity-5"></div>
-      </div>
+    <section className="relative bg-white overflow-hidden py-16 md:py-20 lg:py-24">
+      {/* Círculos decorativos */}
+      <div className="absolute top-20 left-10 w-16 h-16 rounded-full border-4 border-primary/30 opacity-70"></div>
+      <div className="absolute top-40 right-10 md:right-20 w-20 h-20 rounded-full border-4 border-primary/30 opacity-70"></div>
+      <div className="absolute bottom-20 left-20 w-24 h-24 rounded-full border-4 border-primary/30 opacity-70"></div>
 
-      <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-        <div className="flex flex-col items-center justify-center text-center w-full">
-          <div className={isVisible ? "animate-fade-in-left" : "opacity-0"}>
-            <h1 className="text-xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-snug tracking-tight mx-auto max-w-[90%] sm:max-w-3xl md:max-w-4xl">
-              Transforme seu WhatsApp em{" "}
-              <span className="text-primary inline">
-                uma Máquina de Vendas Automática
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-6">
+          <div className="flex items-center justify-center gap-2 mb-4">
+            <img src="/lovable-uploads/c630dcac-7cec-4e9b-b05a-65669a5be978.png" alt="Meta Tech Partner" className="h-6" />
+            <span className="text-sm text-gray-600">|</span>
+            <span className="text-sm text-gray-600">Powered by WhatsApp Business AP</span>
+          </div>
+        </div>
+
+        <div className="text-center">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+            Transforme Seu Whatsapp:
+          </h1>
+
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-3">
+            Venda no automático com inteligência Artificial
+          </h2>
+
+          <p className="mt-4 text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Trabalhe de forma mais inteligente sem perder performance<br />
+            aumente seus resultados e eleve o atendimento do seu negócio a outro nível.
+          </p>
+
+          <div className="mt-10 flex justify-center">
+            <a 
+              href="#" 
+              onClick={handleButtonClick}
+              className="bg-[#A2DE5D] hover:bg-[#A2DE5D]/90 text-gray-800 font-medium px-8 py-4 rounded-full flex items-center gap-2 group"
+            >
+              TESTE GRÁTIS 7 DIAS
+              <span className="bg-[#173824] text-white p-2 rounded-full group-hover:translate-x-1 transition-transform">
+                <ArrowRight size={16} />
               </span>
-              <div className="block mt-1">com Inteligência Artificial</div>
-            </h1>
+            </a>
+          </div>
+        </div>
 
-            <p className="mt-6 text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-              A IA que atende, qualifica e converte seus leads 24h por dia, sem
-              interrupções e <span className="font-semibold">7x mais barata</span> que um Atendente.
-            </p>
-
-            <div className="mt-8 sm:mt-10">
-              <button
-                onClick={handleButtonClick}
-                className="bg-primary text-white font-medium text-base sm:text-lg px-8 sm:px-10 py-4 sm:py-6 inline-block rounded-full hover:bg-primary/90 transition"
-              >
-                Quero vender mais agora
-              </button>
+        <div className="mt-16">
+          {isLoading ? (
+            <div className="relative aspect-[16/9] w-full bg-gray-100 rounded-xl overflow-hidden max-w-5xl mx-auto">
+              <div className="absolute inset-0 animate-pulse bg-gray-200"></div>
             </div>
-          </div>
-
-          <div
-            className={`w-full mt-12 sm:mt-16 px-2 ${
-              isVisible ? "animate-fade-in-up" : "opacity-0"
-            }`}
-          >
-            {isLoading ? (
-              <div className="relative aspect-[16/9] w-full bg-gray-100 rounded-xl overflow-hidden max-w-5xl mx-auto">
-                <div className="absolute inset-0 animate-pulse bg-gray-200"></div>
-              </div>
-            ) : (
-              <div
-                ref={videoContainerRef}
-                className="w-full max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-lg border-[6px] border-primary/50 hover:border-primary transition-all duration-300"
-              />
-            )}
-          </div>
+          ) : (
+            <div
+              ref={videoContainerRef}
+              className="w-full max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-lg border-[6px] border-primary/50 hover:border-primary transition-all duration-300"
+            />
+          )}
         </div>
       </div>
     </section>

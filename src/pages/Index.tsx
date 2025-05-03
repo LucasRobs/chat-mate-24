@@ -16,6 +16,7 @@ import CtaSection from "@/components/sections/CtaSection";
 import ClosingCtaSection from "@/components/sections/ClosingCtaSection";
 import WistiaScriptLoader from "@/components/utils/WistiaScriptLoader";
 import { Toaster } from "@/components/ui/toaster";
+import ChatDemo from "@/components/sections/ChatDemo";
 
 const Index = () => {
   useEffect(() => {
@@ -47,8 +48,9 @@ const Index = () => {
         <main className="flex-1">
           <Hero />
           <StatsSection />
-          <Benefits />
           <Features />
+          <ChatDemo />
+          <Benefits />
           <Comparison />
           <Testimonials />
           <IntegrationPartners />

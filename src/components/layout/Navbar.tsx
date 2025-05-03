@@ -1,5 +1,6 @@
+
 import { useState, useEffect } from "react";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useIsMobile } from "@/hooks/use-mobile";
 
@@ -27,9 +28,9 @@ export const Navbar = () => {
   }, [prevScrollY]);
 
   const navItems = [
-    { label: "Início", href: "#" },
-    { label: "Funcionalidades", href: "#features" },
-    { label: "Preços", href: "#pricing" },
+    { label: "Funções", href: "#features" },
+    { label: "Planos", href: "#pricing" },
+    { label: "Empresa", href: "#about" },
   ];
 
   const toggleMenu = () => {
@@ -52,7 +53,7 @@ export const Navbar = () => {
   return (
     <nav
       className={cn(
-        "sticky-nav bg-white py-3 sm:py-4 px-4 sm:px-6 md:px-12 lg:px-20 shadow-sm transition-all duration-300",
+        "sticky-nav bg-white py-4 sm:py-6 px-4 sm:px-6 md:px-12 lg:px-20 transition-all duration-300",
         scrollY > 100 ? "glass" : "",
         isNavHidden && !isOpen ? "hidden-nav" : "",
         isOpen ? "fixed inset-0 z-50 bg-white" : ""
@@ -65,30 +66,31 @@ export const Navbar = () => {
             alt="followop Logo"
             className="h-8 w-auto sm:h-10"
           />
-          <span className="font-bold text-xl sm:text-2xl text-secondary">followop</span>
+          <span className="font-bold text-xl sm:text-2xl text-black">followop</span>
         </a>
 
-        <div className="hidden md:flex items-center space-x-8">
-          {navItems.map((item, index) => (
-            <a
-              key={index}
-              href={item.href}
-              className="text-gray-700 font-medium hover:text-primary link-underline transition-colors"
-            >
-              {item.label}
-            </a>
-          ))}
+        <div className="hidden md:flex items-center">
+          <div className="bg-gray-100 rounded-full py-2 px-2 flex">
+            {navItems.map((item, index) => (
+              <a
+                key={index}
+                href={item.href}
+                className="text-gray-700 font-medium hover:text-primary px-6 py-1 transition-colors"
+              >
+                {item.label}
+              </a>
+            ))}
+          </div>
         </div>
 
-        <div className="hidden md:flex items-center gap-4">
+        <div className="hidden md:flex">
           <a
-            href="https://wa.me/5588997492536"
+            href="https://www.followop.com.br/register"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 text-secondary font-medium"
+            className="bg-[#173824] hover:bg-[#173824]/90 text-white font-medium px-8 py-2 rounded-full transition-colors"
           >
-            <Phone size={18} />
-            <span>Contato</span>
+            Entrar
           </a>
         </div>
 
@@ -116,13 +118,12 @@ export const Navbar = () => {
             ))}
             <div className="flex flex-col gap-4 pt-4">
               <a
-                href="https://wa.me/5588997492536"
+                href="https://www.followop.com.br/register"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-secondary font-medium py-2"
+                className="bg-[#173824] text-white font-medium py-2 px-4 rounded-full text-center"
               >
-                <Phone size={18} />
-                <span>Contato</span>
+                Entrar
               </a>
             </div>
           </div>

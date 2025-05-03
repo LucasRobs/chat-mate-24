@@ -1,5 +1,4 @@
 
-import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import PopupForm from "@/components/ui-custom/PopupForm";
@@ -24,12 +23,13 @@ const CtaSection = () => {
 
             <div className="mt-8 sm:mt-10">
               <PopupForm
-                buttonClassName={`bg-primary hover:bg-primary/90 btn-hover text-base sm:text-lg backdrop-blur-sm px-8 py-6 ${
-                  isMobile ? "h-10" : "h-11" 
-                }`}
+                buttonClassName="bg-[#A2DE5D] hover:bg-[#A2DE5D]/90 text-gray-800 text-base sm:text-lg backdrop-blur-sm px-8 py-4 rounded-full flex items-center justify-center gap-2 mx-auto group"
                 redirectUrl="https://www.followop.com.br/register"
               >
-                Quero testar a followop
+                <span>TESTE GRÁTIS 7 DIAS</span>
+                <span className="bg-[#173824] text-white p-2 rounded-full group-hover:translate-x-1 transition-transform">
+                  <ArrowRight size={16} />
+                </span>
               </PopupForm>
             </div>
           </div>
