@@ -22,11 +22,22 @@ const Hero = () => {
 
   return (
     <section className="relative bg-white overflow-hidden py-16 md:py-20 lg:py-24">
-      {/* Elementos decorativos (dots) */}
-      <div className="absolute top-20 left-10 w-16 h-16 rounded-full border-4 border-primary/30 opacity-70 animate-pulse"></div>
-      <div className="absolute top-40 right-20 w-20 h-20 rounded-full border-4 border-primary/30 opacity-70 animate-float"></div>
-      <div className="absolute bottom-20 left-1/4 w-12 h-12 rounded-full border-4 border-primary/30 opacity-70"></div>
-      <div className="absolute bottom-40 right-1/3 w-14 h-14 rounded-full border-4 border-primary/30 opacity-70"></div>
+      {/* Brand dot pattern elements */}
+      <div className="absolute top-20 left-10 w-12 h-12 rounded-full border-[3px] border-primary opacity-70"></div>
+      <div className="absolute top-40 right-20 w-16 h-16">
+        <div className="w-full h-full rounded-full border-[3px] border-primary opacity-70"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full border-[3px] border-primary opacity-70"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-5 h-5 rounded-full border-[3px] border-primary opacity-70"></div>
+      </div>
+      <div className="absolute bottom-20 left-1/4 w-14 h-14 rounded-full bg-primary opacity-20"></div>
+      <div className="absolute bottom-40 right-1/3 w-10 h-10 rounded-full border-[3px] border-primary opacity-70"></div>
+
+      {/* Half circle pattern */}
+      <div className="absolute top-60 left-20 w-14 h-14 opacity-20">
+        <div className="w-full h-full rounded-full bg-primary overflow-hidden">
+          <div className="absolute top-0 left-0 w-1/2 h-full bg-white"></div>
+        </div>
+      </div>
 
       {/* Padrão de pontos */}
       <div className="absolute inset-0 pointer-events-none">
@@ -78,7 +89,7 @@ const Hero = () => {
               <div className="absolute inset-0 animate-pulse bg-gray-200"></div>
             </div>
           ) : (
-            <div className="w-full max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-lg border-[6px] border-primary/50 hover:border-primary transition-all duration-300">
+            <div className="w-full max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-lg border-[6px] border-primary/50 hover:border-primary transition-all duration-300 relative">
               {/* Pseudo Dashboard */}
               <div className="bg-[#173824]/5 p-4">
                 {/* Dashboard Header */}
@@ -100,11 +111,11 @@ const Hero = () => {
 
                 {/* Dashboard Content */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
-                  {/* Stats Card 1 */}
-                  <div className="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                  {/* Stats Card 1 - Full circle */}
+                  <div className="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow group">
                     <div className="flex items-center gap-2 mb-2">
-                      <div className="h-10 w-10 rounded-full bg-green-100 flex items-center justify-center">
-                        <div className="h-5 w-5 rounded-full bg-green-500"></div>
+                      <div className="h-10 w-10 bg-primary/10 rounded-full flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
+                        <div className="h-5 w-5 rounded-full bg-primary"></div>
                       </div>
                       <div>
                         <p className="text-sm text-gray-500">Atendimentos</p>
@@ -112,15 +123,17 @@ const Hero = () => {
                       </div>
                     </div>
                     <div className="h-2 w-full bg-gray-100 rounded-full overflow-hidden">
-                      <div className="h-full bg-green-500 rounded-full" style={{width: '80%'}}></div>
+                      <div className="h-full bg-primary rounded-full" style={{width: '80%'}}></div>
                     </div>
                   </div>
 
-                  {/* Stats Card 2 */}
-                  <div className="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                  {/* Stats Card 2 - Concentric circles */}
+                  <div className="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow group">
                     <div className="flex items-center gap-2 mb-2">
-                      <div className="h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center">
-                        <div className="h-5 w-5 rounded-full bg-blue-500"></div>
+                      <div className="h-10 w-10 bg-primary/10 rounded-full flex items-center justify-center relative group-hover:bg-primary/20 transition-colors duration-300">
+                        <div className="h-7 w-7 rounded-full border-2 border-primary"></div>
+                        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 h-4 w-4 rounded-full border-2 border-primary"></div>
+                        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 h-1.5 w-1.5 rounded-full bg-primary"></div>
                       </div>
                       <div>
                         <p className="text-sm text-gray-500">Conversões</p>
@@ -128,15 +141,17 @@ const Hero = () => {
                       </div>
                     </div>
                     <div className="h-2 w-full bg-gray-100 rounded-full overflow-hidden">
-                      <div className="h-full bg-blue-500 rounded-full" style={{width: '65%'}}></div>
+                      <div className="h-full bg-primary rounded-full" style={{width: '65%'}}></div>
                     </div>
                   </div>
 
-                  {/* Stats Card 3 */}
-                  <div className="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                  {/* Stats Card 3 - Half circle */}
+                  <div className="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow group">
                     <div className="flex items-center gap-2 mb-2">
-                      <div className="h-10 w-10 rounded-full bg-purple-100 flex items-center justify-center">
-                        <div className="h-5 w-5 rounded-full bg-purple-500"></div>
+                      <div className="h-10 w-10 bg-primary/10 rounded-full flex items-center justify-center relative group-hover:bg-primary/20 transition-colors duration-300">
+                        <div className="h-6 w-6 rounded-full bg-primary overflow-hidden">
+                          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 h-6 w-3 bg-white ml-[3px]"></div>
+                        </div>
                       </div>
                       <div>
                         <p className="text-sm text-gray-500">Receita</p>
@@ -144,7 +159,7 @@ const Hero = () => {
                       </div>
                     </div>
                     <div className="h-2 w-full bg-gray-100 rounded-full overflow-hidden">
-                      <div className="h-full bg-purple-500 rounded-full" style={{width: '75%'}}></div>
+                      <div className="h-full bg-primary rounded-full" style={{width: '75%'}}></div>
                     </div>
                   </div>
                 </div>
@@ -153,7 +168,7 @@ const Hero = () => {
                 <div className="bg-white rounded-lg shadow-sm p-4">
                   <div className="flex items-center justify-between mb-4">
                     <h3 className="font-medium">Conversas ativas</h3>
-                    <span className="text-xs bg-green-100 text-green-700 py-1 px-2 rounded-full">3 online</span>
+                    <span className="text-xs bg-primary/15 text-primary py-1 px-2 rounded-full">3 online</span>
                   </div>
                   
                   {/* Chat messages */}
@@ -175,6 +190,14 @@ const Hero = () => {
                         <span className="text-xs font-medium text-primary">AI</span>
                       </div>
                     </div>
+
+                    <div className="flex gap-3">
+                      <div className="h-8 w-8 rounded-full bg-gray-100 flex-shrink-0"></div>
+                      <div className="bg-gray-100 rounded-lg p-3 max-w-[70%]">
+                        <p className="text-sm">Isso é exatamente o que estou procurando! E quanto custa?</p>
+                        <span className="text-xs text-gray-500">09:44</span>
+                      </div>
+                    </div>
                   </div>
                   
                   {/* Input */}
@@ -192,7 +215,8 @@ const Hero = () => {
                 </div>
               </div>
               
-              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full">
+              {/* Floating logo footer */}
+              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full shadow-sm">
                 <div className="flex items-center gap-2">
                   <img 
                     src="/lovable-uploads/669aaab1-10dd-437a-a1b9-789ae5f02809.png" 
@@ -201,6 +225,14 @@ const Hero = () => {
                   />
                   <span className="font-medium text-gray-800">followop</span>
                 </div>
+              </div>
+
+              {/* Decorative brand dots on the dashboard */}
+              <div className="absolute top-2 right-2 w-4 h-4 rounded-full border-2 border-primary/40"></div>
+              <div className="absolute bottom-12 left-4 w-6 h-6">
+                <div className="w-full h-full rounded-full border-2 border-primary/40"></div>
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full border-2 border-primary/40"></div>
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2 h-2 rounded-full border-2 border-primary/40"></div>
               </div>
             </div>
           )}
