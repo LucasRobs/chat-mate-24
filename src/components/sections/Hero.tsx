@@ -6,7 +6,6 @@ import { ArrowRight } from "lucide-react";
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const videoContainerRef = useRef<HTMLDivElement | null>(null);
   const isMobile = useIsMobile();
 
   useEffect(() => {
@@ -14,34 +13,6 @@ const Hero = () => {
     const timer = setTimeout(() => setIsLoading(false), 1000);
     return () => clearTimeout(timer);
   }, []);
-
-  useEffect(() => {
-    if (!isLoading && typeof window !== "undefined" && videoContainerRef.current) {
-      videoContainerRef.current.innerHTML = `
-        <style>
-          wistia-player[media-id='k3jvq760qi']:not(:defined) {
-            background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/k3jvq760qi/swatch');
-            display: block;
-            filter: blur(5px);
-            padding-top: 56.25%;
-          }
-        </style>
-        <wistia-player media-id="k3jvq760qi" aspect="1.7777777777777777" autoplay></wistia-player>
-      `;
-
-      const script1 = document.createElement("script");
-      script1.src = "https://fast.wistia.com/player.js";
-      script1.async = true;
-
-      const script2 = document.createElement("script");
-      script2.src = "https://fast.wistia.com/embed/k3jvq760qi.js";
-      script2.type = "module";
-      script2.async = true;
-
-      videoContainerRef.current.appendChild(script1);
-      videoContainerRef.current.appendChild(script2);
-    }
-  }, [isLoading]);
 
   const handleButtonClick = () => {
     if (typeof window !== "undefined") {
@@ -108,11 +79,118 @@ const Hero = () => {
             </div>
           ) : (
             <div className="w-full max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-lg border-[6px] border-primary/50 hover:border-primary transition-all duration-300">
-              <img 
-                src="/lovable-uploads/9ae827e7-7b31-41c9-a8df-620d486be97d.png" 
-                alt="Followop Dashboard" 
-                className="w-full h-auto object-cover"
-              />
+              {/* Pseudo Dashboard */}
+              <div className="bg-[#173824]/5 p-4">
+                {/* Dashboard Header */}
+                <div className="flex items-center justify-between bg-white rounded-lg p-3 mb-4 shadow-sm">
+                  <div className="flex items-center gap-2">
+                    <img 
+                      src="/lovable-uploads/669aaab1-10dd-437a-a1b9-789ae5f02809.png" 
+                      alt="followop Logo" 
+                      className="h-8"
+                    />
+                    <span className="font-semibold text-gray-800">followop Dashboard</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="h-8 w-8 rounded-full bg-primary/20 flex items-center justify-center">
+                      <span className="text-xs font-medium text-primary">AU</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Dashboard Content */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                  {/* Stats Card 1 */}
+                  <div className="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                    <div className="flex items-center gap-2 mb-2">
+                      <div className="h-10 w-10 rounded-full bg-green-100 flex items-center justify-center">
+                        <div className="h-5 w-5 rounded-full bg-green-500"></div>
+                      </div>
+                      <div>
+                        <p className="text-sm text-gray-500">Atendimentos</p>
+                        <p className="text-xl font-bold">128</p>
+                      </div>
+                    </div>
+                    <div className="h-2 w-full bg-gray-100 rounded-full overflow-hidden">
+                      <div className="h-full bg-green-500 rounded-full" style={{width: '80%'}}></div>
+                    </div>
+                  </div>
+
+                  {/* Stats Card 2 */}
+                  <div className="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                    <div className="flex items-center gap-2 mb-2">
+                      <div className="h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center">
+                        <div className="h-5 w-5 rounded-full bg-blue-500"></div>
+                      </div>
+                      <div>
+                        <p className="text-sm text-gray-500">Conversões</p>
+                        <p className="text-xl font-bold">43</p>
+                      </div>
+                    </div>
+                    <div className="h-2 w-full bg-gray-100 rounded-full overflow-hidden">
+                      <div className="h-full bg-blue-500 rounded-full" style={{width: '65%'}}></div>
+                    </div>
+                  </div>
+
+                  {/* Stats Card 3 */}
+                  <div className="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                    <div className="flex items-center gap-2 mb-2">
+                      <div className="h-10 w-10 rounded-full bg-purple-100 flex items-center justify-center">
+                        <div className="h-5 w-5 rounded-full bg-purple-500"></div>
+                      </div>
+                      <div>
+                        <p className="text-sm text-gray-500">Receita</p>
+                        <p className="text-xl font-bold">R$ 12.480</p>
+                      </div>
+                    </div>
+                    <div className="h-2 w-full bg-gray-100 rounded-full overflow-hidden">
+                      <div className="h-full bg-purple-500 rounded-full" style={{width: '75%'}}></div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Chat Simulation */}
+                <div className="bg-white rounded-lg shadow-sm p-4">
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="font-medium">Conversas ativas</h3>
+                    <span className="text-xs bg-green-100 text-green-700 py-1 px-2 rounded-full">3 online</span>
+                  </div>
+                  
+                  {/* Chat messages */}
+                  <div className="space-y-3 mb-4">
+                    <div className="flex gap-3">
+                      <div className="h-8 w-8 rounded-full bg-gray-100 flex-shrink-0"></div>
+                      <div className="bg-gray-100 rounded-lg p-3 max-w-[70%]">
+                        <p className="text-sm">Olá, gostaria de saber mais sobre como a IA pode ajudar no atendimento.</p>
+                        <span className="text-xs text-gray-500">09:42</span>
+                      </div>
+                    </div>
+                    
+                    <div className="flex gap-3 justify-end">
+                      <div className="bg-primary/10 rounded-lg p-3 max-w-[70%]">
+                        <p className="text-sm">Claro! Nossa IA é capaz de atender, qualificar e converter seus leads automaticamente, 24h por dia.</p>
+                        <span className="text-xs text-gray-500">09:43 ✓✓</span>
+                      </div>
+                      <div className="h-8 w-8 rounded-full bg-primary/20 flex-shrink-0 flex items-center justify-center">
+                        <span className="text-xs font-medium text-primary">AI</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Input */}
+                  <div className="flex gap-2 items-center">
+                    <div className="flex-1 bg-gray-100 rounded-full px-4 py-2 text-sm text-gray-400">
+                      Digite sua mensagem...
+                    </div>
+                    <button className="bg-primary rounded-full p-2">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22 2L11 13" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
               
               <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full">
                 <div className="flex items-center gap-2">
