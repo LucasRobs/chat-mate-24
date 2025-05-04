@@ -1,3 +1,4 @@
+
 import { Instagram, Linkedin, Mail, Phone, MapPin, Globe } from "lucide-react";
 
 const Footer = () => {
@@ -67,7 +68,7 @@ const Footer = () => {
             <h3 className="font-medium text-secondary mb-4">Contato</h3>
             <ul className="space-y-3 text-sm text-gray-500">
               <li className="flex items-center gap-3">
-                <Mail size={40} className="text-primary mt-[1px]" />
+                <Mail size={20} className="text-primary" />
                 <a href="mailto:followop.oficial@gmail.com" className="hover:text-primary transition-colors">
                   followop.oficial@gmail.com
                 </a>
