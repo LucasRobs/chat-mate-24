@@ -59,7 +59,8 @@ export const Navbar = () => {
         isOpen ? "fixed inset-0 z-50 bg-white" : ""
       )}
     >
-      <div className="max-w-7xl mx-auto flex items-center justify-between">
+      <div className="max-w-7xl mx-auto flex items-center justify-between relative">
+        {/* Logo */}
         <a href="#" className="flex items-center gap-2 z-50 animate-fade-in-down">
           <img
             src="/lovable-uploads/669aaab1-10dd-437a-a1b9-789ae5f02809.png"
@@ -69,8 +70,8 @@ export const Navbar = () => {
           <span className="font-bold text-lg sm:text-xl text-secondary">followop</span>
         </a>
 
-        {/* Centraliza os itens no desktop */}
-        <div className="hidden md:flex flex-1 justify-center">
+        {/* Menus centralizados */}
+        <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2">
           <div className="bg-gray-100 rounded-full py-2 px-2 flex">
             {navItems.map((item, index) => (
               <a
@@ -84,7 +85,7 @@ export const Navbar = () => {
           </div>
         </div>
 
-        {/* Botão "Entrar" no canto direito */}
+        {/* Botão Entrar */}
         <div className="hidden md:flex">
           <Button
             asChild
@@ -140,7 +141,7 @@ export const Navbar = () => {
                   Entrar
                 </a>
               </Button>
-              
+
               <Button
                 asChild
                 variant="outline"
