@@ -26,12 +26,10 @@ const MetaTechPartnerBadge = () => (
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
   const isMobile = useIsMobile();
 
   useEffect(() => {
     setIsVisible(true);
-    const timer = setTimeout(() => setIsLoading(false), 1000);
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -48,7 +46,6 @@ const Hero = () => {
     animElements.forEach((el) => observer.observe(el));
 
     return () => {
-      clearTimeout(timer);
       animElements.forEach((el) => observer.unobserve(el));
     };
   }, []);
@@ -116,8 +113,7 @@ const Hero = () => {
         <div className="mt-12 animate-on-scroll from-bottom animate-in" style={{ animationDelay: "0.5s" }}>
           <Dashboard 
             activityData={activityData} 
-            isMobile={isMobile} 
-            isLoading={isLoading} 
+            isMobile={isMobile}
           />
         </div>
       </div>

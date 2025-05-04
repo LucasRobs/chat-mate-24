@@ -7,20 +7,11 @@ import ActivityChart from "./ActivityChart";
 interface DashboardProps {
   activityData: Array<{ name: string; value: number }>;
   isMobile: boolean;
-  isLoading: boolean;
 }
 
-const Dashboard = ({ activityData, isMobile, isLoading }: DashboardProps) => {
+const Dashboard = ({ activityData, isMobile }: DashboardProps) => {
   // Simplified data for mobile view
   const simplifiedData = isMobile ? activityData.filter((_, idx) => idx % 3 === 0) : activityData;
-
-  if (isLoading) {
-    return (
-      <div className="relative aspect-[16/9] w-full bg-gray-100 rounded-xl overflow-hidden max-w-5xl mx-auto">
-        <div className="absolute inset-0 animate-pulse bg-gray-200"></div>
-      </div>
-    );
-  }
 
   return (
     <div className="w-full max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-lg border-[6px] border-primary/10 hover:border-primary/20 transition-all duration-500 relative mobile-container">
