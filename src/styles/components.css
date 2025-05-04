@@ -1,0 +1,124 @@
+
+@tailwind components;
+
+@layer components {
+  .glass {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+  }
+
+  .acrylic {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+  }
+
+  .link-underline {
+    position: relative;
+  }
+
+  .link-underline:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 1px;
+    bottom: -2px;
+    left: 0;
+    background-color: #00af6b;
+    transform-origin: bottom right;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .link-underline:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+
+  .btn-hover {
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .btn-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 175, 107, 0.2);
+  }
+
+  .card-hover {
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  }
+
+  .sticky-nav {
+    @apply fixed top-0 left-0 w-full z-50 transition-transform duration-300;
+  }
+
+  .sticky-nav.hidden-nav {
+    transform: translateY(-100%);
+  }
+
+  /* Branding dot pattern */
+  .dot-pattern {
+    background-color: #ffffff;
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 20m-1 0a1 1 0 1 0 2 0 1 1 0 1 0 -2 0' fill='%23e0e0e0'/%3E%3C/svg%3E");
+    background-size: 20px 20px;
+  }
+  
+  /* Followop branding dot pattern */
+  .impulso-pattern {
+    background-color: #ffffff;
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='20' cy='20' r='1' fill='%2300af6b' opacity='0.15'/%3E%3C/svg%3E");
+    background-size: 20px 20px;
+  }
+
+  /* Precision borders */
+  .precision-border {
+    @apply border border-gray-100 shadow-sm;
+  }
+  
+  /* Brand-style cards */
+  .followop-card {
+    @apply bg-white rounded-2xl precision-border p-6 shadow-sm;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  .followop-card:hover {
+    @apply shadow-md;
+    transform: translateY(-2px);
+  }
+
+  /* Section styles */
+  .section-padding {
+    @apply py-20 px-6 sm:px-8 md:px-12 lg:px-16;
+  }
+  
+  /* Comparison table */
+  .comparison-table {
+    @apply w-full border-collapse;
+  }
+  
+  .comparison-table th,
+  .comparison-table td {
+    @apply p-4 text-left border-b border-gray-100;
+  }
+  
+  .comparison-table th {
+    @apply font-medium text-gray-500;
+  }
+  
+  .comparison-table tbody tr:last-child td {
+    @apply border-none;
+  }
+  
+  .comparison-highlight {
+    @apply text-primary font-medium;
+  }
+}

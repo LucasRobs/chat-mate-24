@@ -1,0 +1,48 @@
+
+@tailwind utilities;
+
+@layer utilities {
+  .animate-on-scroll {
+    @apply opacity-0 transition-all duration-1000;
+  }
+  
+  .from-bottom {
+    @apply translate-y-12;
+  }
+  
+  .from-left {
+    @apply -translate-x-12;
+  }
+  
+  .from-right {
+    @apply translate-x-12;
+  }
+  
+  .animate-in {
+    @apply opacity-100 translate-y-0 translate-x-0;
+  }
+  
+  /* Mobile optimizations */
+  @media (max-width: 640px) {
+    .card-hover:hover {
+      transform: translateY(-2px);
+    }
+    
+    .btn-hover:hover {
+      transform: translateY(-1px);
+    }
+    
+    .from-bottom {
+      @apply translate-y-6;
+    }
+    
+    .from-left, .from-right {
+      @apply translate-x-0 translate-y-6;
+    }
+  }
+
+  /* Fix for mobile overflows */
+  .mobile-container {
+    @apply max-w-full overflow-x-hidden;
+  }
+}
