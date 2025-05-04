@@ -69,19 +69,19 @@ const Footer = () => {
             <h3 className="font-medium text-secondary mb-4">Contato</h3>
             <ul className="space-y-3 text-sm text-gray-500">
               <li className="flex items-center gap-2">
-                <Mail size={16} className="text-primary" />
+                <Mail size={20} className="text-primary" />
                 <a href="mailto:followop.oficial@gmail.com" className="hover:text-primary transition-colors">
                   followop.oficial@gmail.com
                 </a>
               </li>
               <li className="flex items-center gap-2">
-                <Phone size={16} className="text-primary" />
+                <Phone size={20} className="text-primary" />
                 <a href="tel:+5588997492536" className="hover:text-primary transition-colors">
                   +55 (88) 99749-2536
                 </a>
               </li>
               <li className="flex items-start gap-2">
-                <MapPin size={16} className="text-primary mt-1" />
+                <MapPin size={20} className="text-primary mt-1" />
                 <address className="not-italic leading-tight">
                   R. Antônio Augusto, 290<br />
                   Meireles, Fortaleza - CE<br />
@@ -89,7 +89,7 @@ const Footer = () => {
                 </address>
               </li>
               <li className="flex items-center gap-2">
-                <Globe size={16} className="text-primary" />
+                <Globe size={20} className="text-primary" />
                 <a href="https://www.followop.com.br" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
                   www.followop.com.br
                 </a>
