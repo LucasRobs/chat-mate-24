@@ -8,17 +8,7 @@ const CtaSection = () => {
   const isMobile = useIsMobile();
 
   return (
-    <section className="py-16 sm:py-20 bg-white relative overflow-hidden brand-decorations">
-      {/* Subtle brand patterns */}
-      <div className="absolute top-12 left-[8%] w-10 h-10 solid-circle-pattern opacity-15"></div>
-      <div className="absolute bottom-16 right-[12%] w-8 h-8 half-circle-pattern opacity-20"></div>
-      <div className="absolute top-[40%] right-[20%] w-12 h-12 outline-circle-pattern opacity-15"></div>
-      <div className="absolute bottom-[30%] left-[15%] w-6 h-6 impulso-pattern opacity-25"></div>
-      
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 opacity-5 impulso-pattern"></div>
-      </div>
-      
+    <section className="py-16 sm:py-20 bg-white relative overflow-hidden">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-12 lg:px-20">
         <div className="bg-gradient-to-r from-secondary to-secondary/90 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 lg:p-16 shadow-xl reveal acrylic">
           <div className="text-center max-w-3xl mx-auto">

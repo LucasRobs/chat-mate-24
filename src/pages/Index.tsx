@@ -33,12 +33,6 @@ const Index = () => {
     const revealElements = document.querySelectorAll(".reveal");
     revealElements.forEach((el) => observer.observe(el));
 
-    // Add animation to brand patterns for subtle movement
-    const patternElements = document.querySelectorAll(".impulso-pattern, .half-circle-pattern");
-    patternElements.forEach((el) => {
-      el.classList.add("animate-float");
-    });
-
     return () => {
       revealElements.forEach((el) => observer.unobserve(el));
     };

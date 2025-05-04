@@ -46,13 +46,7 @@ const Features = () => {
   ];
 
   return (
-    <section id="features" ref={sectionRef} className="py-24 bg-gradient-to-b from-white to-primary/5 relative brand-decorations">
-      {/* Subtle brand patterns */}
-      <div className="absolute top-20 left-12 w-8 h-8 solid-circle-pattern opacity-15"></div>
-      <div className="absolute bottom-30 right-10 w-10 h-10 outline-circle-pattern opacity-15"></div>
-      <div className="absolute top-40 right-[15%] w-6 h-6 half-circle-pattern opacity-20"></div>
-      <div className="absolute bottom-[20%] left-[10%] w-5 h-5 impulso-pattern opacity-15"></div>
-      
+    <section id="features" ref={sectionRef} className="py-24 bg-gradient-to-b from-white to-primary/5 relative">
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 text-center">
         <span className="bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-medium">Funcionalidades</span>
         <h2 className="mt-6 text-4xl md:text-5xl font-bold text-secondary">

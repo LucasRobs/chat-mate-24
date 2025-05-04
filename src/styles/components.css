@@ -65,41 +65,6 @@
     transform: translateY(-100%);
   }
 
-  /* Branding patterns - updated with new visual identity */
-  .dot-pattern {
-    background-color: #ffffff;
-    background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='10' cy='10' r='3' fill='%2300af6b' opacity='0.2'/%3E%3C/svg%3E");
-    background-size: 20px 20px;
-  }
-  
-  /* Followop pattern - updated with concentric circles */
-  .impulso-pattern {
-    background-color: transparent;
-    background-image: url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='15' cy='15' r='6' stroke='%2300af6b' stroke-width='1' fill='none' opacity='0.15'/%3E%3Ccircle cx='15' cy='15' r='4' stroke='%2300af6b' stroke-width='1' fill='none' opacity='0.15'/%3E%3Ccircle cx='15' cy='15' r='2' stroke='%2300af6b' stroke-width='1' fill='none' opacity='0.15'/%3E%3C/svg%3E");
-    background-size: 30px 30px;
-  }
-  
-  /* Half circle pattern */
-  .half-circle-pattern {
-    background-color: transparent;
-    background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 0 A10 10 0 0 1 10 20' fill='%2300af6b' opacity='0.15'/%3E%3C/svg%3E");
-    background-size: 20px 20px;
-  }
-  
-  /* Solid circle pattern */
-  .solid-circle-pattern {
-    background-color: transparent;
-    background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='10' cy='10' r='5' fill='%2300af6b' opacity='0.15'/%3E%3C/svg%3E");
-    background-size: 20px 20px;
-  }
-  
-  /* Outline circle pattern */
-  .outline-circle-pattern {
-    background-color: transparent;
-    background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='10' cy='10' r='5' stroke='%2300af6b' stroke-width='1' fill='none' opacity='0.15'/%3E%3C/svg%3E");
-    background-size: 20px 20px;
-  }
-
   /* Precision borders */
   .precision-border {
     @apply border border-gray-100 shadow-sm;
@@ -141,35 +106,5 @@
   
   .comparison-highlight {
     @apply text-primary font-medium;
-  }
-  
-  /* Branding decorative elements for sections */
-  .brand-decorations {
-    @apply relative overflow-hidden;
-  }
-  
-  .brand-decorations::before {
-    content: '';
-    @apply absolute top-10 left-10 w-8 h-8 solid-circle-pattern opacity-10 pointer-events-none;
-  }
-  
-  .brand-decorations::after {
-    content: '';
-    @apply absolute bottom-10 right-10 w-12 h-12 outline-circle-pattern opacity-10 pointer-events-none;
-  }
-  
-  /* Card decoration classes */
-  .card-with-patterns {
-    @apply relative overflow-hidden;
-  }
-  
-  .card-with-patterns::before {
-    content: '';
-    @apply absolute top-2 right-2 w-4 h-4 solid-circle-pattern opacity-15 pointer-events-none;
-  }
-  
-  .card-with-patterns::after {
-    content: '';
-    @apply absolute bottom-2 left-2 w-6 h-6 impulso-pattern opacity-10 pointer-events-none;
   }
 }

@@ -59,20 +59,7 @@ const Hero = () => {
   ];
 
   return (
-    <section className="relative bg-white overflow-hidden py-16 md:py-20 lg:py-24 mobile-container brand-decorations">
-      {/* Novos elementos de padrão de marca */}
-      <div className="absolute top-20 left-10 w-6 h-6 half-circle-pattern"></div>
-      <div className="absolute top-40 right-20 w-10 h-10" style={{ animationDelay: "1s" }}>
-        <div className="w-full h-full impulso-pattern"></div>
-      </div>
-      <div className="absolute bottom-60 left-8 w-8 h-8 solid-circle-pattern"></div>
-      <div className="absolute bottom-20 right-10 w-5 h-5 outline-circle-pattern"></div>
-
-      {/* Padrão de background sutil */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 impulso-pattern opacity-5"></div>
-      </div>
-
+    <section className="relative bg-white overflow-hidden py-16 md:py-20 lg:py-24 mobile-container">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-6 animate-on-scroll from-bottom animate-in" style={{ animationDelay: "0.1s" }}>
           <div className="flex items-center justify-center gap-2 mb-4">

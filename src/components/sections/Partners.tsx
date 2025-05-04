@@ -33,13 +33,7 @@ const Partners = () => {
   ];
 
   return (
-    <section id="partners" className="py-16 bg-gradient-to-b from-gray-50 to-white brand-decorations">
-      {/* Subtle brand patterns */}
-      <div className="absolute top-14 left-[15%] w-7 h-7 solid-circle-pattern opacity-15"></div>
-      <div className="absolute bottom-10 right-[10%] w-6 h-6 half-circle-pattern opacity-20"></div>
-      <div className="absolute top-[30%] right-[5%] w-9 h-9 outline-circle-pattern opacity-15"></div>
-      <div className="absolute bottom-[40%] left-[20%] w-5 h-5 impulso-pattern opacity-25"></div>
-      
+    <section id="partners" className="py-16 bg-gradient-to-b from-gray-50 to-white">
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
         <div 
           className={`text-center mb-12 transition-all duration-700 ${
@@ -54,7 +48,7 @@ const Partners = () => {
           </h2>
         </div>
 
-        <div className="w-full overflow-hidden rounded-xl p-8 bg-white shadow-sm border border-gray-100 card-with-patterns">
+        <div className="w-full overflow-hidden rounded-xl p-8 bg-white shadow-sm border border-gray-100">
           <div className="marquee relative flex items-center">
             <div className="marquee-content flex items-center justify-around w-full">
               {partners.map((partner, index) => (
@@ -82,16 +76,6 @@ const Partners = () => {
                 </div>
               ))}
             </div>
-          </div>
-        </div>
-        
-        {/* Brand pattern elements */}
-        <div className="relative mt-10 py-4">
-          <div className="absolute -top-10 -right-10 w-8 h-8 opacity-10">
-            <div className="impulso-pattern absolute inset-0"></div>
-          </div>
-          <div className="absolute -bottom-5 -left-5 w-6 h-6 opacity-10">
-            <div className="impulso-pattern absolute inset-0"></div>
           </div>
         </div>
       </div>

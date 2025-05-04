@@ -95,29 +95,6 @@
   animation: slide-right 0.8s ease forwards;
 }
 
-/* Brand patterns floating animation */
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0) rotate(0);
-  }
-  50% {
-    transform: translateY(-5px) rotate(2deg);
-  }
-}
-
-.animate-float {
-  animation: float 8s ease-in-out infinite;
-}
-
-/* Hover effect on brand elements */
-.impulso-pattern:hover,
-.outline-circle-pattern:hover,
-.solid-circle-pattern:hover,
-.half-circle-pattern:hover {
-  opacity: 0.3 !important;
-  transition: opacity 0.5s ease-in-out;
-}
-
 /* Custom slide animation for activity chart */
 @keyframes slide-left {
   from {
@@ -133,4 +110,3 @@
 .animate-slide-left {
   animation: slide-left 0.8s ease forwards;
 }
-

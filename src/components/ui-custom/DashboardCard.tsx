@@ -10,7 +10,7 @@ interface DashboardCardProps {
 
 const DashboardCard = ({ title, value, icon: Icon }: DashboardCardProps) => {
   return (
-    <div className="dashboard-card p-3 sm:p-4 bg-white rounded-lg shadow-sm card-hover animate-on-scroll from-left animate-in card-with-patterns">
+    <div className="dashboard-card p-3 sm:p-4 bg-white rounded-lg shadow-sm card-hover animate-on-scroll from-left animate-in">
       <div className="flex items-center justify-between">
         <div>
           <p className="text-xs sm:text-sm text-gray-500">{title}</p>
@@ -22,9 +22,6 @@ const DashboardCard = ({ title, value, icon: Icon }: DashboardCardProps) => {
           <Icon className="w-4 h-4 sm:w-6 sm:h-6 text-primary" />
         </div>
       </div>
-      
-      {/* Subtle decorative element */}
-      <div className="absolute -bottom-1 -right-1 w-6 h-6 opacity-10 outline-circle-pattern"></div>
     </div>
   );
 };
