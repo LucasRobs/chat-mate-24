@@ -54,7 +54,7 @@ export const Navbar = () => {
   return (
     <nav
       className={cn(
-        "sticky-nav bg-white py-3 sm:py-4 px-4 sm:px-8 md:px-12 lg:px-20 transition-all duration-300",
+        "sticky-nav bg-white py-3 sm:py-4 px-4 sm:px-6 md:px-8 lg:px-12 transition-all duration-300",
         scrollY > 100 ? "shadow-sm glass" : "",
         isNavHidden && !isOpen ? "hidden-nav" : "",
         isOpen ? "fixed inset-0 z-50 bg-white" : ""
@@ -78,7 +78,7 @@ export const Navbar = () => {
               <a
                 key={index}
                 href={item.href}
-                className="text-gray-700 font-medium hover:text-primary px-6 py-1 transition-colors"
+                className="text-gray-700 font-medium hover:text-primary px-4 lg:px-6 py-1 transition-colors"
               >
                 {item.label}
               </a>
@@ -91,12 +91,13 @@ export const Navbar = () => {
           <Button
             asChild
             variant="default"
-            className="bg-[#33334F] hover:bg-[#33334F]/90 text-white font-medium px-6 py-1.5 rounded-full"
+            className="bg-[#33334F] hover:bg-[#33334F]/90 text-white font-medium px-4 lg:px-6 py-1.5 rounded-full"
           >
             <a
               href="https://www.followop.com.br/register"
               target="_blank"
               rel="noopener noreferrer"
+              className="animated-button"
             >
               Entrar
             </a>
@@ -132,7 +133,7 @@ export const Navbar = () => {
               <Button
                 asChild
                 variant="default"
-                className="bg-[#33334F] text-white font-medium py-3 px-4 rounded-full text-center hover:bg-[#33334F]/90 transition-colors"
+                className="bg-[#33334F] text-white font-medium py-3 px-4 rounded-full text-center hover:bg-[#33334F]/90 transition-colors animated-button"
               >
                 <a
                   href="https://www.followop.com.br/register"
@@ -146,7 +147,7 @@ export const Navbar = () => {
               <Button
                 asChild
                 variant="apple"
-                className="text-center py-3 px-4 text-sm"
+                className="text-center py-3 px-4 text-sm animated-button"
               >
                 <a
                   href="https://www.followop.com.br/register"

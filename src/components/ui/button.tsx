@@ -20,7 +20,7 @@ const buttonVariants = cva(
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
         trial: "bg-[#A2DE5D] hover:bg-[#A2DE5D]/90 text-[#222] font-medium rounded-full px-4 py-1.5 transition-all duration-300",
-        apple: "bg-[#A2DE5D] text-[#222] font-medium rounded-full px-6 py-2.5 transition-colors shadow-sm",
+        apple: "bg-[#A2DE5D] text-[#222] font-medium rounded-full px-6 py-2.5 transition-colors shadow-sm hover:shadow-md transform hover:-translate-y-1 active:translate-y-0 transition-all duration-300",
       },
       size: {
         default: "h-9 px-4 py-2",

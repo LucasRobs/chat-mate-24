@@ -1,6 +1,7 @@
+
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Check } from "lucide-react";
+import { Check, ArrowRight } from "lucide-react";
 
 const Pricing = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -65,26 +66,26 @@ const Pricing = () => {
   ];
 
   return (
-    <section id="pricing" className="py-20 bg-gray-50">
-      <div className="max-w-6xl mx-auto px-6 md:px-12 lg:px-20 text-center">
+    <section id="pricing" className="py-16 sm:py-20 bg-gray-50">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-12 lg:px-20 text-center">
         <span className="bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-medium">
           Planos e Preços
         </span>
-        <h2 className="mt-6 text-3xl md:text-4xl font-bold text-gray-900">
+        <h2 className="mt-6 text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">
           Escolha o plano ideal para o seu negócio
         </h2>
-        <p className="mt-6 text-xl text-gray-600">
+        <p className="mt-4 sm:mt-6 text-base sm:text-xl text-gray-600">
           Cancele a qualquer momento. Sem compromisso de fidelidade.
         </p>
 
         {/* Planos centralizados */}
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 justify-center">
+        <div className="mt-8 sm:mt-12 grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-8 justify-center">
           {plans.map((plan, index) => (
             <div
               key={index}
-              className={`transform transition-all duration-700 p-8 bg-white shadow-lg rounded-xl min-h-[500px] flex flex-col justify-between ${
+              className={`transform transition-all duration-700 p-6 sm:p-8 bg-white shadow-lg rounded-xl min-h-[460px] sm:min-h-[500px] flex flex-col justify-between ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
-              } ${plan.isPopular ? "border-2 border-primary" : ""}`} // Adiciona borda ao plano Growth
+              } ${plan.isPopular ? "border-2 border-primary" : ""} hover:shadow-xl hover:-translate-y-2 transition-all duration-300`}
               style={{ transitionDelay: `${index * 200}ms` }}
             >
               {plan.isPopular && (
@@ -92,19 +93,37 @@ const Pricing = () => {
                   Mais Popular
                 </div>
               )}
-              <h3 className="text-2xl font-semibold text-gray-900">{plan.title}</h3>
+              <h3 className="text-xl sm:text-2xl font-semibold text-gray-900">{plan.title}</h3>
               <p className="text-gray-600 mt-2">{plan.for}</p>
-              <p className="text-3xl font-bold text-primary mt-4">{plan.price} <span className="text-lg font-medium">/mês</span></p>
+              <p className="text-2xl sm:text-3xl font-bold text-primary mt-4">{plan.price} <span className="text-base sm:text-lg font-medium">/mês</span></p>
 
               {/* Lista de funcionalidades */}
               <ul className="mt-6 space-y-3 text-left">
                 {plan.features.map((feature, idx) => (
                   <li key={idx} className="flex items-center gap-3 text-gray-700">
-                    <Check className="text-green-500" size={20} />
-                    {feature}
+                    <Check className="text-green-500 flex-shrink-0" size={20} />
+                    <span>{feature}</span>
                   </li>
                 ))}
               </ul>
+              
+              <div className="mt-6">
+                <Button
+                  asChild
+                  variant="apple"
+                  size="lg" 
+                  className="w-full animated-button"
+                >
+                  <a
+                    href="https://www.followop.com.br/register"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    TESTE GRÁTIS
+                    <ArrowRight size={16} />
+                  </a>
+                </Button>
+              </div>
             </div>
           ))}
         </div>
@@ -113,7 +132,7 @@ const Pricing = () => {
         <div className="mt-12 flex items-center justify-center">
           <Button
             variant="outline"
-            className="border-primary text-primary hover:bg-primary/5 px-6 py-3 text-lg font-semibold"
+            className="border-primary text-primary hover:bg-primary/5 px-6 py-3 text-base sm:text-lg font-semibold animated-button"
             onClick={() => window.open("https://www.followop.com.br/pricing", "_blank")}
           >
             Veja todos os detalhes dos planos

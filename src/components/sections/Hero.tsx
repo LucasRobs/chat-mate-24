@@ -73,7 +73,7 @@ const Hero = () => {
   ];
 
   return (
-    <section className="relative bg-white overflow-hidden py-12 md:py-16 lg:py-20 mobile-container">
+    <section className="relative bg-white overflow-hidden py-10 sm:py-12 md:py-16 lg:py-20 mobile-container">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Meta badge centralized with proper spacing */}
@@ -91,8 +91,9 @@ const Hero = () => {
           </h2>
 
           <p className="mt-4 text-base sm:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            Trabalhe de forma mais inteligente sem perder performance<br className="hidden md:inline" />
-            aumente seus resultados e eleve o atendimento do seu negócio a outro nível.
+            Trabalhe de forma mais inteligente sem perder performance
+            {!isMobile && <br className="hidden md:inline" />}
+            {' '}aumente seus resultados e eleve o atendimento do seu negócio a outro nível.
           </p>
 
           <div className="mt-8 flex justify-center">
@@ -100,7 +101,7 @@ const Hero = () => {
               onClick={handleButtonClick}
               variant="apple"
               size="lg"
-              className="text-sm py-2.5 flex items-center gap-2 h-auto"
+              className="text-sm py-2.5 flex items-center gap-2 h-auto animated-button"
             >
               TESTE GRÁTIS 7 DIAS
               <span className="bg-[#2D2D4A] text-white p-1 rounded-full">

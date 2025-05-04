@@ -26,8 +26,8 @@ const Footer = () => {
     <footer className="bg-gradient-to-b from-white to-gray-50 pt-12 pb-8 border-t border-gray-100 relative overflow-hidden">
       <div className="absolute inset-0 impulso-pattern opacity-5"></div>
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8">
+      <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8">
           {/* Brand */}
           <div className="lg:col-span-3">
             <a href="#" className="inline-flex items-center gap-2">
@@ -46,7 +46,7 @@ const Footer = () => {
                 href="https://www.instagram.com/followop.ia?igsh=MTRyajNya285dm5icA=="
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-600 hover:text-primary transition-colors"
+                className="text-gray-600 hover:text-primary transition-colors transform hover:scale-110 duration-300"
                 aria-label="Instagram"
               >
                 <Instagram size={20} />
@@ -55,7 +55,7 @@ const Footer = () => {
                 href="https://www.linkedin.com/company/followop/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-600 hover:text-primary transition-colors"
+                className="text-gray-600 hover:text-primary transition-colors transform hover:scale-110 duration-300"
                 aria-label="LinkedIn"
               >
                 <Linkedin size={20} />
@@ -102,7 +102,7 @@ const Footer = () => {
           </div>
 
           {/* Links */}
-          <div className="lg:col-span-2">
+          <div className="sm:col-span-1 lg:col-span-2">
             <h3 className="font-medium text-secondary mb-4">Produto</h3>
             <ul className="space-y-2">
               {footerLinks.product.map((link, index) => (
@@ -118,7 +118,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div className="lg:col-span-2">
+          <div className="sm:col-span-1 lg:col-span-2">
             <h3 className="font-medium text-secondary mb-4">Empresa</h3>
             <ul className="space-y-2">
               {footerLinks.company.map((link, index) => (
@@ -134,7 +134,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div className="lg:col-span-2">
+          <div className="sm:col-span-1 lg:col-span-2">
             <h3 className="font-medium text-secondary mb-4">Legal</h3>
             <ul className="space-y-2">
               {footerLinks.legal.map((link, index) => (

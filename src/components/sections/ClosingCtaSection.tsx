@@ -22,7 +22,7 @@ const ClosingCtaSection = () => {
             asChild
             variant="apple"
             size="lg"
-            className="inline-flex items-center justify-center gap-2 text-sm py-2.5 h-auto"
+            className="inline-flex items-center justify-center gap-2 text-sm py-2.5 h-auto animated-button"
           >
             <a
               href="https://www.followop.com.br/register"
