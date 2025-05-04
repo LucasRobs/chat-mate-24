@@ -154,7 +154,7 @@ const Footer = () => {
           </p>
           <div className="mt-4 md:mt-0 flex items-center">
             <span className="text-sm text-gray-500">
-              Feito com <span className="text-red-500">❤️</span> no Brasil
+              <span className="text-red-500"></span>
             </span>
           </div>
         </div>
