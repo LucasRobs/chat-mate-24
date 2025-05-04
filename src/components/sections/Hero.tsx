@@ -5,6 +5,16 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Dashboard from "@/components/ui-custom/Dashboard";
 
+// Meta Tech Partner Badge Component
+const MetaTechPartnerBadge = () => (
+  <div className="flex items-center gap-2 bg-white/90 shadow-sm border border-gray-100 rounded-lg px-3 py-1.5 text-xs font-medium text-gray-700">
+    <span className="text-[#1877F2] font-semibold">Meta</span>
+    <span className="text-gray-700">Tech Partner</span>
+    <span className="text-xs text-gray-500 ml-1">|</span>
+    <span className="text-xs text-gray-500">Powered by WhatsApp Business API</span>
+  </div>
+);
+
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
@@ -41,7 +51,7 @@ const Hero = () => {
     }
   };
 
-  // Dados do gráfico de atividade simulados - fixed data, no carousel effect
+  // Fixed data for the activity chart
   const activityData = [
     { name: "5/04", value: 10 },
     { name: "6/04", value: 20 },
@@ -59,49 +69,45 @@ const Hero = () => {
   ];
 
   return (
-    <section className="relative bg-white overflow-hidden py-16 md:py-20 lg:py-24 mobile-container">
+    <section className="relative bg-white overflow-hidden py-12 md:py-16 lg:py-20 mobile-container">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-10 animate-on-scroll from-bottom animate-in" style={{ animationDelay: "0.1s" }}>
-          <div className="flex justify-center items-center mb-6">
-            <div className="flex items-center px-4 py-2 rounded-lg bg-white shadow-sm border border-gray-100 animate-on-scroll from-bottom animate-in">
-              <img 
-                src="/lovable-uploads/c38d84b8-bf7e-4da2-8ea0-8c5e3a308df7.png" 
-                alt="Meta Tech Partner" 
-                className="h-8 md:h-10 transition-transform duration-300 hover:scale-105"
-              />
+        <div className="text-center mb-6 animate-on-scroll from-bottom animate-in" style={{ animationDelay: "0.1s" }}>
+          <div className="flex justify-center items-center mb-4">
+            <div className="animate-on-scroll from-bottom animate-in">
+              <MetaTechPartnerBadge />
             </div>
           </div>
         </div>
 
         <div className="text-center animate-on-scroll from-bottom animate-in" style={{ animationDelay: "0.3s" }}>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-secondary mb-6">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-secondary mb-4">
             <span className="text-primary">Transforme</span> Seu Whatsapp:
           </h1>
 
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-3">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 mb-2">
             Venda no automático com <span className="text-primary">inteligência Artificial</span>
           </h2>
 
-          <p className="mt-4 text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="mt-3 text-base text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Trabalhe de forma mais inteligente sem perder performance<br className="hidden md:inline" />
             aumente seus resultados e eleve o atendimento do seu negócio a outro nível.
           </p>
 
-          <div className="mt-10 flex justify-center">
+          <div className="mt-8 flex justify-center">
             <Button 
               onClick={handleButtonClick}
               variant="trial"
-              className="text-base py-4 flex items-center gap-4 h-auto transform hover:translate-y-[-2px] transition-all duration-300"
+              className="text-sm py-2.5 flex items-center gap-3 h-auto transform hover:scale-105 transition-all duration-300"
             >
               TESTE GRÁTIS 7 DIAS
-              <span className="bg-[#2D2D4A] text-white p-2 rounded-full">
-                <ArrowRight size={14} />
+              <span className="bg-[#2D2D4A] text-white p-1.5 rounded-full">
+                <ArrowRight size={12} />
               </span>
             </Button>
           </div>
         </div>
 
-        <div className="mt-16 animate-on-scroll from-bottom animate-in" style={{ animationDelay: "0.5s" }}>
+        <div className="mt-12 animate-on-scroll from-bottom animate-in" style={{ animationDelay: "0.5s" }}>
           <Dashboard 
             activityData={activityData} 
             isMobile={isMobile} 
