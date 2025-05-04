@@ -10,7 +10,7 @@ const Footer = () => {
       { name: "FAQ", href: "#" },
     ],
     company: [
-      { name: "Sobre", href: "#about" },
+      { name: "Sobre", href: "#partners" },
       { name: "Parceiros", href: "#partners" },
       { name: "Contato", href: "#" },
     ],
@@ -23,11 +23,10 @@ const Footer = () => {
 
   return (
     <footer className="bg-gradient-to-b from-white to-gray-50 pt-12 pb-8 border-t border-gray-100 relative overflow-hidden">
-      <div className="absolute inset-0 impulso-pattern opacity-5 pointer-events-none z-0" />
+      <div className="absolute inset-0 impulso-pattern opacity-5"></div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10">
-
+      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8">
           {/* Brand */}
           <div className="lg:col-span-3">
             <a href="#" className="inline-flex items-center gap-2">
@@ -43,10 +42,10 @@ const Footer = () => {
             </p>
             <div className="flex mt-6 space-x-4">
               <a
-                href="https://www.instagram.com/followop.ia"
+                href="https://www.instagram.com/followop.ia?igsh=MTRyajNya285dm5icA=="
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-600 hover:text-primary transition-transform hover:scale-110"
+                className="text-gray-600 hover:text-primary transition-colors"
                 aria-label="Instagram"
               >
                 <Instagram size={20} />
@@ -55,7 +54,7 @@ const Footer = () => {
                 href="https://www.linkedin.com/company/followop/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-600 hover:text-primary transition-transform hover:scale-110"
+                className="text-gray-600 hover:text-primary transition-colors"
                 aria-label="LinkedIn"
               >
                 <Linkedin size={20} />
@@ -63,12 +62,12 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Contato */}
+          {/* Contact */}
           <div className="lg:col-span-3">
             <h3 className="font-medium text-secondary mb-4">Contato</h3>
             <ul className="space-y-3 text-sm text-gray-500">
               <li className="flex items-center gap-3">
-                <Mail size={22} className="text-primary" />
+                <Mail size={20} className="text-primary mt-[1px]" />
                 <a href="mailto:followop.oficial@gmail.com" className="hover:text-primary transition-colors">
                   followop.oficial@gmail.com
                 </a>
@@ -89,7 +88,12 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-3">
                 <Globe size={20} className="text-primary" />
-                <a href="https://www.followop.com.br" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                <a
+                  href="https://www.followop.com.br"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-primary transition-colors"
+                >
                   www.followop.com.br
                 </a>
               </li>
@@ -97,30 +101,59 @@ const Footer = () => {
           </div>
 
           {/* Links */}
-          {Object.entries(footerLinks).map(([section, links]) => (
-            <div key={section} className="lg:col-span-2">
-              <h3 className="font-medium text-secondary mb-4 capitalize">
-                {section === "product" ? "Produto" : section === "company" ? "Empresa" : "Legal"}
-              </h3>
-              <ul className="space-y-2">
-                {links.map((link, idx) => (
-                  <li key={idx}>
-                    <a
-                      href={link.href}
-                      className="text-gray-500 hover:text-primary text-sm transition-colors"
-                    >
-                      {link.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          <div className="lg:col-span-2">
+            <h3 className="font-medium text-secondary mb-4">Produto</h3>
+            <ul className="space-y-2">
+              {footerLinks.product.map((link, index) => (
+                <li key={index}>
+                  <a
+                    href={link.href}
+                    className="text-gray-500 hover:text-primary text-sm transition-colors"
+                  >
+                    {link.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="lg:col-span-2">
+            <h3 className="font-medium text-secondary mb-4">Empresa</h3>
+            <ul className="space-y-2">
+              {footerLinks.company.map((link, index) => (
+                <li key={index}>
+                  <a
+                    href={link.href}
+                    className="text-gray-500 hover:text-primary text-sm transition-colors"
+                  >
+                    {link.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="lg:col-span-2">
+            <h3 className="font-medium text-secondary mb-4">Legal</h3>
+            <ul className="space-y-2">
+              {footerLinks.legal.map((link, index) => (
+                <li key={index}>
+                  <a
+                    href={link.href}
+                    className="text-gray-500 hover:text-primary text-sm transition-colors"
+                  >
+                    {link.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
 
-        {/* Rodapé inferior */}
-        <div className="mt-12 pt-8 border-t border-gray-100 flex items-center justify-center text-sm text-gray-500">
-          <p>&copy; {currentYear} followop. Todos os direitos reservados.</p>
+        <div className="mt-12 pt-8 border-t border-gray-100 flex flex-col md:flex-row items-center justify-between">
+          <p className="text-gray-500 text-sm">
+            &copy; {currentYear} followop. Todos os direitos reservados.
+          </p>
         </div>
       </div>
     </footer>
