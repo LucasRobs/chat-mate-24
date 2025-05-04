@@ -38,7 +38,7 @@ const ClosingCtaSection = () => {
 
         <div className="mt-8 flex flex-col items-center">
           <div className="flex items-center gap-2 mb-6">
-            <img src="/lovable-uploads/b245de89-8336-4e08-9842-eca33945c44e.png" alt="Meta Tech Partner" className="h-6" />
+            <img src="/lovable-uploads/5e5ea857-e83d-43fd-a62d-96b99190ecbb.png" alt="Meta Tech Partner" className="h-6" />
           </div>
         </div>
       </div>
