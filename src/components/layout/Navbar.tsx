@@ -31,7 +31,7 @@ export const Navbar = () => {
   const navItems = [
     { label: "Funções", href: "#features" },
     { label: "Planos", href: "#pricing" },
-    { label: "Empresa", href: "#partners" }, // Changed to link to partners section
+    { label: "Empresa", href: "#partners" },
   ];
 
   const toggleMenu = () => {
@@ -70,7 +70,8 @@ export const Navbar = () => {
           <span className="font-bold text-xl sm:text-2xl text-secondary">followop</span>
         </a>
 
-        <div className="hidden md:flex items-center">
+        {/* Centered nav items */}
+        <div className="hidden md:flex items-center justify-center flex-1 mx-8">
           <div className="bg-gray-100 rounded-full py-2 px-2 flex">
             {navItems.map((item, index) => (
               <a
