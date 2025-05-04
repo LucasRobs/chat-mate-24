@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -53,31 +54,31 @@ export const Navbar = () => {
   return (
     <nav
       className={cn(
-        "sticky-nav bg-white py-2 sm:py-3 px-4 sm:px-6 md:px-12 lg:px-20 transition-all duration-300",
-        scrollY > 100 ? "shadow-md glass" : "",
+        "sticky-nav bg-white py-3 sm:py-4 px-4 sm:px-8 md:px-12 lg:px-20 transition-all duration-300",
+        scrollY > 100 ? "shadow-sm glass" : "",
         isNavHidden && !isOpen ? "hidden-nav" : "",
         isOpen ? "fixed inset-0 z-50 bg-white" : ""
       )}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between relative">
         {/* Logo */}
-        <a href="#" className="flex items-center gap-2 z-50 animate-fade-in-down">
+        <a href="#" className="flex items-center gap-2 z-50">
           <img
             src="/lovable-uploads/669aaab1-10dd-437a-a1b9-789ae5f02809.png"
             alt="followop Logo"
-            className="h-6 w-auto sm:h-8 transition-transform duration-300 hover:scale-110"
+            className="h-6 w-auto sm:h-8"
           />
           <span className="font-bold text-lg sm:text-xl text-secondary">followop</span>
         </a>
 
-        {/* Menus centralizados */}
+        {/* Centered menus */}
         <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2">
           <div className="bg-gray-100 rounded-full py-2 px-2 flex">
             {navItems.map((item, index) => (
               <a
                 key={index}
                 href={item.href}
-                className="text-gray-700 font-medium hover:text-primary px-6 py-1 transition-colors relative before:content-[''] before:absolute before:bottom-0 before:left-0 before:w-full before:h-0.5 before:bg-primary before:scale-x-0 before:origin-right before:transition-transform hover:before:scale-x-100 hover:before:origin-left"
+                className="text-gray-700 font-medium hover:text-primary px-6 py-1 transition-colors"
               >
                 {item.label}
               </a>
@@ -85,12 +86,12 @@ export const Navbar = () => {
           </div>
         </div>
 
-        {/* Botão Entrar */}
+        {/* Login Button */}
         <div className="hidden md:flex">
           <Button
             asChild
             variant="default"
-            className="bg-[#33334F] hover:bg-[#33334F]/90 text-white font-medium px-6 py-1.5 rounded-full transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
+            className="bg-[#33334F] hover:bg-[#33334F]/90 text-white font-medium px-6 py-1.5 rounded-full"
           >
             <a
               href="https://www.followop.com.br/register"
@@ -114,7 +115,7 @@ export const Navbar = () => {
 
       {/* Menu Mobile */}
       {isOpen && (
-        <div className="fixed inset-0 z-40 bg-white pt-20 px-6 overflow-y-auto md:hidden animate-fade-in-down">
+        <div className="fixed inset-0 z-40 bg-white pt-20 px-6 overflow-y-auto md:hidden">
           <div className="flex flex-col space-y-6">
             {navItems.map((item, index) => (
               <a
@@ -131,7 +132,7 @@ export const Navbar = () => {
               <Button
                 asChild
                 variant="default"
-                className="bg-[#33334F] text-white font-medium py-6 px-4 rounded-full text-center hover:bg-[#33334F]/90 transition-colors"
+                className="bg-[#33334F] text-white font-medium py-3 px-4 rounded-full text-center hover:bg-[#33334F]/90 transition-colors"
               >
                 <a
                   href="https://www.followop.com.br/register"
@@ -144,15 +145,15 @@ export const Navbar = () => {
 
               <Button
                 asChild
-                variant="outline"
-                className="bg-transparent border border-primary text-primary font-medium py-6 px-4 rounded-full text-center hover:bg-primary/5 transition-colors"
+                variant="apple"
+                className="text-center py-3 px-4 text-sm"
               >
                 <a
                   href="https://www.followop.com.br/register"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Teste Grátis 7 dias
+                  TESTE GRÁTIS 7 DIAS
                 </a>
               </Button>
             </div>
@@ -160,9 +161,9 @@ export const Navbar = () => {
             {/* Branding dots no menu mobile */}
             <div className="absolute bottom-10 right-10">
               <div className="w-20 h-20 relative">
-                <div className="absolute top-0 left-0 w-4 h-4 rounded-full bg-primary/30 branding-dot"></div>
-                <div className="absolute top-8 left-8 w-6 h-6 rounded-full bg-primary/20 branding-dot" style={{ animationDelay: "0.5s" }}></div>
-                <div className="absolute top-16 left-0 w-3 h-3 rounded-full bg-primary/10 branding-dot" style={{ animationDelay: "1s" }}></div>
+                <div className="absolute top-0 left-0 w-4 h-4 rounded-full bg-primary/30"></div>
+                <div className="absolute top-8 left-8 w-6 h-6 rounded-full bg-primary/20"></div>
+                <div className="absolute top-16 left-0 w-3 h-3 rounded-full bg-primary/10"></div>
               </div>
             </div>
           </div>

@@ -7,22 +7,22 @@ const ClosingCtaSection = () => {
   const isMobile = useIsMobile();
 
   return (
-    <section className="py-6 sm:py-10 md:py-12 lg:py-16 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+    <section className="py-12 sm:py-16 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-10 text-center">
-        <h2 className="text-base sm:text-lg md:text-xl font-bold text-secondary">
+        <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-secondary">
           Menos trabalho manual, <span className="text-primary">mais vendas</span>!
         </h2>
 
-        <p className="mt-1 sm:mt-2 text-xs sm:text-sm text-gray-600">
+        <p className="mt-2 sm:mt-3 text-sm sm:text-base text-gray-600">
           Comece agora e aumente suas vendas no WhatsApp!
         </p>
 
-        <div className="mt-3 sm:mt-4">
+        <div className="mt-6 sm:mt-8">
           <Button
             asChild
-            variant="trial"
-            size="sm"
-            className="inline-flex items-center justify-center gap-2 text-xs py-2 h-auto transform transition-all duration-300 hover:scale-105 button-pulse"
+            variant="apple"
+            size="lg"
+            className="inline-flex items-center justify-center gap-2 text-sm py-2.5 h-auto"
           >
             <a
               href="https://www.followop.com.br/register"
@@ -31,7 +31,7 @@ const ClosingCtaSection = () => {
             >
               TESTE GRÁTIS 7 DIAS
               <span className="bg-[#2D2D4A] text-white p-1 rounded-full">
-                <ArrowRight size={10} />
+                <ArrowRight size={12} />
               </span>
             </a>
           </Button>
