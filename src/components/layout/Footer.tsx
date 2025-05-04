@@ -45,7 +45,7 @@ const Footer = () => {
             </p>
             <div className="flex mt-6 space-x-4">
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/followop.ia?igsh=MTRyajNya285dm5icA=="
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-600 hover:text-primary transition-colors"
@@ -54,7 +54,7 @@ const Footer = () => {
                 <Instagram size={20} />
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/company/followop/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-600 hover:text-primary transition-colors"
@@ -71,22 +71,22 @@ const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-center gap-2 text-gray-500 text-sm">
                 <Mail size={16} className="text-primary" />
-                <a href="mailto:contato@followop.com.br" className="hover:text-primary transition-colors">
-                  contato@followop.com.br
+                <a href="mailto:followop.oficial@gmail.com" className="hover:text-primary transition-colors">
+                  followop.oficial@gmail.com
                 </a>
               </li>
               <li className="flex items-center gap-2 text-gray-500 text-sm">
                 <Phone size={16} className="text-primary" />
-                <a href="tel:+551199999999" className="hover:text-primary transition-colors">
-                  +55 (11) 9 9999-9999
+                <a href="tel:+5588997492536" className="hover:text-primary transition-colors">
+                  +55 (88) 99749-2536
                 </a>
               </li>
               <li className="flex items-start gap-2 text-gray-500 text-sm">
                 <MapPin size={16} className="text-primary flex-shrink-0 mt-1" />
                 <span>
-                  Av. Paulista, 1000, Sala 101<br />
-                  Bela Vista, São Paulo - SP<br />
-                  CEP: 01310-100
+                  R. Antônio Augusto, 290<br />
+                  Meireles, Fortaleza - CE<br />
+                  CEP: 60110-370
                 </span>
               </li>
               <li className="flex items-center gap-2 text-gray-500 text-sm">
