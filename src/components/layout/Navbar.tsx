@@ -69,7 +69,7 @@ export const Navbar = () => {
           <span className="font-bold text-lg sm:text-xl text-secondary">followop</span>
         </a>
 
-        {/* Centered nav items */}
+        {/* Centraliza os itens no desktop */}
         <div className="hidden md:flex flex-1 justify-center">
           <div className="bg-gray-100 rounded-full py-2 px-2 flex">
             {navItems.map((item, index) => (
@@ -84,6 +84,7 @@ export const Navbar = () => {
           </div>
         </div>
 
+        {/* Botão "Entrar" no canto direito */}
         <div className="hidden md:flex">
           <Button
             asChild
@@ -100,6 +101,7 @@ export const Navbar = () => {
           </Button>
         </div>
 
+        {/* Menu mobile toggle */}
         <button
           className="md:hidden z-50 text-secondary"
           onClick={toggleMenu}
@@ -109,6 +111,7 @@ export const Navbar = () => {
         </button>
       </div>
 
+      {/* Menu Mobile */}
       {isOpen && (
         <div className="fixed inset-0 z-40 bg-white pt-20 px-6 overflow-y-auto md:hidden animate-fade-in-down">
           <div className="flex flex-col space-y-6">
