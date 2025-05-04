@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Dashboard from "@/components/ui-custom/Dashboard";
 
-// Meta Tech Partner Badge Component (compacto e leve)
+// Meta Tech Partner Badge Component (compacto)
 const MetaTechPartnerBadge = () => (
   <div className="flex items-center gap-1.5 bg-white shadow-sm border border-gray-200 rounded-md px-2 py-1 text-xs font-medium text-gray-700 max-w-fit">
     <div className="w-5 h-5 flex items-center justify-center">
@@ -76,8 +76,8 @@ const Hero = () => {
     <section className="relative bg-white overflow-hidden py-10 md:py-14 lg:py-16 mobile-container">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        {/* Meta badge agora centralizado e dentro do fluxo normal */}
-        <div className="flex justify-center mb-6">
+        {/* Meta badge centralizado com margem ajustada */}
+        <div className="flex justify-center mb-2 mt-4">
           <MetaTechPartnerBadge />
         </div>
 
