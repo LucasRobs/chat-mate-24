@@ -88,7 +88,7 @@ export const Navbar = () => {
           <Button
             asChild
             variant="default"
-            className="bg-secondary hover:bg-secondary/90 text-white font-medium px-8 py-2 rounded-full transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
+            className="bg-[#33334F] hover:bg-[#33334F]/90 text-white font-medium px-8 py-2 rounded-full transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
           >
             <a
               href="https://www.followop.com.br/register"
@@ -127,7 +127,7 @@ export const Navbar = () => {
               <Button
                 asChild
                 variant="default"
-                className="bg-secondary text-white font-medium py-2 px-4 rounded-full text-center hover:bg-secondary/90 transition-colors"
+                className="bg-[#33334F] text-white font-medium py-6 px-4 rounded-full text-center hover:bg-[#33334F]/90 transition-colors"
               >
                 <a
                   href="https://www.followop.com.br/register"
@@ -137,6 +137,29 @@ export const Navbar = () => {
                   Entrar
                 </a>
               </Button>
+              
+              <Button
+                asChild
+                variant="outline"
+                className="bg-transparent border border-primary text-primary font-medium py-6 px-4 rounded-full text-center hover:bg-primary/5 transition-colors"
+              >
+                <a
+                  href="https://www.followop.com.br/register"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Teste Grátis 7 dias
+                </a>
+              </Button>
+            </div>
+          </div>
+          
+          {/* Branding dots no menu mobile */}
+          <div className="absolute bottom-10 right-10">
+            <div className="w-20 h-20 relative">
+              <div className="absolute top-0 left-0 w-4 h-4 rounded-full bg-primary/30 branding-dot"></div>
+              <div className="absolute top-8 left-8 w-6 h-6 rounded-full bg-primary/20 branding-dot" style={{ animationDelay: "0.5s" }}></div>
+              <div className="absolute top-16 left-0 w-3 h-3 rounded-full bg-primary/10 branding-dot" style={{ animationDelay: "1s" }}></div>
             </div>
           </div>
         </div>

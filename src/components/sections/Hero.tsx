@@ -1,8 +1,16 @@
 
 import { useState, useEffect } from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Users, MessageSquare, BarChart2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  ResponsiveContainer,
+} from "recharts";
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -21,26 +29,34 @@ const Hero = () => {
     }
   };
 
+  // Dados do gráfico de atividade simulados
+  const activityData = [
+    { name: "5/04", value: 10 },
+    { name: "6/04", value: 20 },
+    { name: "7/04", value: 15 },
+    { name: "8/04", value: 120 },
+    { name: "9/04", value: 340 },
+    { name: "10/04", value: 50 },
+    { name: "11/04", value: 60 },
+    { name: "12/04", value: 20 },
+    { name: "13/04", value: 40 },
+    { name: "14/04", value: 170 },
+    { name: "15/04", value: 30 },
+    { name: "16/04", value: 350 },
+    { name: "17/04", value: 90 },
+  ];
+
   return (
     <section className="relative bg-white overflow-hidden py-16 md:py-20 lg:py-24">
-      {/* Brand dot pattern elements */}
-      <div className="absolute top-20 left-10 w-12 h-12 rounded-full border-[3px] border-primary opacity-70 animate-float"></div>
+      {/* Branding dot pattern elements */}
+      <div className="absolute top-20 left-10 w-12 h-12 rounded-full border-[3px] border-primary/40 opacity-70 animate-float"></div>
       <div className="absolute top-40 right-20 w-16 h-16 animate-float" style={{ animationDelay: "1s" }}>
-        <div className="w-full h-full rounded-full border-[3px] border-primary opacity-70"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full border-[3px] border-primary opacity-70"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-5 h-5 rounded-full border-[3px] border-primary opacity-70"></div>
-      </div>
-      <div className="absolute bottom-20 left-1/4 w-14 h-14 rounded-full bg-primary opacity-20 animate-float" style={{ animationDelay: "1.5s" }}></div>
-      <div className="absolute bottom-40 right-1/3 w-10 h-10 rounded-full border-[3px] border-primary opacity-70 animate-float" style={{ animationDelay: "0.7s" }}></div>
-
-      {/* Half circle pattern */}
-      <div className="absolute top-60 left-20 w-14 h-14 opacity-20 animate-float" style={{ animationDelay: "2s" }}>
-        <div className="w-full h-full rounded-full bg-primary overflow-hidden">
-          <div className="absolute top-0 left-0 w-1/2 h-full bg-white"></div>
-        </div>
+        <div className="w-full h-full rounded-full border-[3px] border-primary/40 opacity-70"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full border-[3px] border-primary/40 opacity-70"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-5 h-5 rounded-full border-[3px] border-primary/40 opacity-70"></div>
       </div>
 
-      {/* Padrão de pontos */}
+      {/* Padrão de pontos de fundo */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 impulso-pattern opacity-5"></div>
       </div>
@@ -73,7 +89,7 @@ const Hero = () => {
           <div className="mt-10 flex justify-center">
             <Button 
               onClick={handleButtonClick}
-              className="bg-[#A2DE5D] hover:bg-[#A2DE5D]/90 text-gray-800 font-medium px-8 py-6 rounded-full flex items-center gap-2 group transition-all duration-300 hover:-translate-y-1 hover:shadow-lg h-auto"
+              className="bg-[#00af6b] hover:bg-[#009459] text-white font-medium px-8 py-6 rounded-full flex items-center gap-2 group transition-all duration-300 hover:-translate-y-1 hover:shadow-lg h-auto"
             >
               TESTE GRÁTIS 7 DIAS
               <span className="bg-secondary text-white p-2 rounded-full group-hover:translate-x-1 transition-transform">
@@ -89,9 +105,9 @@ const Hero = () => {
               <div className="absolute inset-0 animate-pulse bg-gray-200"></div>
             </div>
           ) : (
-            <div className="w-full max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-lg border-[6px] border-primary/20 hover:border-primary/30 transition-all duration-500 relative">
-              {/* Pseudo Dashboard */}
-              <div className="bg-[#F9FCFA] p-4">
+            <div className="w-full max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-lg border-[6px] border-primary/10 hover:border-primary/20 transition-all duration-500 relative">
+              {/* Dashboard inspirado na imagem de referência */}
+              <div className="bg-[#fafafa] p-4">
                 {/* Dashboard Header */}
                 <div className="flex items-center justify-between bg-white rounded-lg p-3 mb-4 shadow-sm">
                   <div className="flex items-center gap-2">
@@ -100,7 +116,7 @@ const Hero = () => {
                       alt="followop Logo" 
                       className="h-8"
                     />
-                    <span className="font-semibold text-gray-800">followop Dashboard</span>
+                    <span className="font-semibold text-gray-800">Visão Geral</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <div className="h-8 w-8 rounded-full bg-primary/20 flex items-center justify-center">
@@ -109,120 +125,72 @@ const Hero = () => {
                   </div>
                 </div>
 
-                {/* Dashboard Content */}
+                {/* Dashboard Stats Cards */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
-                  {/* Stats Card 1 - Full circle */}
-                  <div className="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow group">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="h-12 w-12 bg-primary/10 rounded-full flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
-                        <div className="h-6 w-6 rounded-full bg-primary"></div>
-                      </div>
+                  {/* Card de Atendimentos */}
+                  <div className="dashboard-card p-4">
+                    <div className="flex items-center justify-between">
                       <div>
-                        <p className="text-sm text-gray-500 font-medium">Atendimentos</p>
-                        <p className="text-xl font-bold text-secondary">128</p>
+                        <p className="dashboard-stat-label">Atendimentos</p>
+                        <p className="dashboard-stat text-secondary">329</p>
                       </div>
-                    </div>
-                    <div className="h-2 w-full bg-gray-100 rounded-full overflow-hidden">
-                      <div className="h-full bg-primary rounded-full" style={{width: '80%'}}></div>
+                      <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                        <Users className="w-6 h-6 text-primary" />
+                      </div>
                     </div>
                   </div>
 
-                  {/* Stats Card 2 - Concentric circles */}
-                  <div className="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow group">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="h-12 w-12 bg-primary/10 rounded-full flex items-center justify-center relative group-hover:bg-primary/20 transition-colors duration-300">
-                        <div className="h-8 w-8 rounded-full border-2 border-primary"></div>
-                        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 h-5 w-5 rounded-full border-2 border-primary"></div>
-                        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 h-2 w-2 rounded-full bg-primary"></div>
-                      </div>
+                  {/* Card de Mensagens */}
+                  <div className="dashboard-card p-4">
+                    <div className="flex items-center justify-between">
                       <div>
-                        <p className="text-sm text-gray-500 font-medium">Conversões</p>
-                        <p className="text-xl font-bold text-secondary">43</p>
+                        <p className="dashboard-stat-label">Mensagens</p>
+                        <p className="dashboard-stat text-secondary">2559</p>
                       </div>
-                    </div>
-                    <div className="h-2 w-full bg-gray-100 rounded-full overflow-hidden">
-                      <div className="h-full bg-primary rounded-full" style={{width: '65%'}}></div>
+                      <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                        <MessageSquare className="w-6 h-6 text-primary" />
+                      </div>
                     </div>
                   </div>
 
-                  {/* Stats Card 3 - Half circle */}
-                  <div className="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow group">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="h-12 w-12 bg-primary/10 rounded-full flex items-center justify-center relative group-hover:bg-primary/20 transition-colors duration-300">
-                        <div className="h-7 w-7 rounded-full bg-primary overflow-hidden">
-                          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 h-7 w-3.5 bg-white ml-[3px]"></div>
-                        </div>
-                      </div>
+                  {/* Card de Conversões */}
+                  <div className="dashboard-card p-4">
+                    <div className="flex items-center justify-between">
                       <div>
-                        <p className="text-sm text-gray-500 font-medium">Receita</p>
-                        <p className="text-xl font-bold text-secondary">R$ 12.480</p>
+                        <p className="dashboard-stat-label">Conversões</p>
+                        <p className="dashboard-stat text-primary">43</p>
                       </div>
-                    </div>
-                    <div className="h-2 w-full bg-gray-100 rounded-full overflow-hidden">
-                      <div className="h-full bg-primary rounded-full" style={{width: '75%'}}></div>
+                      <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                        <BarChart2 className="w-6 h-6 text-primary" />
+                      </div>
                     </div>
                   </div>
                 </div>
 
-                {/* Chat Simulation */}
-                <div className="bg-white rounded-lg shadow-sm p-4">
+                {/* Gráfico de atividade recente */}
+                <div className="dashboard-card p-4">
                   <div className="flex items-center justify-between mb-4">
-                    <h3 className="font-medium text-secondary">Conversas ativas</h3>
-                    <span className="text-xs bg-primary/15 text-primary py-1 px-3 rounded-full font-medium">3 online</span>
+                    <h3 className="font-medium text-secondary">Atividade Recente</h3>
+                    <span className="text-xs bg-gray-100 text-gray-600 py-1 px-3 rounded-full font-medium">Últimos 30 dias</span>
                   </div>
                   
-                  {/* Chat messages */}
-                  <div className="space-y-3 mb-4">
-                    <div className="flex gap-3">
-                      <div className="h-9 w-9 rounded-full bg-gray-100 flex-shrink-0 flex items-center justify-center text-gray-400">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                          <circle cx="12" cy="7" r="4"></circle>
-                        </svg>
-                      </div>
-                      <div className="bg-gray-100 rounded-lg p-3 max-w-[70%]">
-                        <p className="text-sm">Olá, gostaria de saber mais sobre como a IA pode ajudar no atendimento.</p>
-                        <span className="text-xs text-gray-500 mt-1 inline-block">09:42</span>
-                      </div>
-                    </div>
-                    
-                    <div className="flex gap-3 justify-end">
-                      <div className="bg-primary/10 rounded-lg p-3 max-w-[70%]">
-                        <p className="text-sm">Claro! Nossa IA é capaz de atender, qualificar e converter seus leads automaticamente, 24h por dia.</p>
-                        <span className="text-xs text-gray-500 mt-1 inline-block">09:43 
-                          <span className="ml-1 text-primary">✓✓</span>
-                        </span>
-                      </div>
-                      <div className="h-9 w-9 rounded-full bg-primary/20 flex-shrink-0 flex items-center justify-center">
-                        <span className="text-xs font-medium text-primary">AI</span>
-                      </div>
-                    </div>
-
-                    <div className="flex gap-3">
-                      <div className="h-9 w-9 rounded-full bg-gray-100 flex-shrink-0 flex items-center justify-center text-gray-400">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                          <circle cx="12" cy="7" r="4"></circle>
-                        </svg>
-                      </div>
-                      <div className="bg-gray-100 rounded-lg p-3 max-w-[70%]">
-                        <p className="text-sm">Isso é exatamente o que estou procurando! E quanto custa?</p>
-                        <span className="text-xs text-gray-500 mt-1 inline-block">09:44</span>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  {/* Input */}
-                  <div className="flex gap-2 items-center">
-                    <div className="flex-1 bg-gray-100 rounded-full px-4 py-2 text-sm text-gray-400">
-                      Digite sua mensagem...
-                    </div>
-                    <button className="bg-primary rounded-full p-2 text-white hover:bg-primary/90 transition-colors">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M22 2L11 13"></path>
-                        <path d="M22 2L15 22L11 13L2 9L22 2Z"></path>
-                      </svg>
-                    </button>
+                  {/* Gráfico com Recharts */}
+                  <div className="h-[300px] w-full animate-slide-left">
+                    <ResponsiveContainer width="100%" height="100%">
+                      <LineChart data={activityData} margin={{ top: 5, right: 20, bottom: 20, left: 0 }}>
+                        <CartesianGrid stroke="#f5f5f5" strokeDasharray="3 3" />
+                        <XAxis dataKey="name" stroke="#888" fontSize={12} tickLine={false} axisLine={false} />
+                        <YAxis stroke="#888" fontSize={12} tickLine={false} axisLine={false} />
+                        <Line 
+                          type="monotone" 
+                          dataKey="value" 
+                          stroke="#00af6b" 
+                          strokeWidth={2}
+                          dot={{ r: 3, strokeWidth: 2, fill: "#fff", stroke: "#00af6b" }}
+                          activeDot={{ r: 5, strokeWidth: 0, fill: "#00af6b" }}
+                        />
+                      </LineChart>
+                    </ResponsiveContainer>
                   </div>
                 </div>
               </div>
@@ -239,8 +207,8 @@ const Hero = () => {
                 </div>
               </div>
 
-              {/* Decorative brand dots on the dashboard */}
-              <div className="absolute top-2 right-2 w-4 h-4 rounded-full border-2 border-primary/40"></div>
+              {/* Branding dots no dashboard */}
+              <div className="absolute top-2 right-2 w-4 h-4 rounded-full bg-primary/30 opacity-50 branding-dot"></div>
               <div className="absolute bottom-12 left-4 w-6 h-6">
                 <div className="w-full h-full rounded-full border-2 border-primary/40"></div>
                 <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full border-2 border-primary/40"></div>

@@ -18,13 +18,13 @@ const FeatureCard = ({
   return (
     <div 
       className={cn(
-        "bg-white/80 backdrop-blur-sm rounded-xl p-8 shadow-md border border-gray-100 text-center",
+        "bg-white/80 backdrop-blur-sm rounded-xl p-8 shadow-sm border border-gray-100 text-center",
         "hover:shadow-xl hover:border-primary/30 transition-all duration-500 card-hover",
         "group relative overflow-hidden z-10",
         className
       )}
     >
-      {/* Background pattern with concentric circles */}
+      {/* Branding dot pattern background */}
       <div className="absolute inset-0 opacity-5 pointer-events-none">
         <div className="absolute inset-0 impulso-pattern"></div>
       </div>
@@ -32,8 +32,12 @@ const FeatureCard = ({
       {/* Background gradient effect on hover */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"></div>
       
-      <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6 group-hover:bg-primary/20 transition-all duration-500">
+      {/* Icon with brand element */}
+      <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6 group-hover:bg-primary/20 transition-all duration-500 relative">
         <Icon className="w-8 h-8 text-primary" />
+        {/* Animated branding dots */}
+        <div className="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-primary/30 branding-dot"></div>
+        <div className="absolute -bottom-1 -left-1 w-2 h-2 rounded-full bg-primary/20 branding-dot"></div>
       </div>
       
       <h3 className="text-xl font-semibold text-secondary mb-3 group-hover:text-primary transition-colors duration-300">{title}</h3>
