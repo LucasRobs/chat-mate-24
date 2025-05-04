@@ -65,17 +65,38 @@
     transform: translateY(-100%);
   }
 
-  /* Branding dot pattern */
+  /* Branding patterns - updated with new visual identity */
   .dot-pattern {
     background-color: #ffffff;
-    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 20m-1 0a1 1 0 1 0 2 0 1 1 0 1 0 -2 0' fill='%23e0e0e0'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='10' cy='10' r='3' fill='%2300af6b' opacity='0.2'/%3E%3C/svg%3E");
     background-size: 20px 20px;
   }
   
-  /* Followop branding dot pattern */
+  /* Followop pattern - updated with concentric circles */
   .impulso-pattern {
-    background-color: #ffffff;
-    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='20' cy='20' r='1' fill='%2300af6b' opacity='0.15'/%3E%3C/svg%3E");
+    background-color: transparent;
+    background-image: url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='15' cy='15' r='6' stroke='%2300af6b' stroke-width='1' fill='none' opacity='0.15'/%3E%3Ccircle cx='15' cy='15' r='4' stroke='%2300af6b' stroke-width='1' fill='none' opacity='0.15'/%3E%3Ccircle cx='15' cy='15' r='2' stroke='%2300af6b' stroke-width='1' fill='none' opacity='0.15'/%3E%3C/svg%3E");
+    background-size: 30px 30px;
+  }
+  
+  /* Half circle pattern */
+  .half-circle-pattern {
+    background-color: transparent;
+    background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 0 A10 10 0 0 1 10 20' fill='%2300af6b' opacity='0.15'/%3E%3C/svg%3E");
+    background-size: 20px 20px;
+  }
+  
+  /* Solid circle pattern */
+  .solid-circle-pattern {
+    background-color: transparent;
+    background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='10' cy='10' r='5' fill='%2300af6b' opacity='0.15'/%3E%3C/svg%3E");
+    background-size: 20px 20px;
+  }
+  
+  /* Outline circle pattern */
+  .outline-circle-pattern {
+    background-color: transparent;
+    background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='10' cy='10' r='5' stroke='%2300af6b' stroke-width='1' fill='none' opacity='0.15'/%3E%3C/svg%3E");
     background-size: 20px 20px;
   }
 

@@ -24,20 +24,25 @@ const FeatureCard = ({
         className
       )}
     >
-      {/* Branding dot pattern background */}
+      {/* Novos padrões visuais como background */}
       <div className="absolute inset-0 opacity-5 pointer-events-none">
-        <div className="absolute inset-0 impulso-pattern"></div>
+        <div className="absolute inset-0 outline-circle-pattern"></div>
       </div>
       
       {/* Background gradient effect on hover */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"></div>
       
       {/* Icon with brand element */}
-      <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center mx-auto mb-6 group-hover:from-primary/30 group-hover:to-primary/10 transition-all duration-500 relative">
+      <div className="relative w-16 h-16 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center mx-auto mb-6 group-hover:from-primary/30 group-hover:to-primary/10 transition-all duration-500">
         <Icon className="w-8 h-8 text-primary" />
-        {/* Animated branding dots */}
-        <div className="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-primary/30 branding-dot"></div>
-        <div className="absolute -bottom-1 -left-1 w-2 h-2 rounded-full bg-primary/20 branding-dot"></div>
+        
+        {/* Aplicando novos elementos de design */}
+        <div className="absolute -top-1 -right-1 w-3 h-3">
+          <div className="w-full h-full solid-circle-pattern"></div>
+        </div>
+        <div className="absolute -bottom-1 -left-1 w-2 h-2">
+          <div className="w-full h-full outline-circle-pattern"></div>
+        </div>
       </div>
       
       <h3 className="text-xl font-semibold text-secondary mb-3 group-hover:text-primary transition-colors duration-300">{title}</h3>

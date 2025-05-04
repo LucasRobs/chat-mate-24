@@ -8,14 +8,16 @@ const ClosingCtaSection = () => {
 
   return (
     <section className="py-12 sm:py-16 md:py-20 lg:py-24 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
-      {/* Padrões de pontos decorativos */}
+      {/* Padrões sutis de background */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 impulso-pattern opacity-5"></div>
+        <div className="absolute inset-0 outline-circle-pattern opacity-5"></div>
       </div>
       
-      {/* Elementos circulares decorativos */}
-      <div className="absolute top-10 left-10 w-16 h-16 rounded-full border-4 border-primary/30 opacity-70 animate-float"></div>
-      <div className="absolute bottom-10 right-10 w-20 h-20 rounded-full border-4 border-primary/30 opacity-70 animate-float" style={{ animationDelay: "1.5s" }}></div>
+      {/* Novos elementos circulares decorativos */}
+      <div className="absolute top-10 left-10 w-8 h-8 solid-circle-pattern opacity-20"></div>
+      <div className="absolute bottom-20 right-20 w-12 h-12 half-circle-pattern opacity-20" style={{ animationDelay: "1.5s" }}></div>
+      <div className="absolute top-40 right-12 w-6 h-6 impulso-pattern opacity-25"></div>
+      <div className="absolute bottom-40 left-14 w-8 h-8 outline-circle-pattern opacity-20"></div>
       
       <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-12 text-center">
         <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-secondary">

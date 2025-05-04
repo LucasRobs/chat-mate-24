@@ -22,6 +22,9 @@ const DashboardCard = ({ title, value, icon: Icon }: DashboardCardProps) => {
           <Icon className="w-4 h-4 sm:w-6 sm:h-6 text-primary" />
         </div>
       </div>
+      
+      {/* Novo padrão visual como elemento decorativo sutil */}
+      <div className="absolute -bottom-1 -right-1 w-6 h-6 opacity-10 outline-circle-pattern"></div>
     </div>
   );
 };

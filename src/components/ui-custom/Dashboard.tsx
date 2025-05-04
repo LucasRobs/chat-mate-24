@@ -66,12 +66,14 @@ const Dashboard = ({ activityData, isMobile, isLoading }: DashboardProps) => {
         </div>
       </div>
 
-      {/* Branding dots no dashboard */}
-      <div className="absolute top-2 right-2 w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-primary/30 opacity-50 branding-dot animate-float"></div>
-      <div className="absolute bottom-12 left-4 w-4 h-4 sm:w-6 sm:h-6 animate-float" style={{ animationDelay: "0.7s" }}>
-        <div className="w-full h-full rounded-full border-2 border-primary/40"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2 h-2 sm:w-4 sm:h-4 rounded-full border-2 border-primary/40"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-1 h-1 sm:w-2 sm:h-2 rounded-full border-2 border-primary/40"></div>
+      {/* Novos padrões de branding no dashboard */}
+      <div className="absolute top-2 right-2 w-4 h-4 solid-circle-pattern"></div>
+      <div className="absolute top-20 right-8 w-6 h-6 half-circle-pattern"></div>
+      <div className="absolute bottom-20 left-6 w-8 h-8">
+        <div className="w-full h-full outline-circle-pattern"></div>
+      </div>
+      <div className="absolute bottom-8 right-12 w-5 h-5">
+        <div className="w-full h-full impulso-pattern"></div>
       </div>
     </div>
   );
