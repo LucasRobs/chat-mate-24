@@ -108,7 +108,7 @@ const StatsSection = () => {
             <h3 className="text-primary text-2xl sm:text-3xl md:text-4xl font-bold mt-4">
               +{conversionRate}%
             </h3>
-            <p className="text-gray-700 mt-2 text-sm sm:text-base font-medium">mais chances de conversão</p>
+            <p className="text-gray-700 mt-2 text-sm sm:text-base font-medium">chances de conversão</p>
             <div className="mt-3 space-y-1">
               <p className="text-gray-600 text-sm">Leads engajados avançam com automações personalizadas</p>
               <p className="text-gray-600 text-sm">Cada conversa vira uma oportunidade real.</p>
