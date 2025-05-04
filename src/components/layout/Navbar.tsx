@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -54,7 +53,7 @@ export const Navbar = () => {
   return (
     <nav
       className={cn(
-        "sticky-nav bg-white py-4 sm:py-6 px-4 sm:px-6 md:px-12 lg:px-20 transition-all duration-300",
+        "sticky-nav bg-white py-2 sm:py-3 px-4 sm:px-6 md:px-12 lg:px-20 transition-all duration-300",
         scrollY > 100 ? "shadow-md glass" : "",
         isNavHidden && !isOpen ? "hidden-nav" : "",
         isOpen ? "fixed inset-0 z-50 bg-white" : ""
@@ -65,9 +64,9 @@ export const Navbar = () => {
           <img
             src="/lovable-uploads/669aaab1-10dd-437a-a1b9-789ae5f02809.png"
             alt="followop Logo"
-            className="h-8 w-auto sm:h-10 transition-transform duration-300 hover:scale-110"
+            className="h-6 w-auto sm:h-8 transition-transform duration-300 hover:scale-110"
           />
-          <span className="font-bold text-xl sm:text-2xl text-secondary">followop</span>
+          <span className="font-bold text-lg sm:text-xl text-secondary">followop</span>
         </a>
 
         {/* Centered nav items */}
@@ -89,7 +88,7 @@ export const Navbar = () => {
           <Button
             asChild
             variant="default"
-            className="bg-[#33334F] hover:bg-[#33334F]/90 text-white font-medium px-8 py-2 rounded-full transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
+            className="bg-[#33334F] hover:bg-[#33334F]/90 text-white font-medium px-6 py-1.5 rounded-full transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
           >
             <a
               href="https://www.followop.com.br/register"
@@ -153,9 +152,7 @@ export const Navbar = () => {
                 </a>
               </Button>
             </div>
-            
-            {/* Removed social media icons from mobile menu */}
-            
+
             {/* Branding dots no menu mobile */}
             <div className="absolute bottom-10 right-10">
               <div className="w-20 h-20 relative">
