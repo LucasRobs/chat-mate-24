@@ -1,4 +1,3 @@
-
 import { useState, useRef, useEffect } from "react";
 import { Play, Pause, Volume2, VolumeX } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -22,7 +21,7 @@ const VideoPlayer = ({ src, poster, className }: VideoPlayerProps) => {
   useEffect(() => {
     if (src.includes('drive.google.com') && !src.includes('uc?export=download')) {
       // Extract file ID from various Google Drive URL formats
-      const fileIdMatch = src.match(/[-\w]{25,}/);
+      const fileIdMatch = src.match(/[-\\w]{25,}/);
       if (fileIdMatch && fileIdMatch[0]) {
         const fileId = fileIdMatch[0];
         const directUrl = `https://drive.google.com/uc?export=download&id=${fileId}`;
