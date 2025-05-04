@@ -17,7 +17,7 @@ interface ActivityChartProps {
 
 const ActivityChart = ({ data, isMobile }: ActivityChartProps) => {
   return (
-    <div className="dashboard-card p-2 sm:p-4 bg-white rounded-lg shadow-sm">
+    <div className="dashboard-card p-2 sm:p-4 bg-white rounded-lg shadow-sm card-hover">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2 sm:mb-4">
         <h3 className="text-sm sm:text-base font-medium text-secondary mb-1 sm:mb-0">
           Atividade Recente
@@ -27,7 +27,7 @@ const ActivityChart = ({ data, isMobile }: ActivityChartProps) => {
         </span>
       </div>
 
-      <div className="h-[200px] sm:h-[250px] md:h-[300px] w-full">
+      <div className="h-[180px] sm:h-[230px] md:h-[280px] w-full animate-on-scroll from-bottom animate-in">
         <ResponsiveContainer width="100%" height="100%">
           <LineChart 
             data={data} 

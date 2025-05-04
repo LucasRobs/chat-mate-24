@@ -10,7 +10,7 @@ interface DashboardCardProps {
 
 const DashboardCard = ({ title, value, icon: Icon }: DashboardCardProps) => {
   return (
-    <div className="dashboard-card p-3 sm:p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-300 group">
+    <div className="dashboard-card p-3 sm:p-4 bg-white rounded-lg shadow-sm card-hover animate-on-scroll from-left animate-in">
       <div className="flex items-center justify-between">
         <div>
           <p className="text-xs sm:text-sm text-gray-500">{title}</p>

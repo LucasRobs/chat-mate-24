@@ -23,7 +23,7 @@ const Dashboard = ({ activityData, isMobile, isLoading }: DashboardProps) => {
   }
 
   return (
-    <div className="w-full max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-lg border-[6px] border-primary/10 hover:border-primary/20 transition-all duration-500 relative">
+    <div className="w-full max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-lg border-[6px] border-primary/10 hover:border-primary/20 transition-all duration-500 relative mobile-container">
       {/* Dashboard inspirado na imagem de referência */}
       <div className="bg-[#fafafa] p-2 sm:p-4">
         {/* Dashboard Header */}
@@ -67,8 +67,8 @@ const Dashboard = ({ activityData, isMobile, isLoading }: DashboardProps) => {
       </div>
 
       {/* Branding dots no dashboard */}
-      <div className="absolute top-2 right-2 w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-primary/30 opacity-50 branding-dot"></div>
-      <div className="absolute bottom-12 left-4 w-4 h-4 sm:w-6 sm:h-6">
+      <div className="absolute top-2 right-2 w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-primary/30 opacity-50 branding-dot animate-float"></div>
+      <div className="absolute bottom-12 left-4 w-4 h-4 sm:w-6 sm:h-6 animate-float" style={{ animationDelay: "0.7s" }}>
         <div className="w-full h-full rounded-full border-2 border-primary/40"></div>
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2 h-2 sm:w-4 sm:h-4 rounded-full border-2 border-primary/40"></div>
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-1 h-1 sm:w-2 sm:h-2 rounded-full border-2 border-primary/40"></div>

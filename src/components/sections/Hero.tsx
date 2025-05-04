@@ -13,7 +13,26 @@ const Hero = () => {
   useEffect(() => {
     setIsVisible(true);
     const timer = setTimeout(() => setIsLoading(false), 1000);
-    return () => clearTimeout(timer);
+    
+    // Initialize scroll animations
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animate-in");
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+    
+    const animElements = document.querySelectorAll(".animate-on-scroll");
+    animElements.forEach((el) => observer.observe(el));
+    
+    return () => {
+      clearTimeout(timer);
+      animElements.forEach((el) => observer.unobserve(el));
+    };
   }, []);
 
   const handleButtonClick = () => {
@@ -40,7 +59,7 @@ const Hero = () => {
   ];
 
   return (
-    <section className="relative bg-white overflow-hidden py-16 md:py-20 lg:py-24">
+    <section className="relative bg-white overflow-hidden py-16 md:py-20 lg:py-24 mobile-container">
       {/* Branding dot pattern elements */}
       <div className="absolute top-20 left-10 w-12 h-12 rounded-full border-[3px] border-primary/40 opacity-70 animate-float"></div>
       <div className="absolute top-40 right-20 w-16 h-16 animate-float" style={{ animationDelay: "1s" }}>
@@ -55,7 +74,7 @@ const Hero = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-6 reveal active animate-fade-in">
+        <div className="text-center mb-6 animate-on-scroll from-bottom animate-in" style={{ animationDelay: "0.1s" }}>
           <div className="flex items-center justify-center gap-2 mb-4">
             <img 
               src="/lovable-uploads/5e5ea857-e83d-43fd-a62d-96b99190ecbb.png" 
@@ -65,8 +84,8 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className="text-center reveal active animate-fade-in" style={{ animationDelay: "0.2s" }}>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-secondary mb-6 animate-fade-in-down">
+        <div className="text-center animate-on-scroll from-bottom animate-in" style={{ animationDelay: "0.3s" }}>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-secondary mb-6">
             <span className="text-primary">Transforme</span> Seu Whatsapp:
           </h1>
 
@@ -82,7 +101,7 @@ const Hero = () => {
           <div className="mt-10 flex justify-center">
             <Button 
               onClick={handleButtonClick}
-              className="bg-[#00af6b] hover:bg-[#009459] text-white font-medium px-8 py-6 rounded-full flex items-center gap-2 group transition-all duration-300 hover:-translate-y-1 hover:shadow-lg h-auto"
+              className="bg-[#00af6b] hover:bg-[#009459] text-white font-medium px-8 py-6 rounded-full flex items-center gap-2 group transition-all duration-300 hover:-translate-y-1 hover:shadow-lg h-auto btn-hover"
             >
               TESTE GRÁTIS 7 DIAS
               <span className="bg-secondary text-white p-2 rounded-full group-hover:translate-x-1 transition-transform">
@@ -92,7 +111,7 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className="mt-16 reveal active animate-fade-in" style={{ animationDelay: "0.4s" }}>
+        <div className="mt-16 animate-on-scroll from-bottom animate-in" style={{ animationDelay: "0.5s" }}>
           <Dashboard 
             activityData={activityData} 
             isMobile={isMobile} 
