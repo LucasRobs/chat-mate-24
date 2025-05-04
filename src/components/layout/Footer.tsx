@@ -1,9 +1,8 @@
-import { Link } from "react-router-dom";
 import { Instagram, Linkedin, Mail, Phone, MapPin, Globe } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  
+
   const footerLinks = {
     product: [
       { name: "Recursos", href: "#features" },
@@ -11,7 +10,7 @@ const Footer = () => {
       { name: "FAQ", href: "#" },
     ],
     company: [
-      { name: "Sobre", href: "#partners" },
+      { name: "Sobre", href: "#about" },
       { name: "Parceiros", href: "#partners" },
       { name: "Contato", href: "#" },
     ],
@@ -24,12 +23,13 @@ const Footer = () => {
 
   return (
     <footer className="bg-gradient-to-b from-white to-gray-50 pt-12 pb-8 border-t border-gray-100 relative overflow-hidden">
-      {/* Background dot pattern */}
-      <div className="absolute inset-0 impulso-pattern opacity-5"></div>
-      
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8">
-          {/* Brand column */}
+      {/* Background pattern */}
+      <div className="absolute inset-0 impulso-pattern opacity-5 pointer-events-none z-0" />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10">
+
+          {/* Brand section */}
           <div className="lg:col-span-3">
             <a href="#" className="inline-flex items-center gap-2">
               <img
@@ -44,10 +44,10 @@ const Footer = () => {
             </p>
             <div className="flex mt-6 space-x-4">
               <a
-                href="https://www.instagram.com/followop.ia?igsh=MTRyajNya285dm5icA=="
+                href="https://www.instagram.com/followop.ia"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-600 hover:text-primary transition-colors"
+                className="text-gray-600 hover:text-primary transition-transform hover:scale-110"
                 aria-label="Instagram"
               >
                 <Instagram size={20} />
@@ -56,7 +56,7 @@ const Footer = () => {
                 href="https://www.linkedin.com/company/followop/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-600 hover:text-primary transition-colors"
+                className="text-gray-600 hover:text-primary transition-transform hover:scale-110"
                 aria-label="LinkedIn"
               >
                 <Linkedin size={20} />
@@ -64,31 +64,31 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Contact Information */}
+          {/* Contact section */}
           <div className="lg:col-span-3">
             <h3 className="font-medium text-secondary mb-4">Contato</h3>
-            <ul className="space-y-3">
-              <li className="flex items-center gap-2 text-gray-500 text-sm">
+            <ul className="space-y-3 text-sm text-gray-500">
+              <li className="flex items-center gap-2">
                 <Mail size={16} className="text-primary" />
                 <a href="mailto:followop.oficial@gmail.com" className="hover:text-primary transition-colors">
                   followop.oficial@gmail.com
                 </a>
               </li>
-              <li className="flex items-center gap-2 text-gray-500 text-sm">
+              <li className="flex items-center gap-2">
                 <Phone size={16} className="text-primary" />
                 <a href="tel:+5588997492536" className="hover:text-primary transition-colors">
                   +55 (88) 99749-2536
                 </a>
               </li>
-              <li className="flex items-start gap-2 text-gray-500 text-sm">
-                <MapPin size={16} className="text-primary flex-shrink-0 mt-1" />
-                <span>
+              <li className="flex items-start gap-2">
+                <MapPin size={16} className="text-primary mt-1" />
+                <address className="not-italic leading-tight">
                   R. Antônio Augusto, 290<br />
                   Meireles, Fortaleza - CE<br />
                   CEP: 60110-370
-                </span>
+                </address>
               </li>
-              <li className="flex items-center gap-2 text-gray-500 text-sm">
+              <li className="flex items-center gap-2">
                 <Globe size={16} className="text-primary" />
                 <a href="https://www.followop.com.br" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
                   www.followop.com.br
@@ -97,65 +97,31 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Links columns */}
-          <div className="lg:col-span-2">
-            <h3 className="font-medium text-secondary mb-4">Produto</h3>
-            <ul className="space-y-2">
-              {footerLinks.product.map((link, index) => (
-                <li key={index}>
-                  <a
-                    href={link.href}
-                    className="text-gray-500 hover:text-primary text-sm transition-colors link-underline"
-                  >
-                    {link.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="lg:col-span-2">
-            <h3 className="font-medium text-secondary mb-4">Empresa</h3>
-            <ul className="space-y-2">
-              {footerLinks.company.map((link, index) => (
-                <li key={index}>
-                  <a
-                    href={link.href}
-                    className="text-gray-500 hover:text-primary text-sm transition-colors link-underline"
-                  >
-                    {link.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="lg:col-span-2">
-            <h3 className="font-medium text-secondary mb-4">Legal</h3>
-            <ul className="space-y-2">
-              {footerLinks.legal.map((link, index) => (
-                <li key={index}>
-                  <a
-                    href={link.href}
-                    className="text-gray-500 hover:text-primary text-sm transition-colors link-underline"
-                  >
-                    {link.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {/* Links sections */}
+          {Object.entries(footerLinks).map(([section, links]) => (
+            <div key={section} className="lg:col-span-2">
+              <h3 className="font-medium text-secondary mb-4 capitalize">
+                {section === "product" ? "Produto" : section === "company" ? "Empresa" : "Legal"}
+              </h3>
+              <ul className="space-y-2">
+                {links.map((link, idx) => (
+                  <li key={idx}>
+                    <a
+                      href={link.href}
+                      className="text-gray-500 hover:text-primary text-sm transition-colors"
+                    >
+                      {link.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
 
-        <div className="mt-12 pt-8 border-t border-gray-100 flex flex-col md:flex-row items-center justify-between">
-          <p className="text-gray-500 text-sm">
-            &copy; {currentYear} followop. Todos os direitos reservados.
-          </p>
-          <div className="mt-4 md:mt-0 flex items-center">
-            <span className="text-sm text-gray-500">
-              <span className="text-red-500"></span>
-            </span>
-          </div>
+        {/* Footer bottom */}
+        <div className="mt-12 pt-8 border-t border-gray-100 flex items-center justify-center text-sm text-gray-500">
+          <p>&copy; {currentYear} followop. Todos os direitos reservados.</p>
         </div>
       </div>
     </footer>
