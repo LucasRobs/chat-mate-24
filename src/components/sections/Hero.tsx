@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { ArrowRight } from "lucide-react";
@@ -10,7 +9,7 @@ const MetaTechPartnerBadge = () => (
   <div className="flex items-center gap-2 bg-white shadow-md border border-gray-200 rounded-lg px-3 py-2 text-xs font-medium text-gray-700 hover:shadow-lg transition-shadow">
     <div className="w-8 h-8 flex items-center justify-center">
       <img 
-        src="/lovable-uploads/c5139137-fd96-48b2-8403-5f8e6fbcc4d3.png" 
+        src="/lovable-uploads/c5206104-ee78-44ed-b432-e4d2a4bb0863.png" 
         alt="Meta Logo" 
         className="w-full h-full object-contain"
       />
