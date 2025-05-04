@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from "react";
-import { Menu, X, ChevronDown, Instagram, Linkedin } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { Button } from "@/components/ui/button";
@@ -71,7 +71,7 @@ export const Navbar = () => {
         </a>
 
         {/* Centered nav items */}
-        <div className="hidden md:flex items-center justify-center flex-1 mx-8">
+        <div className="hidden md:flex flex-1 justify-center">
           <div className="bg-gray-100 rounded-full py-2 px-2 flex">
             {navItems.map((item, index) => (
               <a
@@ -154,22 +154,15 @@ export const Navbar = () => {
               </Button>
             </div>
             
-            <div className="flex items-center justify-center gap-4 pt-4">
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-primary transition-colors">
-                <Instagram size={24} />
-              </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-primary transition-colors">
-                <Linkedin size={24} />
-              </a>
-            </div>
-          </div>
-          
-          {/* Branding dots no menu mobile */}
-          <div className="absolute bottom-10 right-10">
-            <div className="w-20 h-20 relative">
-              <div className="absolute top-0 left-0 w-4 h-4 rounded-full bg-primary/30 branding-dot"></div>
-              <div className="absolute top-8 left-8 w-6 h-6 rounded-full bg-primary/20 branding-dot" style={{ animationDelay: "0.5s" }}></div>
-              <div className="absolute top-16 left-0 w-3 h-3 rounded-full bg-primary/10 branding-dot" style={{ animationDelay: "1s" }}></div>
+            {/* Removed social media icons from mobile menu */}
+            
+            {/* Branding dots no menu mobile */}
+            <div className="absolute bottom-10 right-10">
+              <div className="w-20 h-20 relative">
+                <div className="absolute top-0 left-0 w-4 h-4 rounded-full bg-primary/30 branding-dot"></div>
+                <div className="absolute top-8 left-8 w-6 h-6 rounded-full bg-primary/20 branding-dot" style={{ animationDelay: "0.5s" }}></div>
+                <div className="absolute top-16 left-0 w-3 h-3 rounded-full bg-primary/10 branding-dot" style={{ animationDelay: "1s" }}></div>
+              </div>
             </div>
           </div>
         </div>

@@ -10,6 +10,7 @@ import {
   YAxis,
   CartesianGrid,
   ResponsiveContainer,
+  Tooltip,
 } from "recharts";
 
 const Hero = () => {
@@ -45,6 +46,9 @@ const Hero = () => {
     { name: "16/04", value: 350 },
     { name: "17/04", value: 90 },
   ];
+
+  // Simplified data for mobile view
+  const simplifiedData = isMobile ? activityData.filter((_, idx) => idx % 3 === 0) : activityData;
 
   return (
     <section className="relative bg-white overflow-hidden py-16 md:py-20 lg:py-24">
@@ -82,7 +86,7 @@ const Hero = () => {
           </h2>
 
           <p className="mt-4 text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Trabalhe de forma mais inteligente sem perder performance<br />
+            Trabalhe de forma mais inteligente sem perder performance<br className="hidden md:inline" />
             aumente seus resultados e eleve o atendimento do seu negócio a outro nível.
           </p>
 
@@ -107,87 +111,122 @@ const Hero = () => {
           ) : (
             <div className="w-full max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-lg border-[6px] border-primary/10 hover:border-primary/20 transition-all duration-500 relative">
               {/* Dashboard inspirado na imagem de referência */}
-              <div className="bg-[#fafafa] p-4">
+              <div className="bg-[#fafafa] p-2 sm:p-4">
                 {/* Dashboard Header */}
-                <div className="flex items-center justify-between bg-white rounded-lg p-3 mb-4 shadow-sm">
+                <div className="flex items-center justify-between bg-white rounded-lg p-2 sm:p-3 mb-3 sm:mb-4 shadow-sm">
                   <div className="flex items-center gap-2">
                     <img 
                       src="/lovable-uploads/669aaab1-10dd-437a-a1b9-789ae5f02809.png" 
                       alt="followop Logo" 
-                      className="h-8"
+                      className="h-6 sm:h-8"
                     />
-                    <span className="font-semibold text-gray-800">Visão Geral</span>
+                    <span className="font-semibold text-sm sm:text-base text-gray-800">Visão Geral</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <div className="h-8 w-8 rounded-full bg-primary/20 flex items-center justify-center">
+                    <div className="h-6 w-6 sm:h-8 sm:w-8 rounded-full bg-primary/20 flex items-center justify-center">
                       <span className="text-xs font-medium text-primary">AU</span>
                     </div>
                   </div>
                 </div>
 
-                {/* Dashboard Stats Cards */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                {/* Dashboard Stats Cards - Responsive grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 sm:gap-4 mb-3 sm:mb-4">
                   {/* Card de Atendimentos */}
-                  <div className="dashboard-card p-4">
+                  <div className="dashboard-card p-3 sm:p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-300 group">
                     <div className="flex items-center justify-between">
                       <div>
-                        <p className="dashboard-stat-label">Atendimentos</p>
-                        <p className="dashboard-stat text-secondary">329</p>
+                        <p className="text-xs sm:text-sm text-gray-500">Atendimentos</p>
+                        <p className="text-lg sm:text-xl font-bold text-secondary group-hover:text-primary transition-colors">329</p>
                       </div>
-                      <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
-                        <Users className="w-6 h-6 text-primary" />
+                      <div className="w-8 h-8 sm:w-12 sm:h-12 bg-primary/10 rounded-full flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
+                        <Users className="w-4 h-4 sm:w-6 sm:h-6 text-primary" />
                       </div>
                     </div>
                   </div>
 
                   {/* Card de Mensagens */}
-                  <div className="dashboard-card p-4">
+                  <div className="dashboard-card p-3 sm:p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-300 group">
                     <div className="flex items-center justify-between">
                       <div>
-                        <p className="dashboard-stat-label">Mensagens</p>
-                        <p className="dashboard-stat text-secondary">2559</p>
+                        <p className="text-xs sm:text-sm text-gray-500">Mensagens</p>
+                        <p className="text-lg sm:text-xl font-bold text-secondary group-hover:text-primary transition-colors">2559</p>
                       </div>
-                      <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
-                        <MessageSquare className="w-6 h-6 text-primary" />
+                      <div className="w-8 h-8 sm:w-12 sm:h-12 bg-primary/10 rounded-full flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
+                        <MessageSquare className="w-4 h-4 sm:w-6 sm:h-6 text-primary" />
                       </div>
                     </div>
                   </div>
 
                   {/* Card de Conversões */}
-                  <div className="dashboard-card p-4">
+                  <div className="dashboard-card p-3 sm:p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-300 group">
                     <div className="flex items-center justify-between">
                       <div>
-                        <p className="dashboard-stat-label">Conversões</p>
-                        <p className="dashboard-stat text-primary">43</p>
+                        <p className="text-xs sm:text-sm text-gray-500">Conversões</p>
+                        <p className="text-lg sm:text-xl font-bold text-primary group-hover:text-secondary transition-colors">43</p>
                       </div>
-                      <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
-                        <BarChart2 className="w-6 h-6 text-primary" />
+                      <div className="w-8 h-8 sm:w-12 sm:h-12 bg-primary/10 rounded-full flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
+                        <BarChart2 className="w-4 h-4 sm:w-6 sm:h-6 text-primary" />
                       </div>
                     </div>
                   </div>
                 </div>
 
-                {/* Gráfico de atividade recente */}
-                <div className="dashboard-card p-4">
-                  <div className="flex items-center justify-between mb-4">
-                    <h3 className="font-medium text-secondary">Atividade Recente</h3>
-                    <span className="text-xs bg-gray-100 text-gray-600 py-1 px-3 rounded-full font-medium">Últimos 30 dias</span>
+                {/* Gráfico de atividade recente - Responsive chart */}
+                <div className="dashboard-card p-2 sm:p-4 bg-white rounded-lg shadow-sm">
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2 sm:mb-4">
+                    <h3 className="text-sm sm:text-base font-medium text-secondary mb-1 sm:mb-0">Atividade Recente</h3>
+                    <span className="text-xs bg-gray-100 text-gray-600 py-1 px-2 sm:px-3 rounded-full font-medium self-start sm:self-auto">Últimos {isMobile ? '15' : '30'} dias</span>
                   </div>
                   
-                  {/* Gráfico com Recharts */}
-                  <div className="h-[300px] w-full animate-slide-left">
+                  {/* Interactive Recharts - Responsive height */}
+                  <div className="h-[200px] sm:h-[250px] md:h-[300px] w-full animate-slide-left">
                     <ResponsiveContainer width="100%" height="100%">
-                      <LineChart data={activityData} margin={{ top: 5, right: 20, bottom: 20, left: 0 }}>
+                      <LineChart 
+                        data={simplifiedData} 
+                        margin={{ 
+                          top: 5, 
+                          right: isMobile ? 10 : 20, 
+                          bottom: isMobile ? 15 : 20, 
+                          left: isMobile ? -15 : 0 
+                        }}
+                      >
                         <CartesianGrid stroke="#f5f5f5" strokeDasharray="3 3" />
-                        <XAxis dataKey="name" stroke="#888" fontSize={12} tickLine={false} axisLine={false} />
-                        <YAxis stroke="#888" fontSize={12} tickLine={false} axisLine={false} />
+                        <XAxis 
+                          dataKey="name" 
+                          stroke="#888" 
+                          fontSize={isMobile ? 10 : 12} 
+                          tickLine={false} 
+                          axisLine={false} 
+                          tick={{ fontSize: isMobile ? 8 : 12 }}
+                          interval={isMobile ? 1 : 0}
+                        />
+                        <YAxis 
+                          stroke="#888" 
+                          fontSize={isMobile ? 10 : 12} 
+                          tickLine={false} 
+                          axisLine={false} 
+                          tick={{ fontSize: isMobile ? 8 : 12 }}
+                          width={isMobile ? 20 : 40}
+                        />
+                        <Tooltip 
+                          contentStyle={{ 
+                            background: 'rgba(255, 255, 255, 0.9)', 
+                            border: '1px solid #ddd',
+                            borderRadius: '8px',
+                            padding: '8px',
+                            fontSize: isMobile ? '10px' : '12px'
+                          }}
+                          itemStyle={{ padding: 0 }}
+                          cursor={{ stroke: '#00af6b', strokeWidth: 1, strokeDasharray: '3 3' }}
+                        />
                         <Line 
                           type="monotone" 
                           dataKey="value" 
                           stroke="#00af6b" 
                           strokeWidth={2}
-                          dot={{ r: 3, strokeWidth: 2, fill: "#fff", stroke: "#00af6b" }}
-                          activeDot={{ r: 5, strokeWidth: 0, fill: "#00af6b" }}
+                          dot={{ r: isMobile ? 2 : 3, strokeWidth: 2, fill: "#fff", stroke: "#00af6b" }}
+                          activeDot={{ r: isMobile ? 4 : 5, strokeWidth: 0, fill: "#00af6b" }}
+                          animationDuration={1500}
                         />
                       </LineChart>
                     </ResponsiveContainer>
@@ -196,23 +235,23 @@ const Hero = () => {
               </div>
               
               {/* Floating logo footer */}
-              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full shadow-sm">
-                <div className="flex items-center gap-2">
+              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white/80 backdrop-blur-sm px-3 sm:px-4 py-1 sm:py-2 rounded-full shadow-sm">
+                <div className="flex items-center gap-1 sm:gap-2">
                   <img 
                     src="/lovable-uploads/669aaab1-10dd-437a-a1b9-789ae5f02809.png" 
                     alt="followop Logo" 
-                    className="h-6"
+                    className="h-4 sm:h-6"
                   />
-                  <span className="font-medium text-gray-800">followop</span>
+                  <span className="font-medium text-xs sm:text-sm text-gray-800">followop</span>
                 </div>
               </div>
 
               {/* Branding dots no dashboard */}
-              <div className="absolute top-2 right-2 w-4 h-4 rounded-full bg-primary/30 opacity-50 branding-dot"></div>
-              <div className="absolute bottom-12 left-4 w-6 h-6">
+              <div className="absolute top-2 right-2 w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-primary/30 opacity-50 branding-dot"></div>
+              <div className="absolute bottom-12 left-4 w-4 h-4 sm:w-6 sm:h-6">
                 <div className="w-full h-full rounded-full border-2 border-primary/40"></div>
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full border-2 border-primary/40"></div>
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2 h-2 rounded-full border-2 border-primary/40"></div>
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2 h-2 sm:w-4 sm:h-4 rounded-full border-2 border-primary/40"></div>
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-1 h-1 sm:w-2 sm:h-2 rounded-full border-2 border-primary/40"></div>
               </div>
             </div>
           )}
