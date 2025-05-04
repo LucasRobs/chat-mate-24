@@ -23,13 +23,12 @@ const Footer = () => {
 
   return (
     <footer className="bg-gradient-to-b from-white to-gray-50 pt-12 pb-8 border-t border-gray-100 relative overflow-hidden">
-      {/* Background pattern */}
       <div className="absolute inset-0 impulso-pattern opacity-5 pointer-events-none z-0" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10">
 
-          {/* Brand section */}
+          {/* Brand */}
           <div className="lg:col-span-3">
             <a href="#" className="inline-flex items-center gap-2">
               <img
@@ -64,23 +63,23 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Contact section */}
+          {/* Contato */}
           <div className="lg:col-span-3">
             <h3 className="font-medium text-secondary mb-4">Contato</h3>
             <ul className="space-y-3 text-sm text-gray-500">
-              <li className="flex items-center gap-2">
-                <Mail size={20} className="text-primary" />
+              <li className="flex items-center gap-3">
+                <Mail size={22} className="text-primary" />
                 <a href="mailto:followop.oficial@gmail.com" className="hover:text-primary transition-colors">
                   followop.oficial@gmail.com
                 </a>
               </li>
-              <li className="flex items-center gap-2">
+              <li className="flex items-center gap-3">
                 <Phone size={20} className="text-primary" />
                 <a href="tel:+5588997492536" className="hover:text-primary transition-colors">
                   +55 (88) 99749-2536
                 </a>
               </li>
-              <li className="flex items-start gap-2">
+              <li className="flex items-start gap-3">
                 <MapPin size={20} className="text-primary mt-1" />
                 <address className="not-italic leading-tight">
                   R. Antônio Augusto, 290<br />
@@ -88,7 +87,7 @@ const Footer = () => {
                   CEP: 60110-370
                 </address>
               </li>
-              <li className="flex items-center gap-2">
+              <li className="flex items-center gap-3">
                 <Globe size={20} className="text-primary" />
                 <a href="https://www.followop.com.br" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
                   www.followop.com.br
@@ -97,7 +96,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Links sections */}
+          {/* Links */}
           {Object.entries(footerLinks).map(([section, links]) => (
             <div key={section} className="lg:col-span-2">
               <h3 className="font-medium text-secondary mb-4 capitalize">
@@ -119,7 +118,7 @@ const Footer = () => {
           ))}
         </div>
 
-        {/* Footer bottom */}
+        {/* Rodapé inferior */}
         <div className="mt-12 pt-8 border-t border-gray-100 flex items-center justify-center text-sm text-gray-500">
           <p>&copy; {currentYear} followop. Todos os direitos reservados.</p>
         </div>
