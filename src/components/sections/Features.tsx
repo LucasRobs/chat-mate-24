@@ -1,8 +1,7 @@
-
 import { useEffect, useRef, useState } from "react";
 import FeatureCard from "../ui-custom/FeatureCard";
-import { 
-  Clock, Users, FileText, MessageSquare, Headphones, 
+import {
+  Clock, Users, FileText, MessageSquare, Headphones,
   Image, FileAudio, QrCode, BarChart3, RefreshCw, Bell, Calendar
 } from "lucide-react";
 
@@ -23,9 +22,7 @@ const Features = () => {
     );
 
     const elements = document.querySelectorAll(".animate-on-scroll");
-    elements.forEach((el) => {
-      observer.observe(el);
-    });
+    elements.forEach((el) => observer.observe(el));
 
     return () => elements.forEach((el) => observer.unobserve(el));
   }, []);
@@ -46,27 +43,27 @@ const Features = () => {
   ];
 
   return (
-    <section id="features" ref={sectionRef} className="py-24 bg-gradient-to-b from-white to-primary/5 relative">
+    <section id="features" ref={sectionRef} className="py-16 bg-gradient-to-b from-white to-primary/5 relative">
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 text-center">
         <span className="bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-medium">Funcionalidades</span>
-        <h2 className="mt-6 text-4xl md:text-5xl font-bold text-secondary">
+        <h2 className="mt-6 text-3xl md:text-4xl font-bold text-secondary">
           Tudo o que você precisa para <span className="text-primary">vender mais</span> <span>no WhatsApp</span>
         </h2>
-        <p className="mt-6 text-xl text-gray-600">
+        <p className="mt-4 text-lg text-gray-600">
           Nossas funcionalidades foram desenvolvidas para maximizar suas vendas e proporcionar a melhor experiência para seus clientes.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto text-center mt-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto text-center mt-8">
         {features.slice(0, visibleFeatures).map((feature, index) => (
           <FeatureCard key={index} icon={feature.icon} title={feature.title} description={feature.description} />
         ))}
       </div>
-      
+
       {visibleFeatures < features.length && (
-        <div className="text-center mt-16">
-          <button 
-            onClick={() => setVisibleFeatures(features.length)} 
+        <div className="text-center mt-10">
+          <button
+            onClick={() => setVisibleFeatures(features.length)}
             className="inline-flex items-center justify-center px-8 py-3 text-base font-medium rounded-md text-white bg-primary hover:bg-primary/90 backdrop-blur-sm transition-all duration-500"
           >
             Explorar todas as funcionalidades
