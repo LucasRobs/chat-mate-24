@@ -4,10 +4,10 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Dashboard from "@/components/ui-custom/Dashboard";
 
-// Meta Tech Partner Badge Component
+// Meta Tech Partner Badge Component (reduzido)
 const MetaTechPartnerBadge = () => (
-  <div className="flex items-center gap-2 bg-white shadow-md border border-gray-200 rounded-lg px-3 py-2 text-xs font-medium text-gray-700 hover:shadow-lg transition-shadow max-w-fit mx-auto">
-    <div className="w-8 h-8 flex items-center justify-center">
+  <div className="flex items-center gap-1.5 bg-white shadow-sm border border-gray-200 rounded-md px-2 py-1 text-xs font-medium text-gray-700 max-w-fit mx-auto">
+    <div className="w-5 h-5 flex items-center justify-center">
       <img 
         src="/lovable-uploads/c5206104-ee78-44ed-b432-e4d2a4bb0863.png" 
         alt="Meta Logo" 
@@ -16,8 +16,8 @@ const MetaTechPartnerBadge = () => (
     </div>
     <span className="text-[#0668E1] font-semibold">Meta</span>
     <span className="text-gray-700">Tech Partner</span>
-    <span className="text-xs text-gray-500 ml-1">|</span>
-    <span className="text-xs text-gray-500">Powered by WhatsApp Business API</span>
+    <span className="text-gray-400 mx-1">|</span>
+    <span className="text-[10px] text-gray-500">Powered by WhatsApp Business API</span>
   </div>
 );
 
