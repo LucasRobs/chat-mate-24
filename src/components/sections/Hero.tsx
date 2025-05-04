@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Dashboard from "@/components/ui-custom/Dashboard";
 
-// Meta Tech Partner Badge Component (tamanho reduzido e sutil)
+// Meta Tech Partner Badge Component (compacto e leve)
 const MetaTechPartnerBadge = () => (
   <div className="flex items-center gap-1.5 bg-white shadow-sm border border-gray-200 rounded-md px-2 py-1 text-xs font-medium text-gray-700 max-w-fit">
     <div className="w-5 h-5 flex items-center justify-center">
@@ -74,14 +74,14 @@ const Hero = () => {
 
   return (
     <section className="relative bg-white overflow-hidden py-10 md:py-14 lg:py-16 mobile-container">
-
-      {/* Meta badge posicionado acima do texto, centralizado */}
-      <div className="absolute top-24 left-1/2 transform -translate-x-1/2 z-30">
-        <MetaTechPartnerBadge />
-      </div>
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center animate-on-scroll from-bottom animate-in mt-10" style={{ animationDelay: "0.3s" }}>
+
+        {/* Meta badge agora centralizado e dentro do fluxo normal */}
+        <div className="flex justify-center mb-6">
+          <MetaTechPartnerBadge />
+        </div>
+
+        <div className="text-center animate-on-scroll from-bottom animate-in mt-4" style={{ animationDelay: "0.3s" }}>
           <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-secondary mb-3">
             <span className="text-primary">Transforme</span> Seu Whatsapp:
           </h1>
