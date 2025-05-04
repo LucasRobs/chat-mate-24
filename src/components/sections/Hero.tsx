@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { ArrowRight } from "lucide-react";
@@ -64,7 +63,7 @@ const Hero = () => {
         <div className="text-center mb-6 animate-on-scroll from-bottom animate-in" style={{ animationDelay: "0.1s" }}>
           <div className="flex items-center justify-center gap-2 mb-4">
             <img 
-              src="/lovable-uploads/5e5ea857-e83d-43fd-a62d-96b99190ecbb.png" 
+              src="/lovable-uploads/b245de89-8336-4e08-9842-eca33945c44e.png" 
               alt="Meta Tech Partner" 
               className="h-8 transition-transform duration-300 hover:scale-105"
             />
