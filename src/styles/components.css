@@ -57,20 +57,27 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 1.5rem;
+    gap: 1rem;
     transition: all 0.3s ease;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.875rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   }
   
   .trial-button:hover {
     background-color: #9AD651;
     transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
   }
   
   .trial-button-icon {
     background-color: #2D2D4A;
     color: white;
-    padding: 0.75rem;
+    padding: 0.5rem;
     border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .card-hover {
@@ -131,5 +138,32 @@
   
   .comparison-highlight {
     @apply text-primary font-medium;
+  }
+  
+  /* Meta Partner badge */
+  .meta-partner-badge {
+    @apply flex items-center gap-2 px-4 py-2 bg-white shadow-sm rounded-lg border border-gray-100 transition-all;
+  }
+  
+  .meta-partner-badge:hover {
+    @apply shadow-md;
+    transform: translateY(-2px);
+  }
+  
+  /* Button pulse animation */
+  @keyframes button-pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(162, 222, 93, 0.4);
+    }
+    70% {
+      box-shadow: 0 0 0 10px rgba(162, 222, 93, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(162, 222, 93, 0);
+    }
+  }
+  
+  .button-pulse {
+    animation: button-pulse 2s infinite;
   }
 }

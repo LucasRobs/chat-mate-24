@@ -21,7 +21,7 @@ const ClosingCtaSection = () => {
           <Button
             asChild
             variant="trial"
-            className="inline-flex items-center justify-center gap-6 text-lg py-6 h-auto"
+            className="inline-flex items-center justify-center gap-4 text-base py-4 h-auto transform hover:translate-y-[-2px] transition-all duration-300"
           >
             <a
               href="https://www.followop.com.br/register"
@@ -29,8 +29,8 @@ const ClosingCtaSection = () => {
               rel="noopener noreferrer"
             >
               TESTE GRÁTIS 7 DIAS
-              <span className="bg-[#2D2D4A] text-white p-3 rounded-full">
-                <ArrowRight size={16} />
+              <span className="bg-[#2D2D4A] text-white p-2 rounded-full">
+                <ArrowRight size={14} />
               </span>
             </a>
           </Button>

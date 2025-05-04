@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
@@ -183,11 +184,11 @@ const PopupForm: React.FC<PopupFormProps> = ({
               <Button
                 type="submit"
                 variant="trial"
-                className="w-full mt-4 flex items-center justify-center gap-3"
+                className="w-full mt-4 flex items-center justify-center gap-3 transform hover:translate-y-[-2px] transition-all duration-300"
               >
                 Quero Vender Mais Agora
                 <span className="bg-[#2D2D4A] text-white p-2 rounded-full">
-                  <ArrowRight size={16} />
+                  <ArrowRight size={14} />
                 </span>
               </Button>
             </form>

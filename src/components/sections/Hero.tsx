@@ -61,13 +61,15 @@ const Hero = () => {
   return (
     <section className="relative bg-white overflow-hidden py-16 md:py-20 lg:py-24 mobile-container">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-6 animate-on-scroll from-bottom animate-in" style={{ animationDelay: "0.1s" }}>
-          <div className="flex items-center justify-center gap-2 mb-4">
-            <img 
-              src="/lovable-uploads/b245de89-8336-4e08-9842-eca33945c44e.png" 
-              alt="Meta Tech Partner" 
-              className="h-8 transition-transform duration-300 hover:scale-105"
-            />
+        <div className="text-center mb-10 animate-on-scroll from-bottom animate-in" style={{ animationDelay: "0.1s" }}>
+          <div className="flex justify-center items-center mb-6">
+            <div className="flex items-center px-4 py-2 rounded-lg bg-white shadow-sm border border-gray-100 animate-on-scroll from-bottom animate-in">
+              <img 
+                src="/lovable-uploads/c38d84b8-bf7e-4da2-8ea0-8c5e3a308df7.png" 
+                alt="Meta Tech Partner" 
+                className="h-8 md:h-10 transition-transform duration-300 hover:scale-105"
+              />
+            </div>
           </div>
         </div>
 
@@ -89,11 +91,11 @@ const Hero = () => {
             <Button 
               onClick={handleButtonClick}
               variant="trial"
-              className="text-lg py-6 flex items-center gap-6 h-auto"
+              className="text-base py-4 flex items-center gap-4 h-auto transform hover:translate-y-[-2px] transition-all duration-300"
             >
               TESTE GRÁTIS 7 DIAS
-              <span className="bg-[#2D2D4A] text-white p-3 rounded-full">
-                <ArrowRight size={16} />
+              <span className="bg-[#2D2D4A] text-white p-2 rounded-full">
+                <ArrowRight size={14} />
               </span>
             </Button>
           </div>
