@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { ArrowRight } from "lucide-react";
@@ -87,10 +88,11 @@ const Hero = () => {
           <div className="mt-10 flex justify-center">
             <Button 
               onClick={handleButtonClick}
-              className="bg-[#00af6b] hover:bg-[#009459] text-white font-medium px-8 py-6 rounded-full flex items-center gap-2 group transition-all duration-300 hover:-translate-y-1 hover:shadow-lg h-auto btn-hover"
+              variant="trial"
+              className="text-lg py-6 flex items-center gap-6 h-auto"
             >
               TESTE GRÁTIS 7 DIAS
-              <span className="bg-secondary text-white p-2 rounded-full group-hover:translate-x-1 transition-transform">
+              <span className="bg-[#2D2D4A] text-white p-3 rounded-full">
                 <ArrowRight size={16} />
               </span>
             </Button>

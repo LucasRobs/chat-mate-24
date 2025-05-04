@@ -20,7 +20,8 @@ const ClosingCtaSection = () => {
         <div className="mt-6 sm:mt-8">
           <Button
             asChild
-            className="inline-flex items-center justify-center gap-2 bg-[#A2DE5D] hover:bg-[#A2DE5D]/90 text-gray-800 font-medium text-base sm:text-lg rounded-full transition px-6 py-6 h-auto group hover:-translate-y-1 hover:shadow-lg duration-300"
+            variant="trial"
+            className="inline-flex items-center justify-center gap-6 text-lg py-6 h-auto"
           >
             <a
               href="https://www.followop.com.br/register"
@@ -28,7 +29,7 @@ const ClosingCtaSection = () => {
               rel="noopener noreferrer"
             >
               TESTE GRÁTIS 7 DIAS
-              <span className="bg-secondary text-white p-2 rounded-full group-hover:translate-x-1 transition-transform">
+              <span className="bg-[#2D2D4A] text-white p-3 rounded-full">
                 <ArrowRight size={16} />
               </span>
             </a>

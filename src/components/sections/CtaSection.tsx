@@ -21,11 +21,11 @@ const CtaSection = () => {
 
             <div className="mt-8 sm:mt-10">
               <PopupForm
-                buttonClassName="bg-[#A2DE5D] hover:bg-[#A2DE5D]/90 text-gray-800 text-base sm:text-lg backdrop-blur-sm px-8 py-4 rounded-full flex items-center justify-center gap-2 mx-auto group"
+                buttonClassName="bg-[#A2DE5D] hover:bg-[#A2DE5D]/90 text-[#222] font-medium text-lg py-6 rounded-full flex items-center justify-center gap-6 mx-auto"
                 redirectUrl="https://www.followop.com.br/register"
               >
                 <span>TESTE GRÁTIS 7 DIAS</span>
-                <span className="bg-secondary text-white p-2 rounded-full group-hover:translate-x-1 transition-transform">
+                <span className="bg-[#2D2D4A] text-white p-3 rounded-full">
                   <ArrowRight size={16} />
                 </span>
               </PopupForm>

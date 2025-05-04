@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
@@ -55,7 +54,7 @@ const PopupForm: React.FC<PopupFormProps> = ({
   const { hasSubmitted, setHasSubmitted, setUserInfo } = useUserForm();
   const { toast } = useToast();
 
-  const form = useForm<FormValues>({
+  const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: "",
@@ -91,7 +90,7 @@ const PopupForm: React.FC<PopupFormProps> = ({
     }
   };
 
-  const onSubmit = (data: FormValues) => {
+  const onSubmit = (data: z.infer<typeof formSchema>) => {
     setUserInfo({ name: data.name, phone: data.phone });
     setHasSubmitted(true);
     setOpen(false);
@@ -112,7 +111,8 @@ const PopupForm: React.FC<PopupFormProps> = ({
   return (
     <>
       <Button
-        className={`${buttonClassName} relative group`}
+        variant="trial"
+        className={buttonClassName}
         onClick={handleButtonClick}
         {...(onClick ? {} : { type: "button" })}
       >
@@ -182,10 +182,13 @@ const PopupForm: React.FC<PopupFormProps> = ({
 
               <Button
                 type="submit"
-                className="w-full bg-primary hover:bg-primary/90 mt-4 group"
+                variant="trial"
+                className="w-full mt-4 flex items-center justify-center gap-3"
               >
                 Quero Vender Mais Agora
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                <span className="bg-[#2D2D4A] text-white p-2 rounded-full">
+                  <ArrowRight size={16} />
+                </span>
               </Button>
             </form>
           </Form>

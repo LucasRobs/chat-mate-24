@@ -47,6 +47,31 @@
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 175, 107, 0.2);
   }
+  
+  /* Trial button specific styling */
+  .trial-button {
+    background-color: #A2DE5D;
+    color: #222;
+    border-radius: 9999px;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    transition: all 0.3s ease;
+  }
+  
+  .trial-button:hover {
+    background-color: #9AD651;
+    transform: translateY(-2px);
+  }
+  
+  .trial-button-icon {
+    background-color: #2D2D4A;
+    color: white;
+    padding: 0.75rem;
+    border-radius: 9999px;
+  }
 
   .card-hover {
     transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
