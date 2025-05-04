@@ -38,13 +38,15 @@ const Index = () => {
     };
   }, []);
 
+  console.log("Rendering Index page with Features component");
+
   return (
     <TooltipProvider>
       <div className="min-h-screen flex flex-col bg-white">
         <Navbar />
         <WistiaScriptLoader />
 
-        <main className="flex-1">
+        <main className="flex-1 overflow-x-hidden">
           <Hero />
           <StatsSection />
           <Features />

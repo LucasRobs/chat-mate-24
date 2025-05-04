@@ -1,3 +1,4 @@
+
 import { useEffect, useRef, useState } from "react";
 import FeatureCard from "../ui-custom/FeatureCard";
 import {
@@ -42,8 +43,15 @@ const Features = () => {
     { icon: Calendar, title: "Mensagens agendadas", description: "Aumente conversões: Programe mensagens para serem enviadas no momento ideal para seus clientes." }
   ];
 
+  console.log("Features component rendering with", features.length, "features");
+
   return (
-    <section id="features" ref={sectionRef} className="py-16 bg-gradient-to-b from-white to-primary/5 relative">
+    <section 
+      id="features" 
+      ref={sectionRef} 
+      className="py-16 bg-gradient-to-b from-white to-primary/5 relative z-10"
+      style={{ minHeight: '50vh' }}
+    >
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 text-center">
         <span className="bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-medium">Funcionalidades</span>
         <h2 className="mt-6 text-3xl md:text-4xl font-bold text-secondary">
@@ -54,7 +62,7 @@ const Features = () => {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto text-center mt-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto px-4 sm:px-0 mt-12">
         {features.slice(0, visibleFeatures).map((feature, index) => (
           <FeatureCard key={index} icon={feature.icon} title={feature.title} description={feature.description} />
         ))}
