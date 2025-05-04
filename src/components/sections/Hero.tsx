@@ -30,7 +30,7 @@ const Hero = () => {
     }
   };
 
-  // Dados do gráfico de atividade simulados
+  // Dados do gráfico de atividade simulados - fixed data, no carousel effect
   const activityData = [
     { name: "5/04", value: 10 },
     { name: "6/04", value: 20 },
@@ -171,15 +171,15 @@ const Hero = () => {
                   </div>
                 </div>
 
-                {/* Gráfico de atividade recente - Responsive chart */}
+                {/* Gráfico de atividade recente - Responsive chart without carousel effect */}
                 <div className="dashboard-card p-2 sm:p-4 bg-white rounded-lg shadow-sm">
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2 sm:mb-4">
                     <h3 className="text-sm sm:text-base font-medium text-secondary mb-1 sm:mb-0">Atividade Recente</h3>
                     <span className="text-xs bg-gray-100 text-gray-600 py-1 px-2 sm:px-3 rounded-full font-medium self-start sm:self-auto">Últimos {isMobile ? '15' : '30'} dias</span>
                   </div>
                   
-                  {/* Interactive Recharts - Responsive height */}
-                  <div className="h-[200px] sm:h-[250px] md:h-[300px] w-full animate-slide-left">
+                  {/* Static Recharts - Removed animation and slide effects */}
+                  <div className="h-[200px] sm:h-[250px] md:h-[300px] w-full">
                     <ResponsiveContainer width="100%" height="100%">
                       <LineChart 
                         data={simplifiedData} 
@@ -226,7 +226,7 @@ const Hero = () => {
                           strokeWidth={2}
                           dot={{ r: isMobile ? 2 : 3, strokeWidth: 2, fill: "#fff", stroke: "#00af6b" }}
                           activeDot={{ r: isMobile ? 4 : 5, strokeWidth: 0, fill: "#00af6b" }}
-                          animationDuration={1500}
+                          // Removed animationDuration property
                         />
                       </LineChart>
                     </ResponsiveContainer>
