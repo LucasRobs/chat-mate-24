@@ -7,19 +7,14 @@ import Dashboard from "@/components/ui-custom/Dashboard";
 // Meta Tech Partner Badge Component
 const MetaTechPartnerBadge = () => (
   <div className="flex items-center gap-2 bg-white shadow-md border border-gray-200 rounded-lg px-3 py-2 text-xs font-medium text-gray-700 hover:shadow-lg transition-shadow">
-    <div className="w-6 h-6 flex items-center justify-center">
-      <svg width="24" height="24" viewBox="0 0 192 192" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M96 9.69l-84 48.4v75.82l84 48.4 84-48.4V58.09l-84-48.4z" fill="none"/>
-        <path d="M96 9.69l-84 48.4v75.82l84 48.4 84-48.4V58.09l-84-48.4z" fill="none"/>
-        <path d="M96 9.69l-84 48.4v75.82l84 48.4 84-48.4V58.09l-84-48.4z" fill="none"/>
-        <path d="M168 58.09l-72-41.54-72 41.54v75.82l72 41.54 72-41.54V58.09z" fill="none"/>
-        <path d="M95.5 174L41 142.5V79.5L95.5 48l54.5 31.5v63L95.5 174z" fill="none"/>
-        <path d="M96 174.5L40 142.29V78.71L96 46.5l56 32.21v63.58L96 174.5z" fill="none"/>
-        <path d="M71.46 102.51l-1.43-1.43c-2.97-2.97-4.29-6.37-4.29-10.07 0-3.7 1.32-7.1 4.29-10.07l26.05-26.05 26.05 26.05c2.97 2.97 4.29 6.37 4.29 10.07 0 3.7-1.32 7.1-4.29 10.07l-26.05 26.05-24.62-24.62z" fill="#0080FB"/>
-        <path d="M150.18 102.51l-1.43-1.43c-2.97-2.97-4.29-6.37-4.29-10.07 0-3.7 1.32-7.1 4.29-10.07l26.05-26.05 26.05 26.05c2.97 2.97 4.29 6.37 4.29 10.07 0 3.7-1.32 7.1-4.29 10.07l-26.05 26.05-24.62-24.62z" fill="#0080FB" transform="translate(-80 0)"/>
-      </svg>
+    <div className="w-8 h-8 flex items-center justify-center">
+      <img 
+        src="/lovable-uploads/c5206104-ee78-44ed-b432-e4d2a4bb0863.png" 
+        alt="Meta Logo" 
+        className="w-full h-full object-contain"
+      />
     </div>
-    <span className="text-[#1877F2] font-semibold">Meta</span>
+    <span className="text-[#0668E1] font-semibold">Meta</span>
     <span className="text-gray-700">Tech Partner</span>
     <span className="text-xs text-gray-500 ml-1">|</span>
     <span className="text-xs text-gray-500">Powered by WhatsApp Business API</span>
