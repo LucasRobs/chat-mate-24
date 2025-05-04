@@ -142,4 +142,34 @@
   .comparison-highlight {
     @apply text-primary font-medium;
   }
+  
+  /* Branding decorative elements for sections */
+  .brand-decorations {
+    @apply relative overflow-hidden;
+  }
+  
+  .brand-decorations::before {
+    content: '';
+    @apply absolute top-10 left-10 w-8 h-8 solid-circle-pattern opacity-10 pointer-events-none;
+  }
+  
+  .brand-decorations::after {
+    content: '';
+    @apply absolute bottom-10 right-10 w-12 h-12 outline-circle-pattern opacity-10 pointer-events-none;
+  }
+  
+  /* Card decoration classes */
+  .card-with-patterns {
+    @apply relative overflow-hidden;
+  }
+  
+  .card-with-patterns::before {
+    content: '';
+    @apply absolute top-2 right-2 w-4 h-4 solid-circle-pattern opacity-15 pointer-events-none;
+  }
+  
+  .card-with-patterns::after {
+    content: '';
+    @apply absolute bottom-2 left-2 w-6 h-6 impulso-pattern opacity-10 pointer-events-none;
+  }
 }

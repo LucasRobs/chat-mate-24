@@ -7,7 +7,7 @@ const ClosingCtaSection = () => {
   const isMobile = useIsMobile();
 
   return (
-    <section className="py-12 sm:py-16 md:py-20 lg:py-24 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+    <section className="py-12 sm:py-16 md:py-20 lg:py-24 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden brand-decorations">
       {/* Padrões sutis de background */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 outline-circle-pattern opacity-5"></div>

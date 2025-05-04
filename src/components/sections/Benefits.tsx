@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Clock, DollarSign, MessageCircle, Headphones, Zap } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -5,11 +6,14 @@ import { useIsMobile } from "@/hooks/use-mobile";
 const BenefitItem = ({ icon: Icon, title, description, delay }) => {
   return (
     <div
-      className="flex flex-col items-center p-6 text-center h-full transition-opacity duration-500 ease-in-out"
+      className="flex flex-col items-center p-6 text-center h-full transition-opacity duration-500 ease-in-out card-with-patterns"
       style={{ transitionDelay: `${delay}ms`, minHeight: '200px' }}
     >
-      <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+      <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4 relative">
         <Icon className="w-8 h-8 text-primary" />
+        <div className="absolute -top-1 -right-1 w-3 h-3">
+          <div className="w-full h-full outline-circle-pattern"></div>
+        </div>
       </div>
       <h3 className="text-lg font-semibold text-gray-900 mb-2 whitespace-normal leading-tight">{title}</h3>
       <p className="text-sm text-gray-600 leading-relaxed max-w-xs">{description}</p>
@@ -72,7 +76,12 @@ const Benefits = () => {
   ];
 
   return (
-    <section id="benefits" className="py-20 bg-gray-50">
+    <section id="benefits" className="py-20 bg-gray-50 brand-decorations">
+      {/* Subtle brand patterns */}
+      <div className="absolute top-14 left-8 w-6 h-6 solid-circle-pattern opacity-20"></div>
+      <div className="absolute bottom-10 right-12 w-8 h-8 half-circle-pattern opacity-15"></div>
+      <div className="absolute top-40 right-20 w-5 h-5 impulso-pattern opacity-25"></div>
+      
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 text-center">
         <div className={`mb-16 transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">Turbine Suas Vendas com Followop!</h2>

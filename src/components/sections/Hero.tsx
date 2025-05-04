@@ -59,7 +59,7 @@ const Hero = () => {
   ];
 
   return (
-    <section className="relative bg-white overflow-hidden py-16 md:py-20 lg:py-24 mobile-container">
+    <section className="relative bg-white overflow-hidden py-16 md:py-20 lg:py-24 mobile-container brand-decorations">
       {/* Novos elementos de padrão de marca */}
       <div className="absolute top-20 left-10 w-6 h-6 half-circle-pattern"></div>
       <div className="absolute top-40 right-20 w-10 h-10" style={{ animationDelay: "1s" }}>

@@ -23,7 +23,7 @@ const Dashboard = ({ activityData, isMobile, isLoading }: DashboardProps) => {
   }
 
   return (
-    <div className="w-full max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-lg border-[6px] border-primary/10 hover:border-primary/20 transition-all duration-500 relative mobile-container">
+    <div className="w-full max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-lg border-[6px] border-primary/10 hover:border-primary/20 transition-all duration-500 relative mobile-container card-with-patterns">
       {/* Dashboard inspirado na imagem de referência */}
       <div className="bg-[#fafafa] p-2 sm:p-4">
         {/* Dashboard Header */}
@@ -66,7 +66,7 @@ const Dashboard = ({ activityData, isMobile, isLoading }: DashboardProps) => {
         </div>
       </div>
 
-      {/* Novos padrões de branding no dashboard */}
+      {/* Brand pattern elements in dashboard */}
       <div className="absolute top-2 right-2 w-4 h-4 solid-circle-pattern"></div>
       <div className="absolute top-20 right-8 w-6 h-6 half-circle-pattern"></div>
       <div className="absolute bottom-20 left-6 w-8 h-8">

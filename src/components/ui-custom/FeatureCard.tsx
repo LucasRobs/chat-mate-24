@@ -24,7 +24,7 @@ const FeatureCard = ({
         className
       )}
     >
-      {/* Novos padrões visuais como background */}
+      {/* Visual patterns as background */}
       <div className="absolute inset-0 opacity-5 pointer-events-none">
         <div className="absolute inset-0 outline-circle-pattern"></div>
       </div>

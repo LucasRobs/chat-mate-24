@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Check } from "lucide-react";
 
@@ -32,7 +33,13 @@ const Comparison = () => {
   ];
 
   return (
-    <section id="comparison" className="py-16 sm:py-20 bg-gray-50">
+    <section id="comparison" className="py-16 sm:py-20 bg-gray-50 brand-decorations">
+      {/* Subtle brand patterns */}
+      <div className="absolute top-16 left-10 w-7 h-7 half-circle-pattern opacity-15"></div>
+      <div className="absolute bottom-20 right-14 w-9 h-9 outline-circle-pattern opacity-15"></div>
+      <div className="absolute top-[40%] right-[15%] w-6 h-6 solid-circle-pattern opacity-20"></div>
+      <div className="absolute bottom-[30%] left-[10%] w-8 h-8 impulso-pattern opacity-15"></div>
+      
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 sm:mb-16">
           <span className="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs sm:text-sm font-medium">
@@ -56,7 +63,7 @@ const Comparison = () => {
             {data.map((item, idx) => (
               <div
                 key={idx}
-                className="bg-white rounded-xl border border-gray-100 shadow-sm p-4"
+                className="bg-white rounded-xl border border-gray-100 shadow-sm p-4 card-with-patterns"
               >
                 <h3 className="text-gray-900 font-medium mb-2">{item.label}</h3>
                 <div className="text-sm text-gray-600">
@@ -95,7 +102,7 @@ const Comparison = () => {
           </div>
         </div>
 
-        <div className="mt-6 sm:mt-8 bg-white rounded-xl p-4 sm:p-6 border border-gray-100 shadow-sm">
+        <div className="mt-6 sm:mt-8 bg-white rounded-xl p-4 sm:p-6 border border-gray-100 shadow-sm card-with-patterns">
           <div className="flex items-start sm:items-center">
             <div className="mr-3 sm:mr-4 flex-shrink-0 bg-primary/10 rounded-full p-2">
               <Check className="h-5 w-5 text-primary" />
