@@ -33,7 +33,7 @@ const FeatureCard = ({
       <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"></div>
       
       {/* Icon with brand element */}
-      <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6 group-hover:bg-primary/20 transition-all duration-500 relative">
+      <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center mx-auto mb-6 group-hover:from-primary/30 group-hover:to-primary/10 transition-all duration-500 relative">
         <Icon className="w-8 h-8 text-primary" />
         {/* Animated branding dots */}
         <div className="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-primary/30 branding-dot"></div>

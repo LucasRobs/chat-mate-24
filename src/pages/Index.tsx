@@ -48,7 +48,6 @@ const Index = () => {
           <Hero />
           <StatsSection />
           <Features />
-          {/* Removida a seção ChatDemo */}
           <Benefits />
           <Comparison />
           <Testimonials />

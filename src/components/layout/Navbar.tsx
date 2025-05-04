@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from "react";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, Instagram, Linkedin } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { Button } from "@/components/ui/button";
@@ -31,7 +31,7 @@ export const Navbar = () => {
   const navItems = [
     { label: "Funções", href: "#features" },
     { label: "Planos", href: "#pricing" },
-    { label: "Empresa", href: "#about" },
+    { label: "Empresa", href: "#partners" }, // Changed to link to partners section
   ];
 
   const toggleMenu = () => {
@@ -151,6 +151,15 @@ export const Navbar = () => {
                   Teste Grátis 7 dias
                 </a>
               </Button>
+            </div>
+            
+            <div className="flex items-center justify-center gap-4 pt-4">
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-primary transition-colors">
+                <Instagram size={24} />
+              </a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-primary transition-colors">
+                <Linkedin size={24} />
+              </a>
             </div>
           </div>
           

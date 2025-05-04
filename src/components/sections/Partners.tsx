@@ -33,7 +33,7 @@ const Partners = () => {
   ];
 
   return (
-    <section id="partners" className="py-16 bg-gray-50">
+    <section id="partners" className="py-16 bg-gradient-to-b from-gray-50 to-white">
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
         <div 
           className={`text-center mb-12 transition-all duration-700 ${
@@ -41,14 +41,14 @@ const Partners = () => {
           }`}
         >
           <span className="bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-medium">
-            Empresas Parceiras
+            Empresa
           </span>
           <h2 className="mt-6 text-2xl md:text-3xl font-bold text-secondary">
             Confiam e impulsionam nossa tecnologia
           </h2>
         </div>
 
-        <div className="w-full overflow-hidden">
+        <div className="w-full overflow-hidden rounded-xl p-8 bg-white shadow-sm border border-gray-100">
           <div className="marquee relative flex items-center">
             <div className="marquee-content flex items-center justify-around w-full">
               {partners.map((partner, index) => (
@@ -76,6 +76,16 @@ const Partners = () => {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+        
+        {/* Brand dot patterns */}
+        <div className="relative mt-10 py-4">
+          <div className="absolute -top-10 -right-10 w-24 h-24 opacity-10">
+            <div className="impulso-pattern absolute inset-0"></div>
+          </div>
+          <div className="absolute -bottom-10 -left-10 w-24 h-24 opacity-10">
+            <div className="impulso-pattern absolute inset-0"></div>
           </div>
         </div>
       </div>
