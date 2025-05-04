@@ -6,7 +6,7 @@ import Dashboard from "@/components/ui-custom/Dashboard";
 
 // Meta Tech Partner Badge Component
 const MetaTechPartnerBadge = () => (
-  <div className="flex items-center gap-2 bg-white shadow-md border border-gray-200 rounded-lg px-3 py-2 text-xs font-medium text-gray-700 hover:shadow-lg transition-shadow">
+  <div className="flex items-center gap-2 bg-white shadow-md border border-gray-200 rounded-lg px-3 py-2 text-xs font-medium text-gray-700 hover:shadow-lg transition-shadow max-w-fit mx-auto">
     <div className="w-8 h-8 flex items-center justify-center">
       <img 
         src="/lovable-uploads/c5206104-ee78-44ed-b432-e4d2a4bb0863.png" 
@@ -29,8 +29,7 @@ const Hero = () => {
   useEffect(() => {
     setIsVisible(true);
     const timer = setTimeout(() => setIsLoading(false), 1000);
-    
-    // Initialize scroll animations
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -41,10 +40,10 @@ const Hero = () => {
       },
       { threshold: 0.1 }
     );
-    
+
     const animElements = document.querySelectorAll(".animate-on-scroll");
     animElements.forEach((el) => observer.observe(el));
-    
+
     return () => {
       clearTimeout(timer);
       animElements.forEach((el) => observer.unobserve(el));
@@ -57,7 +56,6 @@ const Hero = () => {
     }
   };
 
-  // Fixed data for the activity chart
   const activityData = [
     { name: "5/04", value: 10 },
     { name: "6/04", value: 20 },
@@ -77,12 +75,8 @@ const Hero = () => {
   return (
     <section className="relative bg-white overflow-hidden py-10 md:py-14 lg:py-16 mobile-container">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-4 animate-on-scroll from-bottom animate-in" style={{ animationDelay: "0.1s" }}>
-          <div className="flex justify-center items-center mb-3">
-            <div className="animate-on-scroll from-bottom animate-in">
-              <MetaTechPartnerBadge />
-            </div>
-          </div>
+        <div className="text-center animate-on-scroll from-bottom animate-in" style={{ animationDelay: "0.1s" }}>
+          <MetaTechPartnerBadge />
         </div>
 
         <div className="text-center animate-on-scroll from-bottom animate-in" style={{ animationDelay: "0.3s" }}>
