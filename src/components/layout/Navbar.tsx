@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useEffect, useState } from "react";
@@ -65,43 +66,48 @@ export default function Navbar() {
               alt="Logo"
               className="w-full h-full object-contain p-0.5"
             />
-        {!isMobile && (
-          <div className="flex items-center gap-8">
-            {[{ id: "features", label: "Funções" }, { id: "pricing", label: "Planos" }, { id: "partners", label: "Parceiros" }].map(({ id, label }) => (
-              <button
-                key={id}
-                onClick={() => scrollToSection(id)}
-                className={cn(
-                  "text-sm font-medium transition-colors hover:text-primary",
-                  activeSection === id
-                    ? "text-primary"
-                    : "text-muted-foreground"
-                )}
-              >
-                {label}
-              </button>
-            ))}
           </div>
-        )}
+          
+          {!isMobile && (
+            <div className="flex items-center gap-8">
+              {[{ id: "features", label: "Funções" }, { id: "pricing", label: "Planos" }, { id: "partners", label: "Parceiros" }].map(({ id, label }) => (
+                <button
+                  key={id}
+                  onClick={() => scrollToSection(id)}
+                  className={cn(
+                    "text-sm font-medium transition-colors hover:text-primary",
+                    activeSection === id
+                      ? "text-primary"
+                      : "text-muted-foreground"
+                  )}
+                >
+                  {label}
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
 
-        {!isMobile && (
-          <Link
-            to="https://www.followop.com.br/login"
-            target="_blank"
-            className="shrink-0 flex items-center justify-center bg-white/50 p-2 rounded-full hover:bg-white/80 transition-colors"
-          >
-            <User className="w-4 h-4 text-secondary" />
-          </Link>
-        )}
+        <div className="flex items-center">
+          {!isMobile && (
+            <Link
+              to="https://www.followop.com.br/login"
+              target="_blank"
+              className="shrink-0 flex items-center justify-center bg-white/50 p-2 rounded-full hover:bg-white/80 transition-colors"
+            >
+              <User className="w-4 h-4 text-secondary" />
+            </Link>
+          )}
 
-        {isMobile && (
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="text-secondary bg-white/50 p-2 rounded-full hover:bg-white/80 transition-colors"
-          >
-            {isOpen ? <X size={16} /> : <Menu size={16} />}
-          </button>
-        )}
+          {isMobile && (
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="text-secondary bg-white/50 p-2 rounded-full hover:bg-white/80 transition-colors"
+            >
+              {isOpen ? <X size={16} /> : <Menu size={16} />}
+            </button>
+          )}
+        </div>
       </div>
 
       {isMobile && isOpen && (
