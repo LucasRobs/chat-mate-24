@@ -24,6 +24,36 @@ const MetaTechPartnerBadge = () => (
   </div>
 );
 
+// System Features Component
+const SystemFeatures = () => (
+  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 max-w-2xl mx-auto mt-4 mb-6">
+    <div className="bg-white/80 backdrop-blur-sm rounded-xl p-3 shadow-sm border border-gray-100 text-center">
+      <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-2">
+        <Users className="w-4 h-4 text-primary" />
+      </div>
+      <p className="text-xs font-medium text-gray-800">CRM Integrado</p>
+    </div>
+    <div className="bg-white/80 backdrop-blur-sm rounded-xl p-3 shadow-sm border border-gray-100 text-center">
+      <div className="w-8 h-8 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-2">
+        <Bell className="w-4 h-4 text-blue-500" />
+      </div>
+      <p className="text-xs font-medium text-gray-800">Automação de Fluxos</p>
+    </div>
+    <div className="bg-white/80 backdrop-blur-sm rounded-xl p-3 shadow-sm border border-gray-100 text-center">
+      <div className="w-8 h-8 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-2">
+        <Calendar className="w-4 h-4 text-green-500" />
+      </div>
+      <p className="text-xs font-medium text-gray-800">Chatbot IA</p>
+    </div>
+    <div className="bg-white/80 backdrop-blur-sm rounded-xl p-3 shadow-sm border border-gray-100 text-center">
+      <div className="w-8 h-8 bg-purple-50 rounded-full flex items-center justify-center mx-auto mb-2">
+        <BarChart2 className="w-4 h-4 text-purple-500" />
+      </div>
+      <p className="text-xs font-medium text-gray-800">Métricas Avançadas</p>
+    </div>
+  </div>
+);
+
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
   const isMobile = useIsMobile();
@@ -87,6 +117,9 @@ const Hero = () => {
             {!isMobile && <br className="hidden md:inline" />}
             {' '}aumente seus resultados e eleve o atendimento do seu negócio a outro nível.
           </p>
+
+          {/* System Features */}
+          <SystemFeatures />
 
           <div className="mt-6 flex justify-center">
             <Button 
