@@ -3,12 +3,14 @@ import { useEffect, useRef, useState } from "react";
 import FeatureCard from "../ui-custom/FeatureCard";
 import {
   Clock, Users, FileText, MessageSquare, Headphones,
-  Image, FileAudio, QrCode, BarChart3, RefreshCw, Bell, Calendar
+  Image, FileAudio, QrCode, BarChart3, RefreshCw, Bell, Calendar, Plus
 } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const Features = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const [visibleFeatures, setVisibleFeatures] = useState(6);
+  const [isExpanded, setIsExpanded] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -27,6 +29,13 @@ const Features = () => {
 
     return () => elements.forEach((el) => observer.unobserve(el));
   }, []);
+
+  const handleExpandFeatures = () => {
+    setIsExpanded(true);
+    setTimeout(() => {
+      setVisibleFeatures(features.length);
+    }, 100);
+  };
 
   const features = [
     { icon: Clock, title: "Disponibilidade Total", description: "Sua empresa disponível para atender clientes a qualquer hora do dia ou da noite." },
@@ -55,20 +64,31 @@ const Features = () => {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto text-center mt-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto text-center mt-8 relative">
         {features.slice(0, visibleFeatures).map((feature, index) => (
-          <FeatureCard key={index} icon={feature.icon} title={feature.title} description={feature.description} />
+          <FeatureCard 
+            key={index} 
+            icon={feature.icon} 
+            title={feature.title} 
+            description={feature.description} 
+            className={index >= 6 && isExpanded ? "feature-appear" : ""}
+          />
         ))}
       </div>
 
       {visibleFeatures < features.length && (
-        <div className="text-center mt-10">
-          <button
-            onClick={() => setVisibleFeatures(features.length)}
-            className="inline-flex items-center justify-center px-8 py-3 text-base font-light rounded-md text-white bg-primary hover:bg-primary/90 backdrop-blur-sm transition-all duration-500"
+        <div className="text-center mt-12">
+          <Button
+            onClick={handleExpandFeatures}
+            variant="outline"
+            size="lg"
+            className="inline-flex items-center justify-center gap-3 px-8 py-2.5 text-sm font-light rounded-full text-secondary border-secondary/30 hover:border-secondary transition-all duration-500 backdrop-blur-sm feature-button"
           >
-            Explorar todas as funcionalidades
-          </button>
+            <span>Explorar todas as funcionalidades</span>
+            <span className="bg-secondary text-white p-1.5 rounded-full flex items-center justify-center">
+              <Plus size={14} strokeWidth={2.5} />
+            </span>
+          </Button>
         </div>
       )}
     </section>

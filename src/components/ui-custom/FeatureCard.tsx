@@ -24,16 +24,16 @@ const FeatureCard = ({
         className
       )}
     >
-      {/* Background gradient effect on hover */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"></div>
+      {/* Subtle gradient background effect */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 -z-10"></div>
       
       {/* Icon with brand element */}
-      <div className="relative w-16 h-16 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center mx-auto mb-6 group-hover:from-primary/30 group-hover:to-primary/10 transition-all duration-500">
-        <Icon className="w-8 h-8 text-primary" />
+      <div className="relative w-14 h-14 rounded-full bg-gradient-to-br from-primary/10 to-transparent flex items-center justify-center mx-auto mb-5 group-hover:from-primary/20 group-hover:to-primary/5 transition-all duration-700">
+        <Icon className="w-6 h-6 text-primary/80" />
       </div>
       
-      <h3 className="text-xl font-light text-black mb-3 group-hover:text-primary transition-colors duration-300">{title}</h3>
-      <p className="text-gray-500 font-light">{description}</p>
+      <h3 className="text-xl font-light text-black mb-3 group-hover:text-primary/90 transition-colors duration-500">{title}</h3>
+      <p className="text-gray-500 font-light text-sm">{description}</p>
     </div>
   );
 };
