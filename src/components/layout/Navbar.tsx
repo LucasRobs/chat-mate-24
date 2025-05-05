@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useEffect, useState } from "react";
@@ -39,49 +38,54 @@ export default function Navbar() {
     >
       <div
         className={cn(
-          "acrylic border border-white/30 shadow-md rounded-full flex items-center justify-between px-4 transition-all duration-300",
-          "h-full"
+          "acrylic border border-white/30 shadow-md rounded-full px-4 transition-all duration-300",
+          "h-full flex items-center justify-center"
         )}
       >
-        {/* Logo */}
-        <div className="flex items-center gap-1">
-          <div className="w-6 h-6 rounded-full overflow-hidden bg-white">
+        <div className="flex items-center gap-6 w-full justify-center">
+
+          {/* Logo */}
+          <div className="w-6 h-6 rounded-full overflow-hidden bg-white shrink-0">
             <img
               src="/lovable-uploads/02e6e528-86eb-4a69-a7aa-f901007e7ef3.png"
               alt="Logo"
               className="w-full h-full object-contain p-0.5"
             />
           </div>
+
+          {/* Navegação */}
+          {!isMobile && (
+            <div className="flex items-center gap-8 bg-muted/40 px-5 py-1.5 rounded-full">
+              <button
+                onClick={() => scrollToSection("features")}
+                className="text-muted-foreground hover:text-primary text-sm font-medium transition-colors"
+              >
+                Funções
+              </button>
+              <button
+                onClick={() => scrollToSection("pricing")}
+                className="text-muted-foreground hover:text-primary text-sm font-medium transition-colors"
+              >
+                Planos
+              </button>
+              <button
+                onClick={() => scrollToSection("partners")}
+                className="text-muted-foreground hover:text-primary text-sm font-medium transition-colors"
+              >
+                Parceiros
+              </button>
+            </div>
+          )}
+
+          {/* Acesso */}
+          <Link
+            to="https://www.followop.com.br/login"
+            target="_blank"
+            className="flex items-center justify-center shrink-0"
+          >
+            <User className="w-5 h-5 text-muted-foreground" />
+          </Link>
         </div>
-
-        {/* Navegação */}
-        {!isMobile && (
-          <div className="flex items-center gap-8 bg-muted/40 px-5 py-1.5 rounded-full">
-            <button
-              onClick={() => scrollToSection("features")}
-              className="text-muted-foreground hover:text-primary text-sm font-medium transition-colors"
-            >
-              Funções
-            </button>
-            <button
-              onClick={() => scrollToSection("pricing")}
-              className="text-muted-foreground hover:text-primary text-sm font-medium transition-colors"
-            >
-              Planos
-            </button>
-            <button
-              onClick={() => scrollToSection("partners")}
-              className="text-muted-foreground hover:text-primary text-sm font-medium transition-colors"
-            >
-              Parceiros
-            </button>
-          </div>
-        )}
-
-        {/* Acesso */}
-        <Link to="https://www.followop.com.br/login" target="_blank" className="flex items-center gap-1">
-          <User className="w-5 h-5 text-muted-foreground" />
-        </Link>
       </div>
     </div>
   );
