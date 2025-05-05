@@ -1,7 +1,6 @@
-
 import { useState, useEffect } from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { ArrowRight, Users, Bell, Calendar, BarChart2 } from "lucide-react";
+import { ArrowRight, Bell, Calendar, BarChart2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Dashboard from "@/components/ui-custom/Dashboard";
 
@@ -26,13 +25,7 @@ const MetaTechPartnerBadge = () => (
 
 // System Features Component
 const SystemFeatures = () => (
-  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 max-w-2xl mx-auto mt-4 mb-6">
-    <div className="bg-white/80 backdrop-blur-sm rounded-xl p-3 shadow-sm border border-gray-100 text-center">
-      <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-2">
-        <Users className="w-4 h-4 text-primary" />
-      </div>
-      <p className="text-xs font-medium text-gray-800">CRM Integrado</p>
-    </div>
+  <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-3 max-w-2xl mx-auto mt-4 mb-6">
     <div className="bg-white/80 backdrop-blur-sm rounded-xl p-3 shadow-sm border border-gray-100 text-center">
       <div className="w-8 h-8 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-2">
         <Bell className="w-4 h-4 text-blue-500" />
