@@ -106,7 +106,7 @@ export default function Navbar() {
       </div>
 
       {isMobile && isOpen && (
-        <div className="mt-2 w-full bg-white/90 backdrop-blur-md rounded-xl shadow-md p-4 space-y-3 animate-slide-in-down">
+        <div className="absolute right-0 left-0 mt-2 mx-auto max-w-[280px] bg-white/90 backdrop-blur-md rounded-xl shadow-md p-4 space-y-3 animate-slide-in-down">
           <button
             onClick={() => scrollToSection("features")}
             className="flex items-center gap-2 text-muted-foreground hover:text-primary text-sm transition-transform duration-300 hover:scale-105 active:scale-95"
