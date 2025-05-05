@@ -3,20 +3,25 @@ import React from "react";
 import { Users, MessageSquare, BarChart2, TrendingUp } from "lucide-react";
 import DashboardCard from "./DashboardCard";
 import ActivityChart from "./ActivityChart";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 interface DashboardProps {
   activityData: Array<{ name: string; value: number }>;
-  isMobile: boolean;
+  isMobile?: boolean;
 }
 
-const Dashboard = ({ activityData, isMobile }: DashboardProps) => {
+const Dashboard = ({ activityData, isMobile: propIsMobile }: DashboardProps) => {
+  // Use o hook useIsMobile se não for fornecido via props
+  const hookIsMobile = useIsMobile();
+  const isMobile = propIsMobile !== undefined ? propIsMobile : hookIsMobile;
+  
   // Simplified data for mobile view
   const simplifiedData = isMobile ? activityData.filter((_, idx) => idx % 3 === 0) : activityData;
 
   return (
-    <div className="w-full max-w-5xl mx-auto rounded-xl overflow-hidden shadow-md border border-gray-100 hover:shadow-lg transition-all duration-500 relative mobile-container">
+    <div className="w-full h-full flex flex-col max-w-full mx-auto rounded-xl overflow-hidden shadow-md border border-gray-100 hover:shadow-lg transition-all duration-500 relative">
       {/* Dashboard content */}
-      <div className="bg-[#fafafa] p-3 sm:p-6">
+      <div className="bg-[#fafafa] p-3 sm:p-6 flex-1 flex flex-col h-full">
         {/* Dashboard Header */}
         <div className="flex items-center justify-between bg-white rounded-lg p-3 sm:p-4 mb-4 sm:mb-6 shadow-sm border border-gray-50">
           <div className="flex items-center gap-2">
@@ -41,8 +46,10 @@ const Dashboard = ({ activityData, isMobile }: DashboardProps) => {
           <DashboardCard title="Conversões" value={43} icon={BarChart2} trend={+8} />
         </div>
 
-        {/* Gráfico de atividade recente */}
-        <ActivityChart data={simplifiedData} isMobile={isMobile} />
+        {/* Gráfico de atividade recente - preenchendo o espaço restante */}
+        <div className="flex-1 flex flex-col min-h-[300px] sm:min-h-[400px]">
+          <ActivityChart data={simplifiedData} isMobile={isMobile} />
+        </div>
       </div>
       
       {/* Floating logo footer */}

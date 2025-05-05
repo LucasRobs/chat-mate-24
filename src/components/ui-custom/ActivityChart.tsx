@@ -31,7 +31,7 @@ const ActivityChart = ({ data, isMobile }: ActivityChartProps) => {
   };
 
   return (
-    <div className="dashboard-card p-3 sm:p-5 bg-white rounded-lg shadow-sm border border-gray-50 hover:shadow-md transition-all duration-300 card-hover">
+    <div className="dashboard-card p-3 sm:p-5 bg-white rounded-lg shadow-sm border border-gray-50 hover:shadow-md transition-all duration-300 card-hover h-full flex flex-col">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3 sm:mb-5">
         <h3 className="text-sm sm:text-lg font-medium text-secondary mb-1 sm:mb-0">
           Atividade Recente
@@ -41,14 +41,14 @@ const ActivityChart = ({ data, isMobile }: ActivityChartProps) => {
         </span>
       </div>
 
-      <div className="h-[200px] sm:h-[280px] md:h-[320px] w-full animate-on-scroll from-bottom animate-in">
+      <div className="h-full w-full flex-1 min-h-[250px] animate-on-scroll from-bottom animate-in">
         <ChartContainer config={chartConfig} className="h-full text-xs sm:text-sm">
           <AreaChart
             data={data}
             margin={{
               top: 10,
               right: isMobile ? 10 : 30,
-              bottom: isMobile ? 20 : 30,
+              bottom: isMobile ? 30 : 40,
               left: isMobile ? 0 : 10,
             }}
           >

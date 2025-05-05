@@ -13,11 +13,11 @@ const DashboardCard = ({ title, value, icon: Icon, trend }: DashboardCardProps) 
   const isPositive = trend && trend > 0;
   
   return (
-    <div className="dashboard-card p-3 sm:p-5 bg-white rounded-lg shadow-sm border border-gray-50 hover:shadow-md transition-all duration-300 animate-on-scroll from-left animate-in">
-      <div className="flex items-center justify-between">
+    <div className="dashboard-card p-3 sm:p-5 bg-white rounded-lg shadow-sm border border-gray-50 hover:shadow-md transition-all duration-300 animate-on-scroll from-left animate-in h-full">
+      <div className="flex items-center justify-between h-full">
         <div className="flex flex-col gap-2">
           <p className="text-xs sm:text-sm text-gray-500 font-light">{title}</p>
-          <p className="text-xl sm:text-3xl font-bold text-secondary group-hover:text-primary transition-colors">
+          <p className="text-2xl sm:text-4xl font-bold text-secondary group-hover:text-primary transition-colors">
             {value.toLocaleString()}
           </p>
           {trend && (
