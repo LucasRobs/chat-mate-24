@@ -3,7 +3,7 @@
 
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
-import { DollarSign, Building, User, LogIn } from "lucide-react";
+import { Briefcase, Building, LogIn } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useIsMobile } from "@/hooks/use-mobile";
 
@@ -19,6 +19,14 @@ export default function Navbar() {
 
   // Only enable compact mode on scroll for desktop
   const compact = !isMobile && scrollY > 20;
+
+  // Smooth scroll to section
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <div
@@ -70,22 +78,24 @@ export default function Navbar() {
                 : "gap-4 px-4 py-2"
           )}
         >
-          <Link to="#" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
-            <DollarSign className="w-4 h-4" />
-            {(!compact && !isMobile) && <span className="text-sm font-medium">Financeiro</span>}
-          </Link>
-          <Link to="#" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
+          <button 
+            onClick={() => scrollToSection('pricing')}
+            className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
+          >
+            <Briefcase className="w-4 h-4" />
+            {(!compact && !isMobile) && <span className="text-sm font-medium">Planos</span>}
+          </button>
+          <button 
+            onClick={() => scrollToSection('partners')}
+            className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
+          >
             <Building className="w-4 h-4" />
-            {(!compact && !isMobile) && <span className="text-sm font-medium">Empresa</span>}
-          </Link>
-          <Link to="#" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
-            <User className="w-4 h-4" />
-            {(!compact && !isMobile) && <span className="text-sm font-medium">Perfil</span>}
-          </Link>
+            {(!compact && !isMobile) && <span className="text-sm font-medium">Empresas</span>}
+          </button>
         </div>
 
         {/* Login button */}
-        <Link to="#" className="group">
+        <Link to="https://www.followop.com.br/login" target="_blank" className="group">
           <div
             className={cn(
               "transition-all duration-300 flex items-center justify-center bg-secondary rounded-full group-hover:bg-secondary/90",
