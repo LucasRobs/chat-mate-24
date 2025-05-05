@@ -58,17 +58,9 @@ const Hero = () => {
 
   const activityData = [
     { name: "5/04", value: 10 },
-    { name: "6/04", value: 20 },
-    { name: "7/04", value: 15 },
     { name: "8/04", value: 120 },
-    { name: "9/04", value: 340 },
-    { name: "10/04", value: 50 },
     { name: "11/04", value: 60 },
-    { name: "12/04", value: 20 },
-    { name: "13/04", value: 40 },
     { name: "14/04", value: 170 },
-    { name: "15/04", value: 30 },
-    { name: "16/04", value: 350 },
     { name: "17/04", value: 90 },
   ];
 
@@ -77,7 +69,7 @@ const Hero = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Meta badge centralized with proper spacing - adjusted for mobile */}
-        <div className={`${isMobile ? "mb-4 mt-8" : "mb-6 mt-4"}`}>
+        <div className={`${isMobile ? "mb-4 mt-12" : "mb-6 mt-4"}`}>
           <MetaTechPartnerBadge />
         </div>
 
@@ -111,7 +103,7 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className="mt-12 animate-on-scroll from-bottom animate-in" style={{ animationDelay: "0.5s" }}>
+        <div className="mt-12 animate-on-scroll from-bottom animate-in max-w-4xl mx-auto" style={{ animationDelay: "0.5s" }}>
           <Dashboard 
             activityData={activityData} 
             isMobile={isMobile}
@@ -120,6 +112,6 @@ const Hero = () => {
       </div>
     </section>
   );
-};
+}
 
 export default Hero;

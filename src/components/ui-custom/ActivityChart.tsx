@@ -1,16 +1,13 @@
 
 import React from "react";
 import {
-  LineChart,
-  Line,
+  AreaChart,
+  Area,
   XAxis,
   YAxis,
   CartesianGrid,
   ResponsiveContainer,
   Tooltip,
-  Area,
-  AreaChart,
-  Legend,
 } from "recharts";
 import { ChartContainer, ChartTooltipContent } from "@/components/ui/chart";
 
@@ -31,25 +28,25 @@ const ActivityChart = ({ data, isMobile }: ActivityChartProps) => {
   };
 
   return (
-    <div className="dashboard-card p-3 sm:p-5 bg-white rounded-lg shadow-sm border border-gray-50 hover:shadow-md transition-all duration-300 card-hover h-full flex flex-col">
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3 sm:mb-5">
-        <h3 className="text-sm sm:text-lg font-medium text-secondary mb-1 sm:mb-0">
+    <div className="dashboard-card p-2 sm:p-3 bg-white rounded-lg shadow-sm border border-gray-50 hover:shadow-md transition-all duration-300 card-hover h-full flex flex-col">
+      <div className="flex justify-between items-center mb-2">
+        <h3 className="text-xs sm:text-sm font-medium text-secondary">
           Atividade Recente
         </h3>
-        <span className="text-xs bg-gray-100 text-gray-600 py-1 px-2 sm:px-3 rounded-full font-medium self-start sm:self-auto">
-          Últimos {isMobile ? '15' : '30'} dias
+        <span className="text-xs bg-gray-100 text-gray-600 py-1 px-2 rounded-full">
+          Últimos dias
         </span>
       </div>
 
-      <div className="h-full w-full flex-1 min-h-[250px] animate-on-scroll from-bottom animate-in">
-        <ChartContainer config={chartConfig} className="h-full text-xs sm:text-sm">
+      <div className="h-full w-full flex-1 min-h-[160px] sm:min-h-[200px] animate-on-scroll from-bottom animate-in">
+        <ChartContainer config={chartConfig} className="h-full text-xs">
           <AreaChart
             data={data}
             margin={{
-              top: 10,
-              right: isMobile ? 10 : 30,
-              bottom: isMobile ? 30 : 40,
-              left: isMobile ? 0 : 10,
+              top: 5,
+              right: isMobile ? 5 : 15,
+              bottom: isMobile ? 15 : 20,
+              left: isMobile ? 0 : 5,
             }}
           >
             <defs>
@@ -62,20 +59,20 @@ const ActivityChart = ({ data, isMobile }: ActivityChartProps) => {
             <XAxis
               dataKey="name"
               stroke="#888"
-              fontSize={isMobile ? 10 : 12}
+              fontSize={8}
               tickLine={false}
               axisLine={false}
-              tick={{ fontSize: isMobile ? 8 : 12 }}
+              tick={{ fontSize: 8 }}
               dy={5}
-              interval={isMobile ? 1 : 0}
+              interval={0}
             />
             <YAxis
               stroke="#888"
-              fontSize={isMobile ? 10 : 12}
+              fontSize={8}
               tickLine={false}
               axisLine={false}
-              tick={{ fontSize: isMobile ? 8 : 12 }}
-              width={isMobile ? 25 : 40}
+              tick={{ fontSize: 8 }}
+              width={20}
               dx={isMobile ? -5 : 0}
             />
             <Tooltip
@@ -100,18 +97,10 @@ const ActivityChart = ({ data, isMobile }: ActivityChartProps) => {
               type="monotone"
               dataKey="value"
               stroke="#00af6b"
-              strokeWidth={2}
+              strokeWidth={1.5}
               fillOpacity={1}
               fill="url(#colorActivity)"
-              activeDot={{ r: isMobile ? 4 : 6, strokeWidth: 0, fill: "#00af6b" }}
-            />
-            <Legend 
-              verticalAlign="top" 
-              align="right" 
-              height={36} 
-              iconType="circle" 
-              iconSize={8}
-              formatter={(value) => <span className="text-sm font-medium">Atividade Diária</span>} 
+              activeDot={{ r: isMobile ? 3 : 4, strokeWidth: 0, fill: "#00af6b" }}
             />
           </AreaChart>
         </ChartContainer>

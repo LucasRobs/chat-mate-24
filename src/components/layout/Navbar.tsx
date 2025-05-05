@@ -3,7 +3,7 @@
 
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
-import { Briefcase, Building, LogIn } from "lucide-react";
+import { LogIn } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useIsMobile } from "@/hooks/use-mobile";
 
@@ -80,17 +80,15 @@ export default function Navbar() {
         >
           <button 
             onClick={() => scrollToSection('pricing')}
-            className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
+            className="text-muted-foreground hover:text-primary transition-colors"
           >
-            <Briefcase className="w-4 h-4" />
-            {(!compact && !isMobile) && <span className="text-sm font-medium">Planos</span>}
+            <span className="text-sm font-medium">Planos</span>
           </button>
           <button 
             onClick={() => scrollToSection('partners')}
-            className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
+            className="text-muted-foreground hover:text-primary transition-colors"
           >
-            <Building className="w-4 h-4" />
-            {(!compact && !isMobile) && <span className="text-sm font-medium">Empresas</span>}
+            <span className="text-sm font-medium">Empresas</span>
           </button>
         </div>
 
