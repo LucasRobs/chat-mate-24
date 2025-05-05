@@ -46,7 +46,9 @@ export default function Navbar() {
     <div
       className={cn(
         "fixed z-50 left-1/2 -translate-x-1/2 transition-all duration-500 ease-in-out",
-        scrollY > 10 ? "w-[280px] bg-white shadow-md top-0 h-12" : "w-[95%] sm:w-[760px] bg-transparent top-2 h-16"
+        scrollY > 10
+          ? "w-[320px] sm:w-[380px] bg-white shadow-md top-2 h-12"
+          : "w-[95%] sm:w-[760px] bg-transparent top-2 h-16"
       )}
     >
       <div className={cn(
@@ -63,17 +65,15 @@ export default function Navbar() {
 
         {!isMobile && scrollY <= 10 && (
           <div className="flex items-center gap-6">
-            {[
-              { id: "features", label: "Funções" },
-              { id: "pricing", label: "Planos" },
-              { id: "partners", label: "Parceiros" }
-            ].map(({ id, label }) => (
+            {[{ id: "features", label: "Funções" }, { id: "pricing", label: "Planos" }, { id: "partners", label: "Parceiros" }].map(({ id, label }) => (
               <button
                 key={id}
                 onClick={() => scrollToSection(id)}
                 className={cn(
                   "text-sm font-medium transition-colors",
-                  activeSection === id ? "text-primary" : "text-muted-foreground hover:text-primary"
+                  activeSection === id
+                    ? "text-primary"
+                    : "text-muted-foreground hover:text-primary"
                 )}
               >
                 {label}
@@ -93,7 +93,10 @@ export default function Navbar() {
         )}
 
         {isMobile && (
-          <button onClick={() => setIsOpen(!isOpen)} className="text-muted-foreground">
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="text-muted-foreground"
+          >
             {isOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         )}
@@ -101,10 +104,31 @@ export default function Navbar() {
 
       {isMobile && isOpen && (
         <div className="mt-2 w-full bg-white rounded-xl shadow-md p-4 space-y-4 animate-slide-in-down">
-          <button onClick={() => scrollToSection("features")} className="block w-full text-left text-muted-foreground hover:text-primary text-base">Funções</button>
-          <button onClick={() => scrollToSection("pricing")} className="block w-full text-left text-muted-foreground hover:text-primary text-base">Planos</button>
-          <button onClick={() => scrollToSection("partners")} className="block w-full text-left text-muted-foreground hover:text-primary text-base">Parceiros</button>
-          <Link to="https://www.followop.com.br/login" target="_blank" className="block w-full text-left text-muted-foreground hover:text-primary text-base">Login</Link>
+          <button
+            onClick={() => scrollToSection("features")}
+            className="block w-full text-left text-muted-foreground hover:text-primary text-base"
+          >
+            Funções
+          </button>
+          <button
+            onClick={() => scrollToSection("pricing")}
+            className="block w-full text-left text-muted-foreground hover:text-primary text-base"
+          >
+            Planos
+          </button>
+          <button
+            onClick={() => scrollToSection("partners")}
+            className="block w-full text-left text-muted-foreground hover:text-primary text-base"
+          >
+            Parceiros
+          </button>
+          <Link
+            to="https://www.followop.com.br/login"
+            target="_blank"
+            className="block w-full text-left text-muted-foreground hover:text-primary text-base"
+          >
+            Login
+          </Link>
         </div>
       )}
     </div>
