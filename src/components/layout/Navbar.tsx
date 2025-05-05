@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from "react";
-import { Menu, X, ChevronDown, ArrowRight } from "lucide-react";
+import { Menu, X, User } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { Button } from "@/components/ui/button";
@@ -8,25 +8,17 @@ import { Button } from "@/components/ui/button";
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
-  const [prevScrollY, setPrevScrollY] = useState(0);
-  const [isNavHidden, setIsNavHidden] = useState(false);
   const isMobile = useIsMobile();
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      if (currentScrollY > 100) {
-        setIsNavHidden(currentScrollY > prevScrollY);
-      } else {
-        setIsNavHidden(false);
-      }
-      setPrevScrollY(currentScrollY);
       setScrollY(currentScrollY);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [prevScrollY]);
+  }, []);
 
   const navItems = [
     { label: "Funções", href: "#features" },
@@ -54,31 +46,30 @@ export const Navbar = () => {
   return (
     <nav
       className={cn(
-        "sticky top-0 z-50 w-full transition-all duration-300 backdrop-blur-md backdrop-saturate-150 bg-white/70 shadow-md",
-        scrollY > 100 ? "shadow-sm glass" : "",
-        isNavHidden && !isOpen ? "hidden-nav" : "",
-        isOpen ? "fixed inset-0 z-50 bg-white/95 backdrop-blur-md" : ""
+        "sticky top-0 z-50 w-full transition-all duration-300 backdrop-blur-md bg-white/70 acrylic",
+        scrollY > 20 ? "shadow-sm" : ""
       )}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 md:h-20 flex items-center justify-between relative">
         {/* Logo */}
         <a href="#" className="flex items-center gap-2 z-50">
-          <img
-            src="/lovable-uploads/669aaab1-10dd-437a-a1b9-789ae5f02809.png"
-            alt="followop Logo"
-            className="h-6 w-auto sm:h-8"
-          />
-          <span className="font-bold text-lg sm:text-xl text-secondary">followop</span>
+          <div className="bg-[#D6F5C4] rounded-full p-2 flex items-center justify-center">
+            <img
+              src="/lovable-uploads/669aaab1-10dd-437a-a1b9-789ae5f02809.png"
+              alt="followop Logo"
+              className="h-6 w-auto sm:h-8"
+            />
+          </div>
         </a>
 
         {/* Centered menus - Desktop */}
         <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2">
-          <div className="bg-gray-100/80 backdrop-blur-sm rounded-full py-2 px-2 flex">
+          <div className="bg-[#F1F1F1] rounded-full py-4 px-8 flex items-center justify-center gap-12">
             {navItems.map((item, index) => (
               <a
                 key={index}
                 href={item.href}
-                className="text-gray-700 font-medium hover:text-primary px-4 lg:px-6 py-1 transition-colors duration-200"
+                className="text-gray-800 font-medium hover:text-primary transition-colors duration-200 text-lg"
               >
                 {item.label}
               </a>
@@ -91,32 +82,15 @@ export const Navbar = () => {
           <Button
             asChild
             variant="default"
-            className="bg-[#33334F] hover:bg-[#33334F]/90 text-white font-medium px-4 lg:px-6 py-1.5 rounded-full transition-all duration-200"
+            className="bg-[#0D3719] hover:bg-[#0D3719]/90 text-white font-medium px-6 py-1.5 rounded-full transition-all duration-200 flex items-center gap-2 animated-button"
           >
             <a
               href="https://www.followop.com.br/register"
               target="_blank"
               rel="noopener noreferrer"
-              className="animated-button"
             >
+              <User size={18} className="mr-2" />
               Entrar
-            </a>
-          </Button>
-          
-          <Button
-            asChild
-            variant="apple"
-            className="font-medium flex items-center gap-2 animated-button"
-          >
-            <a
-              href="https://www.followop.com.br/register"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              TESTE GRÁTIS 7 DIAS
-              <span className="bg-[#2D2D4A] text-white p-1 rounded-full">
-                <ArrowRight size={12} />
-              </span>
             </a>
           </Button>
         </div>
@@ -143,38 +117,21 @@ export const Navbar = () => {
                 onClick={toggleMenu}
               >
                 {item.label}
-                <ChevronDown size={20} className="text-gray-400" />
               </a>
             ))}
             <div className="flex flex-col gap-4 pt-4">
               <Button
                 asChild
                 variant="default"
-                className="bg-[#33334F] text-white font-medium py-3 px-4 rounded-full text-center hover:bg-[#33334F]/90 transition-colors duration-200 animated-button"
+                className="bg-[#0D3719] text-white font-medium py-3 px-4 rounded-full text-center hover:bg-[#0D3719]/90 transition-colors duration-200 animated-button flex items-center justify-center gap-2"
               >
                 <a
                   href="https://www.followop.com.br/register"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
+                  <User size={18} className="mr-2" />
                   Entrar
-                </a>
-              </Button>
-
-              <Button
-                asChild
-                variant="apple"
-                className="text-center py-3 px-4 text-sm animated-button flex items-center justify-center gap-2"
-              >
-                <a
-                  href="https://www.followop.com.br/register"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  TESTE GRÁTIS 7 DIAS
-                  <span className="bg-[#2D2D4A] text-white p-1 rounded-full">
-                    <ArrowRight size={12} />
-                  </span>
                 </a>
               </Button>
             </div>

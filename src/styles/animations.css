@@ -103,13 +103,9 @@
     @apply fixed top-0 left-0 w-full z-50 transition-transform duration-300;
   }
 
-  .sticky-nav.hidden-nav {
-    transform: translateY(-100%);
-  }
-
   /* Acrylic styles for navbar and components */
   .acrylic {
-    @apply bg-white/70 backdrop-blur-md backdrop-saturate-150;
+    @apply bg-white/70 backdrop-blur-md backdrop-saturate-150 border border-gray-100;
   }
 
   .acrylic-dark {
