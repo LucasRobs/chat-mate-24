@@ -97,4 +97,42 @@
       transform: translateY(1px);
     }
   }
+
+  /* Navbar specific animations */
+  .sticky-nav {
+    @apply fixed top-0 left-0 w-full z-50 transition-transform duration-300;
+  }
+
+  .sticky-nav.hidden-nav {
+    transform: translateY(-100%);
+  }
+
+  /* Acrylic styles for navbar and components */
+  .acrylic {
+    @apply bg-white/70 backdrop-blur-md backdrop-saturate-150;
+  }
+
+  .acrylic-dark {
+    @apply bg-secondary/90 backdrop-blur-md backdrop-saturate-150;
+  }
+
+  /* Nav link hover animation */
+  .nav-link {
+    position: relative;
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: currentColor;
+    transition: width 0.3s ease;
+  }
+
+  .nav-link:hover::after {
+    width: 100%;
+  }
 }

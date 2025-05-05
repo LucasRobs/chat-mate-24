@@ -58,7 +58,7 @@
     align-items: center;
     justify-content: center;
     gap: 0.75rem;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
     padding: 0.625rem 1.5rem;
     font-size: 0.875rem;
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
@@ -66,6 +66,12 @@
   
   .apple-button:hover {
     background-color: #9AD651;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(162, 222, 93, 0.3);
+  }
+  
+  .apple-button:active {
+    transform: translateY(1px);
   }
   
   .apple-button-icon {
@@ -145,5 +151,14 @@
   
   .meta-partner-badge:hover {
     @apply shadow-md;
+  }
+
+  /* Responsive utilities */
+  .mobile-only {
+    @apply block md:hidden;
+  }
+
+  .desktop-only {
+    @apply hidden md:block;
   }
 }
