@@ -87,7 +87,7 @@ const Hero = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Meta badge centralized with proper spacing - adjusted for mobile */}
-        <div className={isMobile ? "mb-4 mt-10" : "mb-6 mt-6"}>
+        <div className={`${isMobile ? "mb-4 mt-10" : "mb-6 mt-6"}`}>
           <MetaTechPartnerBadge />
         </div>
 

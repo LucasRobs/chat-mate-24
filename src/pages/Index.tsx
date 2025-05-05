@@ -36,15 +36,6 @@ const Index = () => {
     };
   }, []);
 
-  // Add sample activity data for ClosingCtaSection
-  const activityData = [
-    { name: "5/04", value: 10 },
-    { name: "8/04", value: 120 },
-    { name: "11/04", value: 60 },
-    { name: "14/04", value: 170 },
-    { name: "17/04", value: 90 },
-  ];
-
   return (
     <TooltipProvider>
       <div className="min-h-screen flex flex-col bg-white">
@@ -59,7 +50,7 @@ const Index = () => {
           <Testimonials />
           <Pricing />
           <Partners />
-          <ClosingCtaSection activityData={activityData} />
+          <ClosingCtaSection />
           <CtaSection />
         </main>
 
