@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { ArrowRight, Bell, Calendar, BarChart2 } from "lucide-react";
@@ -86,7 +87,7 @@ const Hero = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Meta badge centralized with proper spacing - adjusted for mobile */}
-        <div className={${isMobile ? "mb-4 mt-10" : "mb-6 mt-6"}}>
+        <div className={isMobile ? "mb-4 mt-10" : "mb-6 mt-6"}>
           <MetaTechPartnerBadge />
         </div>
 
@@ -135,4 +136,3 @@ const Hero = () => {
 }
 
 export default Hero;
-
