@@ -8,8 +8,6 @@ import { useIsMobile } from "@/hooks/use-mobile";
 
 export default function Navbar() {
   const [scrollY, setScrollY] = useState(0);
-  const [prevScrollY, setPrevScrollY] = useState(0);
-  const [isHidden, setIsHidden] = useState(false);
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const [isOpen, setIsOpen] = useState(false);
   const isMobile = useIsMobile();
@@ -17,8 +15,6 @@ export default function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       const currentY = window.scrollY;
-      setIsHidden(currentY > prevScrollY && currentY > 80);
-      setPrevScrollY(currentY);
       setScrollY(currentY);
 
       const sections = ["features", "pricing", "partners"];
@@ -36,7 +32,7 @@ export default function Navbar() {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [prevScrollY]);
+  }, []);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -51,11 +47,13 @@ export default function Navbar() {
       className={cn(
         "fixed z-50 left-1/2 -translate-x-1/2 transition-all duration-500 ease-in-out",
         "w-[95%] sm:w-[760px]",
-        scrollY > 10 ? "bg-white shadow-md top-0" : "bg-transparent top-2",
-        isHidden ? "-translate-y-full" : "translate-y-0"
+        scrollY > 10 ? "bg-white shadow-md top-0 h-12" : "bg-transparent top-2 h-16"
       )}
     >
-      <div className="acrylic border border-white/30 rounded-full px-6 h-16 flex items-center justify-between gap-3 animate-fade-in">
+      <div className={cn(
+        "acrylic border border-white/30 rounded-full px-6 flex items-center justify-between gap-3 transition-all duration-300",
+        scrollY > 10 ? "h-12" : "h-16"
+      )}>
         <div className="w-7 h-7 bg-white rounded-full overflow-hidden shrink-0">
           <img
             src="/lovable-uploads/02e6e528-86eb-4a69-a7aa-f901007e7ef3.png"
