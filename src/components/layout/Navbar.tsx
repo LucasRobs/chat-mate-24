@@ -58,16 +58,6 @@ export default function Navbar() {
           scrollY > 10 ? "h-12" : "h-16"
         )}
       >
-        <div className="flex items-center gap-2">
-          <div className="w-7 h-7 bg-white rounded-full overflow-hidden shrink-0">
-            <img
-              src="/lovable-uploads/02e6e528-86eb-4a69-a7aa-f901007e7ef3.png"
-              alt="Logo"
-              className="w-full h-full object-contain p-0.5"
-            />
-          </div>
-          <span className="font-medium text-secondary text-sm hidden sm:block">FollowOp</span>
-        </div>
 
         {!isMobile && (
           <div className="flex items-center gap-8">
