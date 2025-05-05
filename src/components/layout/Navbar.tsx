@@ -16,8 +16,6 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const compact = !isMobile && scrollY > 20;
-
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -29,14 +27,10 @@ export default function Navbar() {
     <div
       className={cn(
         "fixed z-50 top-2 left-1/2 -translate-x-1/2 transition-all duration-300",
-        isMobile
-          ? "w-[94%] h-14"
-          : compact
-          ? "w-[280px] h-14"
-          : "w-[75%] h-14"
+        "w-[90%] sm:w-[600px] h-14" // Responsivo: 90% em mobile, 600px em telas médias+
       )}
     >
-      <div className="acrylic border border-white/30 shadow-md rounded-full px-4 h-full flex items-center justify-between gap-4">
+      <div className="acrylic border border-white/30 shadow-md rounded-full px-6 h-full flex items-center justify-between gap-4">
         
         {/* Logo */}
         <div className="w-6 h-6 bg-white rounded-full overflow-hidden shrink-0">
@@ -47,9 +41,9 @@ export default function Navbar() {
           />
         </div>
 
-        {/* Navegação - distribuída no centro */}
+        {/* Navegação */}
         {!isMobile && (
-          <div className="flex flex-1 items-center justify-center gap-10">
+          <div className="flex items-center gap-8">
             <button
               onClick={() => scrollToSection("features")}
               className="text-muted-foreground hover:text-primary text-sm font-medium transition-colors"
@@ -71,7 +65,7 @@ export default function Navbar() {
           </div>
         )}
 
-        {/* Acesso/Login - parte da estrutura centralizada */}
+        {/* Acesso/Login */}
         <Link
           to="https://www.followop.com.br/login"
           target="_blank"
