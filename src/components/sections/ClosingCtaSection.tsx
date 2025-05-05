@@ -1,8 +1,9 @@
+
 import React from "react";
 import { Users, MessageSquare, BarChart2, ArrowRight, Bell, Calendar, CheckCircle } from "lucide-react";
-import DashboardCard from "./DashboardCard";
+import DashboardCard from "@/components/ui-custom/DashboardCard";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { Button } from "@components/ui/button";
+import { Button } from "@/components/ui/button";
 import {
   ResponsiveContainer,
   AreaChart,
