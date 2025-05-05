@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
-import { Menu, X, User, LayoutGrid, DollarSign, Handshake } from "lucide-react";
+import { Menu, X, User } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useIsMobile } from "@/hooks/use-mobile";
 
@@ -47,8 +47,8 @@ export default function Navbar() {
       className={cn(
         "fixed z-50 left-1/2 -translate-x-1/2 transition-all duration-500 ease-in-out backdrop-blur-lg backdrop-saturate-150 rounded-full",
         scrollY > 10
-          ? "w-[280px] sm:w-[720px] bg-white/70 shadow-lg top-2 h-10"
-          : "w-[95%] sm:w-[720px] bg-white/50 shadow-md top-2 h-14"
+          ? "w-[95%] max-w-[640px] bg-white/70 shadow-lg top-2 h-10"
+          : "w-[95%] max-w-[720px] bg-white/50 shadow-md top-2 h-14"
       )}
     >
       <div
@@ -109,25 +109,16 @@ export default function Navbar() {
       </div>
 
       {isMobile && isOpen && (
-        <div className="absolute right-0 left-0 mt-2 mx-auto max-w-[280px] bg-white/90 backdrop-blur-md rounded-xl shadow-md p-4 space-y-3 animate-slide-in-down">
-          <button
-            onClick={() => scrollToSection("features")}
-            className="flex items-center gap-2 text-muted-foreground hover:text-primary text-sm transition-transform duration-300 hover:scale-105 active:scale-95"
-          >
-            Funções
-          </button>
-          <button
-            onClick={() => scrollToSection("pricing")}
-            className="flex items-center gap-2 text-muted-foreground hover:text-primary text-sm transition-transform duration-300 hover:scale-105 active:scale-95"
-          >
-            Planos
-          </button>
-          <button
-            onClick={() => scrollToSection("partners")}
-            className="flex items-center gap-2 text-muted-foreground hover:text-primary text-sm transition-transform duration-300 hover:scale-105 active:scale-95"
-          >
-            Parceiros
-          </button>
+        <div className="absolute right-0 left-0 mt-2 mx-auto max-w-[95%] bg-white/90 backdrop-blur-md rounded-xl shadow-md p-4 space-y-3 animate-slide-in-down">
+          {[{ id: "features", label: "Funções" }, { id: "pricing", label: "Planos" }, { id: "partners", label: "Parceiros" }].map(({ id, label }) => (
+            <button
+              key={id}
+              onClick={() => scrollToSection(id)}
+              className="flex items-center gap-2 text-muted-foreground hover:text-primary text-sm transition-transform duration-300 hover:scale-105 active:scale-95"
+            >
+              {label}
+            </button>
+          ))}
         </div>
       )}
     </div>
