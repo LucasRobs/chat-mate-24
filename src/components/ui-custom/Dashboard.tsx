@@ -78,11 +78,11 @@ const Dashboard = ({ activityData, isMobile: propIsMobile }: DashboardProps) => 
         </div>
 
         {/* Smaller activity chart */}
-        <div className="flex-1 flex flex-col min-h-[100px] sm:min-h-[150px]">
+        <div className="flex-1 flex flex-col min-h-[80px] sm:min-h-[120px]">
           <ActivityChart data={simplifiedData} isMobile={isMobile} />
         </div>
         
-        {/* Added "Ver Mais" button */}
+        {/* "Ver Mais" button */}
         <div className="mt-1 sm:mt-2 flex justify-end">
           <Button 
             onClick={handleViewMore}

@@ -38,14 +38,14 @@ const ActivityChart = ({ data, isMobile }: ActivityChartProps) => {
         </span>
       </div>
 
-      <div className="h-full w-full flex-1 min-h-[80px] sm:min-h-[200px] animate-on-scroll from-bottom animate-in">
+      <div className="h-full w-full flex-1 min-h-[70px] sm:min-h-[150px] animate-on-scroll from-bottom animate-in">
         <ChartContainer config={chartConfig} className="h-full text-[8px] sm:text-xs">
           <AreaChart
             data={data}
             margin={{
               top: 5,
-              right: isMobile ? 0 : 15,
-              bottom: isMobile ? 10 : 20,
+              right: isMobile ? 0 : 10,
+              bottom: isMobile ? 5 : 15,
               left: isMobile ? -5 : 5,
             }}
           >

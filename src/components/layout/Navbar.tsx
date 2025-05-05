@@ -3,7 +3,7 @@
 
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
-import { LogIn } from "lucide-react";
+import { User } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useIsMobile } from "@/hooks/use-mobile";
 
@@ -46,7 +46,7 @@ export default function Navbar() {
             ? "h-10 gap-2" // Smaller height and gap for mobile
             : compact 
               ? "h-10 gap-2" // Smaller height and gap for compact
-              : "h-14 gap-3" // Smaller height and gap for default
+              : "h-14 gap-4" // Increased gap for better spacing (changed from gap-3)
         )}
       >
         {/* Logo */}
@@ -72,10 +72,10 @@ export default function Navbar() {
           className={cn(
             "flex items-center bg-muted/40 rounded-full transition-all duration-300",
             isMobile
-              ? "gap-2 px-2 py-1" // Smaller padding and gap for mobile
+              ? "gap-3 px-2 py-1" // Increased gap for mobile (changed from gap-2)
               : compact 
-                ? "gap-2 px-2 py-1" // Smaller padding and gap for compact
-                : "gap-3 px-3 py-1.5" // Smaller padding and gap for default
+                ? "gap-3 px-2 py-1" // Increased gap for compact (changed from gap-2)
+                : "gap-6 px-4 py-1.5" // Increased gap and padding for better spacing
           )}
         >
           <button 
@@ -92,7 +92,7 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* Login button */}
+        {/* Login button - changed from LogIn to User icon */}
         <Link to="https://www.followop.com.br/login" target="_blank" className="group">
           <div
             className={cn(
@@ -103,10 +103,10 @@ export default function Navbar() {
             )}
           >
             {isMobile || compact ? (
-              <LogIn className="text-white w-3 h-3" />
+              <User className="text-white w-3 h-3" />
             ) : (
               <div className="flex items-center gap-1.5">
-                <LogIn className="text-white w-3 h-3" />
+                <User className="text-white w-3 h-3" />
                 <span className="text-white text-xs font-medium">Entrar</span>
               </div>
             )}
