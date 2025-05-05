@@ -49,18 +49,18 @@ export default function Navbar() {
           className={cn(
             "transition-all duration-300 flex items-center justify-center bg-white rounded-full overflow-hidden",
             isMobile || compact
-              ? "w-8 h-8"
-              : "w-10 h-10"
+              ? "min-w-[32px] min-h-[32px] w-8 h-8"
+              : "min-w-[40px] min-h-[40px] w-10 h-10"
           )}
         >
           <img 
             src="/lovable-uploads/02e6e528-86eb-4a69-a7aa-f901007e7ef3.png" 
             alt="Logo" 
-            className="w-full h-full object-contain"
+            className="block w-full h-full object-contain"
           />
         </div>
 
-        {/* Navigation */}
+        {/* Navegação */}
         <div
           className={cn(
             "flex items-center bg-muted/40 rounded-full transition-all duration-300",
