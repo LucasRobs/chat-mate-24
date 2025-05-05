@@ -4,9 +4,9 @@ import { Button } from "@/components/ui/button";
 
 const CtaSection = () => {
   return (
-    <section className="py-12 bg-white">
+    <section className="py-10 bg-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
-        <div className="bg-gradient-to-r from-secondary to-secondary/90 rounded-2xl p-6 sm:p-8 shadow-lg text-center">
+        <div className="bg-gradient-to-r from-secondary to-secondary/90 rounded-2xl p-5 sm:p-6 shadow-lg text-center">
           <h2 className="text-xl sm:text-2xl font-light text-white">
             Pronto para um <span className="text-primary">Atendimento</span> que Vende Sozinho?
           </h2>
@@ -14,7 +14,7 @@ const CtaSection = () => {
             Comece agora. Sem compromisso. Cancele quando quiser.
           </p>
 
-          <div className="mt-6">
+          <div className="mt-5">
             <Button
               asChild
               variant="apple"

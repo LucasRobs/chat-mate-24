@@ -1,9 +1,10 @@
 
 import React from "react";
-import { Users, MessageSquare, BarChart2 } from "lucide-react";
+import { Users, MessageSquare, BarChart2, ArrowRight } from "lucide-react";
 import DashboardCard from "./DashboardCard";
 import ActivityChart from "./ActivityChart";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { Button } from "@/components/ui/button";
 
 interface DashboardProps {
   activityData: Array<{ name: string; value: number }>;
@@ -18,37 +19,58 @@ const Dashboard = ({ activityData, isMobile: propIsMobile }: DashboardProps) => 
   // Simplified data for mobile view
   const simplifiedData = isMobile ? activityData.filter((_, idx) => idx % 2 === 0) : activityData;
 
+  // Handler for "Ver Mais" button
+  const handleViewMore = () => {
+    window.open("https://www.followop.com.br/register", "_blank");
+  };
+
   return (
-    <div className="w-full max-w-3xl mx-auto rounded-xl overflow-hidden shadow-md border border-gray-100 hover:shadow-lg transition-all duration-500 relative">
+    <div className="w-full max-w-4xl mx-auto rounded-xl overflow-hidden shadow-md border border-gray-100 hover:shadow-lg transition-all duration-500 relative">
       {/* Dashboard content */}
-      <div className="bg-[#fafafa] p-3 sm:p-4 flex-1 flex flex-col">
+      <div className="bg-[#fafafa] p-3 flex-1 flex flex-col">
         {/* Dashboard Header */}
-        <div className="flex items-center justify-between bg-white rounded-lg p-2 sm:p-3 mb-3 shadow-sm border border-gray-50">
+        <div className="flex items-center justify-between bg-white rounded-lg p-2 mb-3 shadow-sm border border-gray-50">
           <div className="flex items-center gap-2">
             <img 
               src="/lovable-uploads/669aaab1-10dd-437a-a1b9-789ae5f02809.png" 
               alt="followop Logo" 
-              className="h-5 sm:h-6"
+              className="h-4 sm:h-5"
             />
-            <span className="font-medium text-xs sm:text-sm text-gray-800">Visão Geral</span>
+            <span className="font-medium text-xs text-gray-800">Visão Geral</span>
           </div>
           <div className="flex items-center gap-2">
-            <div className="h-6 w-6 sm:h-7 sm:w-7 rounded-full bg-primary/20 flex items-center justify-center">
+            <div className="text-xs text-primary/80 bg-primary/5 px-2 py-0.5 rounded-full">
+              Premium
+            </div>
+            <div className="h-5 w-5 sm:h-6 sm:w-6 rounded-full bg-primary/20 flex items-center justify-center">
               <span className="text-xs font-medium text-primary">AU</span>
             </div>
           </div>
         </div>
 
-        {/* Dashboard Stats Cards - More minimal layout */}
-        <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-3">
+        {/* Dashboard Stats Cards - More compact layout */}
+        <div className="grid grid-cols-3 gap-2 mb-3">
           <DashboardCard title="Atendimentos" value={329} icon={Users} trend={+12} />
           <DashboardCard title="Mensagens" value={2559} icon={MessageSquare} trend={+28} />
           <DashboardCard title="Conversões" value={43} icon={BarChart2} trend={+8} />
         </div>
 
         {/* Smaller activity chart */}
-        <div className="flex-1 flex flex-col min-h-[150px] sm:min-h-[200px]">
+        <div className="flex-1 flex flex-col min-h-[120px] sm:min-h-[160px]">
           <ActivityChart data={simplifiedData} isMobile={isMobile} />
+        </div>
+        
+        {/* Added "Ver Mais" button */}
+        <div className="mt-2 flex justify-end">
+          <Button 
+            onClick={handleViewMore}
+            variant="minimal" 
+            size="sm" 
+            className="text-xs font-medium flex items-center gap-1"
+          >
+            Ver Mais
+            <ArrowRight size={12} />
+          </Button>
         </div>
       </div>
       
@@ -58,7 +80,7 @@ const Dashboard = ({ activityData, isMobile: propIsMobile }: DashboardProps) => 
           <img 
             src="/lovable-uploads/669aaab1-10dd-437a-a1b9-789ae5f02809.png" 
             alt="followop Logo" 
-            className="h-3 sm:h-4"
+            className="h-3"
           />
           <span className="font-medium text-xs text-gray-800">followop</span>
         </div>

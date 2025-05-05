@@ -65,7 +65,7 @@ const Hero = () => {
   ];
 
   return (
-    <section className="relative bg-white overflow-hidden py-8 sm:py-10 lg:py-14 mobile-container">
+    <section className="relative bg-white overflow-hidden py-8 sm:py-10 lg:py-12 mobile-container">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Meta badge centralized with proper spacing - adjusted for mobile */}
@@ -88,7 +88,7 @@ const Hero = () => {
             {' '}aumente seus resultados e eleve o atendimento do seu negócio a outro nível.
           </p>
 
-          <div className="mt-8 flex justify-center">
+          <div className="mt-6 flex justify-center">
             <Button 
               onClick={handleButtonClick}
               variant="apple"
@@ -103,7 +103,7 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className="mt-10 animate-on-scroll from-bottom animate-in max-w-3xl mx-auto" style={{ animationDelay: "0.5s" }}>
+        <div className="mt-8 animate-on-scroll from-bottom animate-in max-w-4xl mx-auto" style={{ animationDelay: "0.5s" }}>
           <Dashboard 
             activityData={activityData} 
             isMobile={isMobile}

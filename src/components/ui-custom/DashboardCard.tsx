@@ -17,11 +17,11 @@ const DashboardCard = ({ title, value, icon: Icon, trend }: DashboardCardProps) 
       <div className="flex flex-col gap-1">
         <p className="text-xs text-gray-500 font-light">{title}</p>
         <div className="flex items-center justify-between">
-          <p className="text-base sm:text-lg font-bold text-secondary transition-colors">
+          <p className="text-sm sm:text-base font-bold text-secondary transition-colors">
             {value.toLocaleString()}
           </p>
-          <div className="w-5 h-5 sm:w-6 sm:h-6 bg-primary/10 rounded-lg flex items-center justify-center">
-            <Icon className="w-3 h-3 text-primary" />
+          <div className="w-4 h-4 sm:w-5 sm:h-5 bg-primary/10 rounded-lg flex items-center justify-center">
+            <Icon className="w-2.5 h-2.5 text-primary" />
           </div>
         </div>
         {trend && (
