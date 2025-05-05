@@ -47,7 +47,7 @@ const Dashboard = ({ activityData, isMobile: propIsMobile }: DashboardProps) => 
         </div>
 
         {/* Gráfico de atividade recente - preenchendo o espaço restante */}
-        <div className="flex-1 flex flex-col min-h-[300px] sm:min-h-[400px]">
+        <div className="flex-1 flex flex-col min-h-[250px] sm:min-h-[400px]">
           <ActivityChart data={simplifiedData} isMobile={isMobile} />
         </div>
       </div>
