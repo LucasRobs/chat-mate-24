@@ -84,7 +84,7 @@
   
   /* Navbar spacing */
   .navbar-item-spacing {
-    @apply px-3 gap-5;
+    @apply px-4 gap-7;
   }
 }
 

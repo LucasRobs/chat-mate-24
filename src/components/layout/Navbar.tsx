@@ -75,9 +75,15 @@ export default function Navbar() {
               ? "gap-3 px-2 py-1" // Increased gap for mobile (changed from gap-2)
               : compact 
                 ? "gap-3 px-2 py-1" // Increased gap for compact (changed from gap-2)
-                : "gap-6 px-4 py-1.5" // Increased gap and padding for better spacing
+                : "gap-7 px-4 py-1.5" // Further increased gap for better spacing
           )}
         >
+          <button 
+            onClick={() => scrollToSection('features')}
+            className="text-muted-foreground hover:text-primary transition-colors"
+          >
+            <span className="text-xs font-medium">Funcionalidades</span>
+          </button>
           <button 
             onClick={() => scrollToSection('pricing')}
             className="text-muted-foreground hover:text-primary transition-colors"
