@@ -1,10 +1,9 @@
 
 import React from "react";
-import { Users, MessageSquare, BarChart2, ArrowRight } from "lucide-react";
+import { Users, MessageSquare, BarChart2 } from "lucide-react";
 import DashboardCard from "./DashboardCard";
 import ActivityChart from "./ActivityChart";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { Button } from "@/components/ui/button";
 
 interface DashboardProps {
   activityData: Array<{ name: string; value: number }>;
@@ -18,11 +17,6 @@ const Dashboard = ({ activityData, isMobile: propIsMobile }: DashboardProps) => 
   
   // Simplified data for mobile view
   const simplifiedData = isMobile ? activityData.filter((_, idx) => idx % 2 === 0) : activityData;
-
-  // Handler for "Ver Mais" button
-  const handleViewMore = () => {
-    window.open("https://www.followop.com.br/register", "_blank");
-  };
 
   return (
     <div className="w-full max-w-4xl mx-auto rounded-xl overflow-hidden shadow-md border border-gray-100 hover:shadow-lg transition-all duration-500 relative">
@@ -58,19 +52,6 @@ const Dashboard = ({ activityData, isMobile: propIsMobile }: DashboardProps) => 
         {/* Smaller activity chart */}
         <div className="flex-1 flex flex-col min-h-[120px] sm:min-h-[160px]">
           <ActivityChart data={simplifiedData} isMobile={isMobile} />
-        </div>
-        
-        {/* Added "Ver Mais" button */}
-        <div className="mt-2 flex justify-end">
-          <Button 
-            onClick={handleViewMore}
-            variant="minimal" 
-            size="sm" 
-            className="text-xs font-medium flex items-center gap-1"
-          >
-            Ver Mais
-            <ArrowRight size={12} />
-          </Button>
         </div>
       </div>
       
