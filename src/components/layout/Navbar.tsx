@@ -30,32 +30,29 @@ export default function Navbar() {
       className={cn(
         "fixed z-50 top-2 left-1/2 -translate-x-1/2 transition-all duration-300",
         isMobile
-          ? "w-[94%] h-12"
+          ? "w-[94%] h-14"
           : compact
-            ? "w-[240px] h-12"
-            : "w-[75%] h-12"
+            ? "w-[280px] h-14"
+            : "w-[75%] h-14"
       )}
     >
-      <div
-        className={cn(
-          "acrylic border border-white/30 shadow-md rounded-full px-4 transition-all duration-300",
-          "h-full flex items-center justify-center"
-        )}
-      >
-        <div className="flex items-center gap-6 w-full justify-center">
-
-          {/* Logo */}
-          <div className="w-6 h-6 rounded-full overflow-hidden bg-white shrink-0">
+      <div className="acrylic border border-white/30 shadow-md rounded-full px-4 h-full flex items-center justify-between gap-4">
+        
+        {/* Logo */}
+        <div className="flex items-center gap-2 shrink-0">
+          <div className="w-6 h-6 bg-white rounded-full overflow-hidden">
             <img
               src="/lovable-uploads/02e6e528-86eb-4a69-a7aa-f901007e7ef3.png"
               alt="Logo"
               className="w-full h-full object-contain p-0.5"
             />
           </div>
+        </div>
 
-          {/* Navegação */}
-          {!isMobile && (
-            <div className="flex items-center gap-8 bg-muted/40 px-5 py-1.5 rounded-full">
+        {/* Navegação central */}
+        {!isMobile && (
+          <div className="flex-1 flex items-center justify-center">
+            <div className="flex gap-8 bg-muted/40 px-6 py-1.5 rounded-full">
               <button
                 onClick={() => scrollToSection("features")}
                 className="text-muted-foreground hover:text-primary text-sm font-medium transition-colors"
@@ -75,17 +72,17 @@ export default function Navbar() {
                 Parceiros
               </button>
             </div>
-          )}
+          </div>
+        )}
 
-          {/* Acesso */}
-          <Link
-            to="https://www.followop.com.br/login"
-            target="_blank"
-            className="flex items-center justify-center shrink-0"
-          >
-            <User className="w-5 h-5 text-muted-foreground" />
-          </Link>
-        </div>
+        {/* Acesso/Login */}
+        <Link
+          to="https://www.followop.com.br/login"
+          target="_blank"
+          className="shrink-0 flex items-center justify-center"
+        >
+          <User className="w-5 h-5 text-muted-foreground" />
+        </Link>
       </div>
     </div>
   );
