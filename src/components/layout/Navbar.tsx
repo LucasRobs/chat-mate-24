@@ -47,8 +47,8 @@ export default function Navbar() {
       className={cn(
         "fixed z-50 left-1/2 -translate-x-1/2 transition-all duration-500 ease-in-out backdrop-blur-lg backdrop-saturate-150 rounded-full",
         scrollY > 10
-          ? "w-[280px] sm:w-[400px] bg-white/70 shadow-lg top-2 h-10"
-          : "w-[95%] sm:w-[680px] bg-white/50 shadow-md top-2 h-14"
+          ? "w-[280px] sm:w-[720px] bg-white/70 shadow-lg top-2 h-10"
+          : "w-[95%] sm:w-[720px] bg-white/50 shadow-md top-2 h-14"
       )}
     >
       <div
@@ -70,27 +70,23 @@ export default function Navbar() {
           )}
         </div>
 
-        {!isMobile && (
-          <div
-            className={cn(
-              "flex items-center gap-6 transition-all duration-300",
-              scrollY > 10 ? "scale-95" : "scale-100"
-            )}
-          >
-            {[{ id: "features", label: "Funções" }, { id: "pricing", label: "Planos" }, { id: "partners", label: "Parceiros" }].map(({ id, label }) => (
-              <button
-                key={id}
-                onClick={() => scrollToSection(id)}
-                className={cn(
-                  "text-sm font-medium transition-all duration-300 hover:text-primary hover:scale-105 active:scale-95",
-                  activeSection === id ? "text-primary" : "text-muted-foreground"
-                )}
-              >
-                {label}
-              </button>
-            ))}
-          </div>
-        )}
+        <div className={cn(
+          "flex items-center gap-6 transition-all duration-300",
+          scrollY > 10 ? "scale-95" : "scale-100"
+        )}>
+          {[{ id: "features", label: "Funções" }, { id: "pricing", label: "Planos" }, { id: "partners", label: "Parceiros" }].map(({ id, label }) => (
+            <button
+              key={id}
+              onClick={() => scrollToSection(id)}
+              className={cn(
+                "text-sm font-medium transition-all duration-300 hover:text-primary hover:scale-105 active:scale-95",
+                activeSection === id ? "text-primary" : "text-muted-foreground"
+              )}
+            >
+              {label}
+            </button>
+          ))}
+        </div>
 
         {!isMobile && (
           <Link
@@ -118,27 +114,20 @@ export default function Navbar() {
             onClick={() => scrollToSection("features")}
             className="flex items-center gap-2 text-muted-foreground hover:text-primary text-sm transition-transform duration-300 hover:scale-105 active:scale-95"
           >
-            <LayoutGrid size={16} /> Funções
+            Funções
           </button>
           <button
             onClick={() => scrollToSection("pricing")}
             className="flex items-center gap-2 text-muted-foreground hover:text-primary text-sm transition-transform duration-300 hover:scale-105 active:scale-95"
           >
-            <DollarSign size={16} /> Planos
+            Planos
           </button>
           <button
             onClick={() => scrollToSection("partners")}
             className="flex items-center gap-2 text-muted-foreground hover:text-primary text-sm transition-transform duration-300 hover:scale-105 active:scale-95"
           >
-            <Handshake size={16} /> Parceiros
+            Parceiros
           </button>
-          <Link
-            to="https://www.followop.com.br/login"
-            target="_blank"
-            className="flex items-center gap-2 text-muted-foreground hover:text-primary text-sm transition-transform duration-300 hover:scale-105 active:scale-95"
-          >
-            <User size={16} /> Login
-          </Link>
         </div>
       )}
     </div>
