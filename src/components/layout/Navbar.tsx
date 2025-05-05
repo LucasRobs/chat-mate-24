@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useEffect, useState } from "react";
@@ -17,10 +16,8 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Only enable compact mode on scroll for desktop
   const compact = !isMobile && scrollY > 20;
 
-  // Smooth scroll to section
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -33,49 +30,43 @@ export default function Navbar() {
       className={cn(
         "fixed z-50 left-1/2 -translate-x-1/2 top-3 transition-all duration-300",
         isMobile 
-          ? "w-[85%] h-10" // Smaller width and height for mobile
+          ? "w-[90%] h-12"
           : compact 
-            ? "w-[250px] h-10" // Smaller width and height for compact
-            : "w-[85%] h-14" // Smaller height for default
+            ? "w-[250px] h-12"
+            : "w-[85%] h-16"
       )}
     >
       <div
         className={cn(
           "acrylic rounded-full shadow-md border border-white/30 flex items-center justify-between transition-all duration-300 px-3",
-          isMobile
-            ? "h-10 gap-2" // Smaller height and gap for mobile
-            : compact 
-              ? "h-10 gap-2" // Smaller height and gap for compact
-              : "h-14 gap-4" // Increased gap for better spacing (changed from gap-3)
+          isMobile || compact
+            ? "h-12 gap-2"
+            : "h-16 gap-4"
         )}
       >
         {/* Logo */}
         <div
           className={cn(
             "transition-all duration-300 flex items-center justify-center bg-white rounded-full overflow-hidden",
-            isMobile
-              ? "w-6 h-6" // Smaller logo for mobile
-              : compact 
-                ? "w-6 h-6" // Smaller logo for compact
-                : "w-8 h-8" // Smaller logo for default
+            isMobile || compact
+              ? "w-8 h-8"
+              : "w-10 h-10"
           )}
         >
           <img 
             src="/lovable-uploads/02e6e528-86eb-4a69-a7aa-f901007e7ef3.png" 
             alt="Logo" 
-            className="w-full h-full p-1"
+            className="w-full h-full object-contain"
           />
         </div>
 
-        {/* Center navigation */}
+        {/* Navigation */}
         <div
           className={cn(
             "flex items-center bg-muted/40 rounded-full transition-all duration-300",
-            isMobile
-              ? "gap-3 px-2 py-1" // Increased gap for mobile (changed from gap-2)
-              : compact 
-                ? "gap-3 px-2 py-1" // Increased gap for compact (changed from gap-2)
-                : "gap-7 px-4 py-1.5" // Further increased gap for better spacing
+            isMobile || compact
+              ? "gap-3 px-2 py-1"
+              : "gap-6 px-4 py-1.5"
           )}
         >
           <button 
@@ -98,21 +89,21 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* Login button - changed from LogIn to User icon */}
+        {/* Login */}
         <Link to="https://www.followop.com.br/login" target="_blank" className="group">
           <div
             className={cn(
               "transition-all duration-300 flex items-center justify-center bg-secondary rounded-full group-hover:bg-secondary/90",
               isMobile || compact
-                ? "w-6 h-6" // Smaller button for mobile and compact
-                : "h-8 px-3" // Smaller height and padding for default
+                ? "w-8 h-8"
+                : "h-9 px-3"
             )}
           >
             {isMobile || compact ? (
-              <User className="text-white w-3 h-3" />
+              <User className="text-white w-4 h-4" />
             ) : (
               <div className="flex items-center gap-1.5">
-                <User className="text-white w-3 h-3" />
+                <User className="text-white w-4 h-4" />
                 <span className="text-white text-xs font-medium">Entrar</span>
               </div>
             )}
