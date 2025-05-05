@@ -29,7 +29,7 @@ const CtaSection = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Ver detalhes dos planos
+                Começar agora
                 <span className="bg-[#2D2D4A] text-white p-1 rounded-full">
                   <ArrowRight size={12} />
                 </span>
