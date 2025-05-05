@@ -3,7 +3,7 @@
 
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
-import { Home, DollarSign, Building, User } from "lucide-react";
+import { DollarSign, Building, User, LogIn } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export default function Navbar() {
@@ -26,7 +26,7 @@ export default function Navbar() {
     >
       <div
         className={cn(
-          "bg-white/70 backdrop-blur-xl rounded-full shadow-md border border-white/30 flex items-center justify-between transition-all duration-300 px-4",
+          "acrylic rounded-full shadow-md border border-white/30 flex items-center justify-between transition-all duration-300 px-4",
           compact ? "h-14 gap-4" : "h-20 gap-6"
         )}
       >
@@ -37,30 +37,52 @@ export default function Navbar() {
             compact ? "w-10 h-10" : "w-14 h-14"
           )}
         >
-          <Home className="text-white w-5 h-5" />
+          <img 
+            src="/lovable-uploads/02e6e528-86eb-4a69-a7aa-f901007e7ef3.png" 
+            alt="Logo" 
+            className="w-full h-full p-1"
+          />
         </div>
 
-        {/* Ícones centrais */}
+        {/* Center navigation */}
         <div
           className={cn(
             "flex items-center bg-muted/40 rounded-full transition-all duration-300",
             compact ? "gap-4 px-3 py-2" : "gap-6 px-6 py-3"
           )}
         >
-          <Link to="#"><DollarSign className="w-5 h-5 text-muted-foreground" /></Link>
-          <Link to="#"><Building className="w-5 h-5 text-muted-foreground" /></Link>
-          <Link to="#"><User className="w-5 h-5 text-muted-foreground" /></Link>
+          <Link to="#" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
+            <DollarSign className="w-5 h-5" />
+            {!compact && <span className="font-medium">Financeiro</span>}
+          </Link>
+          <Link to="#" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
+            <Building className="w-5 h-5" />
+            {!compact && <span className="font-medium">Empresa</span>}
+          </Link>
+          <Link to="#" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
+            <User className="w-5 h-5" />
+            {!compact && <span className="font-medium">Perfil</span>}
+          </Link>
         </div>
 
-        {/* Botão lateral direito */}
-        <div
-          className={cn(
-            "transition-all duration-300 flex items-center justify-center bg-secondary rounded-full",
-            compact ? "w-10 h-10" : "w-14 h-14"
-          )}
-        >
-          <User className="text-white w-5 h-5" />
-        </div>
+        {/* Login button */}
+        <Link to="#" className="group">
+          <div
+            className={cn(
+              "transition-all duration-300 flex items-center justify-center bg-secondary rounded-full group-hover:bg-secondary/90",
+              compact ? "w-10 h-10" : "h-14 px-5"
+            )}
+          >
+            {compact ? (
+              <LogIn className="text-white w-5 h-5" />
+            ) : (
+              <div className="flex items-center gap-2">
+                <LogIn className="text-white w-5 h-5" />
+                <span className="text-white font-medium">Entrar</span>
+              </div>
+            )}
+          </div>
+        </Link>
       </div>
     </div>
   );
