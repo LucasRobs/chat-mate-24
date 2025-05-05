@@ -99,8 +99,9 @@
   }
 
   /* Navbar specific animations */
-  .sticky-nav {
-    @apply fixed top-0 left-0 w-full z-50 transition-transform duration-300;
+  .floating-navbar {
+    @apply w-full transition-transform duration-300;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   }
 
   /* Acrylic styles for navbar and components */
