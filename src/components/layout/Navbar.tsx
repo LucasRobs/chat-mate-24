@@ -61,7 +61,7 @@ export default function Navbar() {
               onClick={() => scrollToSection("features")}
               className="text-muted-foreground hover:text-primary text-sm font-medium transition-colors"
             >
-              Funcionalidades
+              Funções
             </button>
             <button
               onClick={() => scrollToSection("pricing")}
