@@ -47,16 +47,14 @@ export default function Navbar() {
         {/* Logo */}
         <div
           className={cn(
-            "transition-all duration-300 flex items-center justify-center bg-white rounded-full overflow-hidden",
-            isMobile || compact
-              ? "min-w-[32px] min-h-[32px] w-8 h-8"
-              : "min-w-[40px] min-h-[40px] w-10 h-10"
+            "transition-all duration-300 flex items-center justify-center bg-white rounded-full overflow-hidden aspect-square",
+            isMobile || compact ? "w-6" : "w-8"
           )}
         >
           <img 
             src="/lovable-uploads/02e6e528-86eb-4a69-a7aa-f901007e7ef3.png" 
             alt="Logo" 
-            className="block w-full h-full object-contain"
+            className="w-full h-full object-contain block"
           />
         </div>
 
@@ -89,7 +87,7 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* Login */}
+        {/* Botão de login */}
         <Link to="https://www.followop.com.br/login" target="_blank" className="group">
           <div
             className={cn(
