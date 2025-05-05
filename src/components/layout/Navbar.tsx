@@ -90,14 +90,8 @@ export default function Navbar() {
           ))}
         </div>
 
-        {!isMobile && (
-          <Link
-            to="https://www.followop.com.br/login"
-            target="_blank"
-            className="shrink-0 flex items-center justify-center bg-white/40 p-2 rounded-full hover:bg-white/70 transition-colors shadow-sm active:shadow-inner"
-          >
-            <User className="w-4 h-4 text-secondary" />
-          </Link>
+        {$1
+            <span className="ml-1 text-sm text-secondary font-medium">Entrar</span>$2
         )}
 
         {isMobile && (
