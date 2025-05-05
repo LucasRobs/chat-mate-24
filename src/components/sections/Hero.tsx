@@ -1,138 +1,72 @@
-
-import { useState, useEffect } from "react";
-import { useIsMobile } from "@/hooks/use-mobile";
-import { ArrowRight, Bell, Calendar, BarChart2 } from "lucide-react";
+import React from "react";
+import { CheckCircle, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import Dashboard from "@/components/ui-custom/Dashboard";
 
-// Meta Tech Partner Badge Component (refined with Apple-inspired design)
-const MetaTechPartnerBadge = () => (
-  <div className="flex items-center gap-2 bg-white/90 backdrop-filter backdrop-blur-sm border border-gray-100 rounded-lg px-3 py-2 text-xs font-medium text-gray-700 max-w-fit mx-auto shadow-sm transition-all duration-300 hover:shadow-md">
-    <div className="w-5 h-5 flex items-center justify-center">
-      <img 
-        src="/lovable-uploads/c5206104-ee78-44ed-b432-e4d2a4bb0863.png" 
-        alt="Meta Logo" 
-        className="w-full h-full object-contain"
-      />
-    </div>
-    <div className="flex flex-col sm:flex-row sm:items-center">
-      <span className="text-[#0668E1] font-semibold">Meta</span>
-      <span className="text-gray-700 sm:ml-1">Tech Partner</span>
-      <span className="hidden sm:inline text-gray-400 mx-1.5">|</span>
-      <span className="text-[10px] text-gray-500">Powered by WhatsApp Business API</span>
-    </div>
-  </div>
-);
-
-// System Features Component
-const SystemFeatures = () => (
-  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 max-w-2xl mx-auto mt-4 mb-6">
-    <div className="bg-white/80 backdrop-blur-sm rounded-xl p-3 shadow-sm border border-gray-100 text-center">
-      <div className="w-8 h-8 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-2">
-        <Bell className="w-4 h-4 text-blue-500" />
-      </div>
-      <p className="text-xs font-medium text-gray-800">Automação de Fluxos</p>
-    </div>
-    <div className="bg-white/80 backdrop-blur-sm rounded-xl p-3 shadow-sm border border-gray-100 text-center">
-      <div className="w-8 h-8 bg-purple-50 rounded-full flex items-center justify-center mx-auto mb-2">
-        <BarChart2 className="w-4 h-4 text-purple-500" />
-      </div>
-      <p className="text-xs font-medium text-gray-800">Métricas Avançadas</p>
-    </div>
-  </div>
-);
-
-const Hero = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const isMobile = useIsMobile();
-
-  useEffect(() => {
-    setIsVisible(true);
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("animate-in");
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    const animElements = document.querySelectorAll(".animate-on-scroll");
-    animElements.forEach((el) => observer.observe(el));
-
-    return () => {
-      animElements.forEach((el) => observer.unobserve(el));
-    };
-  }, []);
-
-  const handleButtonClick = () => {
-    if (typeof window !== "undefined") {
-      window.open("https://www.followop.com.br/register", "_blank");
-    }
+const MetaPartnerSection = () => {
+  const handleClick = () => {
+    window.open("https://www.followop.com.br/register", "_blank");
   };
 
-  const activityData = [
-    { name: "5/04", value: 10 },
-    { name: "8/04", value: 120 },
-    { name: "11/04", value: 60 },
-    { name: "14/04", value: 170 },
-    { name: "17/04", value: 90 },
-  ];
-
   return (
-    <section className="relative bg-white overflow-hidden py-8 sm:py-10 lg:py-12 mobile-container">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="w-full bg-[#f5f7f9] rounded-2xl p-6 sm:p-10 shadow-md max-w-6xl mx-auto">
+      <div className="grid md:grid-cols-2 items-center gap-8">
+        <div>
+          <div className="flex items-center gap-2 mb-4">
+            <img
+              src="/lovable-uploads/c5206104-ee78-44ed-b432-e4d2a4bb0863.png"
+              alt="Meta logo"
+              className="h-5 w-auto"
+            />
+            <span className="text-sm text-gray-700 font-medium">
+              Certificada pela <span className="text-[#0668E1] font-semibold">Meta</span>
+            </span>
+          </div>
 
-        {/* Meta badge centralized with proper spacing - adjusted for mobile */}
-        <div className={`${isMobile ? "mb-4 mt-10" : "mb-6 mt-6"}`}>
-          <MetaTechPartnerBadge />
-        </div>
-
-        <div className="text-center animate-on-scroll from-bottom animate-in mt-4" style={{ animationDelay: "0.3s" }}>
-          <h1 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-light tracking-tight text-black mb-3">
-            Transforme Seu Whatsapp:
-          </h1>
-
-          <h2 className="text-lg sm:text-xl md:text-3xl font-light text-black mb-3">
-            Venda no automático com inteligência Artificial
+          <h2 className="text-xl sm:text-2xl font-semibold text-gray-900 leading-snug">
+            Parceira Oficial da Meta<br />
+            <span className="text-lg font-medium text-gray-700">(WhatsApp Business API)</span>
           </h2>
 
-          <p className="mt-3 text-sm sm:text-base text-gray-600 max-w-2xl mx-auto leading-relaxed font-light px-1">
-            Potencialize seu negócio de forma inteligente
-            {!isMobile && <br className="hidden md:inline" />}
-            {' '}e eleve seu atendimento a outro nível.
+          <p className="text-sm sm:text-base text-gray-600 mt-3">
+            A <strong>Followop</strong> é uma plataforma aprovada e certificada pela Meta, garantindo conformidade com as diretrizes do <strong>WhatsApp Business API</strong>. Isso significa:
           </p>
 
-          {/* System Features */}
-          <SystemFeatures />
+          <ul className="mt-4 space-y-3 text-sm text-gray-700">
+            <li className="flex items-start gap-2">
+              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
+              <span><strong>Baixo risco</strong> de banimento</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
+              <span><strong>Conexão estável e autorizada</strong></span>
+            </li>
+            <li className="flex items-start gap-2">
+              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
+              <span>Suporte direto da <strong>infraestrutura oficial</strong></span>
+            </li>
+          </ul>
 
-          <div className="mt-6 flex justify-center">
-            <Button 
-              onClick={handleButtonClick}
-              variant="apple"
-              size={isMobile ? "default" : "lg"}
-              className="text-xs sm:text-sm py-2 sm:py-2.5 flex items-center gap-2 h-auto animated-button"
+          <div className="mt-6">
+            <Button
+              onClick={handleClick}
+              className="bg-green-500 hover:bg-green-600 text-white text-sm px-5 py-2 rounded-full flex items-center gap-2"
             >
-              Ver detalhes dos planos
-              <span className="bg-[#2D2D4A] text-white p-1 rounded-full">
-                <ArrowRight size={12} />
-              </span>
+              TESTE GRÁTIS 7 DIAS
+              <ArrowRight size={14} />
             </Button>
           </div>
         </div>
 
-        <div className="mt-8 animate-on-scroll from-bottom animate-in max-w-4xl mx-auto px-1 sm:px-0" style={{ animationDelay: "0.5s" }}>
-          <Dashboard 
-            activityData={activityData} 
-            isMobile={isMobile}
+        <div className="hidden md:block">
+          <img
+            src="/lovable-uploads/c5206104-ee78-44ed-b432-e4d2a4bb0863.png"
+            alt="Meta Illustration"
+            className="w-full max-h-80 object-contain"
           />
         </div>
       </div>
     </section>
   );
-}
+};
 
-export default Hero;
+export default MetaPartnerSection;
