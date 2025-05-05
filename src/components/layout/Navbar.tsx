@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
-import { Menu, X, User } from "lucide-react";
+import { Menu, X, User, LayoutGrid, DollarSign, Handshake } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useIsMobile } from "@/hooks/use-mobile";
 
@@ -47,15 +47,15 @@ export default function Navbar() {
       className={cn(
         "fixed z-50 left-1/2 -translate-x-1/2 transition-all duration-500 ease-in-out backdrop-blur-lg backdrop-saturate-150",
         scrollY > 10
-          ? "w-[320px] sm:w-[420px] bg-white/70 shadow-md top-2 h-12 rounded-full"
-          : "w-[95%] sm:w-[760px] bg-white/50 shadow-md top-2 h-16 rounded-full"
+          ? "w-[280px] sm:w-[360px] bg-white/70 shadow-lg top-2 h-9 rounded-full animate-fade-in"
+          : "w-[90%] sm:w-[640px] bg-white/50 shadow-md top-2 h-12 rounded-full"
       )}
     >
       <div className={cn(
-        "border border-white/30 px-6 flex items-center justify-between gap-3 transition-all duration-500 ease-in-out",
-        scrollY > 10 ? "h-12" : "h-16"
+        "border border-white/30 px-3 flex items-center justify-between gap-2 transition-all duration-500 ease-in-out",
+        scrollY > 10 ? "h-9" : "h-12"
       )}>
-        <div className="w-7 h-7 bg-white rounded-full overflow-hidden shrink-0">
+        <div className="w-5 h-5 bg-white rounded-full overflow-hidden shrink-0">
           <img
             src="/lovable-uploads/02e6e528-86eb-4a69-a7aa-f901007e7ef3.png"
             alt="Logo"
@@ -65,7 +65,7 @@ export default function Navbar() {
 
         {!isMobile && (
           <div className={cn(
-            "flex items-center gap-6 transition-all duration-300",
+            "flex items-center gap-4 transition-all duration-300",
             scrollY > 10 ? "scale-95" : "scale-100"
           )}>
             {[{ id: "features", label: "Funções" }, { id: "pricing", label: "Planos" }, { id: "partners", label: "Parceiros" }].map(({ id, label }) => (
@@ -73,7 +73,7 @@ export default function Navbar() {
                 key={id}
                 onClick={() => scrollToSection(id)}
                 className={cn(
-                  "text-sm font-medium transition-all duration-300 hover:text-primary hover:scale-105",
+                  "text-xs sm:text-sm font-medium transition-all duration-300 hover:text-primary hover:scale-105 active:scale-95",
                   activeSection === id
                     ? "text-primary"
                     : "text-muted-foreground"
@@ -85,50 +85,52 @@ export default function Navbar() {
           </div>
         )}
 
-        <Link
-          to="https://www.followop.com.br/login"
-          target="_blank"
-          className="shrink-0 flex items-center justify-center bg-white/40 p-2 rounded-full hover:bg-white/70 transition-colors"
-        >
-          <User className="w-5 h-5 text-secondary" />
-        </Link>
+        {!isMobile && (
+          <Link
+            to="https://www.followop.com.br/login"
+            target="_blank"
+            className="shrink-0 flex items-center justify-center bg-white/40 p-1.5 rounded-full hover:bg-white/70 transition-colors shadow-sm active:shadow-inner"
+          >
+            <User className="w-4 h-4 text-secondary" />
+          </Link>
+        )}
 
         {isMobile && (
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="text-muted-foreground"
           >
-            {isOpen ? <X size={20} /> : <Menu size={20} />}
+            {isOpen ? <X size={18} /> : <Menu size={18} />}
           </button>
         )}
       </div>
 
       {isMobile && isOpen && (
-        <div className="mt-2 w-full bg-white/90 backdrop-blur-md rounded-xl shadow-md p-4 space-y-4 animate-slide-in-down">
+        <div className="mt-2 w-full bg-white/90 backdrop-blur-md rounded-xl shadow-md p-4 space-y-3 animate-slide-in-down">
           <button
             onClick={() => scrollToSection("features")}
-            className="block w-full text-left text-muted-foreground hover:text-primary text-base"
+            className="flex items-center gap-2 text-muted-foreground hover:text-primary text-sm transition-transform duration-300 hover:scale-105 active:scale-95"
           >
-            Funções
+            <LayoutGrid size={16} /> Funções
           </button>
           <button
             onClick={() => scrollToSection("pricing")}
-            className="block w-full text-left text-muted-foreground hover:text-primary text-base"
+            className="flex items-center gap-2 text-muted-foreground hover:text-primary text-sm transition-transform duration-300 hover:scale-105 active:scale-95"
           >
-            Planos
+            <DollarSign size={16} /> Planos
           </button>
           <button
             onClick={() => scrollToSection("partners")}
-            className="block w-full text-left text-muted-foreground hover:text-primary text-base"
+            className="flex items-center gap-2 text-muted-foreground hover:text-primary text-sm transition-transform duration-300 hover:scale-105 active:scale-95"
           >
-            Parceiros
+            <Handshake size={16} /> Parceiros
           </button>
           <Link
             to="https://www.followop.com.br/login"
             target="_blank"
-            className="block w-full text-left text-muted-foreground hover:text-primary text-base"
+            className="flex items-center gap-2 text-muted-foreground hover:text-primary text-sm transition-transform duration-300 hover:scale-105 active:scale-95"
           >
-            Login
+            <User size={16} /> Login
           </Link>
         </div>
       )}
