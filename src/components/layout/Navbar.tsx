@@ -46,8 +46,7 @@ export default function Navbar() {
     <div
       className={cn(
         "fixed z-50 left-1/2 -translate-x-1/2 transition-all duration-500 ease-in-out",
-        "w-[95%] sm:w-[760px]",
-        scrollY > 10 ? "bg-white shadow-md top-0 h-12" : "bg-transparent top-2 h-16"
+        scrollY > 10 ? "w-[280px] bg-white shadow-md top-0 h-12" : "w-[95%] sm:w-[760px] bg-transparent top-2 h-16"
       )}
     >
       <div className={cn(
@@ -62,7 +61,7 @@ export default function Navbar() {
           />
         </div>
 
-        {!isMobile && (
+        {!isMobile && scrollY <= 10 && (
           <div className="flex items-center gap-6">
             {[
               { id: "features", label: "Funções" },
