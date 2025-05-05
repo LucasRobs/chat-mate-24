@@ -31,22 +31,22 @@ export default function Navbar() {
   return (
     <div
       className={cn(
-        "fixed z-50 left-1/2 -translate-x-1/2 top-4 transition-all duration-300",
+        "fixed z-50 left-1/2 -translate-x-1/2 top-3 transition-all duration-300",
         isMobile 
-          ? "w-[90%] h-12" // Fixed size for mobile
+          ? "w-[85%] h-10" // Smaller width and height for mobile
           : compact 
-            ? "w-[280px] h-12" 
-            : "w-[90%] h-16"
+            ? "w-[250px] h-10" // Smaller width and height for compact
+            : "w-[85%] h-14" // Smaller height for default
       )}
     >
       <div
         className={cn(
-          "acrylic rounded-full shadow-md border border-white/30 flex items-center justify-between transition-all duration-300 px-4",
+          "acrylic rounded-full shadow-md border border-white/30 flex items-center justify-between transition-all duration-300 px-3",
           isMobile
-            ? "h-12 gap-3" // Fixed height for mobile
+            ? "h-10 gap-2" // Smaller height and gap for mobile
             : compact 
-              ? "h-12 gap-3" 
-              : "h-16 gap-4"
+              ? "h-10 gap-2" // Smaller height and gap for compact
+              : "h-14 gap-3" // Smaller height and gap for default
         )}
       >
         {/* Logo */}
@@ -54,10 +54,10 @@ export default function Navbar() {
           className={cn(
             "transition-all duration-300 flex items-center justify-center bg-white rounded-full overflow-hidden",
             isMobile
-              ? "w-8 h-8" // Fixed size for mobile
+              ? "w-6 h-6" // Smaller logo for mobile
               : compact 
-                ? "w-8 h-8" 
-                : "w-10 h-10"
+                ? "w-6 h-6" // Smaller logo for compact
+                : "w-8 h-8" // Smaller logo for default
           )}
         >
           <img 
@@ -72,23 +72,23 @@ export default function Navbar() {
           className={cn(
             "flex items-center bg-muted/40 rounded-full transition-all duration-300",
             isMobile
-              ? "gap-3 px-2 py-1.5" // Fixed size for mobile
+              ? "gap-2 px-2 py-1" // Smaller padding and gap for mobile
               : compact 
-                ? "gap-3 px-2 py-1.5" 
-                : "gap-4 px-4 py-2"
+                ? "gap-2 px-2 py-1" // Smaller padding and gap for compact
+                : "gap-3 px-3 py-1.5" // Smaller padding and gap for default
           )}
         >
           <button 
             onClick={() => scrollToSection('pricing')}
             className="text-muted-foreground hover:text-primary transition-colors"
           >
-            <span className="text-sm font-medium">Planos</span>
+            <span className="text-xs font-medium">Planos</span>
           </button>
           <button 
             onClick={() => scrollToSection('partners')}
             className="text-muted-foreground hover:text-primary transition-colors"
           >
-            <span className="text-sm font-medium">Empresas</span>
+            <span className="text-xs font-medium">Empresas</span>
           </button>
         </div>
 
@@ -98,16 +98,16 @@ export default function Navbar() {
             className={cn(
               "transition-all duration-300 flex items-center justify-center bg-secondary rounded-full group-hover:bg-secondary/90",
               isMobile || compact
-                ? "w-8 h-8" 
-                : "h-10 px-4"
+                ? "w-6 h-6" // Smaller button for mobile and compact
+                : "h-8 px-3" // Smaller height and padding for default
             )}
           >
             {isMobile || compact ? (
-              <LogIn className="text-white w-4 h-4" />
+              <LogIn className="text-white w-3 h-3" />
             ) : (
-              <div className="flex items-center gap-2">
-                <LogIn className="text-white w-4 h-4" />
-                <span className="text-white text-sm font-medium">Entrar</span>
+              <div className="flex items-center gap-1.5">
+                <LogIn className="text-white w-3 h-3" />
+                <span className="text-white text-xs font-medium">Entrar</span>
               </div>
             )}
           </div>
