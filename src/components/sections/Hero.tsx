@@ -65,11 +65,11 @@ const Hero = () => {
   ];
 
   return (
-    <section className="relative bg-white overflow-hidden py-10 sm:py-12 md:py-16 lg:py-20 mobile-container">
+    <section className="relative bg-white overflow-hidden py-8 sm:py-10 lg:py-14 mobile-container">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Meta badge centralized with proper spacing - adjusted for mobile */}
-        <div className={`${isMobile ? "mb-4 mt-12" : "mb-6 mt-4"}`}>
+        <div className={`${isMobile ? "mb-4 mt-14" : "mb-6 mt-6"}`}>
           <MetaTechPartnerBadge />
         </div>
 
@@ -103,7 +103,7 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className="mt-12 animate-on-scroll from-bottom animate-in max-w-4xl mx-auto" style={{ animationDelay: "0.5s" }}>
+        <div className="mt-10 animate-on-scroll from-bottom animate-in max-w-3xl mx-auto" style={{ animationDelay: "0.5s" }}>
           <Dashboard 
             activityData={activityData} 
             isMobile={isMobile}

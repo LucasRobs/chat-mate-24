@@ -33,50 +33,34 @@ const Partners = () => {
   ];
 
   return (
-    <section id="partners" className="py-16 bg-gradient-to-b from-gray-50 to-white">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
+    <section id="partners" className="py-16 bg-gray-50">
+      <div className="max-w-5xl mx-auto px-6">
         <div 
-          className={`text-center mb-12 transition-all duration-700 ${
+          className={`text-center mb-8 transition-all duration-700 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
           }`}
         >
-          <span className="bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-medium">
-            Empresa
-          </span>
-          <h2 className="mt-6 text-2xl md:text-3xl font-bold text-secondary">
-            Confiam e impulsionam nossa tecnologia
+          <h2 className="text-2xl font-bold text-secondary">
+            Empresas Parceiras
           </h2>
+          <p className="mt-2 text-gray-500">
+            Confiam e impulsionam nossa tecnologia
+          </p>
         </div>
 
-        <div className="w-full overflow-hidden rounded-xl p-8 bg-white shadow-sm border border-gray-100">
-          <div className="marquee relative flex items-center">
-            <div className="marquee-content flex items-center justify-around w-full">
-              {partners.map((partner, index) => (
-                <div 
-                  key={index} 
-                  className="flex-shrink-0 mx-4 md:mx-8 opacity-70 hover:opacity-100 transition-opacity"
-                >
-                  <img
-                    src={partner.logo}
-                    alt={`${partner.name} logo`}
-                    className="h-12 md:h-16 w-auto grayscale hover:grayscale-0 transition-all"
-                  />
-                </div>
-              ))}
-              {partners.map((partner, index) => (
-                <div 
-                  key={`repeat-${index}`} 
-                  className="flex-shrink-0 mx-4 md:mx-8 opacity-70 hover:opacity-100 transition-opacity"
-                >
-                  <img
-                    src={partner.logo}
-                    alt={`${partner.name} logo`}
-                    className="h-12 md:h-16 w-auto grayscale hover:grayscale-0 transition-all"
-                  />
-                </div>
-              ))}
+        <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-12">
+          {partners.map((partner, index) => (
+            <div 
+              key={index} 
+              className="flex-shrink-0 opacity-70 hover:opacity-100 transition-opacity"
+            >
+              <img
+                src={partner.logo}
+                alt={`${partner.name} logo`}
+                className="h-12 w-auto grayscale hover:grayscale-0 transition-all"
+              />
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

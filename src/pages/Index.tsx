@@ -5,15 +5,10 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Hero from "@/components/sections/Hero";
 import Benefits from "@/components/sections/Benefits";
-import Comparison from "@/components/sections/Comparison";
 import Pricing from "@/components/sections/Pricing";
 import Partners from "@/components/sections/Partners";
 import Testimonials from "@/components/sections/Testimonials";
-import IntegrationPartners from "@/components/sections/IntegrationPartners";
-import Features from "@/components/sections/Features";
-import StatsSection from "@/components/sections/StatsSection";
 import CtaSection from "@/components/sections/CtaSection";
-import ClosingCtaSection from "@/components/sections/ClosingCtaSection";
 import WistiaScriptLoader from "@/components/utils/WistiaScriptLoader";
 import { Toaster } from "@/components/ui/toaster";
 
@@ -46,16 +41,11 @@ const Index = () => {
 
         <main className="flex-1">
           <Hero />
-          <StatsSection />
-          <Features />
           <Benefits />
-          <Comparison />
           <Testimonials />
-          <IntegrationPartners />
-          <CtaSection />
           <Pricing />
           <Partners />
-          <ClosingCtaSection />
+          <CtaSection />
         </main>
 
         <Footer />

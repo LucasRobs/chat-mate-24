@@ -6,13 +6,13 @@ import { useIsMobile } from "@/hooks/use-mobile";
 const BenefitItem = ({ icon: Icon, title, description, delay }) => {
   return (
     <div
-      className="flex flex-col items-center p-6 text-center h-full transition-opacity duration-500 ease-in-out"
-      style={{ transitionDelay: `${delay}ms`, minHeight: '200px' }}
+      className="flex flex-col items-center p-4 text-center h-full transition-opacity duration-500 ease-in-out"
+      style={{ transitionDelay: `${delay}ms`, minHeight: '180px' }}
     >
-      <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4 relative">
-        <Icon className="w-8 h-8 text-primary" />
+      <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-3 relative">
+        <Icon className="w-7 h-7 text-primary" />
       </div>
-      <h3 className="text-lg font-light text-black mb-2 whitespace-normal leading-tight">{title}</h3>
+      <h3 className="text-base font-light text-black mb-2 whitespace-normal leading-tight">{title}</h3>
       <p className="text-sm text-gray-500 leading-relaxed max-w-xs font-light">{description}</p>
     </div>
   );
@@ -53,36 +53,26 @@ const Benefits = () => {
     {
       icon: DollarSign,
       title: "Lucro Inteligente: Custo Reduzido em 97%",
-      description: "Substitua gastos com SDR humano por uma solução de apenas R$ 0,44/hora, focando no seu retorno sobre investimento."
+      description: "Substitua gastos com SDR humano por uma solução de apenas R$ 0,44/hora."
     },
     {
       icon: MessageCircle,
       title: "Conversão Turbinada: Follow-up Que Vende",
-      description: "Não perca nenhuma oportunidade! Nosso sistema automatizado engaja leads e acelera suas conversões."
-    },
-    {
-      icon: Headphones,
-      title: "Eficiência Máxima: Atendimento Rápido e Preciso",
-      description: "Respostas instantâneas e assertivas com IA, garantindo a melhor experiência para o cliente."
-    },
-    {
-      icon: Zap,
-      title: "Comece Já: Integração Super Simples",
-      description: "Ative em minutos! Conecte ao seu WhatsApp e veja a transformação acontecer."
+      description: "Nosso sistema automatizado engaja leads e acelera suas conversões."
     }
   ];
 
   return (
-    <section id="benefits" className="py-20 bg-gray-50">
+    <section id="benefits" className="py-16 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 text-center">
-        <div className={`mb-16 transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-          <h2 className="text-3xl sm:text-4xl font-light text-black">Turbine Suas Vendas com Followop!</h2>
-          <p className="mt-4 text-lg text-gray-500 max-w-2xl mx-auto font-light">
+        <div className={`mb-10 transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+          <h2 className="text-2xl sm:text-3xl font-light text-black">Turbine Suas Vendas</h2>
+          <p className="mt-3 text-base text-gray-500 max-w-2xl mx-auto font-light">
             Tecnologia de ponta gerando resultados incríveis para o seu negócio.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {benefits.map((benefit, index) => (
             <div key={index} className={`flex flex-col items-center transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
               <BenefitItem
