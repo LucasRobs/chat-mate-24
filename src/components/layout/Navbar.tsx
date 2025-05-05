@@ -17,7 +17,11 @@ const Navbar = () => {
   };
 
   return (
-    <header className="fixed top-4 left-1/2 transform -translate-x-1/2 w-[95%] max-w-7xl z-50 px-2 sm:px-4">
+    <header
+      className={`fixed top-4 left-1/2 transform -translate-x-1/2 z-50 px-2 sm:px-4 transition-all duration-300 ${
+        scrolled ? "w-[90%]" : "w-[95%]"
+      } max-w-7xl`}
+    >
       <nav
         className={`rounded-full transition-all duration-300 backdrop-blur-md bg-white/70 shadow-md ${
           scrolled ? "h-12 md:h-14" : "h-16 md:h-20"
@@ -71,7 +75,7 @@ const Navbar = () => {
             </a>
           </div>
 
-          {/* Ícone Menu Mobile */}
+          {/* Menu Mobile Icon */}
           <button
             className="md:hidden z-50 text-secondary hover:text-primary transition duration-200"
             onClick={toggleMenu}
