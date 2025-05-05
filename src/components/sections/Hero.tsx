@@ -15,10 +15,10 @@ const MetaTechPartnerBadge = () => (
         className="w-full h-full object-contain"
       />
     </div>
-    <div className="flex items-center">
+    <div className="flex flex-col sm:flex-row sm:items-center">
       <span className="text-[#0668E1] font-semibold">Meta</span>
-      <span className="text-gray-700 ml-1">Tech Partner</span>
-      <span className="text-gray-400 mx-1.5">|</span>
+      <span className="text-gray-700 sm:ml-1">Tech Partner</span>
+      <span className="hidden sm:inline text-gray-400 mx-1.5">|</span>
       <span className="text-[10px] text-gray-500">Powered by WhatsApp Business API</span>
     </div>
   </div>
@@ -87,20 +87,20 @@ const Hero = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Meta badge centralized with proper spacing - adjusted for mobile */}
-        <div className={`${isMobile ? "mb-4 mt-14" : "mb-6 mt-6"}`}>
+        <div className={`${isMobile ? "mb-4 mt-10" : "mb-6 mt-6"}`}>
           <MetaTechPartnerBadge />
         </div>
 
         <div className="text-center animate-on-scroll from-bottom animate-in mt-4" style={{ animationDelay: "0.3s" }}>
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light tracking-tight text-black mb-4">
+          <h1 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-light tracking-tight text-black mb-3">
             Transforme Seu Whatsapp:
           </h1>
 
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-light text-black mb-3">
+          <h2 className="text-lg sm:text-xl md:text-3xl font-light text-black mb-3">
             Venda no automático com inteligência Artificial
           </h2>
 
-          <p className="mt-4 text-base sm:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed font-light">
+          <p className="mt-3 text-sm sm:text-base text-gray-600 max-w-2xl mx-auto leading-relaxed font-light px-1">
             Potencialize seu negócio de forma inteligente
             {!isMobile && <br className="hidden md:inline" />}
             {' '}e eleve seu atendimento a outro nível.
@@ -113,8 +113,8 @@ const Hero = () => {
             <Button 
               onClick={handleButtonClick}
               variant="apple"
-              size="lg"
-              className="text-sm py-2.5 flex items-center gap-2 h-auto animated-button"
+              size={isMobile ? "default" : "lg"}
+              className="text-xs sm:text-sm py-2 sm:py-2.5 flex items-center gap-2 h-auto animated-button"
             >
               Ver detalhes dos planos
               <span className="bg-[#2D2D4A] text-white p-1 rounded-full">
@@ -124,7 +124,7 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className="mt-8 animate-on-scroll from-bottom animate-in max-w-4xl mx-auto" style={{ animationDelay: "0.5s" }}>
+        <div className="mt-8 animate-on-scroll from-bottom animate-in max-w-4xl mx-auto px-1 sm:px-0" style={{ animationDelay: "0.5s" }}>
           <Dashboard 
             activityData={activityData} 
             isMobile={isMobile}

@@ -7,15 +7,15 @@
   }
   
   .from-bottom {
-    @apply translate-y-12;
+    @apply translate-y-8 sm:translate-y-12;
   }
   
   .from-left {
-    @apply -translate-x-12;
+    @apply -translate-x-8 sm:-translate-x-12;
   }
   
   .from-right {
-    @apply translate-x-12;
+    @apply translate-x-8 sm:translate-x-12;
   }
   
   .animate-in {
@@ -32,17 +32,52 @@
       transform: translateY(-1px);
     }
     
-    .from-bottom {
-      @apply translate-y-6;
+    .animated-button {
+      @apply text-xs py-1.5 px-3;
     }
     
-    .from-left, .from-right {
-      @apply translate-x-0 translate-y-6;
+    .animated-button:hover {
+      transform: translateY(-1px);
     }
   }
 
   /* Fix for mobile overflows */
   .mobile-container {
     @apply max-w-full overflow-x-hidden;
+  }
+  
+  /* Responsive text sizes */
+  .text-responsive-xs {
+    @apply text-[10px] sm:text-xs;
+  }
+  
+  .text-responsive-sm {
+    @apply text-xs sm:text-sm;
+  }
+  
+  .text-responsive-base {
+    @apply text-sm sm:text-base;
+  }
+  
+  .text-responsive-lg {
+    @apply text-base sm:text-lg;
+  }
+  
+  .text-responsive-xl {
+    @apply text-lg sm:text-xl;
+  }
+  
+  .text-responsive-2xl {
+    @apply text-xl sm:text-2xl;
+  }
+  
+  /* Prevent text overflow */
+  .text-ellipsis {
+    @apply whitespace-nowrap overflow-hidden text-ellipsis;
+  }
+  
+  /* Prevent image overflow */
+  .img-contain {
+    @apply object-contain max-w-full;
   }
 }

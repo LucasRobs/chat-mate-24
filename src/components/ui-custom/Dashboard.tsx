@@ -27,84 +27,84 @@ const Dashboard = ({ activityData, isMobile: propIsMobile }: DashboardProps) => 
   return (
     <div className="w-full max-w-4xl mx-auto rounded-xl overflow-hidden shadow-md border border-gray-100 hover:shadow-lg transition-all duration-500 relative">
       {/* Dashboard content */}
-      <div className="bg-[#fafafa] p-3 flex-1 flex flex-col">
+      <div className="bg-[#fafafa] p-2 sm:p-3 flex-1 flex flex-col">
         {/* Dashboard Header */}
-        <div className="flex items-center justify-between bg-white rounded-lg p-2 mb-3 shadow-sm border border-gray-50">
-          <div className="flex items-center gap-2">
+        <div className="flex items-center justify-between bg-white rounded-lg p-2 mb-2 sm:mb-3 shadow-sm border border-gray-50">
+          <div className="flex items-center gap-1 sm:gap-2">
             <img 
               src="/lovable-uploads/669aaab1-10dd-437a-a1b9-789ae5f02809.png" 
               alt="followop Logo" 
-              className="h-4 sm:h-5"
+              className="h-3 sm:h-5"
             />
-            <span className="font-medium text-xs text-gray-800">Visão Geral</span>
+            <span className="font-medium text-[10px] sm:text-xs text-gray-800">Visão Geral</span>
           </div>
-          <div className="flex items-center gap-2">
-            <div className="text-xs text-primary/80 bg-primary/5 px-2 py-0.5 rounded-full">
+          <div className="flex items-center gap-1 sm:gap-2">
+            <div className="text-[10px] sm:text-xs text-primary/80 bg-primary/5 px-1.5 sm:px-2 py-0.5 rounded-full">
               Premium
             </div>
-            <div className="h-5 w-5 sm:h-6 sm:w-6 rounded-full bg-primary/20 flex items-center justify-center">
-              <span className="text-xs font-medium text-primary">AU</span>
+            <div className="h-4 w-4 sm:h-6 sm:w-6 rounded-full bg-primary/20 flex items-center justify-center">
+              <span className="text-[10px] sm:text-xs font-medium text-primary">AU</span>
             </div>
           </div>
         </div>
 
         {/* Dashboard Stats Cards - More compact layout */}
-        <div className="grid grid-cols-3 gap-2 mb-3">
+        <div className="grid grid-cols-3 gap-1 sm:gap-2 mb-2 sm:mb-3">
           <DashboardCard title="Atendimentos" value={329} icon={Users} trend={+12} />
           <DashboardCard title="Mensagens" value={2559} icon={MessageSquare} trend={+28} />
           <DashboardCard title="Conversões" value={43} icon={BarChart2} trend={+8} />
         </div>
 
         {/* Additional Features Section */}
-        <div className="grid grid-cols-2 gap-2 mb-3">
-          <div className="bg-white rounded-lg p-2 shadow-sm border border-gray-50 flex items-center">
-            <div className="w-7 h-7 bg-blue-50 rounded-lg flex items-center justify-center mr-2">
-              <Bell className="w-3.5 h-3.5 text-blue-500" />
+        <div className="grid grid-cols-2 gap-1 sm:gap-2 mb-2 sm:mb-3">
+          <div className="bg-white rounded-lg p-1.5 sm:p-2 shadow-sm border border-gray-50 flex items-center">
+            <div className="w-5 h-5 sm:w-7 sm:h-7 bg-blue-50 rounded-lg flex items-center justify-center mr-1.5 sm:mr-2">
+              <Bell className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 text-blue-500" />
             </div>
             <div>
-              <p className="text-xs text-gray-500">Notificações</p>
-              <p className="text-xs font-medium">12 novas</p>
+              <p className="text-[9px] sm:text-xs text-gray-500">Notificações</p>
+              <p className="text-[10px] sm:text-xs font-medium">12 novas</p>
             </div>
           </div>
-          <div className="bg-white rounded-lg p-2 shadow-sm border border-gray-50 flex items-center">
-            <div className="w-7 h-7 bg-green-50 rounded-lg flex items-center justify-center mr-2">
-              <Calendar className="w-3.5 h-3.5 text-green-500" />
+          <div className="bg-white rounded-lg p-1.5 sm:p-2 shadow-sm border border-gray-50 flex items-center">
+            <div className="w-5 h-5 sm:w-7 sm:h-7 bg-green-50 rounded-lg flex items-center justify-center mr-1.5 sm:mr-2">
+              <Calendar className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 text-green-500" />
             </div>
             <div>
-              <p className="text-xs text-gray-500">Agendamentos</p>
-              <p className="text-xs font-medium">5 hoje</p>
+              <p className="text-[9px] sm:text-xs text-gray-500">Agendamentos</p>
+              <p className="text-[10px] sm:text-xs font-medium">5 hoje</p>
             </div>
           </div>
         </div>
 
         {/* Smaller activity chart */}
-        <div className="flex-1 flex flex-col min-h-[120px] sm:min-h-[150px]">
+        <div className="flex-1 flex flex-col min-h-[100px] sm:min-h-[150px]">
           <ActivityChart data={simplifiedData} isMobile={isMobile} />
         </div>
         
         {/* Added "Ver Mais" button */}
-        <div className="mt-2 flex justify-end">
+        <div className="mt-1 sm:mt-2 flex justify-end">
           <Button 
             onClick={handleViewMore}
             variant="minimal" 
             size="sm" 
-            className="text-xs font-medium flex items-center gap-1"
+            className="text-[10px] sm:text-xs font-medium flex items-center gap-1"
           >
             Ver Mais
-            <ArrowRight size={12} />
+            <ArrowRight size={10} />
           </Button>
         </div>
       </div>
       
       {/* Simplified footer */}
-      <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 bg-white/80 backdrop-blur-sm px-2 py-1 rounded-full shadow-sm">
+      <div className="absolute bottom-1 sm:bottom-2 left-1/2 transform -translate-x-1/2 bg-white/80 backdrop-blur-sm px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-full shadow-sm">
         <div className="flex items-center gap-1">
           <img 
             src="/lovable-uploads/669aaab1-10dd-437a-a1b9-789ae5f02809.png" 
             alt="followop Logo" 
-            className="h-3"
+            className="h-2.5 sm:h-3"
           />
-          <span className="font-medium text-xs text-gray-800">followop</span>
+          <span className="font-medium text-[10px] sm:text-xs text-gray-800">followop</span>
         </div>
       </div>
     </div>

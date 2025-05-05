@@ -1,9 +1,11 @@
 
 import { useState, useEffect } from "react";
 import { Check } from "lucide-react";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const Comparison = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -33,16 +35,16 @@ const Comparison = () => {
   ];
 
   return (
-    <section id="comparison" className="py-16 sm:py-20 bg-gray-50">
+    <section id="comparison" className="py-12 sm:py-20 bg-gray-50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12 sm:mb-16">
-          <span className="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs sm:text-sm font-medium">
+        <div className="text-center mb-8 sm:mb-16">
+          <span className="bg-primary/10 text-primary px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium">
             Comparativo
           </span>
-          <h2 className="mt-4 text-2xl sm:text-3xl md:text-4xl font-light text-black">
+          <h2 className="mt-3 sm:mt-4 text-xl sm:text-2xl md:text-4xl font-light text-black">
             Atendente vs. followop
           </h2>
-          <p className="mt-3 sm:mt-4 text-base sm:text-lg text-gray-500 max-w-2xl mx-auto font-light">
+          <p className="mt-2 sm:mt-4 text-sm sm:text-lg text-gray-500 max-w-2xl mx-auto font-light">
             Veja como nossa solução de IA supera o atendimento tradicional em todos os aspectos importantes
           </p>
         </div>
@@ -53,14 +55,14 @@ const Comparison = () => {
           }`}
         >
           {/* Mobile (cards) */}
-          <div className="block sm:hidden space-y-4">
+          <div className="block sm:hidden space-y-3">
             {data.map((item, idx) => (
               <div
                 key={idx}
-                className="bg-white rounded-xl border border-gray-100 shadow-sm p-4"
+                className="bg-white rounded-xl border border-gray-100 shadow-sm p-3"
               >
-                <h3 className="text-black font-light mb-2">{item.label}</h3>
-                <div className="text-sm text-gray-500 font-light">
+                <h3 className="text-black font-light text-sm mb-2">{item.label}</h3>
+                <div className="text-xs text-gray-500 font-light">
                   <p><span className="font-normal">Atendente:</span> {item.atendente}</p>
                   <p className="mt-1">
                     <span className="font-normal text-primary">followop:</span>{" "}
@@ -96,12 +98,12 @@ const Comparison = () => {
           </div>
         </div>
 
-        <div className="mt-6 sm:mt-8 bg-white rounded-xl p-4 sm:p-6 border border-gray-100 shadow-sm">
+        <div className="mt-6 sm:mt-8 bg-white rounded-xl p-3 sm:p-6 border border-gray-100 shadow-sm">
           <div className="flex items-start sm:items-center">
-            <div className="mr-3 sm:mr-4 flex-shrink-0 bg-primary/10 rounded-full p-2">
-              <Check className="h-5 w-5 text-primary" />
+            <div className="mr-2 sm:mr-4 flex-shrink-0 bg-primary/10 rounded-full p-1.5 sm:p-2">
+              <Check className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
             </div>
-            <p className="text-gray-600 text-sm sm:text-base font-light">
+            <p className="text-gray-600 text-xs sm:text-base font-light">
               <span className="font-normal text-black">Economia real:</span> Com followop, você economiza mais de 90% nos custos de atendimento ao cliente.
             </p>
           </div>

@@ -1,37 +1,42 @@
 
 import React from "react";
-import { LucideIcon, TrendingUp, TrendingDown } from "lucide-react";
+import { ArrowUp, ArrowDown, LucideIcon } from "lucide-react";
 
 interface DashboardCardProps {
   title: string;
-  value: string | number;
+  value: number;
   icon: LucideIcon;
   trend?: number;
 }
 
 const DashboardCard = ({ title, value, icon: Icon, trend }: DashboardCardProps) => {
-  const isPositive = trend && trend > 0;
+  // Format the value for easier reading
+  const formattedValue = value.toLocaleString();
   
   return (
-    <div className="dashboard-card p-2 bg-white rounded-lg shadow-sm border border-gray-50 hover:shadow-md transition-all duration-300 animate-on-scroll from-left animate-in h-full">
-      <div className="flex flex-col gap-1">
-        <p className="text-xs text-gray-500 font-light">{title}</p>
-        <div className="flex items-center justify-between">
-          <p className="text-sm sm:text-base font-bold text-secondary transition-colors">
-            {value.toLocaleString()}
-          </p>
-          <div className="w-4 h-4 sm:w-5 sm:h-5 bg-primary/10 rounded-lg flex items-center justify-center">
-            <Icon className="w-2.5 h-2.5 text-primary" />
-          </div>
+    <div className="bg-white rounded-lg p-1.5 sm:p-2 shadow-sm border border-gray-50 flex flex-col justify-between transition-all duration-300 hover:shadow-md h-full">
+      <div className="flex items-center justify-between">
+        <div className="w-5 h-5 sm:w-7 sm:h-7 rounded-lg bg-gray-50 flex items-center justify-center">
+          <Icon className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 text-gray-500" />
         </div>
+        <span className="text-[9px] sm:text-xs text-gray-400 font-light">{title}</span>
+      </div>
+      
+      <div className="mt-1.5 sm:mt-2">
+        <div className="text-xs sm:text-sm font-medium text-gray-800">
+          {formattedValue}
+        </div>
+        
         {trend && (
-          <div className={`flex items-center gap-1 text-xs ${isPositive ? 'text-green-500' : 'text-red-500'}`}>
-            {isPositive ? (
-              <TrendingUp className="w-2 h-2" />
+          <div className="flex items-center mt-0.5">
+            {trend > 0 ? (
+              <ArrowUp className="w-2 h-2 sm:w-3 sm:h-3 text-green-500" />
             ) : (
-              <TrendingDown className="w-2 h-2" />
+              <ArrowDown className="w-2 h-2 sm:w-3 sm:h-3 text-red-500" />
             )}
-            <span>{Math.abs(trend)}%</span>
+            <span className={`text-[8px] sm:text-[10px] ml-0.5 ${trend > 0 ? 'text-green-500' : 'text-red-500'}`}>
+              {Math.abs(trend)}%
+            </span>
           </div>
         )}
       </div>

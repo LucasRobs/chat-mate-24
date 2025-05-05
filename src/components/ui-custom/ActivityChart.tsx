@@ -28,25 +28,25 @@ const ActivityChart = ({ data, isMobile }: ActivityChartProps) => {
   };
 
   return (
-    <div className="dashboard-card p-2 sm:p-3 bg-white rounded-lg shadow-sm border border-gray-50 hover:shadow-md transition-all duration-300 card-hover h-full flex flex-col">
-      <div className="flex justify-between items-center mb-2">
-        <h3 className="text-xs sm:text-sm font-medium text-secondary">
+    <div className="dashboard-card p-1.5 sm:p-3 bg-white rounded-lg shadow-sm border border-gray-50 hover:shadow-md transition-all duration-300 card-hover h-full flex flex-col">
+      <div className="flex justify-between items-center mb-1 sm:mb-2">
+        <h3 className="text-[10px] sm:text-sm font-medium text-secondary">
           Atividade Recente
         </h3>
-        <span className="text-xs bg-gray-100 text-gray-600 py-1 px-2 rounded-full">
+        <span className="text-[8px] sm:text-xs bg-gray-100 text-gray-600 py-0.5 sm:py-1 px-1.5 sm:px-2 rounded-full">
           Últimos dias
         </span>
       </div>
 
-      <div className="h-full w-full flex-1 min-h-[160px] sm:min-h-[200px] animate-on-scroll from-bottom animate-in">
-        <ChartContainer config={chartConfig} className="h-full text-xs">
+      <div className="h-full w-full flex-1 min-h-[80px] sm:min-h-[200px] animate-on-scroll from-bottom animate-in">
+        <ChartContainer config={chartConfig} className="h-full text-[8px] sm:text-xs">
           <AreaChart
             data={data}
             margin={{
               top: 5,
-              right: isMobile ? 5 : 15,
-              bottom: isMobile ? 15 : 20,
-              left: isMobile ? 0 : 5,
+              right: isMobile ? 0 : 15,
+              bottom: isMobile ? 10 : 20,
+              left: isMobile ? -5 : 5,
             }}
           >
             <defs>
@@ -59,28 +59,28 @@ const ActivityChart = ({ data, isMobile }: ActivityChartProps) => {
             <XAxis
               dataKey="name"
               stroke="#888"
-              fontSize={8}
+              fontSize={isMobile ? 6 : 8}
               tickLine={false}
               axisLine={false}
-              tick={{ fontSize: 8 }}
+              tick={{ fontSize: isMobile ? 6 : 8 }}
               dy={5}
               interval={0}
             />
             <YAxis
               stroke="#888"
-              fontSize={8}
+              fontSize={isMobile ? 6 : 8}
               tickLine={false}
               axisLine={false}
-              tick={{ fontSize: 8 }}
-              width={20}
-              dx={isMobile ? -5 : 0}
+              tick={{ fontSize: isMobile ? 6 : 8 }}
+              width={isMobile ? 15 : 20}
+              dx={isMobile ? -8 : 0}
             />
             <Tooltip
               content={({ active, payload }) => {
                 if (active && payload && payload.length) {
                   return (
                     <ChartTooltipContent
-                      className="border-primary/20 bg-white/95 backdrop-blur-sm"
+                      className="border-primary/20 bg-white/95 backdrop-blur-sm text-[8px] sm:text-xs"
                       indicator="dot"
                       payload={payload.map((item) => ({
                         ...item,
@@ -100,7 +100,7 @@ const ActivityChart = ({ data, isMobile }: ActivityChartProps) => {
               strokeWidth={1.5}
               fillOpacity={1}
               fill="url(#colorActivity)"
-              activeDot={{ r: isMobile ? 3 : 4, strokeWidth: 0, fill: "#00af6b" }}
+              activeDot={{ r: isMobile ? 2 : 4, strokeWidth: 0, fill: "#00af6b" }}
             />
           </AreaChart>
         </ChartContainer>
