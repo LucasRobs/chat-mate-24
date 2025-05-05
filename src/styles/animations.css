@@ -104,6 +104,17 @@
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   }
 
+  /* Navbar scroll states */
+  .navbar-top {
+    @apply shadow-md;
+    transform: translateY(0);
+  }
+
+  .navbar-scrolled {
+    @apply shadow-lg;
+    transform: translateY(0);
+  }
+
   /* Acrylic styles for navbar and components */
   .acrylic {
     @apply bg-white/70 backdrop-blur-md backdrop-saturate-150 border border-gray-100;
