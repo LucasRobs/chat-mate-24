@@ -90,8 +90,15 @@ export default function Navbar() {
           ))}
         </div>
 
-        {$1
-            <span className="ml-1 text-sm text-secondary font-medium">Entrar</span>$2
+        {!isMobile && (
+          <Link
+            to="https://www.followop.com.br/login"
+            target="_blank"
+            className="shrink-0 flex items-center justify-center bg-white/40 px-3 py-1.5 rounded-full hover:bg-white/70 transition-colors shadow-sm active:shadow-inner"
+          >
+            <User className="w-4 h-4 text-secondary" />
+            <span className="ml-2 text-sm text-secondary font-medium">Entrar</span>
+          </Link>
         )}
 
         {isMobile && (
