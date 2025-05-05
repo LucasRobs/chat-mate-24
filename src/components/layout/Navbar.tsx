@@ -1,9 +1,10 @@
+
 "use client";
 
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { Home, DollarSign, Building, User } from "lucide-react";
-import Link from "next/link";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   const [scrollY, setScrollY] = useState(0);
@@ -46,9 +47,9 @@ export default function Navbar() {
             compact ? "gap-4 px-3 py-2" : "gap-6 px-6 py-3"
           )}
         >
-          <Link href="#"><DollarSign className="w-5 h-5 text-muted-foreground" /></Link>
-          <Link href="#"><Building className="w-5 h-5 text-muted-foreground" /></Link>
-          <Link href="#"><User className="w-5 h-5 text-muted-foreground" /></Link>
+          <Link to="#"><DollarSign className="w-5 h-5 text-muted-foreground" /></Link>
+          <Link to="#"><Building className="w-5 h-5 text-muted-foreground" /></Link>
+          <Link to="#"><User className="w-5 h-5 text-muted-foreground" /></Link>
         </div>
 
         {/* Botão lateral direito */}
