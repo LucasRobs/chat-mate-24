@@ -115,7 +115,7 @@ const Pricing = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    TESTE GRÁTIS
+                    Ver detalhes
                     <ArrowRight size={16} />
                   </a>
                 </Button>

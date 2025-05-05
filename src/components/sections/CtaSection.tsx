@@ -26,7 +26,7 @@ const CtaSection = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                TESTE GRÁTIS 7 DIAS
+                Ver detalhes dos planos
                 <span className="bg-[#2D2D4A] text-white p-1 rounded-full">
                   <ArrowRight size={12} />
                 </span>

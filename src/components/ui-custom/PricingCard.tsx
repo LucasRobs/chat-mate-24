@@ -71,11 +71,8 @@ const PricingCard = ({
               : "bg-gray-900 hover:bg-gray-800"
           )}
         >
-          Comece Agora
+          Ver detalhes
         </Button>
-        <p className="text-center text-gray-500 text-xs mt-4">
-          Sem necessidade de cartão de crédito
-        </p>
       </div>
     </div>
   );
