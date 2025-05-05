@@ -21,20 +21,20 @@ export default function Navbar() {
     <div
       className={cn(
         "fixed z-50 left-1/2 -translate-x-1/2 top-4 transition-all duration-300",
-        compact ? "w-[300px] h-14" : "w-[95%] h-20"
+        compact ? "w-[280px] h-12" : "w-[90%] h-16"
       )}
     >
       <div
         className={cn(
           "acrylic rounded-full shadow-md border border-white/30 flex items-center justify-between transition-all duration-300 px-4",
-          compact ? "h-14 gap-4" : "h-20 gap-6"
+          compact ? "h-12 gap-3" : "h-16 gap-4"
         )}
       >
         {/* Logo */}
         <div
           className={cn(
-            "transition-all duration-300 flex items-center justify-center bg-primary rounded-full",
-            compact ? "w-10 h-10" : "w-14 h-14"
+            "transition-all duration-300 flex items-center justify-center bg-white rounded-full overflow-hidden",
+            compact ? "w-8 h-8" : "w-10 h-10"
           )}
         >
           <img 
@@ -48,20 +48,20 @@ export default function Navbar() {
         <div
           className={cn(
             "flex items-center bg-muted/40 rounded-full transition-all duration-300",
-            compact ? "gap-4 px-3 py-2" : "gap-6 px-6 py-3"
+            compact ? "gap-3 px-2 py-1.5" : "gap-4 px-4 py-2"
           )}
         >
           <Link to="#" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
-            <DollarSign className="w-5 h-5" />
-            {!compact && <span className="font-medium">Financeiro</span>}
+            <DollarSign className="w-4 h-4" />
+            {!compact && <span className="text-sm font-medium">Financeiro</span>}
           </Link>
           <Link to="#" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
-            <Building className="w-5 h-5" />
-            {!compact && <span className="font-medium">Empresa</span>}
+            <Building className="w-4 h-4" />
+            {!compact && <span className="text-sm font-medium">Empresa</span>}
           </Link>
           <Link to="#" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
-            <User className="w-5 h-5" />
-            {!compact && <span className="font-medium">Perfil</span>}
+            <User className="w-4 h-4" />
+            {!compact && <span className="text-sm font-medium">Perfil</span>}
           </Link>
         </div>
 
@@ -70,15 +70,15 @@ export default function Navbar() {
           <div
             className={cn(
               "transition-all duration-300 flex items-center justify-center bg-secondary rounded-full group-hover:bg-secondary/90",
-              compact ? "w-10 h-10" : "h-14 px-5"
+              compact ? "w-8 h-8" : "h-10 px-4"
             )}
           >
             {compact ? (
-              <LogIn className="text-white w-5 h-5" />
+              <LogIn className="text-white w-4 h-4" />
             ) : (
               <div className="flex items-center gap-2">
-                <LogIn className="text-white w-5 h-5" />
-                <span className="text-white font-medium">Entrar</span>
+                <LogIn className="text-white w-4 h-4" />
+                <span className="text-white text-sm font-medium">Entrar</span>
               </div>
             )}
           </div>
