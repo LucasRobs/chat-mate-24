@@ -2,38 +2,61 @@
 
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
-import { User } from "lucide-react";
+import { Menu, X, User } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 export default function Navbar() {
   const [scrollY, setScrollY] = useState(0);
+  const [prevScrollY, setPrevScrollY] = useState(0);
+  const [isHidden, setIsHidden] = useState(false);
+  const [activeSection, setActiveSection] = useState<string | null>(null);
+  const [isOpen, setIsOpen] = useState(false);
   const isMobile = useIsMobile();
 
   useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
+    const handleScroll = () => {
+      const currentY = window.scrollY;
+      setIsHidden(currentY > prevScrollY && currentY > 80);
+      setPrevScrollY(currentY);
+      setScrollY(currentY);
+
+      const sections = ["features", "pricing", "partners"];
+      for (let id of sections) {
+        const el = document.getElementById(id);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= 120 && rect.bottom > 120) {
+            setActiveSection(id);
+            break;
+          }
+        }
+      }
+    };
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [prevScrollY]);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
+    setIsOpen(false);
   };
 
   return (
     <div
       className={cn(
-        "fixed z-50 top-2 left-1/2 -translate-x-1/2 transition-all duration-300",
-        "w-[90%] sm:w-[600px] h-14" // Responsivo: 90% em mobile, 600px em telas médias+
+        "fixed z-50 left-1/2 -translate-x-1/2 transition-all duration-500 ease-in-out",
+        "w-[95%] sm:w-[760px]",
+        scrollY > 10 ? "bg-white shadow-md top-0" : "bg-transparent top-2",
+        isHidden ? "-translate-y-full" : "translate-y-0"
       )}
     >
-      <div className="acrylic border border-white/30 shadow-md rounded-full px-6 h-full flex items-center justify-between gap-4">
-        
-        {/* Logo */}
-        <div className="w-6 h-6 bg-white rounded-full overflow-hidden shrink-0">
+      <div className="acrylic border border-white/30 rounded-full px-6 h-16 flex items-center justify-between gap-3 animate-fade-in">
+        <div className="w-7 h-7 bg-white rounded-full overflow-hidden shrink-0">
           <img
             src="/lovable-uploads/02e6e528-86eb-4a69-a7aa-f901007e7ef3.png"
             alt="Logo"
@@ -41,39 +64,52 @@ export default function Navbar() {
           />
         </div>
 
-        {/* Navegação */}
         {!isMobile && (
-          <div className="flex items-center gap-8">
-            <button
-              onClick={() => scrollToSection("features")}
-              className="text-muted-foreground hover:text-primary text-sm font-medium transition-colors"
-            >
-              Funções
-            </button>
-            <button
-              onClick={() => scrollToSection("pricing")}
-              className="text-muted-foreground hover:text-primary text-sm font-medium transition-colors"
-            >
-              Planos
-            </button>
-            <button
-              onClick={() => scrollToSection("partners")}
-              className="text-muted-foreground hover:text-primary text-sm font-medium transition-colors"
-            >
-              Parceiros
-            </button>
+          <div className="flex items-center gap-6">
+            {[
+              { id: "features", label: "Funções" },
+              { id: "pricing", label: "Planos" },
+              { id: "partners", label: "Parceiros" }
+            ].map(({ id, label }) => (
+              <button
+                key={id}
+                onClick={() => scrollToSection(id)}
+                className={cn(
+                  "text-sm font-medium transition-colors",
+                  activeSection === id ? "text-primary" : "text-muted-foreground hover:text-primary"
+                )}
+              >
+                {label}
+              </button>
+            ))}
           </div>
         )}
 
-        {/* Acesso/Login */}
-        <Link
-          to="https://www.followop.com.br/login"
-          target="_blank"
-          className="shrink-0 flex items-center justify-center"
-        >
-          <User className="w-5 h-5 text-muted-foreground" />
-        </Link>
+        {!isMobile && (
+          <Link
+            to="https://www.followop.com.br/login"
+            target="_blank"
+            className="shrink-0 flex items-center justify-center"
+          >
+            <User className="w-5 h-5 text-muted-foreground" />
+          </Link>
+        )}
+
+        {isMobile && (
+          <button onClick={() => setIsOpen(!isOpen)} className="text-muted-foreground">
+            {isOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
+        )}
       </div>
+
+      {isMobile && isOpen && (
+        <div className="mt-2 w-full bg-white rounded-xl shadow-md p-4 space-y-4 animate-slide-in-down">
+          <button onClick={() => scrollToSection("features")} className="block w-full text-left text-muted-foreground hover:text-primary text-base">Funções</button>
+          <button onClick={() => scrollToSection("pricing")} className="block w-full text-left text-muted-foreground hover:text-primary text-base">Planos</button>
+          <button onClick={() => scrollToSection("partners")} className="block w-full text-left text-muted-foreground hover:text-primary text-base">Parceiros</button>
+          <Link to="https://www.followop.com.br/login" target="_blank" className="block w-full text-left text-muted-foreground hover:text-primary text-base">Login</Link>
+        </div>
+      )}
     </div>
   );
 }
