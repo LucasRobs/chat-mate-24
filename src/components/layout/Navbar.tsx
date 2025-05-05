@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useEffect, useState } from "react";
@@ -44,31 +45,38 @@ export default function Navbar() {
 
   return (
     <div
-      className={cn("left-0 right-0 mx-auto", )}
+      className={cn(
+        "fixed z-50 left-1/2 -translate-x-1/2 transition-all duration-500 ease-in-out",
+        scrollY > 10
+          ? "w-[340px] sm:w-[400px] bg-white shadow-md top-2 h-12"
+          : "w-[95%] sm:w-[760px] bg-transparent top-2 h-16"
+      )}
     >
-      <div className={cn(
-        "border border-white/30 px-3 flex items-center justify-between gap-2 transition-all duration-500 ease-in-out",
-        scrollY > 10 ? "h-9" : "h-12"
-      )}>
-        <div className="w-5 h-5 bg-white rounded-full overflow-hidden shrink-0">
-          <img
-            src="/lovable-uploads/02e6e528-86eb-4a69-a7aa-f901007e7ef3.png"
-            alt="Logo"
-            className="w-full h-full object-contain p-0.5"
-          />
+      <div 
+        className={cn(
+          "acrylic border border-white/30 rounded-full px-6 flex items-center justify-between gap-3 transition-all duration-300",
+          scrollY > 10 ? "h-12" : "h-16"
+        )}
+      >
+        <div className="flex items-center gap-2">
+          <div className="w-7 h-7 bg-white rounded-full overflow-hidden shrink-0">
+            <img
+              src="/lovable-uploads/02e6e528-86eb-4a69-a7aa-f901007e7ef3.png"
+              alt="Logo"
+              className="w-full h-full object-contain p-0.5"
+            />
+          </div>
+          <span className="font-semibold text-secondary">followop</span>
         </div>
 
         {!isMobile && (
-          <div className={cn(
-            "flex items-center gap-4 transition-all duration-300",
-            scrollY > 10 ? "scale-95" : "scale-100"
-          )}>
+          <div className="flex items-center gap-8">
             {[{ id: "features", label: "Funções" }, { id: "pricing", label: "Planos" }, { id: "partners", label: "Parceiros" }].map(({ id, label }) => (
               <button
                 key={id}
                 onClick={() => scrollToSection(id)}
                 className={cn(
-                  "text-xs sm:text-sm font-medium transition-all duration-300 hover:text-primary hover:scale-105 active:scale-95",
+                  "text-sm font-medium transition-colors hover:text-primary",
                   activeSection === id
                     ? "text-primary"
                     : "text-muted-foreground"
@@ -84,7 +92,7 @@ export default function Navbar() {
           <Link
             to="https://www.followop.com.br/login"
             target="_blank"
-            className="shrink-0 flex items-center justify-center bg-white/40 p-1.5 rounded-full hover:bg-white/70 transition-colors shadow-sm active:shadow-inner"
+            className="shrink-0 flex items-center justify-center bg-white/50 p-2 rounded-full hover:bg-white/80 transition-colors"
           >
             <User className="w-4 h-4 text-secondary" />
           </Link>
@@ -93,39 +101,39 @@ export default function Navbar() {
         {isMobile && (
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="text-muted-foreground"
+            className="text-secondary bg-white/50 p-2 rounded-full hover:bg-white/80 transition-colors"
           >
-            {isOpen ? <X size={18} /> : <Menu size={18} />}
+            {isOpen ? <X size={16} /> : <Menu size={16} />}
           </button>
         )}
       </div>
 
       {isMobile && isOpen && (
-        <div className="absolute right-0 left-0 mt-2 mx-auto max-w-[280px] bg-white/90 backdrop-blur-md rounded-xl shadow-md p-4 space-y-3 animate-slide-in-down">
+        <div className="mt-2 w-full bg-white rounded-xl shadow-md p-4 space-y-4 animate-fade-in-down">
           <button
             onClick={() => scrollToSection("features")}
-            className="flex items-center gap-2 text-muted-foreground hover:text-primary text-sm transition-transform duration-300 hover:scale-105 active:scale-95"
+            className="block w-full text-left text-muted-foreground hover:text-primary text-base"
           >
-            <LayoutGrid size={16} /> Funções
+            Funções
           </button>
           <button
             onClick={() => scrollToSection("pricing")}
-            className="flex items-center gap-2 text-muted-foreground hover:text-primary text-sm transition-transform duration-300 hover:scale-105 active:scale-95"
+            className="block w-full text-left text-muted-foreground hover:text-primary text-base"
           >
-            <DollarSign size={16} /> Planos
+            Planos
           </button>
           <button
             onClick={() => scrollToSection("partners")}
-            className="flex items-center gap-2 text-muted-foreground hover:text-primary text-sm transition-transform duration-300 hover:scale-105 active:scale-95"
+            className="block w-full text-left text-muted-foreground hover:text-primary text-base"
           >
-            <Handshake size={16} /> Parceiros
+            Parceiros
           </button>
           <Link
             to="https://www.followop.com.br/login"
             target="_blank"
-            className="flex items-center gap-2 text-muted-foreground hover:text-primary text-sm transition-transform duration-300 hover:scale-105 active:scale-95"
+            className="block w-full text-left text-muted-foreground hover:text-primary text-base"
           >
-            <User size={16} /> Login
+            Login
           </Link>
         </div>
       )}
