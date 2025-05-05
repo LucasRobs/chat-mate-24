@@ -76,8 +76,8 @@ const Hero = () => {
     <section className="relative bg-white overflow-hidden py-10 sm:py-12 md:py-16 lg:py-20 mobile-container">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        {/* Meta badge centralized with proper spacing */}
-        <div className="mb-6 mt-4">
+        {/* Meta badge centralized with proper spacing - adjusted for mobile */}
+        <div className={`${isMobile ? "mb-4 mt-8" : "mb-6 mt-4"}`}>
           <MetaTechPartnerBadge />
         </div>
 
