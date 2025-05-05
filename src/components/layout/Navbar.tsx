@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useEffect, useState } from "react";
@@ -38,7 +39,7 @@ export default function Navbar() {
     >
       <div
         className={cn(
-          "acrylic border border-white/30 shadow-md rounded-full flex items-center justify-between px-3 transition-all duration-300",
+          "acrylic border border-white/30 shadow-md rounded-full flex items-center justify-between px-4 transition-all duration-300",
           "h-full"
         )}
       >
@@ -55,22 +56,22 @@ export default function Navbar() {
 
         {/* Navegação */}
         {!isMobile && (
-          <div className="flex items-center gap-4 bg-muted/40 px-3 py-1 rounded-full">
+          <div className="flex items-center gap-8 bg-muted/40 px-5 py-1.5 rounded-full">
             <button
               onClick={() => scrollToSection("features")}
-              className="text-muted-foreground hover:text-primary text-xs font-medium transition-colors"
+              className="text-muted-foreground hover:text-primary text-sm font-medium transition-colors"
             >
               Funcionalidades
             </button>
             <button
               onClick={() => scrollToSection("pricing")}
-              className="text-muted-foreground hover:text-primary text-xs font-medium transition-colors"
+              className="text-muted-foreground hover:text-primary text-sm font-medium transition-colors"
             >
               Planos
             </button>
             <button
               onClick={() => scrollToSection("partners")}
-              className="text-muted-foreground hover:text-primary text-xs font-medium transition-colors"
+              className="text-muted-foreground hover:text-primary text-sm font-medium transition-colors"
             >
               Parceiros
             </button>
@@ -79,7 +80,7 @@ export default function Navbar() {
 
         {/* Acesso */}
         <Link to="https://www.followop.com.br/login" target="_blank" className="flex items-center gap-1">
-          <User className="w-4 h-4 text-muted-foreground" />
+          <User className="w-5 h-5 text-muted-foreground" />
         </Link>
       </div>
     </div>
