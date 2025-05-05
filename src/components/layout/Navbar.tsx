@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import { Menu, X, User } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { Button } from "@/components/ui/button";
 
 export default function Navbar() {
   const [scrollY, setScrollY] = useState(0);
@@ -47,33 +48,38 @@ export default function Navbar() {
       className={cn(
         "fixed z-50 left-1/2 -translate-x-1/2 transition-all duration-500 ease-in-out",
         scrollY > 10
-          ? "w-[320px] sm:w-[380px] bg-white shadow-md top-2 h-12"
+          ? "w-[340px] sm:w-[400px] bg-white shadow-md top-2 h-12"
           : "w-[95%] sm:w-[760px] bg-transparent top-2 h-16"
       )}
     >
-      <div className={cn(
-        "acrylic border border-white/30 rounded-full px-6 flex items-center justify-between gap-3 transition-all duration-300",
-        scrollY > 10 ? "h-12" : "h-16"
-      )}>
-        <div className="w-7 h-7 bg-white rounded-full overflow-hidden shrink-0">
-          <img
-            src="/lovable-uploads/02e6e528-86eb-4a69-a7aa-f901007e7ef3.png"
-            alt="Logo"
-            className="w-full h-full object-contain p-0.5"
-          />
+      <div 
+        className={cn(
+          "acrylic border border-white/30 rounded-full px-6 flex items-center justify-between gap-3 transition-all duration-300",
+          scrollY > 10 ? "h-12" : "h-16"
+        )}
+      >
+        <div className="flex items-center gap-2">
+          <div className="w-7 h-7 bg-white rounded-full overflow-hidden shrink-0">
+            <img
+              src="/lovable-uploads/02e6e528-86eb-4a69-a7aa-f901007e7ef3.png"
+              alt="Logo"
+              className="w-full h-full object-contain p-0.5"
+            />
+          </div>
+          <span className="font-medium text-secondary text-sm hidden sm:block">FollowOp</span>
         </div>
 
-        {(!isMobile && scrollY <= 10) && (
-          <div className="flex items-center gap-6">
+        {!isMobile && (
+          <div className="flex items-center gap-8">
             {[{ id: "features", label: "Funções" }, { id: "pricing", label: "Planos" }, { id: "partners", label: "Parceiros" }].map(({ id, label }) => (
               <button
                 key={id}
                 onClick={() => scrollToSection(id)}
                 className={cn(
-                  "text-sm font-medium transition-colors",
+                  "text-sm font-medium transition-colors hover:text-primary",
                   activeSection === id
                     ? "text-primary"
-                    : "text-muted-foreground hover:text-primary"
+                    : "text-muted-foreground"
                 )}
               >
                 {label}
@@ -82,26 +88,28 @@ export default function Navbar() {
           </div>
         )}
 
-        <Link
-          to="https://www.followop.com.br/login"
-          target="_blank"
-          className="shrink-0 flex items-center justify-center"
-        >
-          <User className="w-5 h-5 text-muted-foreground" />
-        </Link>
+        {!isMobile && (
+          <Link
+            to="https://www.followop.com.br/login"
+            target="_blank"
+            className="shrink-0 flex items-center justify-center bg-white/50 p-2 rounded-full hover:bg-white/80 transition-colors"
+          >
+            <User className="w-4 h-4 text-secondary" />
+          </Link>
+        )}
 
         {isMobile && (
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="text-muted-foreground"
+            className="text-secondary bg-white/50 p-2 rounded-full hover:bg-white/80 transition-colors"
           >
-            {isOpen ? <X size={20} /> : <Menu size={20} />}
+            {isOpen ? <X size={16} /> : <Menu size={16} />}
           </button>
         )}
       </div>
 
       {isMobile && isOpen && (
-        <div className="mt-2 w-full bg-white rounded-xl shadow-md p-4 space-y-4 animate-slide-in-down">
+        <div className="mt-2 w-full bg-white rounded-xl shadow-md p-4 space-y-4 animate-fade-in-down">
           <button
             onClick={() => scrollToSection("features")}
             className="block w-full text-left text-muted-foreground hover:text-primary text-base"
