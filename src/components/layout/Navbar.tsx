@@ -47,8 +47,8 @@ export default function Navbar() {
       className={cn(
         "fixed z-50 left-1/2 -translate-x-1/2 transition-all duration-500 ease-in-out backdrop-blur-lg backdrop-saturate-150 rounded-full",
         scrollY > 10
-          ? "w-[240px] sm:w-[320px] bg-white/70 shadow-lg top-2 h-10"
-          : "w-[90%] sm:w-[600px] bg-white/50 shadow-md top-2 h-14"
+          ? "w-[280px] sm:w-[400px] bg-white/70 shadow-lg top-2 h-10"
+          : "w-[95%] sm:w-[680px] bg-white/50 shadow-md top-2 h-14"
       )}
     >
       <div
