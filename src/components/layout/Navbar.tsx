@@ -21,7 +21,7 @@ export default function Navbar() {
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -32,50 +32,46 @@ export default function Navbar() {
         isMobile
           ? "w-[94%] h-14"
           : compact
-            ? "w-[280px] h-14"
-            : "w-[75%] h-14"
+          ? "w-[280px] h-14"
+          : "w-[75%] h-14"
       )}
     >
       <div className="acrylic border border-white/30 shadow-md rounded-full px-4 h-full flex items-center justify-between gap-4">
         
         {/* Logo */}
-        <div className="flex items-center gap-2 shrink-0">
-          <div className="w-6 h-6 bg-white rounded-full overflow-hidden">
-            <img
-              src="/lovable-uploads/02e6e528-86eb-4a69-a7aa-f901007e7ef3.png"
-              alt="Logo"
-              className="w-full h-full object-contain p-0.5"
-            />
-          </div>
+        <div className="w-6 h-6 bg-white rounded-full overflow-hidden shrink-0">
+          <img
+            src="/lovable-uploads/02e6e528-86eb-4a69-a7aa-f901007e7ef3.png"
+            alt="Logo"
+            className="w-full h-full object-contain p-0.5"
+          />
         </div>
 
-        {/* Navegação central */}
+        {/* Navegação - distribuída no centro */}
         {!isMobile && (
-          <div className="flex-1 flex items-center justify-center">
-            <div className="flex gap-8 bg-muted/40 px-6 py-1.5 rounded-full">
-              <button
-                onClick={() => scrollToSection("features")}
-                className="text-muted-foreground hover:text-primary text-sm font-medium transition-colors"
-              >
-                Funções
-              </button>
-              <button
-                onClick={() => scrollToSection("pricing")}
-                className="text-muted-foreground hover:text-primary text-sm font-medium transition-colors"
-              >
-                Planos
-              </button>
-              <button
-                onClick={() => scrollToSection("partners")}
-                className="text-muted-foreground hover:text-primary text-sm font-medium transition-colors"
-              >
-                Parceiros
-              </button>
-            </div>
+          <div className="flex flex-1 items-center justify-center gap-10">
+            <button
+              onClick={() => scrollToSection("features")}
+              className="text-muted-foreground hover:text-primary text-sm font-medium transition-colors"
+            >
+              Funções
+            </button>
+            <button
+              onClick={() => scrollToSection("pricing")}
+              className="text-muted-foreground hover:text-primary text-sm font-medium transition-colors"
+            >
+              Planos
+            </button>
+            <button
+              onClick={() => scrollToSection("partners")}
+              className="text-muted-foreground hover:text-primary text-sm font-medium transition-colors"
+            >
+              Parceiros
+            </button>
           </div>
         )}
 
-        {/* Acesso/Login */}
+        {/* Acesso/Login - parte da estrutura centralizada */}
         <Link
           to="https://www.followop.com.br/login"
           target="_blank"
