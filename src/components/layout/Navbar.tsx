@@ -47,14 +47,14 @@ export default function Navbar() {
       className={cn(
         "fixed z-50 left-1/2 -translate-x-1/2 transition-all duration-500 ease-in-out backdrop-blur-lg backdrop-saturate-150 rounded-full",
         scrollY > 10
-          ? "w-[95%] max-w-[640px] bg-white/70 shadow-lg top-2 h-10"
-          : "w-[95%] max-w-[720px] bg-white/50 shadow-md top-2 h-14"
+          ? "w-[90%] max-w-[560px] bg-white/70 shadow-lg top-2 h-12"
+          : "w-[90%] max-w-[620px] bg-white/50 shadow-md top-2 h-14"
       )}
     >
       <div
         className={cn(
           "border border-white/30 px-4 flex items-center justify-between gap-3 transition-all duration-500 ease-in-out rounded-full",
-          scrollY > 10 ? "h-10" : "h-14"
+          scrollY > 10 ? "h-12" : "h-14"
         )}
       >
         <div className="flex items-center gap-2">
@@ -70,10 +70,12 @@ export default function Navbar() {
           )}
         </div>
 
-        <div className={cn(
-          "flex items-center gap-6 transition-all duration-300",
-          scrollY > 10 ? "scale-95" : "scale-100"
-        )}>
+        <div
+          className={cn(
+            "flex items-center gap-6 transition-all duration-300",
+            scrollY > 10 ? "scale-95" : "scale-100"
+          )}
+        >
           {[{ id: "features", label: "Funções" }, { id: "pricing", label: "Planos" }, { id: "partners", label: "Parceiros" }].map(({ id, label }) => (
             <button
               key={id}
