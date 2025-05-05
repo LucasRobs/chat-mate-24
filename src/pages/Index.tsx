@@ -9,6 +9,7 @@ import Pricing from "@/components/sections/Pricing";
 import Partners from "@/components/sections/Partners";
 import Testimonials from "@/components/sections/Testimonials";
 import CtaSection from "@/components/sections/CtaSection";
+import Comparison from "@/components/sections/Comparison";
 import WistiaScriptLoader from "@/components/utils/WistiaScriptLoader";
 import { Toaster } from "@/components/ui/toaster";
 
@@ -42,6 +43,7 @@ const Index = () => {
         <main className="flex-1">
           <Hero />
           <Benefits />
+          <Comparison />
           <Testimonials />
           <Pricing />
           <Partners />

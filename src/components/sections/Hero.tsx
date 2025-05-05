@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { ArrowRight, Bell, Calendar, BarChart2 } from "lucide-react";
@@ -25,18 +26,12 @@ const MetaTechPartnerBadge = () => (
 
 // System Features Component
 const SystemFeatures = () => (
-  <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-3 max-w-2xl mx-auto mt-4 mb-6">
+  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 max-w-2xl mx-auto mt-4 mb-6">
     <div className="bg-white/80 backdrop-blur-sm rounded-xl p-3 shadow-sm border border-gray-100 text-center">
       <div className="w-8 h-8 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-2">
         <Bell className="w-4 h-4 text-blue-500" />
       </div>
       <p className="text-xs font-medium text-gray-800">Automação de Fluxos</p>
-    </div>
-    <div className="bg-white/80 backdrop-blur-sm rounded-xl p-3 shadow-sm border border-gray-100 text-center">
-      <div className="w-8 h-8 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-2">
-        <Calendar className="w-4 h-4 text-green-500" />
-      </div>
-      <p className="text-xs font-medium text-gray-800">Atendente IA</p>
     </div>
     <div className="bg-white/80 backdrop-blur-sm rounded-xl p-3 shadow-sm border border-gray-100 text-center">
       <div className="w-8 h-8 bg-purple-50 rounded-full flex items-center justify-center mx-auto mb-2">
@@ -106,9 +101,9 @@ const Hero = () => {
           </h2>
 
           <p className="mt-4 text-base sm:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed font-light">
-            Trabalhe de forma mais inteligente sem perder performance
+            Potencialize seu negócio de forma inteligente
             {!isMobile && <br className="hidden md:inline" />}
-            {' '}aumente seus resultados e eleve o atendimento do seu negócio a outro nível.
+            {' '}e eleve seu atendimento a outro nível.
           </p>
 
           {/* System Features */}
@@ -121,7 +116,7 @@ const Hero = () => {
               size="lg"
               className="text-sm py-2.5 flex items-center gap-2 h-auto animated-button"
             >
-              TESTE GRÁTIS 7 DIAS
+              Ver detalhes dos planos
               <span className="bg-[#2D2D4A] text-white p-1 rounded-full">
                 <ArrowRight size={12} />
               </span>

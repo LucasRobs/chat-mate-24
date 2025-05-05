@@ -14,7 +14,7 @@ const ClosingCtaSection = () => {
         </h2>
 
         <p className="mt-2 sm:mt-3 text-sm sm:text-base text-gray-500 font-light">
-          Comece agora e aumente suas vendas no WhatsApp!
+          Transforme seu WhatsApp em uma máquina de vendas!
         </p>
 
         <div className="mt-6 sm:mt-8">
@@ -29,7 +29,7 @@ const ClosingCtaSection = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              TESTE GRÁTIS 7 DIAS
+              Ver detalhes dos planos
               <span className="bg-[#2D2D4A] text-white p-1 rounded-full">
                 <ArrowRight size={12} />
               </span>

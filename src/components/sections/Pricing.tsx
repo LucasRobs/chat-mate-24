@@ -69,7 +69,7 @@ const Pricing = () => {
           Escolha o plano ideal para o seu negócio
         </h2>
         <p className="mt-3 text-base text-gray-600">
-          Cancele a qualquer momento. Sem compromisso de fidelidade.
+          Sem compromisso de fidelidade. Cancele quando quiser.
         </p>
 
         {/* Planos centralizados */}

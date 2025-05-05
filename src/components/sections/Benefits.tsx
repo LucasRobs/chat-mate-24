@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from "react";
-import { Clock, DollarSign, MessageCircle, Headphones, Zap } from "lucide-react";
+import { Clock, DollarSign, MessageCircle } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 const BenefitItem = ({ icon: Icon, title, description, delay }) => {
@@ -47,18 +47,18 @@ const Benefits = () => {
   const benefits = [
     {
       icon: Clock,
-      title: "Tempo é Ouro: Atendimento 24/7",
-      description: "Seu atendimento sempre ativo, dia e noite, aumentando suas chances de venda."
+      title: "Atendimento 24/7",
+      description: "Esteja disponível para seus clientes a qualquer hora do dia, aumentando suas chances de venda."
     },
     {
       icon: DollarSign,
-      title: "Lucro Inteligente: Custo Reduzido em 97%",
-      description: "Substitua gastos com SDR humano por uma solução de apenas R$ 0,44/hora."
+      title: "Redução de custos em 97%",
+      description: "Substitua gastos com atendimento humano por uma solução eficiente de apenas R$ 0,44/hora."
     },
     {
       icon: MessageCircle,
-      title: "Conversão Turbinada: Follow-up Que Vende",
-      description: "Nosso sistema automatizado engaja leads e acelera suas conversões."
+      title: "Conversão Inteligente",
+      description: "Sistema automatizado que engaja leads e acelera o processo de conversão em vendas."
     }
   ];
 

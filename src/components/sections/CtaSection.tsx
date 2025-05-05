@@ -8,10 +8,10 @@ const CtaSection = () => {
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
         <div className="bg-gradient-to-r from-secondary to-secondary/90 rounded-2xl p-5 sm:p-6 shadow-lg text-center">
           <h2 className="text-xl sm:text-2xl font-light text-white">
-            Pronto para um <span className="text-primary">Atendimento</span> que Vende Sozinho?
+            Pronto para transformar seu <span className="text-primary">Atendimento</span>?
           </h2>
           <p className="mt-2 text-sm sm:text-base text-white/90 font-light">
-            Comece agora. Sem compromisso. Cancele quando quiser.
+            Comece agora sem compromisso. Cancele quando quiser.
           </p>
 
           <div className="mt-5">
