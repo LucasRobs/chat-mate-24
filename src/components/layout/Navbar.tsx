@@ -45,10 +45,10 @@ export default function Navbar() {
   return (
     <div
       className={cn(
-        "fixed z-50 left-1/2 -translate-x-1/2 transition-all duration-500 ease-in-out",
+        "fixed z-50 left-1/2 -translate-x-1/2 transition-all duration-500 ease-in-out backdrop-blur-lg backdrop-saturate-150",
         scrollY > 10
-          ? "w-[320px] sm:w-[420px] bg-white shadow-md top-2 h-12 rounded-full"
-          : "w-[95%] sm:w-[760px] bg-white shadow-md top-2 h-16 rounded-full"
+          ? "w-[320px] sm:w-[420px] bg-white/70 shadow-md top-2 h-12 rounded-full"
+          : "w-[95%] sm:w-[760px] bg-white/50 shadow-md top-2 h-16 rounded-full"
       )}
     >
       <div className={cn(
@@ -73,10 +73,10 @@ export default function Navbar() {
                 key={id}
                 onClick={() => scrollToSection(id)}
                 className={cn(
-                  "text-sm font-medium transition-colors",
+                  "text-sm font-medium transition-all duration-300 hover:text-primary hover:scale-105",
                   activeSection === id
                     ? "text-primary"
-                    : "text-muted-foreground hover:text-primary"
+                    : "text-muted-foreground"
                 )}
               >
                 {label}
@@ -88,7 +88,7 @@ export default function Navbar() {
         <Link
           to="https://www.followop.com.br/login"
           target="_blank"
-          className="shrink-0 flex items-center justify-center bg-white/50 p-2 rounded-full hover:bg-white/80 transition-colors"
+          className="shrink-0 flex items-center justify-center bg-white/40 p-2 rounded-full hover:bg-white/70 transition-colors"
         >
           <User className="w-5 h-5 text-secondary" />
         </Link>
@@ -104,7 +104,7 @@ export default function Navbar() {
       </div>
 
       {isMobile && isOpen && (
-        <div className="mt-2 w-full bg-white rounded-xl shadow-md p-4 space-y-4 animate-slide-in-down">
+        <div className="mt-2 w-full bg-white/90 backdrop-blur-md rounded-xl shadow-md p-4 space-y-4 animate-slide-in-down">
           <button
             onClick={() => scrollToSection("features")}
             className="block w-full text-left text-muted-foreground hover:text-primary text-base"
