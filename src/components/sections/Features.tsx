@@ -1,3 +1,4 @@
+
 import { useEffect, useRef, useState } from "react";
 import FeatureCard from "../ui-custom/FeatureCard";
 import {
@@ -46,10 +47,10 @@ const Features = () => {
     <section id="features" ref={sectionRef} className="py-16 bg-gradient-to-b from-white to-primary/5 relative">
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 text-center">
         <span className="bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-medium">Funcionalidades</span>
-        <h2 className="mt-6 text-3xl md:text-4xl font-bold text-secondary">
-          Tudo o que você precisa para <span className="text-primary">vender mais</span> <span>no WhatsApp</span>
+        <h2 className="mt-6 text-3xl md:text-4xl font-light text-black">
+          Tudo o que você precisa para <span className="text-black">vender mais</span> <span>no WhatsApp</span>
         </h2>
-        <p className="mt-4 text-lg text-gray-600">
+        <p className="mt-4 text-lg text-gray-500 font-light">
           Nossas funcionalidades foram desenvolvidas para maximizar suas vendas e proporcionar a melhor experiência para seus clientes.
         </p>
       </div>
@@ -64,7 +65,7 @@ const Features = () => {
         <div className="text-center mt-10">
           <button
             onClick={() => setVisibleFeatures(features.length)}
-            className="inline-flex items-center justify-center px-8 py-3 text-base font-medium rounded-md text-white bg-primary hover:bg-primary/90 backdrop-blur-sm transition-all duration-500"
+            className="inline-flex items-center justify-center px-8 py-3 text-base font-light rounded-md text-white bg-primary hover:bg-primary/90 backdrop-blur-sm transition-all duration-500"
           >
             Explorar todas as funcionalidades
           </button>

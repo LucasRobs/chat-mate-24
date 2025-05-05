@@ -82,15 +82,15 @@ const Hero = () => {
         </div>
 
         <div className="text-center animate-on-scroll from-bottom animate-in mt-4" style={{ animationDelay: "0.3s" }}>
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-secondary mb-4 tracking-tight">
-            <span className="text-primary">Transforme</span> Seu Whatsapp:
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light tracking-tight text-black mb-4">
+            Transforme Seu Whatsapp:
           </h1>
 
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 mb-3">
-            Venda no automático com <span className="text-primary">inteligência Artificial</span>
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-light text-black mb-3">
+            Venda no automático com inteligência Artificial
           </h2>
 
-          <p className="mt-4 text-base sm:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+          <p className="mt-4 text-base sm:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed font-light">
             Trabalhe de forma mais inteligente sem perder performance
             {!isMobile && <br className="hidden md:inline" />}
             {' '}aumente seus resultados e eleve o atendimento do seu negócio a outro nível.

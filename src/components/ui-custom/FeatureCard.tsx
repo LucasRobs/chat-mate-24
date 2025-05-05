@@ -32,8 +32,8 @@ const FeatureCard = ({
         <Icon className="w-8 h-8 text-primary" />
       </div>
       
-      <h3 className="text-xl font-semibold text-secondary mb-3 group-hover:text-primary transition-colors duration-300">{title}</h3>
-      <p className="text-gray-600">{description}</p>
+      <h3 className="text-xl font-light text-black mb-3 group-hover:text-primary transition-colors duration-300">{title}</h3>
+      <p className="text-gray-500 font-light">{description}</p>
     </div>
   );
 };

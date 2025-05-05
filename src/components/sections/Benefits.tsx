@@ -12,8 +12,8 @@ const BenefitItem = ({ icon: Icon, title, description, delay }) => {
       <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4 relative">
         <Icon className="w-8 h-8 text-primary" />
       </div>
-      <h3 className="text-lg font-semibold text-gray-900 mb-2 whitespace-normal leading-tight">{title}</h3>
-      <p className="text-sm text-gray-600 leading-relaxed max-w-xs">{description}</p>
+      <h3 className="text-lg font-light text-black mb-2 whitespace-normal leading-tight">{title}</h3>
+      <p className="text-sm text-gray-500 leading-relaxed max-w-xs font-light">{description}</p>
     </div>
   );
 };
@@ -76,8 +76,8 @@ const Benefits = () => {
     <section id="benefits" className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 text-center">
         <div className={`mb-16 transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">Turbine Suas Vendas com Followop!</h2>
-          <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl font-light text-black">Turbine Suas Vendas com Followop!</h2>
+          <p className="mt-4 text-lg text-gray-500 max-w-2xl mx-auto font-light">
             Tecnologia de ponta gerando resultados incríveis para o seu negócio.
           </p>
         </div>
