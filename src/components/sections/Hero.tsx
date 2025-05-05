@@ -36,7 +36,7 @@ const SystemFeatures = () => (
       <div className="w-8 h-8 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-2">
         <Calendar className="w-4 h-4 text-green-500" />
       </div>
-      <p className="text-xs font-medium text-gray-800">Chatbot IA</p>
+      <p className="text-xs font-medium text-gray-800">Atendente IA</p>
     </div>
     <div className="bg-white/80 backdrop-blur-sm rounded-xl p-3 shadow-sm border border-gray-100 text-center">
       <div className="w-8 h-8 bg-purple-50 rounded-full flex items-center justify-center mx-auto mb-2">
