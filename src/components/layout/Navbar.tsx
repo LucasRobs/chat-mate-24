@@ -88,7 +88,7 @@ export default function Navbar() {
             onClick={() => scrollToSection('partners')}
             className="text-muted-foreground hover:text-primary transition-colors"
           >
-            <span className="text-xs font-medium">Empresas</span>
+            <span className="text-xs font-medium">Parceiros</span>
           </button>
         </div>
 
