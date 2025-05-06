@@ -4,9 +4,8 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import { ArrowRight, Bell, Calendar, BarChart2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Dashboard from "@/components/ui-custom/Dashboard";
-import ActivityChart from "@/components/ui-custom/ActivityChart";
 
-// Meta Tech Partner Badge Component
+// Meta Tech Partner Badge Component (refinado para linha única no mobile e estilo texto)
 const MetaTechPartnerBadge = () => (
   <div className="flex items-center gap-2 bg-transparent border-none px-0 py-0 text-xs font-medium text-gray-700 max-w-fit mx-auto">
     <div className="w-5 h-5 flex items-center justify-center">
@@ -78,22 +77,12 @@ const Hero = () => {
     }
   };
 
-  // Enhanced activity data to match the image style
   const activityData = [
-    { name: "7/04", value: 120 },
-    { name: "8/04", value: 20 },
-    { name: "9/04", value: 340 },
-    { name: "10/04", value: 50 },
+    { name: "5/04", value: 10 },
+    { name: "8/04", value: 120 },
     { name: "11/04", value: 60 },
-    { name: "12/04", value: 20 },
-    { name: "13/04", value: 80 },
-    { name: "14/04", value: 160 },
-    { name: "15/04", value: 30 },
-    { name: "16/04", value: 330 },
+    { name: "14/04", value: 170 },
     { name: "17/04", value: 90 },
-    { name: "18/04", value: 70 },
-    { name: "19/04", value: 20 },
-    { name: "20/04", value: 30 },
   ];
 
   return (
@@ -139,14 +128,10 @@ const Hero = () => {
         </div>
 
         <div className="mt-8 animate-on-scroll from-bottom animate-in max-w-4xl mx-auto px-1 sm:px-0" style={{ animationDelay: "0.5s" }}>
-          <div className="bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden">
-            <div className="p-4">
-              <ActivityChart 
-                data={activityData} 
-                isMobile={isMobile}
-              />
-            </div>
-          </div>
+          <Dashboard 
+            activityData={activityData} 
+            isMobile={isMobile}
+          />
         </div>
       </div>
     </section>
