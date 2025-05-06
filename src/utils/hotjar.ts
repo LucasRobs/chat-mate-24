@@ -1,9 +1,9 @@
 
-import { init } from '@hotjar/browser';
+import Hotjar from '@hotjar/browser';
 
 export const initHotjar = () => {
   const siteId = 6394624;
   const hotjarVersion = 6;
 
-  init(siteId, hotjarVersion);
+  Hotjar.init(siteId, hotjarVersion);
 };
