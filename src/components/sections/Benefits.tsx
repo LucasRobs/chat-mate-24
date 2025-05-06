@@ -28,11 +28,11 @@ const CountUp = ({ end, suffix = "", duration = 2000 }) => {
 const BenefitItem = ({ icon: Icon, title, description, number, delay }) => {
   return (
     <div
-      className="flex flex-col items-center p-6 text-center h-full transition-opacity duration-500 ease-in-out bg-white rounded-xl shadow-md hover:shadow-xl"
-      style={{ transitionDelay: `${delay}ms`, minHeight: '180px' }}
+      className="flex flex-col items-center p-6 text-center h-full transition-all duration-500 ease-in-out"
+      style={{ transitionDelay: `${delay}ms` }}
     >
-      <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4 relative">
-        <Icon className="w-8 h-8 text-primary" />
+      <div className="w-16 h-16 rounded-full flex items-center justify-center mb-4 relative animate-float">
+        <Icon className="w-10 h-10 text-primary" />
       </div>
       <div className="text-3xl font-bold text-primary mb-2">
         <CountUp end={number} suffix={title.includes("%") ? "%" : ""} />
