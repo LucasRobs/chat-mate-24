@@ -42,13 +42,23 @@ const MetaPartnerSection = () => {
               <span>Suporte direto da <strong>infraestrutura oficial</strong></span>
             </li>
           </ul>
-          <div className="mt-6">
+          <div className="mt-4 sm:mt-5">
             <Button
-              onClick={handleClick}
-              className="bg-green-500 hover:bg-green-600 text-white text-sm px-5 py-2 rounded-full flex items-center gap-2"
+              asChild
+              variant="apple"
+              size={isMobile ? "default" : "lg"}
+              className="inline-flex items-center justify-center gap-2 text-xs sm:text-sm py-2 sm:py-2.5 h-auto animated-button font-light"
             >
-              TESTE GRÁTIS 7 DIAS
-              <ArrowRight size={14} />
+              <a
+                href="https://www.followop.com.br/register"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Teste Grátis 7 dias
+                <span className="bg-[#2D2D4A] text-white p-1 rounded-full">
+                  <ArrowRight size={12} />
+                </span>
+              </a>
             </Button>
           </div>
         </div>
