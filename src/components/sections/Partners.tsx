@@ -61,7 +61,7 @@ const Partners = () => {
                 alt={`${partner.name} logo`}
                 className={`h-12 w-auto transition-all ${
                   partner.useDarkBlueFilter 
-                  ? "brightness-[0.85] hue-rotate-[210deg] saturate-[1.2]" 
+                  ? "brightness-[0.7] hue-rotate-[210deg] saturate-[1.2]" 
                   : ""
                 }`}
               />
