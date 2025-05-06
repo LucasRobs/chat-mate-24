@@ -5,9 +5,9 @@ import { ArrowRight, Bell, Calendar, BarChart2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Dashboard from "@/components/ui-custom/Dashboard";
 
-// Meta Tech Partner Badge Component (refined with Apple-inspired design)
+// Meta Tech Partner Badge Component (refinado para linha única no mobile e estilo texto)
 const MetaTechPartnerBadge = () => (
-  <div className="flex items-center gap-2 bg-white/90 backdrop-filter backdrop-blur-sm border border-gray-100 rounded-lg px-3 py-2 text-xs font-medium text-gray-700 max-w-fit mx-auto shadow-sm transition-all duration-300 hover:shadow-md">
+  <div className="flex items-center gap-2 bg-transparent border-none px-0 py-0 text-xs font-medium text-gray-700 max-w-fit mx-auto">
     <div className="w-5 h-5 flex items-center justify-center">
       <img 
         src="/lovable-uploads/c5206104-ee78-44ed-b432-e4d2a4bb0863.png" 
@@ -15,14 +15,17 @@ const MetaTechPartnerBadge = () => (
         className="w-full h-full object-contain"
       />
     </div>
-    <div className="flex flex-col sm:flex-row sm:items-center">
+    <div className="flex flex-wrap sm:flex-nowrap items-center gap-x-1 text-xs sm:text-sm text-gray-700">
       <span className="text-[#0668E1] font-semibold">Meta</span>
-      <span className="text-gray-700 sm:ml-1">Tech Partner</span>
-      <span className="hidden sm:inline text-gray-400 mx-1.5">|</span>
-      <span className="text-[10px] text-gray-500">Powered by WhatsApp Business API</span>
+      <span>Tech Partner</span>
+      <span className="text-gray-400 hidden sm:inline">|</span>
+      <span className="text-[10px] sm:text-xs text-gray-500 whitespace-nowrap">
+        Powered by WhatsApp Business API
+      </span>
     </div>
   </div>
 );
+
 
 // System Features Component
 const SystemFeatures = () => (
