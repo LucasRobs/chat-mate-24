@@ -11,7 +11,6 @@ import Testimonials from "@/components/sections/Testimonials";
 import CtaSection from "@/components/sections/CtaSection";
 import Comparison from "@/components/sections/Comparison";
 import Features from "@/components/sections/Features";
-import TrustedCompanies from "@/components/sections/TrustedCompanies"; 
 import ClosingCtaSection from "@/components/sections/ClosingCtaSection";
 import WistiaScriptLoader from "@/components/utils/WistiaScriptLoader";
 import { Toaster } from "@/components/ui/toaster";
@@ -43,7 +42,7 @@ const Index = () => {
         <Navbar />
         <WistiaScriptLoader />
 
-        <main className="flex-1 overflow-x-hidden"> {/* Added overflow-x-hidden to prevent horizontal scrolling */}
+        <main className="flex-1 overflow-x-hidden">
           <Hero />
           <Benefits />
           <Comparison />
@@ -51,7 +50,6 @@ const Index = () => {
           <Testimonials />
           <Pricing />
           <Partners />
-          <TrustedCompanies />
           <ClosingCtaSection />
           <CtaSection />
         </main>
