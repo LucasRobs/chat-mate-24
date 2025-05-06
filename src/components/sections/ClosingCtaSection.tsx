@@ -1,8 +1,12 @@
+
 import React from "react";
 import { CheckCircle, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const MetaPartnerSection = () => {
+  const isMobile = useIsMobile();
+  
   const handleClick = () => {
     window.open("https://www.followop.com.br/register", "_blank");
   };
