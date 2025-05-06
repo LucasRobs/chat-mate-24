@@ -28,7 +28,8 @@ const TrustedCompanies = () => {
   const trustedCompanies = [
     { 
       name: "Emergency Talks", 
-      logo: "/lovable-uploads/e48ef412-b1e7-4c54-9104-d48ddcb141f8.png" 
+      logo: "/lovable-uploads/e48ef412-b1e7-4c54-9104-d48ddcb141f8.png",
+      useBlueFilter: true 
     },
     { 
       name: "Simplo", 
@@ -65,7 +66,7 @@ const TrustedCompanies = () => {
               <img
                 src={company.logo}
                 alt={`${company.name} logo`}
-                className="h-16 sm:h-20 w-auto object-contain"
+                className={`h-16 sm:h-20 w-auto object-contain ${company.useBlueFilter ? "brightness-100 hue-rotate-[170deg] saturate-[1.2]" : ""}`}
               />
             </div>
           ))}
