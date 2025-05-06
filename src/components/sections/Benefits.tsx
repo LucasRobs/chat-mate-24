@@ -78,7 +78,7 @@ const Benefits = () => {
     },
     {
       icon: Rocket,
-      number: 97%,
+      number: 97,
       title: "de Economia",
       description: "Reduza drasticamente seu custo de atendimento para apenas R$ 0,44/hora. Transforme seu negócio agora!"
     },
