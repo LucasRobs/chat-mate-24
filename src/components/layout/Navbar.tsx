@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useEffect, useState } from "react";
@@ -81,11 +82,17 @@ export default function Navbar() {
               key={id}
               onClick={() => scrollToSection(id)}
               className={cn(
-                "text-sm font-medium transition-all duration-300 hover:text-primary hover:scale-105 active:scale-95",
-                activeSection === id ? "text-primary" : "text-muted-foreground"
+                "text-sm font-medium transition-all duration-300 nav-link relative overflow-hidden",
+                activeSection === id 
+                  ? "text-primary" 
+                  : "text-muted-foreground hover:text-primary hover:scale-105 active:scale-95"
               )}
             >
               {label}
+              <span className={cn(
+                "absolute bottom-0 left-0 w-full h-0.5 transform scale-x-0 transition-transform duration-300 origin-left",
+                activeSection === id ? "bg-primary scale-x-100" : "bg-primary group-hover:scale-x-100"
+              )}></span>
             </button>
           ))}
         </div>
@@ -94,7 +101,7 @@ export default function Navbar() {
           <Link
             to="https://www.followop.com.br/login"
             target="_blank"
-            className="shrink-0 flex items-center justify-center bg-white/40 px-3 py-1.5 rounded-full hover:bg-white/70 transition-colors shadow-sm active:shadow-inner"
+            className="shrink-0 flex items-center justify-center bg-white/40 px-3 py-1.5 rounded-full hover:bg-white/70 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md active:translate-y-0 active:shadow-inner"
           >
             <User className="w-4 h-4 text-secondary" />
             <span className="ml-2 text-sm text-secondary font-medium">Entrar</span>
@@ -104,20 +111,25 @@ export default function Navbar() {
         {isMobile && (
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="text-muted-foreground"
+            className="text-muted-foreground transition-transform duration-300 hover:scale-110 active:scale-95"
           >
-            {isOpen ? <X size={18} /> : <Menu size={18} />}
+            {isOpen ? <X size={18} className="animate-spin-once" /> : <Menu size={18} className="animate-pulse-light" />}
           </button>
         )}
       </div>
 
       {isMobile && isOpen && (
-        <div className="absolute right-0 left-0 mt-2 mx-auto max-w-[95%] bg-white/90 backdrop-blur-md rounded-xl shadow-md p-4 space-y-3 animate-slide-in-down">
+        <div className="absolute right-0 left-0 mt-2 mx-auto max-w-[95%] bg-white/90 backdrop-blur-md rounded-xl shadow-md p-4 space-y-3 animate-fade-in-down">
           {[{ id: "features", label: "Funções" }, { id: "pricing", label: "Planos" }, { id: "partners", label: "Parceiros" }].map(({ id, label }) => (
             <button
               key={id}
               onClick={() => scrollToSection(id)}
-              className="flex items-center gap-2 text-muted-foreground hover:text-primary text-sm transition-transform duration-300 hover:scale-105 active:scale-95"
+              className={cn(
+                "flex w-full items-center gap-2 transition-all duration-300 px-3 py-2 rounded-lg",
+                activeSection === id 
+                  ? "bg-primary/10 text-primary font-medium" 
+                  : "text-muted-foreground hover:bg-primary/5 hover:text-primary hover:translate-x-1"
+              )}
             >
               {label}
             </button>
