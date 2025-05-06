@@ -57,7 +57,7 @@ const Partners = () => {
               <img
                 src={partner.logo}
                 alt={`${partner.name} logo`}
-                className="h-12 w-auto grayscale hover:grayscale-0 transition-all"
+                className="h-12 w-auto transition-all"
               />
             </div>
           ))}
