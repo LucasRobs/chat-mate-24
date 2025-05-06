@@ -55,10 +55,10 @@ const CountUpNumber = ({ end, suffix = "", duration = 2000 }) => {
   return <span ref={countRef}>{count}{suffix}</span>;
 };
 
-const BenefitItem = ({ icon: Icon, title, description, number, suffix, iconClass }) => {
+const BenefitItem = ({ icon: Icon, title, description, number, suffix }) => {
   return (
     <div className="flex flex-col items-center p-4 text-center h-full transition-opacity duration-500 ease-in-out" style={{ minHeight: '180px' }}>
-      <div className={`w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-3 relative ${iconClass}`}>
+      <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-3 relative">
         <Icon className="w-7 h-7 text-primary" />
       </div>
       <h3 className="text-base font-light text-black mb-2 whitespace-normal leading-tight">
@@ -104,24 +104,21 @@ const Benefits = () => {
       title: "Atendimento 24/7",
       description: "Esteja disponível para seus clientes a qualquer hora do dia, aumentando suas chances de venda.",
       number: 100,
-      suffix: "%",
-      iconClass: "animate-float"
+      suffix: "%"
     },
     {
       icon: Flame,
       title: "Redução de custos",
       description: "Substitua gastos com atendimento humano por uma solução eficiente de apenas R$ 0,44/hora.",
       number: 97,
-      suffix: "%",
-      iconClass: "animate-pulse-light"
+      suffix: "%"
     },
     {
       icon: MessageCircle,
       title: "Conversão Inteligente",
       description: "Sistema automatizado que engaja leads e acelera o processo de conversão em vendas.",
       number: 300,
-      suffix: "%",
-      iconClass: "animate-float"
+      suffix: "%"
     }
   ];
 
@@ -145,7 +142,6 @@ const Benefits = () => {
                 description={benefit.description}
                 number={benefit.number}
                 suffix={benefit.suffix}
-                iconClass={benefit.iconClass}
               />
             </div>
           ))}
