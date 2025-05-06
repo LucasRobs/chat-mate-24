@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import { Clock, DollarSign, MessageCircle } from "lucide-react";
+import { Flame, Rocket, MessageSquare } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 
-const CountUp = ({ end, duration = 2000 }) => {
+const CountUp = ({ end, suffix = "", duration = 2000 }) => {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
@@ -21,26 +21,23 @@ const CountUp = ({ end, duration = 2000 }) => {
     return () => clearInterval(interval);
   }, [end, duration]);
 
-  return <span>{count}</span>;
+  return <span>{count}{suffix}</span>;
 };
 
-const BenefitItem = ({ icon: Icon, title, description, number, delay }) => {
+const BenefitItem = ({ number, icon: Icon, title, description, delay }) => {
   return (
     <div
-      className="flex flex-col items-center p-6 text-center h-full transition-opacity duration-500 ease-in-out bg-white rounded-xl shadow-md hover:shadow-xl hover:scale-105 transform"
-      style={{ transitionDelay: `${delay}ms`, minHeight: "220px" }}
+      className="flex flex-col items-center px-3 py-4 text-center transition-opacity duration-500 ease-in-out"
+      style={{ transitionDelay: `${delay}ms`, minHeight: "160px" }}
     >
-      <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-green-500 flex items-center justify-center mb-4 shadow-lg transition-all duration-300">
-        <Icon className="w-8 h-8 text-white" />
+      <div className="text-primary mb-2">
+        <Icon className="w-7 h-7" />
       </div>
-      <h3 className="text-lg font-medium text-black mb-1 whitespace-normal">{title}</h3>
-      {number !== undefined && (
-        <p className="text-xl font-semibold text-primary mb-2">
-          <CountUp end={number} />
-          {title.includes("%") ? "%" : ""}
-        </p>
-      )}
-      <p className="text-sm text-gray-500 leading-relaxed font-light">{description}</p>
+      <div className="text-2xl font-bold text-primary mb-1">
+        <CountUp end={number} suffix={title.includes("%") ? "%" : ""} />
+      </div>
+      <h3 className="text-base font-medium text-black mb-1">{title}</h3>
+      <p className="text-sm text-gray-500 max-w-xs">{description}</p>
     </div>
   );
 };
@@ -60,33 +57,31 @@ const Benefits = () => {
     );
 
     const section = document.getElementById("benefits");
-    if (section) {
-      observer.observe(section);
-    }
+    if (section) observer.observe(section);
 
     return () => {
-      if (section) {
-        observer.unobserve(section);
-      }
+      if (section) observer.unobserve(section);
     };
   }, []);
 
   const benefits = [
     {
-      icon: Clock,
+      icon: Flame,
+      number: 24,
       title: "Atendimento 24/7",
-      description: "Esteja disponível para seus clientes a qualquer hora do dia, aumentando suas chances de venda."
+      description: "Esteja disponível a qualquer hora, mesmo fora do expediente."
     },
     {
-      icon: DollarSign,
-      title: "Redução de custos em 97%",
+      icon: Rocket,
       number: 97,
-      description: "Substitua gastos com atendimento humano por uma solução eficiente de apenas R$ 0,44/hora."
+      title: "Redução de custos em 97%",
+      description: "Automatize e pague apenas R$ 0,44 por hora de operação."
     },
     {
-      icon: MessageCircle,
-      title: "Conversão Inteligente",
-      description: "Sistema automatizado que engaja leads e acelera o processo de conversão em vendas."
+      icon: MessageSquare,
+      number: 3,
+      title: "x mais Conversões",
+      description: "Transforme leads em clientes com automação inteligente."
     }
   ];
 
@@ -94,9 +89,9 @@ const Benefits = () => {
     <section id="benefits" className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-6 text-center">
         <div className={`mb-12 transition-opacity duration-500 ${isVisible ? "opacity-100" : "opacity-0"}`}>
-          <h2 className="text-3xl sm:text-4xl font-light text-black">Turbine Suas Vendas</h2>
-          <p className="mt-4 text-base text-gray-500 max-w-2xl mx-auto font-light">
-            Tecnologia de ponta gerando resultados incríveis para o seu negócio.
+          <h2 className="text-3xl font-light text-black">Turbine Suas Vendas</h2>
+          <p className="mt-2 text-base text-gray-500 max-w-2xl mx-auto font-light">
+            Resultados reais com atendimento automatizado no WhatsApp.
           </p>
         </div>
 
@@ -108,7 +103,7 @@ const Benefits = () => {
                 title={benefit.title}
                 description={benefit.description}
                 number={benefit.number}
-                delay={index * 200}
+                delay={index * 150}
               />
             </div>
           ))}
