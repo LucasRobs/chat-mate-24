@@ -1,44 +1,19 @@
 
 import { useState, useEffect } from "react";
-import { Flame, Rocket, MessageSquare } from "lucide-react";
+import { Clock, DollarSign, MessageCircle } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 
-const CountUp = ({ end, suffix = "", duration = 2000 }) => {
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    let start = 0;
-    const increment = end / (duration / 20);
-
-    const interval = setInterval(() => {
-      start += increment;
-      if (start >= end) {
-        start = end;
-        clearInterval(interval);
-      }
-      setCount(Math.round(start));
-    }, 20);
-
-    return () => clearInterval(interval);
-  }, [end, duration]);
-
-  return <span>{count}{suffix}</span>;
-};
-
-const BenefitItem = ({ icon: Icon, title, description, number, delay }) => {
+const BenefitItem = ({ icon: Icon, title, description, delay }) => {
   return (
     <div
-      className="flex flex-col items-center p-6 text-center h-full transition-all duration-500 ease-in-out"
-      style={{ transitionDelay: `${delay}ms` }}
+      className="flex flex-col items-center p-4 text-center h-full transition-opacity duration-500 ease-in-out"
+      style={{ transitionDelay: `${delay}ms`, minHeight: '180px' }}
     >
-      <div className="w-16 h-16 rounded-full flex items-center justify-center mb-4 relative animate-float">
-        <Icon className="w-10 h-10 text-primary" />
+      <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-3 relative">
+        <Icon className="w-7 h-7 text-primary" />
       </div>
-      <div className="text-3xl font-bold text-primary mb-2">
-        <CountUp end={number} suffix={title.includes("%") ? "%" : ""} />
-      </div>
-      <h3 className="text-base font-medium text-black mb-2">{title}</h3>
-      <p className="text-sm text-gray-500 leading-relaxed max-w-xs">{description}</p>
+      <h3 className="text-base font-light text-black mb-2 whitespace-normal leading-tight">{title}</h3>
+      <p className="text-sm text-gray-500 leading-relaxed max-w-xs font-light">{description}</p>
     </div>
   );
 };
@@ -71,54 +46,40 @@ const Benefits = () => {
 
   const benefits = [
     {
-      icon: Flame,
-      number: 24,
-      title: "Horas de Atendimento",
-      description: "Atendimento ininterrupto que não dorme nem nos finais de semana, aumentando suas vendas."
+      icon: Clock,
+      title: "Atendimento 24/7",
+      description: "Esteja disponível para seus clientes a qualquer hora do dia, aumentando suas chances de venda."
     },
     {
-      icon: Rocket,
-      number: 97%,
-      title: "de Economia",
-      description: "Reduza drasticamente seu custo de atendimento para apenas R$ 0,44/hora. Transforme seu negócio agora!"
+      icon: DollarSign,
+      title: "Redução de custos em 97%",
+      description: "Substitua gastos com atendimento humano por uma solução eficiente de apenas R$ 0,44/hora."
     },
     {
-      icon: MessageSquare,
-      number: 300,
-      title: "% Mais Conversões",
-      description: "Aumente sua taxa de conversão com respostas instantâneas que não deixam o cliente esperando."
+      icon: MessageCircle,
+      title: "Conversão Inteligente",
+      description: "Sistema automatizado que engaja leads e acelera o processo de conversão em vendas."
     }
   ];
 
   return (
-    <section id="benefits" className="py-20 bg-gradient-to-b from-gray-50 to-white">
+    <section id="benefits" className="py-16 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 text-center">
-        <div className={`mb-12 transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-          <h2 className="text-3xl sm:text-4xl font-bold text-black">
-            <span className="text-primary">Resultados</span> Surpreendentes
-          </h2>
-          <p className="mt-3 text-lg text-gray-600 max-w-2xl mx-auto">
-            Nossa tecnologia transforma seu atendimento e potencializa seus resultados
+        <div className={`mb-10 transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+          <h2 className="text-2xl sm:text-3xl font-light text-black">Turbine Suas Vendas</h2>
+          <p className="mt-3 text-base text-gray-500 max-w-2xl mx-auto font-light">
+            Tecnologia de ponta gerando resultados incríveis para o seu negócio.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {benefits.map((benefit, index) => (
-            <div 
-              key={index} 
-              className={`transform transition-all duration-500 ${
-                isVisible 
-                  ? 'opacity-100 translate-y-0' 
-                  : 'opacity-0 translate-y-8'
-              }`}
-              style={{ transitionDelay: `${index * 200}ms` }}
-            >
+            <div key={index} className={`flex flex-col items-center transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
               <BenefitItem
                 icon={benefit.icon}
                 title={benefit.title}
                 description={benefit.description}
-                number={benefit.number}
-                delay={index * 150}
+                delay={index * 100}
               />
             </div>
           ))}
