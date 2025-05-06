@@ -79,8 +79,8 @@ const Benefits = () => {
     },
     {
       icon: MessageSquare,
-      number: 3,
-      title: "x mais Conversões",
+      number: 3x,
+      title: "mais Conversões",
       description: "Transforme leads em clientes com automação inteligente."
     }
   ];
