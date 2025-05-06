@@ -7,7 +7,7 @@ const BenefitItem = ({ icon: Icon, title, description, delay }) => {
   return (
     <div
       className="flex flex-col items-center p-4 text-center h-full transition-opacity duration-500 ease-in-out"
-      style={{ transitionDelay: ${delay}ms, minHeight: '180px' }}
+      style={{ transitionDelay: `${delay}ms`, minHeight: '180px' }}
     >
       <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-3 relative">
         <Icon className="w-7 h-7 text-primary" />
@@ -65,7 +65,7 @@ const Benefits = () => {
   return (
     <section id="benefits" className="py-16 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 text-center">
-        <div className={mb-10 transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}}>
+        <div className={`mb-10 transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
           <h2 className="text-2xl sm:text-3xl font-light text-black">Turbine Suas Vendas</h2>
           <p className="mt-3 text-base text-gray-500 max-w-2xl mx-auto font-light">
             Tecnologia de ponta gerando resultados incríveis para o seu negócio.
@@ -74,7 +74,7 @@ const Benefits = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {benefits.map((benefit, index) => (
-            <div key={index} className={flex flex-col items-center transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}}>
+            <div key={index} className={`flex flex-col items-center transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
               <BenefitItem
                 icon={benefit.icon}
                 title={benefit.title}
