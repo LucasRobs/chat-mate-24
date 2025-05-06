@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { Flame, Rocket, MessageSquare } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 const CountUp = ({ end, suffix = "", duration = 2000 }) => {
@@ -24,23 +23,19 @@ const CountUp = ({ end, suffix = "", duration = 2000 }) => {
   return <span>{count}{suffix}</span>;
 };
 
-const BenefitItem = ({ number, icon: Icon, title, description, delay }) => {
-  return (
-    <div
-      className="flex flex-col items-center px-3 py-4 text-center transition-opacity duration-500 ease-in-out"
-      style={{ transitionDelay: `${delay}ms`, minHeight: "160px" }}
-    >
-      <div className="text-primary mb-2">
-        <Icon className="w-7 h-7" />
-      </div>
-      <div className="text-2xl font-bold text-primary mb-1">
-        <CountUp end={number} suffix={title.includes("%") ? "%" : ""} />
-      </div>
-      <h3 className="text-base font-medium text-black mb-1">{title}</h3>
-      <p className="text-sm text-gray-500 max-w-xs">{description}</p>
+const BenefitItem = ({ emoji, number, title, description, delay }) => (
+  <div
+    className="flex flex-col items-center px-4 py-6 text-center transition-opacity duration-500 ease-in-out"
+    style={{ transitionDelay: `${delay}ms`, minHeight: "200px" }}
+  >
+    <div className="text-4xl mb-3">{emoji}</div>
+    <div className="text-3xl font-extrabold text-green-600 mb-1 leading-none tracking-tight">
+      <CountUp end={number} suffix={title.includes("%") ? "%" : ""} />
     </div>
-  );
-};
+    <h3 className="text-lg font-semibold text-gray-800 mb-1">{title}</h3>
+    <p className="text-base text-gray-600 max-w-xs leading-snug">{description}</p>
+  </div>
+);
 
 const Benefits = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -66,44 +61,44 @@ const Benefits = () => {
 
   const benefits = [
     {
-      icon: Flame,
+      emoji: "🔥",
       number: 24,
       title: "Atendimento 24/7",
-      description: "Esteja disponível a qualquer hora, mesmo fora do expediente."
+      description: "Esteja sempre disponível, mesmo quando sua equipe estiver offline."
     },
     {
-      icon: Rocket,
+      emoji: "🚀",
       number: 97,
       title: "Redução de custos em 97%",
-      description: "Automatize e pague apenas R$ 0,44 por hora de operação."
+      description: "Economize com atendimento humano e automatize com inteligência."
     },
     {
-      icon: MessageSquare,
+      emoji: "💬",
       number: 3,
       title: "x mais Conversões",
-      description: "Transforme leads em clientes com automação inteligente."
+      description: "Converta leads com muito mais velocidade e eficiência."
     }
   ];
 
   return (
     <section id="benefits" className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-6 text-center">
-        <div className={`mb-12 transition-opacity duration-500 ${isVisible ? "opacity-100" : "opacity-0"}`}>
-          <h2 className="text-3xl font-light text-black">Turbine Suas Vendas</h2>
-          <p className="mt-2 text-base text-gray-500 max-w-2xl mx-auto font-light">
-            Resultados reais com atendimento automatizado no WhatsApp.
+        <div className={`mb-14 transition-opacity duration-500 ${isVisible ? "opacity-100" : "opacity-0"}`}>
+          <h2 className="text-4xl font-light text-black">Turbine Suas Vendas no WhatsApp</h2>
+          <p className="mt-4 text-lg text-gray-500 max-w-2xl mx-auto font-light">
+            Resultados reais com automação inteligente. Mais leads, menos esforço.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {benefits.map((benefit, index) => (
             <div key={index} className={`transition-opacity duration-500 ${isVisible ? "opacity-100" : "opacity-0"}`}>
               <BenefitItem
-                icon={benefit.icon}
+                emoji={benefit.emoji}
                 title={benefit.title}
                 description={benefit.description}
                 number={benefit.number}
-                delay={index * 150}
+                delay={index * 200}
               />
             </div>
           ))}
