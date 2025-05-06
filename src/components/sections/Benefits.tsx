@@ -28,16 +28,24 @@ const BenefitItem = ({ number, icon: Icon, title, description, delay }) => {
   return (
     <div
       className="flex flex-col items-center px-3 py-4 text-center transition-opacity duration-500 ease-in-out"
-      style={{ transitionDelay: `${delay}ms`, minHeight: "160px" }}
+      style={{ transitionDelay: `${delay}ms`, minHeight: "180px" }}
     >
-      <div className="text-primary mb-2">
-        <Icon className="w-7 h-7" />
+      <div className="text-primary mb-3">
+        <Icon className="w-8 h-8" />
       </div>
-      <div className="text-2xl font-bold text-primary mb-1">
+      <div className="text-3xl font-bold text-primary mb-2">
         <CountUp end={number} suffix={title.includes("%") ? "%" : ""} />
       </div>
-      <h3 className="text-base font-medium text-black mb-1">{title}</h3>
-      <p className="text-sm text-gray-500 max-w-xs">{description}</p>
+      <h3 className="text-lg font-semibold text-black mb-2">
+        {title.includes("24/7") ? "Atendimento Ininterrupto: Venda a Qualquer Hora!" : title}
+        {title.includes("Redução") ? "Economize Massivamente: Redução de Custos em " : ""}
+        {title.includes("Conversões") ? "Maximize Resultados: Mais Conversões para Seu Negócio!" : ""}
+      </h3>
+      <p className="text-sm text-gray-600 max-w-xs">
+        {description.includes("disponível a qualquer hora") ? "Não perca nenhuma oportunidade! Esteja sempre disponível para seus clientes." : description}
+        {description.includes("pague apenas") ? `Inteligência Econômica: Opere por apenas R$ 0,44 por hora!` : description}
+        {description.includes("Transforme leads em clientes") ? "Potencialize Suas Vendas: Automatize e conquiste mais clientes." : description}
+      </p>
     </div>
   );
 };
@@ -79,23 +87,23 @@ const Benefits = () => {
     },
     {
       icon: MessageSquare,
-      number: 3x,
+      number: 3,
       title: "mais Conversões",
       description: "Transforme leads em clientes com automação inteligente."
     }
   ];
 
   return (
-    <section id="benefits" className="py-20 bg-gray-50">
+    <section id="benefits" className="py-24 bg-gray-50">
       <div className="max-w-7xl mx-auto px-6 text-center">
-        <div className={`mb-12 transition-opacity duration-500 ${isVisible ? "opacity-100" : "opacity-0"}`}>
-          <h2 className="text-3xl font-light text-black">Turbine Suas Vendas</h2>
-          <p className="mt-2 text-base text-gray-500 max-w-2xl mx-auto font-light">
-            Resultados reais com atendimento automatizado no WhatsApp.
+        <div className={`mb-16 transition-opacity duration-500 ${isVisible ? "opacity-100" : "opacity-0"}`}>
+          <h2 className="text-4xl font-bold text-black">Impulsione Suas Vendas com Automação Inteligente!</h2>
+          <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto font-light">
+            Descubra o poder da automação no WhatsApp para alcançar resultados extraordinários. Prepare-se para um novo patamar de crescimento!
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {benefits.map((benefit, index) => (
             <div key={index} className={`transition-opacity duration-500 ${isVisible ? "opacity-100" : "opacity-0"}`}>
               <BenefitItem
@@ -103,7 +111,7 @@ const Benefits = () => {
                 title={benefit.title}
                 description={benefit.description}
                 number={benefit.number}
-                delay={index * 150}
+                delay={index * 200}
               />
             </div>
           ))}
