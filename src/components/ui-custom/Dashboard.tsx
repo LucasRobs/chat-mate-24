@@ -4,14 +4,7 @@ import { Users, MessageSquare, BarChart2, ArrowRight, Bell, Calendar } from "luc
 import DashboardCard from "./DashboardCard";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { Button } from "@/components/ui/button";
-import {
-  ResponsiveContainer,
-  AreaChart,
-  Area,
-  Tooltip,
-  XAxis,
-  YAxis
-} from "recharts";
+import ActivityChart from "./ActivityChart";
 
 interface DashboardProps {
   activityData: Array<{ name: string; value: number }>;
@@ -21,7 +14,6 @@ interface DashboardProps {
 const Dashboard = ({ activityData, isMobile: propIsMobile }: DashboardProps) => {
   const hookIsMobile = useIsMobile();
   const isMobile = propIsMobile !== undefined ? propIsMobile : hookIsMobile;
-  const simplifiedData = isMobile ? activityData.filter((_, idx) => idx % 2 === 0) : activityData;
 
   const handleViewMore = () => {
     window.open("https://www.followop.com.br/register", "_blank");
@@ -70,30 +62,8 @@ const Dashboard = ({ activityData, isMobile: propIsMobile }: DashboardProps) => 
           </div>
         </div>
 
-        <div className="w-full h-[120px] sm:h-[160px]">
-          <ResponsiveContainer width="100%" height="100%">
-            <AreaChart data={simplifiedData}>
-              <defs>
-                <linearGradient id="colorPrimary" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="10%" stopColor="#00af6b" stopOpacity={0.4} />
-                  <stop offset="90%" stopColor="#00af6b" stopOpacity={0.05} />
-                </linearGradient>
-              </defs>
-              <XAxis dataKey="name" hide />
-              <YAxis hide />
-              <Tooltip
-                contentStyle={{ backgroundColor: "white", border: "1px solid #e2e8f0", fontSize: "12px" }}
-                labelStyle={{ color: "#333" }}
-              />
-              <Area
-                type="monotone"
-                dataKey="value"
-                stroke="#00af6b"
-                fill="url(#colorPrimary)"
-                strokeWidth={2}
-              />
-            </AreaChart>
-          </ResponsiveContainer>
+        <div className="w-full h-[200px] sm:h-[220px]">
+          <ActivityChart data={activityData} isMobile={isMobile} />
         </div>
 
         <div className="flex justify-end">
