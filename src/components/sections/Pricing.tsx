@@ -113,7 +113,7 @@ const Pricing = () => {
                   className="w-full animated-button text-xs sm:text-sm py-1.5 sm:py-2"
                 >
                   <a
-                    href="https://www.followop.com.br/register"
+                    href="https://www.followop.com.br/pricing"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
