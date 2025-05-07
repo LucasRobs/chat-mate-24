@@ -35,7 +35,7 @@ const Partners = () => {
   ];
 
   return (
-    <section id="partners" className="py-16 bg-gray-50">
+    <section id="partners" className="py-16 bg-white-50">
       <div className="max-w-5xl mx-auto px-6">
         <div 
           className={`text-center mb-8 transition-all duration-700 ${
