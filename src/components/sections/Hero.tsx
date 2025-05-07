@@ -96,7 +96,7 @@ const Hero = () => {
 
         <div className="text-center animate-on-scroll from-bottom animate-in mt-4" style={{ animationDelay: "0.3s" }}>
           <h1 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-light tracking-tight text-black mb-3">
-            Transforme Seu Whatsapp:
+            Transforme Seu Whatsapp
           </h1>
 
           <h2 className="text-lg sm:text-xl md:text-3xl font-light text-black mb-3">
