@@ -11,12 +11,16 @@ import Testimonials from "@/components/sections/Testimonials";
 import CtaSection from "@/components/sections/CtaSection";
 import Comparison from "@/components/sections/Comparison";
 import Features from "@/components/sections/Features";
+import IntegrationPartners from "@/components/sections/IntegrationPartners";
 import ClosingCtaSection from "@/components/sections/ClosingCtaSection";
 import WistiaScriptLoader from "@/components/utils/WistiaScriptLoader";
 import { Toaster } from "@/components/ui/toaster";
 
 const Index = () => {
   useEffect(() => {
+    // Add smooth patterns to body
+    document.body.classList.add('pattern-background');
+    
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -32,6 +36,7 @@ const Index = () => {
     revealElements.forEach((el) => observer.observe(el));
 
     return () => {
+      document.body.classList.remove('pattern-background');
       revealElements.forEach((el) => observer.unobserve(el));
     };
   }, []);
@@ -48,8 +53,9 @@ const Index = () => {
           <Comparison />
           <Features />
           <Testimonials />
-          <Pricing />
           <Partners />
+          <IntegrationPartners />
+          <Pricing />
           <ClosingCtaSection />
           <CtaSection />
         </main>

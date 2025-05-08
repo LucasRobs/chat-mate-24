@@ -1,11 +1,13 @@
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Check } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { cn } from "@/lib/utils";
 
 const Comparison = () => {
   const [isVisible, setIsVisible] = useState(false);
   const isMobile = useIsMobile();
+  const sectionRef = useRef(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -17,11 +19,14 @@ const Comparison = () => {
       { threshold: 0.1 }
     );
 
-    const element = document.getElementById("comparison");
-    if (element) observer.observe(element);
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
 
     return () => {
-      if (element) observer.unobserve(element);
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
     };
   }, []);
 
@@ -35,9 +40,13 @@ const Comparison = () => {
   ];
 
   return (
-    <section id="comparison" className="py-12 sm:py-20 bg-gray-50">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-8 sm:mb-16">
+    <section ref={sectionRef} id="comparison" className="py-12 sm:py-20 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
+      {/* Background patterns */}
+      <div className="absolute inset-0 followop-pattern opacity-5"></div>
+      <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-primary/5 rounded-full blur-3xl"></div>
+      
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="text-center mb-8 sm:mb-16 animate-fade-in-down">
           <span className="bg-primary/10 text-primary px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium">
             Comparativo
           </span>
@@ -59,7 +68,8 @@ const Comparison = () => {
             {data.map((item, idx) => (
               <div
                 key={idx}
-                className="bg-white rounded-xl border border-gray-100 shadow-sm p-3"
+                className="bg-white rounded-xl border border-gray-100 shadow-sm p-3 hover-card"
+                style={{ animationDelay: `${idx * 100}ms` }}
               >
                 <h3 className="text-black font-light text-sm mb-2">{item.label}</h3>
                 <div className="text-xs text-gray-500 font-light">
@@ -75,7 +85,7 @@ const Comparison = () => {
 
           {/* Desktop (tabela) */}
           <div className="hidden sm:block max-w-4xl mx-auto">
-            <div className="relative overflow-hidden rounded-xl shadow-lg border border-gray-100">
+            <div className="relative overflow-hidden rounded-xl shadow-lg border border-gray-100 transform transition-all hover:shadow-xl">
               <table className="w-full bg-white comparison-table text-sm sm:text-base">
                 <thead>
                   <tr className="bg-gray-50">
@@ -86,7 +96,7 @@ const Comparison = () => {
                 </thead>
                 <tbody>
                   {data.map((item, idx) => (
-                    <tr key={idx}>
+                    <tr key={idx} className={cn("transition-all", isVisible ? "animate-fade-in-down" : "")} style={{ animationDelay: `${idx * 100 + 400}ms` }}>
                       <td className="p-4 border-t border-gray-100 font-light text-black">{item.label}</td>
                       <td className="p-4 border-t border-gray-100 text-center font-light text-gray-700">{item.atendente}</td>
                       <td className="p-4 border-t border-gray-100 text-center bg-primary/5 font-normal text-primary">{item.followop}</td>
@@ -98,7 +108,7 @@ const Comparison = () => {
           </div>
         </div>
 
-        <div className="mt-6 sm:mt-8 bg-white rounded-xl p-3 sm:p-6 border border-gray-100 shadow-sm">
+        <div className="mt-6 sm:mt-8 bg-white rounded-xl p-3 sm:p-6 border border-gray-100 shadow-sm transform transition-all hover:shadow-md hover:translate-y-[-2px]">
           <div className="flex items-start sm:items-center">
             <div className="mr-2 sm:mr-4 flex-shrink-0 bg-primary/10 rounded-full p-1.5 sm:p-2">
               <Check className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />

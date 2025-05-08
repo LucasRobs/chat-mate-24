@@ -30,22 +30,29 @@ const Partners = () => {
     { name: "SebrateLab", logo: "/lovable-uploads/c241bc16-7cad-45e8-b380-8f698a4eaa41.png" },
     { name: "Corredores Digitais", logo: "/lovable-uploads/c9324512-b0e3-4543-bbef-c18d92b285d6.png" },
     { name: "Firebase", logo: "/lovable-uploads/6443dfd4-5a5c-403f-aa89-1b43aa9f7f99.png" },
-    { name: "Emergency Talks", logo: "/lovable-uploads/e48ef412-b1e7-4c54-9104-d48ddcb141f8.png", useDarkBlueFilter: true },
+    { name: "Emergency Talks", logo: "/lovable-uploads/e48ef412-b1e7-4c54-9104-d48ddcb141f8.png" },
     { name: "Simplo", logo: "/lovable-uploads/c18c4f4d-8b72-46fc-a666-04ffae274fad.png" },
   ];
 
   return (
-    <section id="partners" className="py-16 bg-white-50">
-      <div className="max-w-5xl mx-auto px-6">
+    <section id="partners" className="py-16 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+      {/* Background patterns */}
+      <div className="absolute inset-0 opacity-5 bg-grid-pattern"></div>
+      <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-primary/5 rounded-full blur-3xl"></div>
+      
+      <div className="max-w-5xl mx-auto px-6 relative z-10">
         <div 
           className={`text-center mb-8 transition-all duration-700 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
           }`}
         >
-          <h2 className="text-2xl font-bold text-secondary">
+          <span className="bg-primary/10 text-primary px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium">
+            Parceiros
+          </span>
+          <h2 className="mt-3 sm:mt-4 text-xl sm:text-2xl md:text-4xl font-light text-black">
             Empresas Parceiras
           </h2>
-          <p className="mt-2 text-gray-500">
+          <p className="mt-2 sm:mt-4 text-sm sm:text-lg text-gray-500 max-w-2xl mx-auto font-light">
             Confiam e impulsionam nossa tecnologia
           </p>
         </div>
@@ -54,16 +61,15 @@ const Partners = () => {
           {partners.map((partner, index) => (
             <div 
               key={index} 
-              className="flex-shrink-0 hover:opacity-100 transition-opacity"
+              className={`flex-shrink-0 hover:opacity-100 transition-all duration-500 transform hover:scale-105 ${
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+              }`}
+              style={{ transitionDelay: `${index * 100}ms` }}
             >
               <img
                 src={partner.logo}
                 alt={`${partner.name} logo`}
-                className={`h-12 w-auto transition-all ${
-                  partner.useDarkBlueFilter 
-                  ? "brightness-[0.7] hue-rotate-[210deg] saturate-[1.2]" 
-                  : ""
-                }`}
+                className="h-12 w-auto transition-all brightness-[0.7] hue-rotate-[210deg] saturate-[1.2]"
               />
             </div>
           ))}

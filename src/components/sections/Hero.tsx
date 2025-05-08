@@ -7,7 +7,7 @@ import Dashboard from "@/components/ui-custom/Dashboard";
 
 // Meta Tech Partner Badge Component (refinado para linha única no mobile e estilo texto)
 const MetaTechPartnerBadge = () => (
-  <div className="flex items-center gap-2 bg-transparent border-none px-0 py-0 text-xs font-medium text-gray-700 max-w-fit mx-auto">
+  <div className="flex items-center gap-2 bg-transparent border-none px-0 py-0 text-xs font-medium text-gray-700 max-w-fit mx-auto animate-fade-in-down">
     <div className="w-5 h-5 flex items-center justify-center">
       <img 
         src="/lovable-uploads/c5206104-ee78-44ed-b432-e4d2a4bb0863.png" 
@@ -26,17 +26,16 @@ const MetaTechPartnerBadge = () => (
   </div>
 );
 
-
 // System Features Component
 const SystemFeatures = () => (
-  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 max-w-2xl mx-auto mt-4 mb-6">
-    <div className="bg-white/80 backdrop-blur-sm rounded-xl p-3 shadow-sm border border-gray-100 text-center">
+  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 max-w-2xl mx-auto mt-4 mb-6 animate-fade-in" style={{ animationDelay: "400ms" }}>
+    <div className="bg-white/80 backdrop-blur-sm rounded-xl p-3 shadow-sm border border-gray-100 text-center transform hover:scale-102 transition-transform">
       <div className="w-8 h-8 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-2">
         <Bell className="w-4 h-4 text-blue-500" />
       </div>
       <p className="text-xs font-medium text-gray-800">Automação de Fluxos</p>
     </div>
-    <div className="bg-white/80 backdrop-blur-sm rounded-xl p-3 shadow-sm border border-gray-100 text-center">
+    <div className="bg-white/80 backdrop-blur-sm rounded-xl p-3 shadow-sm border border-gray-100 text-center transform hover:scale-102 transition-transform">
       <div className="w-8 h-8 bg-purple-50 rounded-full flex items-center justify-center mx-auto mb-2">
         <BarChart2 className="w-4 h-4 text-purple-500" />
       </div>
@@ -86,24 +85,28 @@ const Hero = () => {
   ];
 
   return (
-    <section className="relative bg-white overflow-hidden py-8 sm:py-10 lg:py-12 mobile-container">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
+    <section className="relative bg-gradient-to-b from-white to-gray-50 overflow-hidden py-8 sm:py-10 lg:py-12 mobile-container">
+      {/* Background patterns */}
+      <div className="absolute inset-0 followop-pattern opacity-5"></div>
+      <div className="absolute -top-40 -right-40 w-80 h-80 bg-primary/5 rounded-full blur-3xl animate-float" style={{ animationDelay: "0s" }}></div>
+      <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-500/5 rounded-full blur-3xl animate-float" style={{ animationDelay: "1s" }}></div>
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Meta badge centralized with proper spacing - adjusted for mobile */}
         <div className={`${isMobile ? "mb-4 mt-10" : "mb-6 mt-6"}`}>
           <MetaTechPartnerBadge />
         </div>
 
         <div className="text-center animate-on-scroll from-bottom animate-in mt-4" style={{ animationDelay: "0.3s" }}>
-          <h1 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-light tracking-tight text-black mb-3">
+          <h1 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-light tracking-tight text-black mb-3 animate-fade-in-down" style={{ animationDelay: "200ms" }}>
             Transforme Seu Whatsapp
           </h1>
 
-          <h2 className="text-lg sm:text-xl md:text-3xl font-light text-black mb-3">
+          <h2 className="text-lg sm:text-xl md:text-3xl font-light text-black mb-3 animate-fade-in-down" style={{ animationDelay: "300ms" }}>
             Venda no automático com inteligência Artificial
           </h2>
 
-          <p className="mt-3 text-sm sm:text-base text-gray-600 max-w-2xl mx-auto leading-relaxed font-light px-1">
+          <p className="mt-3 text-sm sm:text-base text-gray-600 max-w-2xl mx-auto leading-relaxed font-light px-1 animate-fade-in-down" style={{ animationDelay: "400ms" }}>
             Potencialize seu negócio de forma inteligente
             {!isMobile && <br className="hidden md:inline" />}
             {' '}e eleve seu atendimento a outro nível.
@@ -112,7 +115,7 @@ const Hero = () => {
           {/* System Features */}
           <SystemFeatures />
 
-          <div className="mt-6 flex justify-center">
+          <div className="mt-6 flex justify-center animate-fade-in" style={{ animationDelay: "600ms" }}>
             <Button 
               onClick={handleButtonClick}
               variant="apple"
@@ -136,6 +139,6 @@ const Hero = () => {
       </div>
     </section>
   );
-}
+};
 
 export default Hero;
