@@ -58,7 +58,7 @@ export default function Navbar() {
         scrollY > 10
           ? "w-[90%] max-w-[560px] bg-white/90 shadow-lg top-2 h-12"
           : "w-[90%] max-w-[620px] bg-white/80 shadow-md top-2 h-14",
-        isMobile && "h-12 w-[90%]" // Fixed size for mobile
+        isMobile && "w-[90%] h-12" // Fixed size for mobile
       )}
     >
       <div
@@ -81,31 +81,51 @@ export default function Navbar() {
           )}
         </div>
 
-        <div
-          className={cn(
-            "hidden md:flex items-center gap-6 transition-all duration-300",
-            scrollY > 10 ? "scale-95" : "scale-100"
-          )}
-        >
-          {navItems.map(({ id, label }) => (
-            <button
-              key={id}
-              onClick={() => scrollToSection(id)}
-              className={cn(
-                "text-sm font-medium transition-all duration-300 nav-link relative overflow-hidden",
-                activeSection === id 
-                  ? "text-primary" 
-                  : "text-muted-foreground hover:text-primary hover:scale-105 active:scale-95"
-              )}
-            >
-              {label}
-              <span className={cn(
-                "absolute bottom-0 left-0 w-full h-0.5 transform scale-x-0 transition-transform duration-300 origin-left",
-                activeSection === id ? "bg-primary scale-x-100" : "bg-primary group-hover:scale-x-100"
-              )}></span>
-            </button>
-          ))}
-        </div>
+        {!isMobile ? (
+          <div
+            className={cn(
+              "flex items-center gap-6 transition-all duration-300",
+              scrollY > 10 ? "scale-95" : "scale-100"
+            )}
+          >
+            {navItems.map(({ id, label }) => (
+              <button
+                key={id}
+                onClick={() => scrollToSection(id)}
+                className={cn(
+                  "text-sm font-medium transition-all duration-300 nav-link relative overflow-hidden",
+                  activeSection === id 
+                    ? "text-primary" 
+                    : "text-muted-foreground hover:text-primary hover:scale-105 active:scale-95"
+                )}
+              >
+                {label}
+                <span className={cn(
+                  "absolute bottom-0 left-0 w-full h-0.5 transform scale-x-0 transition-transform duration-300 origin-left",
+                  activeSection === id ? "bg-primary scale-x-100" : "bg-primary group-hover:scale-x-100"
+                )}></span>
+              </button>
+            ))}
+          </div>
+        ) : (
+          <div className="flex items-center gap-4">
+            {navItems.map(({ id, icon: Icon }) => (
+              <button
+                key={id}
+                onClick={() => scrollToSection(id)}
+                className={cn(
+                  "transition-all duration-300 p-1.5 rounded-full",
+                  activeSection === id 
+                    ? "text-primary bg-primary/10" 
+                    : "text-muted-foreground hover:text-primary hover:bg-primary/5"
+                )}
+                aria-label={id}
+              >
+                <Icon size={16} />
+              </button>
+            ))}
+          </div>
+        )}
 
         <div className="hidden md:flex">
           <Link
