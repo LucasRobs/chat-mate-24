@@ -1,5 +1,4 @@
 
-
 @tailwind utilities;
 
 @layer utilities {
@@ -55,5 +54,101 @@
   section.animate-in {
     @apply opacity-100 translate-y-0;
   }
+  
+  /* Enhanced animations */
+  .fade-in-left {
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  }
+  
+  .fade-in-right {
+    opacity: 0;
+    transform: translateX(20px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  }
+  
+  .fade-in-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  }
+  
+  .fade-in-down {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  }
+  
+  .fade-in {
+    opacity: 0;
+    transition: opacity 0.7s ease-out;
+  }
+  
+  .in-view {
+    opacity: 1;
+    transform: translate(0);
+  }
+  
+  /* Staggered animation delay utilities */
+  .delay-100 {
+    transition-delay: 100ms;
+  }
+  
+  .delay-200 {
+    transition-delay: 200ms;
+  }
+  
+  .delay-300 {
+    transition-delay: 300ms;
+  }
+  
+  .delay-400 {
+    transition-delay: 400ms;
+  }
+  
+  .delay-500 {
+    transition-delay: 500ms;
+  }
+  
+  /* Scale animations */
+  .scale-in {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  }
+  
+  .scale-in.in-view {
+    opacity: 1;
+    transform: scale(1);
+  }
+  
+  /* Rotate animations */
+  .rotate-in {
+    opacity: 0;
+    transform: rotate(-5deg) translateY(20px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  }
+  
+  .rotate-in.in-view {
+    opacity: 1;
+    transform: rotate(0) translateY(0);
+  }
+  
+  /* Wave animation for CTA sections */
+  @keyframes wave {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-wave {
+    animation: wave 2s ease-in-out infinite;
+  }
 }
-

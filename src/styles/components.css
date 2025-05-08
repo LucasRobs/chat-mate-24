@@ -10,11 +10,12 @@
   }
 
   .acrylic {
-    background: rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.65);
     backdrop-filter: blur(30px);
     -webkit-backdrop-filter: blur(30px);
     border: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+    border-radius: 9999px;
     transition: all 0.3s ease;
   }
 
@@ -229,5 +230,53 @@
   .animate-fade-in-down {
     animation: slide-in-down 0.3s ease forwards;
   }
+  
+  /* Section animations */
+  .animated-section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+  }
+  
+  .animated-section.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Staggered entrance animations */
+  .stagger-item {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  
+  .stagger-item.show {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.5s ease-out;
+  }
+  
+  /* Subtle parallax effect */
+  .parallax-bg {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  /* Floating animation */
+  @keyframes float {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
 }
-

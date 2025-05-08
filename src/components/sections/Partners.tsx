@@ -35,15 +35,15 @@ const Partners = () => {
   ];
 
   return (
-    <section id="partners" className="py-12 sm:py-16 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+    <section id="partners" className="py-12 sm:py-16 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden animated-section">
       {/* Background patterns */}
       <div className="absolute inset-0 opacity-5 bg-grid-pattern"></div>
       <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-primary/5 rounded-full blur-3xl"></div>
       
       <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
         <div 
-          className={`text-center mb-6 sm:mb-8 transition-all duration-700 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
+          className={`text-center mb-6 sm:mb-8 fade-in-up ${
+            isVisible ? "in-view" : ""
           }`}
         >
           <span className="bg-primary/10 text-primary px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium">
@@ -57,13 +57,11 @@ const Partners = () => {
           </p>
         </div>
 
-        <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 md:gap-8">
+        <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 md:gap-8 stagger-container">
           {partners.map((partner, index) => (
             <div 
               key={index} 
-              className={`flex-shrink-0 hover:opacity-100 transition-all duration-500 transform hover:scale-105 ${
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-              }`}
+              className={`flex-shrink-0 hover:opacity-100 transition-all duration-500 transform hover:scale-105 stagger-item`}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
               <img

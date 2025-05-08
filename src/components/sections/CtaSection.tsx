@@ -7,17 +7,17 @@ const CtaSection = () => {
   const isMobile = useIsMobile();
   
   return (
-    <section className="py-8 sm:py-10 bg-white">
+    <section className="py-8 sm:py-10 bg-white animated-section">
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
-        <div className="bg-gradient-to-r from-secondary to-secondary/90 rounded-2xl p-4 sm:p-6 shadow-lg text-center">
-          <h2 className="text-lg sm:text-xl md:text-2xl font-light text-white">
+        <div className="bg-gradient-to-r from-secondary to-secondary/90 rounded-2xl p-4 sm:p-6 shadow-lg text-center scale-in">
+          <h2 className="text-lg sm:text-xl md:text-2xl font-light text-white animate-wave">
             Pronto para transformar seu <span className="text-primary">Atendimento</span>?
           </h2>
-          <p className="mt-2 text-xs sm:text-sm text-white/90 font-light">
+          <p className="mt-2 text-xs sm:text-sm text-white/90 font-light fade-in delay-200">
             Comece agora sem compromisso. Cancele quando quiser.
           </p>
 
-          <div className="mt-4 sm:mt-5">
+          <div className="mt-4 sm:mt-5 fade-in-up delay-300">
             <Button
               asChild
               variant="apple"

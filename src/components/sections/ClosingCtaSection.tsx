@@ -12,9 +12,9 @@ const MetaPartnerSection = () => {
   };
 
   return (
-    <section className="w-full bg-[#f5f7f9] rounded-2xl p-6 sm:p-10 shadow-md max-w-6xl mx-auto">
+    <section className="w-full bg-[#f5f7f9] rounded-2xl p-6 sm:p-10 shadow-md max-w-6xl mx-auto animated-section">
       <div className="grid md:grid-cols-2 items-center gap-8">
-        <div>
+        <div className="fade-in-left">
           <div className="flex items-center gap-3 mb-3">
             <img
               src="/lovable-uploads/c5206104-ee78-44ed-b432-e4d2a4bb0863.png"
@@ -32,21 +32,21 @@ const MetaPartnerSection = () => {
           <p className="text-sm sm:text-base text-gray-600 mt-3">
             A <strong>Followop</strong> é uma plataforma aprovada e certificada pela Meta, garantindo conformidade com as diretrizes do <strong>WhatsApp Business API</strong>. Isso significa:
           </p>
-          <ul className="mt-4 space-y-3 text-sm text-gray-700">
-            <li className="flex items-start gap-2">
+          <ul className="mt-4 space-y-3 text-sm text-gray-700 stagger-container">
+            <li className="flex items-start gap-2 stagger-item">
               <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
               <span><strong>Baixo risco</strong> de banimento</span>
             </li>
-            <li className="flex items-start gap-2">
+            <li className="flex items-start gap-2 stagger-item">
               <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
               <span><strong>Conexão estável e autorizada</strong></span>
             </li>
-            <li className="flex items-start gap-2">
+            <li className="flex items-start gap-2 stagger-item">
               <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
               <span>Suporte direto da <strong>infraestrutura oficial</strong></span>
             </li>
           </ul>
-          <div className="mt-4 sm:mt-5">
+          <div className="mt-4 sm:mt-5 fade-in-up delay-500">
             <Button
               asChild
               variant="apple"
@@ -66,11 +66,11 @@ const MetaPartnerSection = () => {
             </Button>
           </div>
         </div>
-        <div className="hidden md:block">
+        <div className="hidden md:block fade-in-right">
           <img
             src="/lovable-uploads/c5206104-ee78-44ed-b432-e4d2a4bb0863.png"
             alt="Meta Illustration"
-            className="w-full max-h-80 object-contain"
+            className="w-full max-h-80 object-contain animate-float"
           />
         </div>
       </div>

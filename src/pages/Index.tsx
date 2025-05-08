@@ -21,19 +21,38 @@ const Index = () => {
     // Use simple dot patterns instead of gradients
     document.body.classList.add('pattern-background');
     
+    // Intersection Observer for revealing elements
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("active");
+            entry.target.classList.add("in-view");
           }
         });
       },
       { threshold: 0.1 }
     );
 
+    // Apply to all reveal elements
     const revealElements = document.querySelectorAll(".reveal");
     revealElements.forEach((el) => observer.observe(el));
+    
+    // Apply to all animation classes
+    const animatedElements = document.querySelectorAll(
+      '.fade-in-left, .fade-in-right, .fade-in-up, .fade-in-down, .fade-in, .scale-in, .rotate-in'
+    );
+    animatedElements.forEach((el) => observer.observe(el));
+    
+    // Stagger animations for grouped elements
+    const staggerContainers = document.querySelectorAll('.stagger-container');
+    staggerContainers.forEach(container => {
+      const items = container.querySelectorAll('.stagger-item');
+      items.forEach((item, index) => {
+        (item as HTMLElement).style.transitionDelay = `${index * 100}ms`;
+        observer.observe(item);
+      });
+    });
 
     // Add Apple-inspired smooth scrolling
     document.documentElement.style.scrollBehavior = 'smooth';
@@ -50,19 +69,37 @@ const Index = () => {
       });
     };
 
+    // Animation handler for animated sections
+    const animateCustomSections = () => {
+      const animatedSections = document.querySelectorAll('.animated-section');
+      animatedSections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        const isInView = (rect.top <= window.innerHeight * 0.85) && (rect.bottom >= 0);
+        if (isInView) {
+          section.classList.add('show');
+        }
+      });
+    };
+
     // Run once on load
     animateSections();
+    animateCustomSections();
     
     // Add event listeners
     window.addEventListener('scroll', animateSections);
+    window.addEventListener('scroll', animateCustomSections);
     window.addEventListener('resize', animateSections);
+    window.addEventListener('resize', animateCustomSections);
 
     return () => {
       document.body.classList.remove('pattern-background');
       revealElements.forEach((el) => observer.unobserve(el));
+      animatedElements.forEach((el) => observer.unobserve(el));
       document.documentElement.style.scrollBehavior = 'auto';
       window.removeEventListener('scroll', animateSections);
+      window.removeEventListener('scroll', animateCustomSections);
       window.removeEventListener('resize', animateSections);
+      window.removeEventListener('resize', animateCustomSections);
     };
   }, []);
 

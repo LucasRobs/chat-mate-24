@@ -54,10 +54,10 @@ export default function Navbar() {
   return (
     <div
       className={cn(
-        "fixed z-50 left-1/2 -translate-x-1/2 transition-all duration-500 ease-in-out backdrop-blur-lg backdrop-saturate-150 rounded-full",
+        "fixed z-50 left-1/2 -translate-x-1/2 transition-all duration-500 ease-in-out acrylic animate-fade-in-down",
         scrollY > 10
-          ? "w-[90%] max-w-[560px] bg-white/90 shadow-lg top-2 h-12"
-          : "w-[90%] max-w-[620px] bg-white/80 shadow-md top-2 h-14",
+          ? "w-[90%] max-w-[560px] shadow-lg top-2 h-12"
+          : "w-[90%] max-w-[620px] shadow-md top-2 h-14",
         isMobile && "w-[90%] h-12" // Fixed size for mobile
       )}
     >
@@ -68,7 +68,7 @@ export default function Navbar() {
           isMobile && "h-12" // Fixed height for mobile
         )}
       >
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 animate-fade-in-left">
           <div className="w-6 h-6 bg-white rounded-full overflow-hidden shrink-0">
             <img
               src="/lovable-uploads/02e6e528-86eb-4a69-a7aa-f901007e7ef3.png"
@@ -84,7 +84,7 @@ export default function Navbar() {
         {!isMobile ? (
           <div
             className={cn(
-              "flex items-center gap-6 transition-all duration-300",
+              "flex items-center gap-6 transition-all duration-300 animate-fade-in",
               scrollY > 10 ? "scale-95" : "scale-100"
             )}
           >
@@ -108,7 +108,7 @@ export default function Navbar() {
             ))}
           </div>
         ) : (
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 animate-fade-in">
             {navItems.map(({ id, icon: Icon }) => (
               <button
                 key={id}
@@ -127,7 +127,7 @@ export default function Navbar() {
           </div>
         )}
 
-        <div className="hidden md:flex">
+        <div className="hidden md:flex animate-fade-in-right">
           <Link
             to="https://www.followop.com.br/login"
             target="_blank"
@@ -140,14 +140,14 @@ export default function Navbar() {
 
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden text-muted-foreground transition-transform duration-300 hover:scale-110 active:scale-95"
+          className="md:hidden text-muted-foreground transition-transform duration-300 hover:scale-110 active:scale-95 animate-fade-in-right"
         >
           {isOpen ? <X size={18} className="animate-spin-once" /> : <Menu size={18} className="animate-pulse-light" />}
         </button>
       </div>
 
       {isOpen && (
-        <div className="md:hidden absolute right-0 left-0 mt-2 mx-auto max-w-[95%] bg-white/95 backdrop-blur-md rounded-xl shadow-md p-4 space-y-3 animate-fade-in-down">
+        <div className="md:hidden absolute right-0 left-0 mt-2 mx-auto max-w-[95%] acrylic rounded-xl shadow-md p-4 space-y-3 animate-fade-in-down">
           {navItems.map(({ id, label, icon: Icon }) => (
             <button
               key={id}

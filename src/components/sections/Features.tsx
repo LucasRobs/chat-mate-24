@@ -51,13 +51,13 @@ const Features = () => {
   );
   
   return (
-    <section id="features" className="py-10 md:py-16 bg-white relative overflow-hidden">
+    <section id="features" className="py-10 md:py-16 bg-white relative overflow-hidden animated-section">
       {/* Background decoration */}
       <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
       <div className="absolute -top-40 -right-40 w-80 h-80 bg-primary/5 rounded-full blur-3xl"></div>
       
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-6 sm:mb-8 animate-fade-in-down">
+        <div className="text-center mb-6 sm:mb-8 fade-in-up">
           <span className="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-medium">
             Funcionalidades
           </span>
@@ -70,7 +70,7 @@ const Features = () => {
         </div>
 
         {/* Carousel for all devices, optimized for mobile */}
-        <div className="mx-auto max-w-4xl">
+        <div className="mx-auto max-w-4xl stagger-container fade-in">
           <Carousel
             opts={{ 
               loop: true,
@@ -82,7 +82,7 @@ const Features = () => {
           >
             <CarouselContent>
               {features.map((feature, index) => (
-                <CarouselItem key={index} className="basis-[85%] sm:basis-1/2 lg:basis-1/3 pl-4">
+                <CarouselItem key={index} className="basis-[85%] sm:basis-1/2 lg:basis-1/3 pl-4 stagger-item">
                   <div className="h-full pb-1">
                     <FeatureCard
                       icon={feature.icon}
@@ -94,7 +94,7 @@ const Features = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <div className="flex justify-center mt-4">
+            <div className="flex justify-center mt-4 fade-in-up delay-300">
               <CarouselPrevious className="relative static translate-y-0 mr-2 h-8 w-8" />
               <CarouselNext className="relative static translate-y-0 h-8 w-8" />
             </div>
