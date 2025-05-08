@@ -35,29 +35,29 @@ const Partners = () => {
   ];
 
   return (
-    <section id="partners" className="py-8 sm:py-10 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+    <section id="partners" className="py-12 sm:py-16 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
       {/* Background patterns */}
       <div className="absolute inset-0 opacity-5 bg-grid-pattern"></div>
       <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-primary/5 rounded-full blur-3xl"></div>
       
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
         <div 
-          className={`text-center mb-4 transition-all duration-700 ${
+          className={`text-center mb-6 sm:mb-8 transition-all duration-700 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
           }`}
         >
-          <span className="bg-primary/10 text-primary px-2 py-0.5 rounded-full text-xs font-medium">
+          <span className="bg-primary/10 text-primary px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium">
             Parceiros
           </span>
-          <h2 className="mt-2 text-lg sm:text-xl md:text-2xl font-light text-black">
+          <h2 className="mt-3 sm:mt-4 text-xl sm:text-2xl md:text-3xl font-light text-black">
             Empresas Parceiras
           </h2>
-          <p className="mt-1 text-[10px] sm:text-xs text-gray-500 max-w-2xl mx-auto font-light">
+          <p className="mt-2 sm:mt-3 text-xs sm:text-sm md:text-base text-gray-500 max-w-2xl mx-auto font-light">
             Confiam e impulsionam nossa tecnologia
           </p>
         </div>
 
-        <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+        <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 md:gap-8">
           {partners.map((partner, index) => (
             <div 
               key={index} 
@@ -69,7 +69,7 @@ const Partners = () => {
               <img
                 src={partner.logo}
                 alt={`${partner.name} logo`}
-                className="h-6 sm:h-7 md:h-8 w-auto transition-all filter grayscale opacity-60 hover:opacity-80"
+                className="h-8 sm:h-10 md:h-12 w-auto transition-all filter grayscale opacity-60 hover:opacity-80"
               />
             </div>
           ))}

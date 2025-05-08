@@ -43,7 +43,7 @@ const Index = () => {
       const sections = document.querySelectorAll('section');
       sections.forEach(section => {
         const rect = section.getBoundingClientRect();
-        const isInView = (rect.top <= window.innerHeight * 0.85) && (rect.bottom >= 0);
+        const isInView = (rect.top <= window.innerHeight * 0.75) && (rect.bottom >= 0);
         if (isInView) {
           section.classList.add('animate-in');
         }
@@ -72,7 +72,7 @@ const Index = () => {
         <Navbar />
         <WistiaScriptLoader />
 
-        <main className="flex-1 overflow-x-hidden space-y-6 sm:space-y-8 md:space-y-10">
+        <main className="flex-1 overflow-x-hidden">
           <Hero />
           <Benefits />
           <Comparison />

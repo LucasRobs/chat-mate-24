@@ -8,15 +8,15 @@
   }
   
   .from-bottom {
-    @apply translate-y-5 sm:translate-y-8;
+    @apply translate-y-8 sm:translate-y-12;
   }
   
   .from-left {
-    @apply -translate-x-5 sm:-translate-x-8;
+    @apply -translate-x-8 sm:-translate-x-12;
   }
   
   .from-right {
-    @apply translate-x-5 sm:translate-x-8;
+    @apply translate-x-8 sm:translate-x-12;
   }
   
   .animate-in {
@@ -34,7 +34,7 @@
     }
     
     .animated-button {
-      @apply text-xs py-1 px-2;
+      @apply text-xs py-1.5 px-3;
     }
     
     .animated-button:hover {
@@ -84,25 +84,7 @@
   
   /* Navbar spacing */
   .navbar-item-spacing {
-    @apply px-2 gap-4;
-  }
-  
-  /* Compact spacing for mobile */
-  .compact-spacing {
-    @apply p-2 space-y-2 sm:p-4 sm:space-y-4;
-  }
-  
-  .compact-card {
-    @apply rounded-lg p-3 sm:p-5;
-  }
-  
-  /* Compact text for mobile */
-  .compact-heading {
-    @apply text-base sm:text-lg md:text-xl lg:text-2xl;
-  }
-  
-  .compact-text {
-    @apply text-xs sm:text-sm leading-relaxed;
+    @apply px-4 gap-7;
   }
 }
 
