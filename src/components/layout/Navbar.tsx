@@ -3,7 +3,7 @@
 
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
-import { Menu, X, User } from "lucide-react";
+import { Menu, X, User, Rocket, Users, PieChart } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useIsMobile } from "@/hooks/use-mobile";
 
@@ -18,7 +18,8 @@ export default function Navbar() {
       const currentY = window.scrollY;
       setScrollY(currentY);
 
-      const sections = ["features", "pricing", "partners"];
+      // Updated order: features, partners, pricing
+      const sections = ["features", "partners", "pricing"];
       for (let id of sections) {
         const el = document.getElementById(id);
         if (el) {
@@ -43,19 +44,28 @@ export default function Navbar() {
     setIsOpen(false);
   };
 
+  // Nav items in new order: features, partners, pricing
+  const navItems = [
+    { id: "features", label: "Funções", icon: Rocket },
+    { id: "partners", label: "Parceiros", icon: Users },
+    { id: "pricing", label: "Planos", icon: PieChart }
+  ];
+
   return (
     <div
       className={cn(
         "fixed z-50 left-1/2 -translate-x-1/2 transition-all duration-500 ease-in-out backdrop-blur-lg backdrop-saturate-150 rounded-full",
         scrollY > 10
           ? "w-[90%] max-w-[560px] bg-white/90 shadow-lg top-2 h-12"
-          : "w-[90%] max-w-[620px] bg-white/80 shadow-md top-2 h-14"
+          : "w-[90%] max-w-[620px] bg-white/80 shadow-md top-2 h-14",
+        isMobile && "h-12 w-[90%]" // Fixed size for mobile
       )}
     >
       <div
         className={cn(
           "border border-white/30 px-4 flex items-center justify-between gap-3 transition-all duration-500 ease-in-out rounded-full",
-          scrollY > 10 ? "h-12" : "h-14"
+          scrollY > 10 ? "h-12" : "h-14",
+          isMobile && "h-12" // Fixed height for mobile
         )}
       >
         <div className="flex items-center gap-2">
@@ -77,7 +87,7 @@ export default function Navbar() {
             scrollY > 10 ? "scale-95" : "scale-100"
           )}
         >
-          {[{ id: "features", label: "Funções" }, { id: "pricing", label: "Planos" }, { id: "partners", label: "Parceiros" }].map(({ id, label }) => (
+          {navItems.map(({ id, label }) => (
             <button
               key={id}
               onClick={() => scrollToSection(id)}
@@ -118,17 +128,18 @@ export default function Navbar() {
 
       {isOpen && (
         <div className="md:hidden absolute right-0 left-0 mt-2 mx-auto max-w-[95%] bg-white/95 backdrop-blur-md rounded-xl shadow-md p-4 space-y-3 animate-fade-in-down">
-          {[{ id: "features", label: "Funções" }, { id: "pricing", label: "Planos" }, { id: "partners", label: "Parceiros" }].map(({ id, label }) => (
+          {navItems.map(({ id, label, icon: Icon }) => (
             <button
               key={id}
               onClick={() => scrollToSection(id)}
               className={cn(
-                "flex w-full items-center gap-2 transition-all duration-300 px-3 py-2 rounded-lg",
+                "flex w-full items-center gap-3 transition-all duration-300 px-3 py-2 rounded-lg",
                 activeSection === id 
                   ? "bg-primary/10 text-primary font-medium" 
                   : "text-muted-foreground hover:bg-primary/5 hover:text-primary hover:translate-x-1"
               )}
             >
+              <Icon size={16} />
               {label}
             </button>
           ))}
@@ -136,9 +147,9 @@ export default function Navbar() {
           <Link
             to="https://www.followop.com.br/login"
             target="_blank"
-            className="flex w-full items-center gap-2 px-3 py-2 rounded-lg bg-secondary/10 text-secondary hover:bg-secondary/20 transition-all duration-300"
+            className="flex w-full items-center gap-3 px-3 py-2 rounded-lg bg-secondary/10 text-secondary hover:bg-secondary/20 transition-all duration-300"
           >
-            <User className="w-4 h-4" />
+            <User size={16} />
             <span className="font-medium">Entrar</span>
           </Link>
         </div>

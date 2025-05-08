@@ -60,24 +60,21 @@ const BenefitItem = ({ icon: Icon, title, description, number, suffix, index, is
   return (
     <div 
       className={cn(
-        "flex flex-col items-center p-4 text-center h-full bg-white rounded-xl shadow-sm border border-gray-100 transition-all duration-500 ease-in-out hover-card",
+        "flex flex-col items-center text-center transition-all duration-500 ease-in-out",
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
       )}
       style={{ 
-        minHeight: '180px',
         transitionDelay: `${index * 100}ms`
       }}
     >
-      <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-3 relative">
-        <Icon className="w-7 h-7 text-primary" />
+      <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-3">
+        <Icon className="w-6 h-6 text-primary" />
       </div>
-      <h3 className="text-base font-light text-black mb-2 whitespace-normal leading-tight">
-        {title}
-      </h3>
+      <h3 className="text-base font-light text-black mb-2">{title}</h3>
       <div className="text-2xl font-bold mb-1 text-primary">
         <CountUpNumber end={number} suffix={suffix} />
       </div>
-      <p className="text-sm text-gray-500 leading-relaxed max-w-xs font-light">{description}</p>
+      <p className="text-sm text-gray-500 max-w-xs font-light">{description}</p>
     </div>
   );
 };
@@ -150,7 +147,7 @@ const Benefits = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 px-6">
           {benefits.map((benefit, index) => (
             <BenefitItem
               key={index}
