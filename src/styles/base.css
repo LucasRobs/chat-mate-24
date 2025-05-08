@@ -59,9 +59,10 @@
     scroll-behavior: smooth;
   }
 
-  /* Remove custom scrollbar styling to avoid double scrollbars */
+  /* Allow scrolling but hide scrollbar visually */
   ::-webkit-scrollbar {
-    display: none;
+    width: 0px;
+    background: transparent;
   }
   
   /* Enable scrolling but hide the scrollbar */

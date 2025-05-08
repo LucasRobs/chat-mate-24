@@ -44,15 +44,20 @@
   /* Global scroll container settings */
   .global-scroll-container {
     @apply overflow-x-hidden;
-    /* Allow vertical scrolling but with only one scrollbar */
+    /* Allow vertical scrolling with one scrollbar */
     overflow-y: auto;
-    height: 100vh;
-    scrollbar-width: auto; /* Firefox */
-    -ms-overflow-style: auto; /* IE and Edge */
+    min-height: 100vh;
+    height: auto;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+    &::-webkit-scrollbar {
+      display: none; /* Chrome, Safari, Opera */
+    }
   }
   
   /* Make sure all other containers don't add scrollbars */
   .no-scrollbar {
+    @apply overflow-x-hidden overflow-y-auto;
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none; /* IE and Edge */
     &::-webkit-scrollbar {
@@ -63,8 +68,8 @@
   /* Ensure body only has one scroll */
   html, body, #root {
     @apply overflow-x-hidden;
-    overflow-y: hidden !important; /* Prevent body scroll, only use main container scroll */
-    height: 100%;
+    overflow-y: auto !important; /* Allow scrolling */
+    height: auto;
     margin: 0;
     padding: 0;
   }

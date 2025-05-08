@@ -72,7 +72,7 @@ const Index = () => {
         <Navbar />
         <WistiaScriptLoader />
 
-        <main className="flex-1 no-scrollbar">
+        <main>
           <Hero />
           <Benefits />
           <Comparison />
