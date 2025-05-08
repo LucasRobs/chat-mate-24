@@ -2,8 +2,7 @@
 import React, { useRef } from "react";
 import { CheckCircle, MessageSquare, BarChart, Clock, Heart, Smartphone } from "lucide-react";
 import FeatureCard from "../ui-custom/FeatureCard";
-import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
-import { useIsMobile } from "@/hooks/use-mobile";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 
 const Features = () => {
@@ -40,7 +39,6 @@ const Features = () => {
     }
   ];
 
-  const isMobile = useIsMobile();
   const autoplayPlugin = useRef(
     Autoplay({
       delay: 3000,
@@ -50,67 +48,52 @@ const Features = () => {
   );
   
   return (
-    <section id="features" className="py-16 md:py-24 bg-white relative overflow-hidden">
+    <section id="features" className="py-12 md:py-16 bg-white relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
       <div className="absolute -top-40 -right-40 w-80 h-80 bg-primary/5 rounded-full blur-3xl"></div>
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-12 animate-fade-in-down">
-          <span className="bg-primary/10 text-primary px-4 py-1 rounded-full text-xs sm:text-sm font-medium">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="text-center mb-8 animate-fade-in-down">
+          <span className="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-medium">
             Funcionalidades
           </span>
-          <h2 className="mt-4 text-xl sm:text-3xl md:text-4xl font-light text-secondary">
+          <h2 className="mt-3 text-xl sm:text-2xl md:text-3xl font-light text-secondary">
             Recursos <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/70">poderosos</span>
           </h2>
-          <p className="mt-4 text-sm sm:text-base text-gray-600 max-w-2xl mx-auto">
+          <p className="mt-2 text-xs sm:text-sm text-gray-600 max-w-xl mx-auto">
             Transforme a experiência do atendimento ao cliente com a followop
           </p>
         </div>
 
-        {/* Desktop View: Grid */}
-        <div className="hidden md:block">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            {features.map((feature, index) => (
-              <div 
-                key={index} 
-                className="reveal from-bottom"
-                style={{ transitionDelay: `${index * 100}ms` }}
-              >
-                <FeatureCard
-                  icon={feature.icon}
-                  title={feature.title}
-                  description={feature.description}
-                  className={`h-full ${index % 3 === 1 ? 'translate-y-4' : ''}`}
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Mobile View: Carousel */}
-        <div className="md:hidden">
+        {/* Carousel for all devices */}
+        <div className="mx-auto max-w-4xl">
           <Carousel
             opts={{ 
               loop: true,
               align: "center",
-              slidesToScroll: 1
             }}
             plugins={[autoplayPlugin.current]}
             className="w-full"
           >
             <CarouselContent>
               {features.map((feature, index) => (
-                <CarouselItem key={index} className="basis-full pl-4">
-                  <FeatureCard
-                    icon={feature.icon}
-                    title={feature.title}
-                    description={feature.description}
-                    className="h-full"
-                  />
+                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3 pl-4">
+                  <div className="h-full pb-1">
+                    <FeatureCard
+                      icon={feature.icon}
+                      title={feature.title}
+                      description={feature.description}
+                      className="h-full"
+                    />
+                  </div>
                 </CarouselItem>
               ))}
             </CarouselContent>
+            <div className="hidden sm:flex justify-center mt-4">
+              <CarouselPrevious className="relative static translate-y-0 mr-2" />
+              <CarouselNext className="relative static translate-y-0" />
+            </div>
           </Carousel>
         </div>
       </div>
