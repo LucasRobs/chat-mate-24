@@ -35,15 +35,40 @@ const Index = () => {
     const revealElements = document.querySelectorAll(".reveal");
     revealElements.forEach((el) => observer.observe(el));
 
+    // Add Apple-inspired smooth scrolling
+    document.documentElement.style.scrollBehavior = 'smooth';
+    
+    // Animation handler for sections
+    const animateSections = () => {
+      const sections = document.querySelectorAll('section');
+      sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        const isInView = (rect.top <= window.innerHeight * 0.75) && (rect.bottom >= 0);
+        if (isInView) {
+          section.classList.add('animate-in');
+        }
+      });
+    };
+
+    // Run once on load
+    animateSections();
+    
+    // Add event listeners
+    window.addEventListener('scroll', animateSections);
+    window.addEventListener('resize', animateSections);
+
     return () => {
       document.body.classList.remove('pattern-background');
       revealElements.forEach((el) => observer.unobserve(el));
+      document.documentElement.style.scrollBehavior = 'auto';
+      window.removeEventListener('scroll', animateSections);
+      window.removeEventListener('resize', animateSections);
     };
   }, []);
 
   return (
     <TooltipProvider>
-      <div className="min-h-screen flex flex-col bg-white">
+      <div className="min-h-screen flex flex-col bg-white mobile-container">
         <Navbar />
         <WistiaScriptLoader />
 
