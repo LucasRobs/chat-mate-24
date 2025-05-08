@@ -48,8 +48,8 @@ export default function Navbar() {
       className={cn(
         "fixed z-50 left-1/2 -translate-x-1/2 transition-all duration-500 ease-in-out backdrop-blur-lg backdrop-saturate-150 rounded-full",
         scrollY > 10
-          ? "w-[90%] max-w-[560px] bg-white/70 shadow-lg top-2 h-12"
-          : "w-[90%] max-w-[620px] bg-white/50 shadow-md top-2 h-14"
+          ? "w-[90%] max-w-[560px] bg-white/90 shadow-lg top-2 h-12"
+          : "w-[90%] max-w-[620px] bg-white/80 shadow-md top-2 h-14"
       )}
     >
       <div
@@ -73,7 +73,7 @@ export default function Navbar() {
 
         <div
           className={cn(
-            "flex items-center gap-6 transition-all duration-300",
+            "hidden md:flex items-center gap-6 transition-all duration-300",
             scrollY > 10 ? "scale-95" : "scale-100"
           )}
         >
@@ -97,7 +97,7 @@ export default function Navbar() {
           ))}
         </div>
 
-        {!isMobile && (
+        <div className="hidden md:flex">
           <Link
             to="https://www.followop.com.br/login"
             target="_blank"
@@ -106,20 +106,18 @@ export default function Navbar() {
             <User className="w-4 h-4 text-secondary" />
             <span className="ml-2 text-sm text-secondary font-medium">Entrar</span>
           </Link>
-        )}
+        </div>
 
-        {isMobile && (
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="text-muted-foreground transition-transform duration-300 hover:scale-110 active:scale-95"
-          >
-            {isOpen ? <X size={18} className="animate-spin-once" /> : <Menu size={18} className="animate-pulse-light" />}
-          </button>
-        )}
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="md:hidden text-muted-foreground transition-transform duration-300 hover:scale-110 active:scale-95"
+        >
+          {isOpen ? <X size={18} className="animate-spin-once" /> : <Menu size={18} className="animate-pulse-light" />}
+        </button>
       </div>
 
-      {isMobile && isOpen && (
-        <div className="absolute right-0 left-0 mt-2 mx-auto max-w-[95%] bg-white/90 backdrop-blur-md rounded-xl shadow-md p-4 space-y-3 animate-fade-in-down">
+      {isOpen && (
+        <div className="md:hidden absolute right-0 left-0 mt-2 mx-auto max-w-[95%] bg-white/95 backdrop-blur-md rounded-xl shadow-md p-4 space-y-3 animate-fade-in-down">
           {[{ id: "features", label: "Funções" }, { id: "pricing", label: "Planos" }, { id: "partners", label: "Parceiros" }].map(({ id, label }) => (
             <button
               key={id}
@@ -134,6 +132,15 @@ export default function Navbar() {
               {label}
             </button>
           ))}
+          
+          <Link
+            to="https://www.followop.com.br/login"
+            target="_blank"
+            className="flex w-full items-center gap-2 px-3 py-2 rounded-lg bg-secondary/10 text-secondary hover:bg-secondary/20 transition-all duration-300"
+          >
+            <User className="w-4 h-4" />
+            <span className="font-medium">Entrar</span>
+          </Link>
         </div>
       )}
     </div>

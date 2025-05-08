@@ -1,5 +1,4 @@
 
-
 @tailwind utilities;
 
 @layer utilities {
@@ -23,10 +22,10 @@
     @apply opacity-100 translate-y-0 translate-x-0;
   }
   
-  /* Mobile optimizations */
+  /* Enhanced Mobile optimizations */
   @media (max-width: 640px) {
     .card-hover:hover {
-      transform: translateY(-2px);
+      transform: translateY(-1px);
     }
     
     .btn-hover:hover {
@@ -47,29 +46,34 @@
     @apply max-w-full overflow-x-hidden;
   }
   
-  /* Responsive text sizes */
+  /* Improved responsive text sizes */
   .text-responsive-xs {
-    @apply text-[10px] sm:text-xs;
+    @apply text-[8px] xs:text-[10px] sm:text-xs;
   }
   
   .text-responsive-sm {
-    @apply text-xs sm:text-sm;
+    @apply text-[10px] xs:text-xs sm:text-sm;
   }
   
   .text-responsive-base {
-    @apply text-sm sm:text-base;
+    @apply text-xs xs:text-sm sm:text-base;
   }
   
   .text-responsive-lg {
-    @apply text-base sm:text-lg;
+    @apply text-sm xs:text-base sm:text-lg;
   }
   
   .text-responsive-xl {
-    @apply text-lg sm:text-xl;
+    @apply text-base xs:text-lg sm:text-xl;
   }
   
   .text-responsive-2xl {
-    @apply text-xl sm:text-2xl;
+    @apply text-lg xs:text-xl sm:text-2xl;
+  }
+  
+  /* Touch optimizations */
+  .touch-target {
+    @apply min-h-[36px] min-w-[36px];
   }
   
   /* Prevent text overflow */
@@ -82,9 +86,18 @@
     @apply object-contain max-w-full;
   }
   
+  /* Safer spacing for mobile - prevents elements from touching the edge of the screen */
+  .safe-padding {
+    @apply px-2 sm:px-0;
+  }
+  
   /* Navbar spacing */
   .navbar-item-spacing {
-    @apply px-4 gap-7;
+    @apply px-2 sm:px-4 gap-4 sm:gap-7;
+  }
+  
+  /* Add mobile tap state */
+  .mobile-tap-effect:active {
+    @apply opacity-70 scale-95;
   }
 }
-

@@ -4,8 +4,11 @@ import { CheckCircle, MessageSquare, BarChart, Clock, Heart, Smartphone } from "
 import FeatureCard from "../ui-custom/FeatureCard";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const Features = () => {
+  const isMobile = useIsMobile();
+  
   const features = [
     {
       icon: MessageSquare,
@@ -48,13 +51,13 @@ const Features = () => {
   );
   
   return (
-    <section id="features" className="py-12 md:py-16 bg-white relative overflow-hidden">
+    <section id="features" className="py-10 md:py-16 bg-white relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
       <div className="absolute -top-40 -right-40 w-80 h-80 bg-primary/5 rounded-full blur-3xl"></div>
       
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-8 animate-fade-in-down">
+        <div className="text-center mb-6 sm:mb-8 animate-fade-in-down">
           <span className="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-medium">
             Funcionalidades
           </span>
@@ -66,19 +69,20 @@ const Features = () => {
           </p>
         </div>
 
-        {/* Carousel for all devices */}
+        {/* Carousel for all devices, optimized for mobile */}
         <div className="mx-auto max-w-4xl">
           <Carousel
             opts={{ 
               loop: true,
               align: "center",
+              dragFree: isMobile,
             }}
             plugins={[autoplayPlugin.current]}
             className="w-full"
           >
             <CarouselContent>
               {features.map((feature, index) => (
-                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3 pl-4">
+                <CarouselItem key={index} className="basis-[85%] sm:basis-1/2 lg:basis-1/3 pl-4">
                   <div className="h-full pb-1">
                     <FeatureCard
                       icon={feature.icon}
@@ -90,9 +94,9 @@ const Features = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <div className="hidden sm:flex justify-center mt-4">
-              <CarouselPrevious className="relative static translate-y-0 mr-2" />
-              <CarouselNext className="relative static translate-y-0" />
+            <div className="flex justify-center mt-4">
+              <CarouselPrevious className="relative static translate-y-0 mr-2 h-8 w-8" />
+              <CarouselNext className="relative static translate-y-0 h-8 w-8" />
             </div>
           </Carousel>
         </div>
