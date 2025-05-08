@@ -1,11 +1,10 @@
 
-
 @tailwind utilities;
 
 @layer utilities {
   /* Animation classes */
   .animate-on-scroll {
-    @apply opacity-0 transition-all duration-800;
+    @apply opacity-0 transition-all duration-700;
   }
   
   .reveal {
@@ -49,7 +48,7 @@
   
   /* Section animations */
   section {
-    @apply opacity-0 translate-y-3 transition-all duration-800;
+    @apply opacity-0 translate-y-3 transition-all duration-700;
   }
   
   section.animate-in {
@@ -67,4 +66,3 @@
     animation: float 3s ease-in-out infinite;
   }
 }
-
