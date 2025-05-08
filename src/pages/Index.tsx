@@ -38,10 +38,6 @@ const Index = () => {
     // Add Apple-inspired smooth scrolling
     document.documentElement.style.scrollBehavior = 'smooth';
     
-    // Remove any possible overflow hidden that might be causing double scrollbars
-    document.documentElement.style.overflowY = 'visible';
-    document.body.style.overflowY = 'visible';
-    
     // Animation handler for sections
     const animateSections = () => {
       const sections = document.querySelectorAll('section');
@@ -72,11 +68,11 @@ const Index = () => {
 
   return (
     <TooltipProvider>
-      <div className="min-h-screen flex flex-col bg-white single-scroll-container">
+      <div className="global-scroll-container">
         <Navbar />
         <WistiaScriptLoader />
 
-        <main className="flex-1 single-scroll-container">
+        <main className="flex-1 no-scrollbar">
           <Hero />
           <Benefits />
           <Comparison />

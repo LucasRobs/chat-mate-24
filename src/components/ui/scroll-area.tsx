@@ -16,7 +16,7 @@ const ScrollArea = React.forwardRef<
     <ScrollAreaPrimitive.Viewport className="h-full w-full rounded-[inherit]">
       {children}
     </ScrollAreaPrimitive.Viewport>
-    <ScrollBar />
+    {/* Hide the scrollbar by default */}
     <ScrollAreaPrimitive.Corner />
   </ScrollAreaPrimitive.Root>
 ))
@@ -30,20 +30,14 @@ const ScrollBar = React.forwardRef<
     ref={ref}
     orientation={orientation}
     className={cn(
-      "flex touch-none select-none transition-colors",
-      orientation === "vertical" &&
-        "h-full w-2.5 border-l border-l-transparent p-[1px]",
-      orientation === "horizontal" &&
-        "h-2.5 flex-col border-t border-t-transparent p-[1px]",
+      "flex touch-none select-none transition-colors hidden", // Hide all scrollbars
       className
     )}
     {...props}
   >
     <ScrollAreaPrimitive.ScrollAreaThumb 
       className={cn(
-        "relative flex-1 rounded-full bg-border opacity-50",
-        // Make scrollbars less visually prominent to avoid confusion
-        "opacity-30 hover:opacity-50"
+        "relative flex-1 rounded-full bg-border opacity-0", // Make fully transparent
       )} 
     />
   </ScrollAreaPrimitive.ScrollAreaScrollbar>

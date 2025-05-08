@@ -59,21 +59,14 @@
     scroll-behavior: smooth;
   }
 
-  /* Scrollbar styling */
+  /* Remove custom scrollbar styling to avoid double scrollbars */
   ::-webkit-scrollbar {
-    width: 8px;
+    display: none;
   }
   
-  ::-webkit-scrollbar-track {
-    background: #f1f1f1;
-  }
-  
-  ::-webkit-scrollbar-thumb {
-    background: #00af6b;
-    border-radius: 4px;
-  }
-  
-  ::-webkit-scrollbar-thumb:hover {
-    background: #009459;
+  /* Enable scrolling but hide the scrollbar */
+  html, body {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
   }
 }

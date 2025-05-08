@@ -41,16 +41,32 @@
     }
   }
 
-  /* Fix for mobile overflows - Updated to prevent multiple scrollbars */
-  .mobile-container {
-    @apply max-w-full overflow-x-hidden;
+  /* Global scroll container settings */
+  .global-scroll-container {
+    @apply overflow-x-hidden;
+    /* Allow vertical scrolling but with only one scrollbar */
+    overflow-y: auto;
+    height: 100vh;
+    scrollbar-width: auto; /* Firefox */
+    -ms-overflow-style: auto; /* IE and Edge */
+  }
+  
+  /* Make sure all other containers don't add scrollbars */
+  .no-scrollbar {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+    &::-webkit-scrollbar {
+      display: none; /* Chrome, Safari, Opera */
+    }
   }
   
   /* Ensure body only has one scroll */
   html, body, #root {
     @apply overflow-x-hidden;
-    height: auto;
-    overflow-y: visible !important;
+    overflow-y: hidden !important; /* Prevent body scroll, only use main container scroll */
+    height: 100%;
+    margin: 0;
+    padding: 0;
   }
   
   /* Improved responsive text sizes */
@@ -106,10 +122,5 @@
   /* Add mobile tap state */
   .mobile-tap-effect:active {
     @apply opacity-70 scale-95;
-  }
-  
-  /* Ensure scrollable areas don't create additional scrollbars */
-  .single-scroll-container {
-    @apply overflow-y-visible overflow-x-hidden;
   }
 }
