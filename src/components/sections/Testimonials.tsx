@@ -11,7 +11,7 @@ const testimonials = [
     role: "Terapeuta e Criadora do Método AZ30",
     image: "/lovable-uploads/d0b3b40d-b7c8-49cd-a80d-68f0fe56e7d5.png",
     content:
-      "Encontrar a followop foi a melhor coisa para meu negócio! Respostas rápidas e atendimento humanizado transformaram minha comunicação com clientes.",
+      "Encontrar a followop foi a melhor coisa para meu negócio! Respostas rápidas e atendimento humanizado.",
     rating: 5,
   },
   {
@@ -20,7 +20,7 @@ const testimonials = [
     role: "Cardiologista",
     image: "/lovable-uploads/danieldoto.png",
     content:
-      "A IA da Followop transformou minha rotina médica. Atendimento em tempo real, reduzindo perda de leads e aumentando conversão significativamente.",
+      "A IA da Followop transformou minha rotina. Atendimento em tempo real, reduzindo perda de leads significativamente.",
     rating: 5,
   },
 ];
@@ -62,7 +62,7 @@ const Testimonials = () => {
   }, []);
 
   return (
-    <section id="testimonials" className="py-16 sm:py-20 bg-gray-50 relative overflow-hidden">
+    <section id="testimonials" className="py-12 bg-gray-50 relative overflow-hidden">
       {/* Background patterns */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
@@ -72,22 +72,22 @@ const Testimonials = () => {
 
       <div className="container mx-auto px-4 sm:px-6 md:px-8 relative">
         <div
-          className={`text-center mb-8 sm:mb-12 transition-all duration-700 ${
+          className={`text-center mb-6 transition-all duration-700 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
           }`}
         >
-          <span className="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs sm:text-sm font-medium">
+          <span className="bg-primary/10 text-primary px-2 py-0.5 rounded-full text-xs font-medium">
             Depoimentos
           </span>
-          <h2 className="mt-4 text-xl sm:text-2xl md:text-3xl font-bold text-secondary">
+          <h2 className="mt-2 text-lg sm:text-xl md:text-2xl font-bold text-secondary">
             O que nossos clientes dizem
           </h2>
-          <p className="mt-2 sm:mt-4 text-sm sm:text-base text-gray-600 max-w-2xl mx-auto">
+          <p className="mt-1 sm:mt-2 text-xs sm:text-sm text-gray-600 max-w-2xl mx-auto">
             Empresas que transformaram seu atendimento com a followop
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-3xl mx-auto">
           <div className="relative">
             {testimonials.map((testimonial, index) => (
               <motion.div
@@ -99,59 +99,59 @@ const Testimonials = () => {
                 }}
                 transition={{ duration: 0.5 }}
                 className={cn(
-                  "bg-white rounded-2xl p-6 sm:p-8 shadow-lg border border-gray-100",
+                  "bg-white rounded-lg p-4 sm:p-6 shadow-md border border-gray-100",
                   activeIndex !== index && "hidden"
                 )}
               >
-                <div className="flex mb-4 sm:mb-6">
+                <div className="flex mb-2 sm:mb-4">
                   {[...Array(5)].map((_, i) => (
                     <Star
                       key={i}
                       className={cn(
-                        "w-4 h-4 sm:w-5 sm:h-5",
+                        "w-3 h-3 sm:w-4 sm:h-4",
                         i < testimonial.rating ? "text-yellow-500 fill-yellow-500" : "text-gray-300"
                       )}
                     />
                   ))}
                 </div>
                 
-                <p className="text-sm sm:text-base md:text-lg text-gray-700 italic leading-relaxed">
+                <p className="text-xs sm:text-sm text-gray-700 italic leading-relaxed">
                   "{testimonial.content}"
                 </p>
 
-                <div className="mt-6 sm:mt-8 flex items-center">
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden border-4 border-primary/10">
+                <div className="mt-4 flex items-center">
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full overflow-hidden border-2 border-primary/10">
                     <img
                       src={testimonial.image}
                       alt={testimonial.name}
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <div className="ml-3 sm:ml-4">
-                    <h4 className="font-bold text-base sm:text-lg text-secondary">
+                  <div className="ml-2 sm:ml-3">
+                    <h4 className="font-bold text-sm sm:text-base text-secondary">
                       {testimonial.name}
                     </h4>
-                    <p className="text-xs sm:text-sm text-gray-600">{testimonial.role}</p>
+                    <p className="text-[10px] sm:text-xs text-gray-600">{testimonial.role}</p>
                   </div>
                 </div>
               </motion.div>
             ))}
 
-            <div className="flex justify-center mt-6 sm:mt-8 space-x-4">
+            <div className="flex justify-center mt-4 space-x-3">
               <button
                 onClick={prevTestimonial}
-                className="p-1.5 sm:p-2 rounded-full bg-white shadow-md hover:bg-gray-100 transition-colors transform hover:scale-105"
+                className="p-1 rounded-full bg-white shadow hover:bg-gray-100 transition-colors transform hover:scale-105"
                 aria-label="Depoimento anterior"
               >
-                <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 text-gray-600" />
+                <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600" />
               </button>
-              <div className="flex items-center space-x-2">
+              <div className="flex items-center space-x-1.5">
                 {testimonials.map((_, index) => (
                   <button
                     key={index}
                     onClick={() => setActiveIndex(index)}
                     className={cn(
-                      "w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full transition-colors",
+                      "w-2 h-2 rounded-full transition-colors",
                       activeIndex === index
                         ? "bg-primary"
                         : "bg-gray-300 hover:bg-gray-400"
@@ -162,10 +162,10 @@ const Testimonials = () => {
               </div>
               <button
                 onClick={nextTestimonial}
-                className="p-1.5 sm:p-2 rounded-full bg-white shadow-md hover:bg-gray-100 transition-colors transform hover:scale-105"
+                className="p-1 rounded-full bg-white shadow hover:bg-gray-100 transition-colors transform hover:scale-105"
                 aria-label="Próximo depoimento"
               >
-                <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 text-gray-600" />
+                <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600" />
               </button>
             </div>
           </div>
