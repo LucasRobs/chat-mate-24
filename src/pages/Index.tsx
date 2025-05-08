@@ -18,7 +18,7 @@ import { Toaster } from "@/components/ui/toaster";
 
 const Index = () => {
   useEffect(() => {
-    // Add smooth patterns to body
+    // Use simple dot patterns instead of gradients
     document.body.classList.add('pattern-background');
     
     const observer = new IntersectionObserver(

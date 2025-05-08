@@ -23,7 +23,7 @@ const IntegrationPartners = () => {
   );
 
   return (
-    <section className="py-12 sm:py-16 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
+    <section className="py-12 sm:py-16 bg-white relative overflow-hidden">
       {/* Background dot pattern */}
       <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
       <div className="absolute -top-40 -left-40 w-80 h-80 bg-primary/5 rounded-full blur-3xl"></div>
@@ -58,7 +58,7 @@ const IntegrationPartners = () => {
                       <img 
                         src={partner.logo} 
                         alt={partner.name} 
-                        className="h-14 md:h-20 w-auto transition-all hover:scale-105 filter grayscale opacity-70 hover:opacity-90"
+                        className="h-14 md:h-20 w-auto transition-all hover:scale-105"
                       />
                     </CardContent>
                   </Card>
