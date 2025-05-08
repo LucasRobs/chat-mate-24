@@ -54,4 +54,9 @@
   section.animate-in {
     @apply opacity-100 translate-y-0;
   }
+  
+  /* Remove grayscale filter from integrations */
+  .filter-none {
+    filter: none;
+  }
 }
