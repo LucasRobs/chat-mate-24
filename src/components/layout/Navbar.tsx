@@ -18,7 +18,6 @@ export default function Navbar() {
       const currentY = window.scrollY;
       setScrollY(currentY);
 
-      // Updated order: features, partners, pricing
       const sections = ["features", "partners", "pricing"];
       for (let id of sections) {
         const el = document.getElementById(id);
@@ -36,6 +35,13 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
+
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -44,7 +50,6 @@ export default function Navbar() {
     setIsOpen(false);
   };
 
-  // Nav items in new order: features, partners, pricing
   const navItems = [
     { id: "features", label: "Funções", icon: Rocket },
     { id: "partners", label: "Parceiros", icon: Users },
@@ -54,18 +59,18 @@ export default function Navbar() {
   return (
     <div
       className={cn(
-        "fixed z-50 left-1/2 -translate-x-1/2 transition-all duration-500 ease-in-out acrylic animate-fade-in-down",
+        "fixed z-50 inset-x-4 mx-auto transition-all duration-500 ease-in-out acrylic backdrop-blur-md bg-white/60 animate-fade-in-down",
         scrollY > 10
-          ? "w-[90%] max-w-[560px] shadow-lg top-2 h-12"
-          : "w-[90%] max-w-[620px] shadow-md top-2 h-14",
-        isMobile && "w-[90%] h-12" // Fixed size for mobile
+          ? "max-w-[560px] shadow-lg top-2 h-12"
+          : "max-w-[620px] shadow-md top-2 h-14",
+        isMobile && "max-w-full h-12"
       )}
     >
       <div
         className={cn(
           "border border-white/30 px-4 flex items-center justify-between gap-3 transition-all duration-500 ease-in-out rounded-full",
           scrollY > 10 ? "h-12" : "h-14",
-          isMobile && "h-12" // Fixed height for mobile
+          isMobile && "h-12"
         )}
       >
         <div className="flex items-center gap-2 animate-fade-in-left">
@@ -147,7 +152,7 @@ export default function Navbar() {
       </div>
 
       {isOpen && (
-        <div className="md:hidden absolute right-0 left-0 mt-2 mx-auto max-w-[95%] acrylic rounded-xl shadow-md p-4 space-y-3 animate-fade-in-down">
+        <div className="md:hidden absolute top-full left-0 right-0 mt-2 mx-auto max-w-[95%] acrylic backdrop-blur-md bg-white/60 rounded-xl shadow-md p-4 space-y-3 animate-fade-in-down">
           {navItems.map(({ id, label, icon: Icon }) => (
             <button
               key={id}
@@ -163,7 +168,7 @@ export default function Navbar() {
               {label}
             </button>
           ))}
-          
+
           <Link
             to="https://www.followop.com.br/login"
             target="_blank"
