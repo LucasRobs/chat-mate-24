@@ -42,17 +42,19 @@
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 300;
     background-color: white;
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-light tracking-tight text-black;
+    font-family: 'Poppins', sans-serif;
   }
 
   p {
     @apply font-light text-gray-500;
+    font-family: 'Poppins', sans-serif;
   }
 
   html {
@@ -69,5 +71,6 @@
   html, body {
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none; /* IE and Edge */
+    font-family: 'Poppins', sans-serif;
   }
 }
