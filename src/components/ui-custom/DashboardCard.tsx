@@ -1,7 +1,6 @@
 
 import React from "react";
 import { ArrowUp, ArrowDown, LucideIcon } from "lucide-react";
-import { Card } from "@/components/ui/card";
 
 interface DashboardCardProps {
   title: string;
@@ -11,39 +10,37 @@ interface DashboardCardProps {
 }
 
 const DashboardCard = ({ title, value, icon: Icon, trend }: DashboardCardProps) => {
-  // Format value for better readability
+  // Format the value for easier reading
   const formattedValue = value.toLocaleString();
   
   return (
-    <Card className="p-3 sm:p-5 flex flex-col">
-      <div className="text-xs sm:text-sm text-gray-500 mb-1">{title}</div>
-      <div className="flex items-end justify-between mt-1">
-        <div className="text-lg sm:text-2xl font-semibold text-gray-900">{formattedValue}</div>
-        <div className="w-6 h-6 sm:w-8 sm:h-8 flex items-center justify-center rounded-full bg-primary/5">
-          <Icon className="w-3 h-3 sm:w-4 sm:h-4 text-primary" />
+    <div className="bg-white rounded-lg p-1.5 sm:p-2 shadow-sm border border-gray-50 flex flex-col justify-between transition-all duration-300 hover:shadow-md h-full">
+      <div className="flex items-center justify-between">
+        <div className="w-4 h-4 sm:w-7 sm:h-7 rounded-lg bg-gray-50 flex items-center justify-center">
+          <Icon className="w-2 h-2 sm:w-3.5 sm:h-3.5 text-gray-500" />
         </div>
+        <span className="text-[8px] sm:text-xs text-gray-400 font-light">{title}</span>
       </div>
       
-      {trend !== undefined && (
-        <div className="flex items-center mt-2">
-          {trend > 0 ? (
-            <>
-              <ArrowUp className="w-3 h-3 text-green-500 mr-1" />
-              <span className="text-xs text-green-500">
-                {Math.abs(trend)}%
-              </span>
-            </>
-          ) : (
-            <>
-              <ArrowDown className="w-3 h-3 text-red-500 mr-1" />
-              <span className="text-xs text-red-500">
-                {Math.abs(trend)}%
-              </span>
-            </>
-          )}
+      <div className="mt-1.5 sm:mt-2">
+        <div className="text-[10px] sm:text-sm font-medium text-gray-800">
+          {formattedValue}
         </div>
-      )}
-    </Card>
+        
+        {trend && (
+          <div className="flex items-center mt-0.5">
+            {trend > 0 ? (
+              <ArrowUp className="w-2 h-2 sm:w-3 sm:h-3 text-green-500" />
+            ) : (
+              <ArrowDown className="w-2 h-2 sm:w-3 sm:h-3 text-red-500" />
+            )}
+            <span className={`text-[7px] sm:text-[10px] ml-0.5 ${trend > 0 ? 'text-green-500' : 'text-red-500'}`}>
+              {Math.abs(trend)}%
+            </span>
+          </div>
+        )}
+      </div>
+    </div>
   );
 };
 

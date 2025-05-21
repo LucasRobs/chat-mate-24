@@ -1,10 +1,17 @@
 
-import React, { useState } from "react";
-import { Users, MessageSquare, ArrowDownRight, ArrowUpRight, BarChart } from "lucide-react";
-import { useIsMobile } from "@/hooks/use-mobile";
-import ActivityChart from "./ActivityChart";
+import React from "react";
+import { Users, MessageSquare, BarChart2, ArrowRight, Bell, Calendar } from "lucide-react";
 import DashboardCard from "./DashboardCard";
-import { Card } from "@/components/ui/card";
+import { useIsMobile } from "@/hooks/use-mobile";
+import { Button } from "@/components/ui/button";
+import {
+  ResponsiveContainer,
+  AreaChart,
+  Area,
+  Tooltip,
+  XAxis,
+  YAxis
+} from "recharts";
 
 interface DashboardProps {
   activityData: Array<{ name: string; value: number }>;
@@ -14,55 +21,99 @@ interface DashboardProps {
 const Dashboard = ({ activityData, isMobile: propIsMobile }: DashboardProps) => {
   const hookIsMobile = useIsMobile();
   const isMobile = propIsMobile !== undefined ? propIsMobile : hookIsMobile;
-  
-  const [timeFrame, setTimeFrame] = useState("Últimos 30 dias");
-  
+  const simplifiedData = isMobile ? activityData.filter((_, idx) => idx % 2 === 0) : activityData;
+
+  const handleViewMore = () => {
+    window.open("https://www.followop.com.br/register", "_blank");
+  };
+
   return (
-    <div className={`w-full mx-auto ${isMobile ? 'px-2 max-w-full' : 'max-w-5xl px-4'}`}>
-      <div className="mb-4 sm:mb-6">
-        <h1 className="text-lg sm:text-2xl font-medium text-gray-900">Visão Geral</h1>
-      </div>
-      
-      <div className="grid grid-cols-2 gap-3 sm:gap-6 mb-4 sm:mb-6">
-        <DashboardCard 
-          title="Atendimentos" 
-          value={446} 
-          icon={Users} 
-          trend={12} 
-        />
-        
-        <DashboardCard 
-          title="Mensagens" 
-          value={3119} 
-          icon={MessageSquare} 
-          trend={-5} 
-        />
-      </div>
-      
-      <Card className={`p-3 sm:p-6 ${isMobile ? 'h-64' : 'h-auto'}`}>
-        <div className="flex justify-between items-center mb-4 sm:mb-6">
-          <h3 className="text-sm sm:text-lg font-medium text-gray-900">Atividade Recente</h3>
-          <div className="relative">
-            <select 
-              value={timeFrame}
-              onChange={(e) => setTimeFrame(e.target.value)}
-              className="text-xs sm:text-sm text-gray-600 bg-white border border-gray-200 rounded-md p-1 sm:p-2 pl-2 pr-6 appearance-none focus:outline-none focus:ring-1 focus:ring-primary"
-            >
-              <option>Últimos 30 dias</option>
-              <option>Últimos 7 dias</option>
-              <option>Último mês</option>
-            </select>
-            <div className="absolute right-2 top-1/2 transform -translate-y-1/2 pointer-events-none">
-              <svg width="8" height="5" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M1 1L5 5L9 1" stroke="#6B7280" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
+    <div className="w-full max-w-3xl mx-auto rounded-xl sm:rounded-2xl overflow-hidden shadow border border-gray-100 transition-all duration-500 bg-white">
+      <div className="p-2 sm:p-4 flex-1 flex flex-col gap-2 sm:gap-3">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-1 sm:gap-2">
+            <img src="/lovable-uploads/669aaab1-10dd-437a-a1b9-789ae5f02809.png" alt="followop Logo" className="h-3 sm:h-5" />
+            <span className="font-medium text-[10px] sm:text-xs text-gray-800">Visão Geral</span>
+          </div>
+          <div className="flex items-center gap-1 sm:gap-2">
+            <div className="text-[8px] sm:text-xs text-primary/80 bg-primary/10 px-1.5 sm:px-2 py-0.5 rounded-full">Premium</div>
+            <div className="h-4 w-4 sm:h-5 sm:w-5 rounded-full bg-primary/20 flex items-center justify-center">
+              <span className="text-[8px] sm:text-xs font-medium text-primary">AU</span>
             </div>
           </div>
         </div>
-        <div className={`${isMobile ? 'h-44' : 'h-72 sm:h-96'}`}>
-          <ActivityChart data={activityData} isMobile={isMobile} />
+
+        <div className="grid grid-cols-3 gap-1 sm:gap-2">
+          <DashboardCard title="Atendimentos" value={329} icon={Users} trend={+12} />
+          <DashboardCard title="Mensagens" value={2559} icon={MessageSquare} trend={+28} />
+          <DashboardCard title="Conversões" value={43} icon={BarChart2} trend={+8} />
         </div>
-      </Card>
+
+        <div className="grid grid-cols-2 gap-1 sm:gap-2">
+          <div className="bg-white rounded-lg p-1.5 sm:p-2 shadow-sm border flex items-center">
+            <div className="w-4 h-4 sm:w-6 sm:h-6 bg-blue-50 rounded-lg flex items-center justify-center mr-1.5 sm:mr-2">
+              <Bell className="w-2 h-2 sm:w-4 sm:h-4 text-blue-500" />
+            </div>
+            <div>
+              <p className="text-[8px] sm:text-[11px] text-gray-500">Notificações</p>
+              <p className="text-[9px] sm:text-xs font-medium">12 novas</p>
+            </div>
+          </div>
+          <div className="bg-white rounded-lg p-1.5 sm:p-2 shadow-sm border flex items-center">
+            <div className="w-4 h-4 sm:w-6 sm:h-6 bg-green-50 rounded-lg flex items-center justify-center mr-1.5 sm:mr-2">
+              <Calendar className="w-2 h-2 sm:w-4 sm:h-4 text-green-500" />
+            </div>
+            <div>
+              <p className="text-[8px] sm:text-[11px] text-gray-500">Agendamentos</p>
+              <p className="text-[9px] sm:text-xs font-medium">5 hoje</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="w-full h-[100px] sm:h-[160px]">
+          <ResponsiveContainer width="100%" height="100%">
+            <AreaChart data={simplifiedData}>
+              <defs>
+                <linearGradient id="colorPrimary" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="10%" stopColor="#00af6b" stopOpacity={0.4} />
+                  <stop offset="90%" stopColor="#00af6b" stopOpacity={0.05} />
+                </linearGradient>
+              </defs>
+              <XAxis dataKey="name" hide={isMobile} tick={{ fontSize: 10 }} />
+              <YAxis hide />
+              <Tooltip
+                contentStyle={{ 
+                  backgroundColor: "white", 
+                  border: "1px solid #e2e8f0", 
+                  fontSize: isMobile ? "10px" : "12px",
+                  padding: isMobile ? "4px" : "8px",
+                  borderRadius: "4px"
+                }}
+                labelStyle={{ color: "#333" }}
+              />
+              <Area
+                type="monotone"
+                dataKey="value"
+                stroke="#00af6b"
+                fill="url(#colorPrimary)"
+                strokeWidth={1.5}
+              />
+            </AreaChart>
+          </ResponsiveContainer>
+        </div>
+
+        <div className="flex justify-end">
+          <Button
+            onClick={handleViewMore}
+            variant="minimal"
+            size="sm"
+            className="text-[10px] sm:text-xs font-medium flex items-center gap-1 p-1 sm:p-2 h-auto"
+          >
+            Ver Mais
+            <ArrowRight size={isMobile ? 8 : 10} />
+          </Button>
+        </div>
+      </div>
     </div>
   );
 };
