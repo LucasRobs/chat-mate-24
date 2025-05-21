@@ -16,54 +16,51 @@ interface ActivityChartProps {
 }
 
 const ActivityChart = ({ data, isMobile }: ActivityChartProps) => {
-  // Para mobile, mostre menos pontos de dados
-  const chartData = isMobile ? data.filter((_, index) => index % 2 === 0) : data;
+  // For mobile, show fewer data points
+  const chartData = isMobile ? data.filter((_, index) => index % 3 === 0) : data;
 
   return (
     <ResponsiveContainer width="100%" height="100%">
       <AreaChart
         data={chartData}
         margin={{
-          top: 10,
-          right: 20,
-          bottom: 30,
-          left: isMobile ? 0 : 20,
+          top: 5,
+          right: isMobile ? 5 : 20,
+          bottom: isMobile ? 15 : 30,
+          left: isMobile ? 0 : 10,
         }}
       >
-        <defs>
-          <linearGradient id="colorActivity" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="5%" stopColor="#00af6b" stopOpacity={0.05} />
-            <stop offset="95%" stopColor="#00af6b" stopOpacity={0} />
-          </linearGradient>
-        </defs>
-        <CartesianGrid stroke="#f0f0f0" vertical={false} />
+        <CartesianGrid stroke="#f0f0f0" vertical={false} strokeDasharray="3 3" />
         <XAxis 
           dataKey="name" 
-          tick={{ fontSize: isMobile ? 9 : 12 }} 
+          tick={{ fontSize: isMobile ? 8 : 11 }} 
           tickLine={false}
           axisLine={{ stroke: "#e6e6e6" }}
-          dy={10}
+          dy={isMobile ? 5 : 10}
+          interval={isMobile ? 1 : 0}
         />
         <YAxis 
-          tick={{ fontSize: isMobile ? 9 : 12 }}
+          tick={{ fontSize: isMobile ? 8 : 11 }}
           tickLine={false}
           axisLine={false}
           domain={[0, 'auto']}
           tickFormatter={(value) => value}
+          width={isMobile ? 20 : 30}
         />
         <Tooltip
           contentStyle={{ 
             backgroundColor: "white", 
             border: "1px solid #e2e8f0", 
-            borderRadius: "8px",
-            padding: "8px 12px",
-            boxShadow: "0 2px 8px rgba(0,0,0,0.05)",
-            fontSize: isMobile ? "11px" : "12px"
+            borderRadius: "6px",
+            padding: "6px 8px",
+            boxShadow: "0 2px 6px rgba(0,0,0,0.05)",
+            fontSize: isMobile ? "9px" : "11px"
           }}
           labelStyle={{ 
             color: "#333", 
             fontWeight: 500,
-            marginBottom: "4px" 
+            marginBottom: "2px",
+            fontSize: isMobile ? "9px" : "11px"
           }}
           formatter={(value) => [`${value}`, 'Valor']}
         />
@@ -71,9 +68,9 @@ const ActivityChart = ({ data, isMobile }: ActivityChartProps) => {
           type="monotone"
           dataKey="value"
           stroke="#00af6b"
-          fill="url(#colorActivity)"
+          fill="#e2f5ed"
           strokeWidth={2}
-          activeDot={{ r: isMobile ? 4 : 6, strokeWidth: 0, fill: "#00af6b" }}
+          activeDot={{ r: isMobile ? 3 : 5, strokeWidth: 0, fill: "#00af6b" }}
         />
       </AreaChart>
     </ResponsiveContainer>

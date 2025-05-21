@@ -152,33 +152,36 @@ export default function Navbar() {
       </div>
 
       {isOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 mt-2 mx-auto max-w-[95%] acrylic backdrop-blur-md bg-white/60 rounded-xl shadow-md p-4 space-y-3 animate-fade-in-down">
-          {navItems.map(({ id, label, icon: Icon }) => (
-            <button
-              key={id}
-              onClick={() => scrollToSection(id)}
-              className={cn(
-                "flex w-full items-center gap-3 transition-all duration-300 px-3 py-2 rounded-lg",
-                activeSection === id 
-                  ? "bg-primary/10 text-primary font-medium" 
-                  : "text-muted-foreground hover:bg-primary/5 hover:text-primary hover:translate-x-1"
-              )}
-            >
-              <Icon size={16} />
-              {label}
-            </button>
-          ))}
+        <div className="md:hidden fixed inset-0 top-[60px] z-40 animate-fade-in">
+          <div className="absolute inset-0 bg-black/5 backdrop-blur-sm" onClick={() => setIsOpen(false)}></div>
+          <div className="absolute top-2 left-0 right-0 mx-auto max-w-[92%] acrylic backdrop-blur-xl bg-white/80 rounded-xl shadow-lg border border-white/40 p-4 space-y-3 animate-fade-in-down">
+            {navItems.map(({ id, label, icon: Icon }) => (
+              <button
+                key={id}
+                onClick={() => scrollToSection(id)}
+                className={cn(
+                  "flex w-full items-center gap-3 transition-all duration-300 px-3 py-2 rounded-lg",
+                  activeSection === id 
+                    ? "bg-primary/10 text-primary font-medium" 
+                    : "text-muted-foreground hover:bg-primary/5 hover:text-primary hover:translate-x-1"
+                )}
+              >
+                <Icon size={18} />
+                {label}
+              </button>
+            ))}
 
-          <Link
-            to="https://www.followop.com.br/login"
-            target="_blank"
-            className="flex w-full items-center gap-3 px-3 py-2 rounded-lg bg-secondary/10 text-secondary hover:bg-secondary/20 transition-all duration-300"
-          >
-            <User size={16} />
-            <span className="font-medium">Entrar</span>
-          </Link>
+            <Link
+              to="https://www.followop.com.br/login"
+              target="_blank"
+              className="flex w-full items-center gap-3 px-3 py-2 rounded-lg bg-secondary/10 text-secondary hover:bg-secondary/20 transition-all duration-300"
+            >
+              <User size={18} />
+              <span className="font-medium">Entrar</span>
+            </Link>
+          </div>
         </div>
       )}
     </div>
   );
-}
+};
