@@ -71,7 +71,7 @@ const PricingCard = ({
               : "bg-gray-900 hover:bg-gray-800"
           )}
         >
-          são 15 dias grátis
+          Teste grátis 15 dias
         </Button>
       </div>
     </div>

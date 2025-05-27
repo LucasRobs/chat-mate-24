@@ -117,7 +117,7 @@ const Pricing = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    são 15 dias grátis
+                    Teste grátis 15 dias
                     <ArrowRight size={isMobile ? 14 : 16} />
                   </a>
                 </Button>
