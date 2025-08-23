@@ -46,6 +46,21 @@ const SystemFeatures = () => (
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [currentWordIndex, setCurrentWordIndex] = useState(0);
+  const [displayedText, setDisplayedText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [typingSpeed, setTypingSpeed] = useState(150);
+
+  const words = [
+    "Automação de Fluxos",
+    "Métricas Avançadas",
+    "Followup",
+    "Disparos em Massa",
+    "Atendimento Inteligente",
+    "Engajamento",
+    "Multi-atendimento",
+  ];
+
   const isMobile = useIsMobile();
 
   useEffect(() => {
@@ -69,6 +84,34 @@ const Hero = () => {
       animElements.forEach((el) => observer.unobserve(el));
     };
   }, []);
+
+  useEffect(() => {
+    const handleTyping = () => {
+      const i = currentWordIndex % words.length;
+      const fullText = words[i];
+
+      setDisplayedText(
+        isDeleting
+          ? fullText.substring(0, displayedText.length - 1)
+          : fullText.substring(0, displayedText.length + 1)
+      );
+
+      setTypingSpeed(isDeleting ? 75 : 150);
+
+      if (!isDeleting && displayedText === fullText) {
+        setTypingSpeed(1500); // Pause at end of word
+        setIsDeleting(true);
+      } else if (isDeleting && displayedText === "") {
+        setIsDeleting(false);
+        setCurrentWordIndex((prev) => prev + 1);
+        setTypingSpeed(200); // Pause before typing new word
+      }
+    };
+
+    const typingInterval = setInterval(handleTyping, typingSpeed);
+
+    return () => clearInterval(typingInterval);
+  }, [displayedText, isDeleting, typingSpeed, currentWordIndex, words]);
 
   const handleButtonClick = () => {
     if (typeof window !== "undefined") {
@@ -103,7 +146,7 @@ const Hero = () => {
           </h1>
 
           <h2 className="text-lg sm:text-xl md:text-3xl font-light text-black mb-2 sm:mb-3 animate-fade-in-down" style={{ animationDelay: "300ms" }}>
-            Venda no automático com inteligência Artificial
+            Venda no automático com <span className="font-semibold text-[#00af6b] typing-animation">{displayedText}</span>
           </h2>
 
           <p className="mt-2 sm:mt-3 text-xs sm:text-sm text-gray-600 max-w-2xl mx-auto leading-relaxed font-light px-1 animate-fade-in-down" style={{ animationDelay: "400ms" }}>
@@ -111,9 +154,6 @@ const Hero = () => {
             {!isMobile && <br className="hidden md:inline" />}
             {' '}e eleve seu atendimento a outro nível.
           </p>
-
-          {/* System Features */}
-          <SystemFeatures />
 
           <div className="mt-4 sm:mt-6 flex justify-center animate-fade-in" style={{ animationDelay: "600ms" }}>
             <Button 

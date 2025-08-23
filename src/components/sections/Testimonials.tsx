@@ -23,6 +23,42 @@ const testimonials = [
       "A IA da Followop transformou minha rotina médica. Atendimento em tempo real, reduzindo perda de leads e aumentando conversão significativamente.",
     rating: 5,
   },
+  {
+    id: 3,
+    name: "Simplo",
+    role: "Usuário da Landing Page",
+    image: "/lovable-uploads/simplo.png", // Assuming you have an image for Simplo
+    content:
+      "Sofria com bloqueios, mas depois que utilizei a API oficial da Followop tudo mudou.",
+    rating: 5,
+  },
+  {
+    id: 4,
+    name: "Emergency Talks",
+    role: "Cliente",
+    image: "/lovable-uploads/emergency-talks.png", // Assuming you have an image for Emergency Talks
+    content:
+      "Conseguimos muitas aberturas de chats e engajamento com a Followop.",
+    rating: 5,
+  },
+  {
+    id: 5,
+    name: "Sociedade do Perpétuo",
+    role: "Lançamento de Info Produtos",
+    image: "/lovable-uploads/sociedade-do-perpetuo.png", // Assuming you have an image for Sociedade do Perpetuo
+    content:
+      "Realizamos lançamentos de info produtos com os disparos em massa de sequenciamento da IA da Followop.",
+    rating: 5,
+  },
+  {
+    id: 6,
+    name: "Micropelling",
+    role: "Negócio de Estética",
+    image: "/lovable-uploads/micropelling.png", // Assuming you have an image for Micropelling
+    content:
+      "Desbloqueou a escalabilidade do seu negócio automatizando o atendimento com IA.",
+    rating: 5,
+  },
 ];
 
 const Testimonials = () => {

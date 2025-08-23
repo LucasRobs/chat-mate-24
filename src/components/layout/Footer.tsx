@@ -26,7 +26,7 @@ const Footer = () => {
 
   return (
     <footer className="bg-gradient-to-b from-white to-gray-50 pt-8 pb-4 md:pt-12 md:pb-8 border-t border-gray-100 relative overflow-hidden">
-      <div className="absolute inset-0 impulso-pattern opacity-5"></div>
+      <div className="absolute inset-0 impulso-pattern opacity-5 pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-16">
         <div className="grid grid-cols-2 md:grid-cols-12 gap-4 md:gap-8">
