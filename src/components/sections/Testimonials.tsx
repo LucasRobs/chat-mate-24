@@ -26,19 +26,19 @@ const testimonials = [
   {
     id: 3,
     name: "Simplo",
-    role: "Software de Informação Técnica Automotiva",
+    role: "Informações Técnicas Automotivas",
     image: "/lovable-uploads/1634667492236.png", // Corrected path to existing file with specific ID
     content:
-      "Sofria com bloqueios, mas depois que utilizei a API oficial da Followop tudo mudou.",
+      "Com a API oficial da Followop, superamos os desafios de comunicação e otimizamos a entrega de informações técnicas automotivas aos nossos clientes.",
     rating: 5,
   },
   {
     id: 4,
     name: "Emergency Talks",
-    role: "Cliente",
+    role: "Educação Médica em Emergência",
     image: "/lovable-uploads/emergency_talks_logo.png", // Corrected path with underscore
     content:
-      "Conseguimos muitas aberturas de chats e engajamento com a Followop.",
+      "A Followop nos permitiu ampliar o alcance e o engajamento em nossos programas de educação médica em emergência, facilitando a interação com profissionais da saúde.",
     rating: 5,
   },
 ];
