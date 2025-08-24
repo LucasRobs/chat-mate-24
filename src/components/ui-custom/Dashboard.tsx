@@ -35,7 +35,7 @@ const Dashboard = ({ activityData, isMobile: propIsMobile }: DashboardProps) => 
           <div className="flex items-center gap-1.5 sm:gap-2.5">
             <img src="/lovable-uploads/669aaab1-10dd-437a-a1b9-789ae5f02809.png" alt="followop Logo" className="h-4 sm:h-6" />
             <span className="font-medium text-[10px] sm:text-sm text-gray-800">Painel de Controle</span>
-          </div>
+        </div>
           <div className="flex items-center gap-1.5 sm:gap-2.5">
             <div className="text-[8px] sm:text-xs text-primary/90 bg-primary/10 px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border border-primary/20">Premium</div>
             <div className="h-5 w-5 sm:h-6 sm:w-6 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center">

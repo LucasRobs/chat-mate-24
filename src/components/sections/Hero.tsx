@@ -150,9 +150,7 @@ const Hero = () => {
           </h2>
 
           <p className="mt-2 sm:mt-3 text-xs sm:text-sm text-gray-600 max-w-2xl mx-auto leading-relaxed font-light px-1 animate-fade-in-down" style={{ animationDelay: "400ms" }}>
-            Potencialize seu negócio de forma inteligente
-            {!isMobile && <br className="hidden md:inline" />}
-            {' '}e eleve seu atendimento a outro nível.
+            Potencialize seu negócio de forma inteligente e eleve seu atendimento a outro nível.
           </p>
 
           <div className="mt-4 sm:mt-6 flex justify-center animate-fade-in" style={{ animationDelay: "600ms" }}>
