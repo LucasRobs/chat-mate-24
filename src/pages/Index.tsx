@@ -8,11 +8,11 @@ import Benefits from "@/components/sections/Benefits";
 import Pricing from "@/components/sections/Pricing";
 import Partners from "@/components/sections/Partners";
 import Testimonials from "@/components/sections/Testimonials";
-import CtaSection from "@/components/sections/CtaSection";
 import Comparison from "@/components/sections/Comparison";
 import Features from "@/components/sections/Features";
 import IntegrationPartners from "@/components/sections/IntegrationPartners";
 import ClosingCtaSection from "@/components/sections/ClosingCtaSection";
+import LeadForm from "@/components/sections/LeadForm";
 import WistiaScriptLoader from "@/components/utils/WistiaScriptLoader";
 import { Toaster } from "@/components/ui/toaster";
 
@@ -119,7 +119,7 @@ const Index = () => {
           <IntegrationPartners />
           <Pricing />
           <ClosingCtaSection />
-          <CtaSection />
+          <LeadForm />
         </main>
 
         <Footer />

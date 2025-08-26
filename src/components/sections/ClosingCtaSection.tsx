@@ -12,7 +12,7 @@ const MetaPartnerSection = () => {
   };
 
   return (
-    <section className="w-full bg-[#f5f7f9] rounded-2xl p-6 sm:p-10 shadow-md max-w-6xl mx-auto animated-section">
+    <section className="w-full bg-white rounded-2xl p-6 sm:p-10 shadow-md max-w-6xl mx-auto animated-section">
       <div className="grid md:grid-cols-2 items-center gap-8">
         <div className="fade-in-left">
           <div className="flex items-center gap-3 mb-3">
@@ -30,7 +30,7 @@ const MetaPartnerSection = () => {
             <span className="text-lg font-medium text-gray-700">(WhatsApp Business API)</span>
           </h2>
           <p className="text-sm sm:text-base text-gray-600 mt-3">
-            A <strong>Followop</strong> é uma plataforma aprovada e certificada pela Meta, garantindo conformidade com as diretrizes do <strong>WhatsApp Business API</strong>. Isso significa:
+            A <strong>followop</strong> é uma plataforma aprovada e certificada pela Meta, garantindo conformidade com as diretrizes do <strong>WhatsApp Business API</strong>. Isso significa:
           </p>
           <ul className="mt-4 space-y-3 text-sm text-gray-700 stagger-container">
             <li className="flex items-start gap-2 stagger-item">
