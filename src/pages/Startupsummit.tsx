@@ -71,24 +71,23 @@ const Startupsummit = () => {
       body: formData,
     })
       .then(response => {
-        if (response.ok) {
-          // Redirect after successful submission
-          window.location.href = `https://lp.followop.com.br?name=${name}&email=${email}&phone=${phoneWithDdi}&phonenumber=${phoneWithDdi}`;
-        } else {
-          console.error('Form submission failed');
-          // Handle error, maybe show a toast
+        if (!response.ok) {
+          console.error('Form submission failed with status:', response.status);
+          // Optionally, you could still show a toast or handle the error visually
         }
       })
       .catch(error => {
         console.error('Error submitting form:', error);
-        // Handle network error
+      })
+      .finally(() => {
+        // Always redirect after the fetch attempt
+        window.location.href = `https://lp.followop.com.br?name=${name}&email=${email}&phone=${phoneWithDdi}&phonenumber=${phoneWithDdi}`;
+        // Clear form fields after submission
+        setName('');
+        setEmail('');
+        setPhone('');
+        setDdi('55'); // Reset DDI to default
       });
-
-    // Clear form fields after submission (or after successful submission)
-    setName('');
-    setEmail('');
-    setPhone('');
-    setDdi('55'); // Reset DDI to default
   };
 
   return (
