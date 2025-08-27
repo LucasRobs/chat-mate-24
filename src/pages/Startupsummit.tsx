@@ -105,29 +105,7 @@ const Startupsummit = () => {
           </p>
         </div>
 
-        {/* Benefits/Value Proposition Section - Changed for Followop */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <Card className="shadow-lg">
-            <CardHeader>
-              <CardTitle className="text-xl font-semibold text-gray-900">Automação Inteligente</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <CardDescription className="text-gray-600">
-                Automatize tarefas repetitivas e foque no que realmente importa: vender mais.
-              </CardDescription>
-            </CardContent>
-          </Card>
-          <Card className="shadow-lg">
-            <CardHeader>
-              <CardTitle className="text-xl font-semibold text-gray-900">Gestão Simplificada</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <CardDescription className="text-gray-600">
-                Gerencie seus leads e clientes de forma eficiente, tudo em um só lugar.
-              </CardDescription>
-            </CardContent>
-          </Card>
-        </div>
+        
 
         {/* Call to Action and Form Section - Changed for Followop */}
         <Card className="shadow-2xl p-8">
@@ -190,7 +168,7 @@ const Startupsummit = () => {
                 />
               </div>
 
-              <Button type="submit" className="w-full mt-5 bg-[#16B763] hover:bg-[#16B763]/90 text-white font-bold py-3 px-4 rounded-xl shadow-lg">
+              <Button type="submit" variant="default" className="w-full mt-5 font-bold py-3 px-4 rounded-xl shadow-lg">
                 CONTINUAR
               </Button>
             </form>
