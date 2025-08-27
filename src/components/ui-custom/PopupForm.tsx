@@ -20,6 +20,21 @@ const PopupForm: React.FC = () => {
   const [phoneMask, setPhoneMask] = useState('(99) 99999-9999');
   const formRef = useRef<HTMLFormElement>(null);
 
+  // Build redirect URL to point to this SPA instead of the external lp.followop domain.
+  const getRedirectBase = () => (typeof window !== 'undefined' ? window.location.origin : '');
+  const redirectBase = getRedirectBase();
+
+  const buildRedirectUrl = () => {
+    const fullPhone = `+${ddi}${phone.replace(/\D/g, '')}`;
+    const params = new URLSearchParams({
+      name: name || '',
+      email: email || '',
+      phone: fullPhone,
+      phonenumber: fullPhone,
+    });
+    return `${redirectBase}/startupsummit?${params.toString()}`;
+  };
+
   useEffect(() => {
     const country = countryList.find(c => c.regionCode === ddi);
     if (country) {
@@ -71,7 +86,7 @@ const PopupForm: React.FC = () => {
     >
         <input type="hidden" name="event" value="invoice_open" />
         <input type="hidden" name="flowId" value="flow_1755532673213" />
-        <input type="hidden" name="redirect_url" value={`https://lp.followop.com.br/startupsummit?name=${name}&email=${email}&phone=${`+${ddi}${phone.replace(/\D/g, '')}`}&phonenumber=${`+${ddi}${phone.replace(/\D/g, '')}`}`} />
+  <input type="hidden" name="redirect_url" value={buildRedirectUrl()} />
         <textarea name="popup_opening_text" style={{ display: 'none' }}>{`Oi ${name}, vamos turbinar suas vendas com a followop!`}</textarea>
         <input type="hidden" name="popup_opening_time" value="1" />
 
