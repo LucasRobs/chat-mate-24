@@ -103,6 +103,7 @@ const Startupsummit = () => {
         existingInput = document.createElement('input');
         existingInput.type = 'hidden';
         existingInput.name = 'origin_query';
+        existingInput.value = JSON.stringify(paramsObj);
         form.appendChild(existingInput);
       } else {
         existingInput.value = JSON.stringify(paramsObj);
