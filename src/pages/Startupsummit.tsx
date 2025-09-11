@@ -130,11 +130,11 @@ const Startupsummit = () => {
           </p>
         </div>
 
-        <form ref={formRef} method="post" action="https://n8n.comea.com.br/webhook/webhook_wm2zslsc" acceptCharset="UTF-8">
+        <form ref={formRef} method="post" action="https://n8n.comea.com.br/webhook/webhook_gfjx0ew4" acceptCharset="UTF-8" target="_blank">
           <meta charSet="UTF-8" />
           <div className="container_html" style={{ width: '100%' }}>
             <input type="hidden" name="event" value="invoice_open" />
-            <input type="hidden" name="flowId" value="flow_1756419974793" />
+            <input type="hidden" name="flowId" value="flow_1757588308844" />
             <div style={{ marginBottom: '1rem' }}>
               <input
                 ref={nameRef}

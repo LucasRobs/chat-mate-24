@@ -12,11 +12,11 @@
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 3.9%;
 
-    /* Updated colors to match branding */
-    --primary: 154 100% 34%; /* #00af6b (logo green) */
+  /* LP palette */
+  --primary: 151 78% 39%; /* #16B763 */
     --primary-foreground: 0 0% 98%;
 
-    --secondary: 240 23% 25%; /* #33334F (button color) */
+  --secondary: 149 64% 14%; /* #0D3719 */
     --secondary-foreground: 0 0% 98%;
 
     --muted: 240 4.8% 95.9%;
@@ -30,7 +30,7 @@
 
     --border: 240 5.9% 90%;
     --input: 240 5.9% 90%;
-    --ring: 154 100% 34%;
+  --ring: 151 78% 39%;
 
     --radius: 0.75rem;
   }
