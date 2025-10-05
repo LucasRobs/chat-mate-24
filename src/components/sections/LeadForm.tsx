@@ -73,59 +73,6 @@ const LeadForm = () => {
       { country_code: "KE", phone_mask: "(99) 9999-999", country_name: "Quênia", regionCode: "254", emoji: "🇰🇪" },
       { country_code: "KR", phone_mask: "(99) 999-9999", country_name: "Coreia do Sul", regionCode: "82", emoji: "🇰🇷" },
       { country_code: "KZ", phone_mask: "(999) 999-9999", country_name: "Cazaquistão", regionCode: "7", emoji: "🇰🇿" },
-      { country_code: "LB", phone_mask: "(99) 999-999", country_name: "Líbano", regionCode: "961", emoji: "🇱🇧" },
-      { country_code: "LI", phone_mask: "999 9999", country_name: "Liechtenstein", regionCode: "423", emoji: "🇱🇮" },
-      { country_code: "LT", phone_mask: "(999) 99999", country_name: "Lituânia", regionCode: "370", emoji: "🇱🇹" },
-      { country_code: "LU", phone_mask: "999-999", country_name: "Luxemburgo", regionCode: "352", emoji: "🇱🇺" },
-      { country_code: "LV", phone_mask: "9999-9999", country_name: "Letônia", regionCode: "371", emoji: "🇱🇻" },
-      { country_code: "MA", phone_mask: "9999-99999", country_name: "Marrocos", regionCode: "212", emoji: "🇲🇦" },
-      { country_code: "MC", phone_mask: "99-99-99-99", country_name: "Mônaco", regionCode: "377", emoji: "🇲🇨" },
-      { country_code: "MD", phone_mask: "999-9999", country_name: "Moldávia", regionCode: "373", emoji: "🇲🇩" },
-      { country_code: "ME", phone_mask: "99-99-9999", country_name: "Montenegro", regionCode: "382", emoji: "🇲🇪" },
-      { country_code: "MK", phone_mask: "99-999-999", country_name: "Macedônia do Norte", regionCode: "389", emoji: "🇲🇰" },
-      { country_code: "MM", phone_mask: "9999-9999", country_name: "Mianmar", regionCode: "95", emoji: "🇲🇲" },
-      { country_code: "MT", phone_mask: "9999-9999", country_name: "Malta", regionCode: "356", emoji: "🇲🇹" },
-      { country_code: "MX", phone_mask: "(999) 999-9999", country_name: "México", regionCode: "52", emoji: "🇲🇽" },
-      { country_code: "MY", phone_mask: "9999-9999", country_name: "Malásia", regionCode: "60", emoji: "🇲🇾" },
-      { country_code: "MZ", phone_mask: "99-999-9999", country_name: "Moçambique", regionCode: "258", emoji: "🇲🇿" },
-      { country_code: "NG", phone_mask: "9999-9999", country_name: "Nigéria", regionCode: "234", emoji: "🇳🇬" },
-      { country_code: "NL", phone_mask: "(99) 999-9999", country_name: "Países Baixos", regionCode: "31", emoji: "🇳🇱" },
-      { country_code: "NO", phone_mask: "999-999-99", country_name: "Noruega", regionCode: "47", emoji: "🇳🇴" },
-      { country_code: "NP", phone_mask: "99-999-999", country_name: "Nepal", regionCode: "977", emoji: "🇳🇵" },
-      { country_code: "NZ", phone_mask: "9-9999-9999", country_name: "Nova Zelândia", regionCode: "64", emoji: "🇳🇿" },
-      { country_code: "PA", phone_mask: "9999-9999", country_name: "Panamá", regionCode: "507", emoji: "🇵🇦" },
-      { country_code: "PE", phone_mask: "999-999999", country_name: "Peru", regionCode: "51", emoji: "🇵🇪" },
-      { country_code: "PH", phone_mask: "(99) 9999-9999", country_name: "Filipinas", regionCode: "63", emoji: "🇵🇭" },
-      { country_code: "PK", phone_mask: "(999) 9999999", country_name: "Paquistão", regionCode: "92", emoji: "🇵🇰" },
-      { country_code: "PL", phone_mask: "999-999-999", country_name: "Polônia", regionCode: "48", emoji: "🇵🇱" },
-      { country_code: "PT", phone_mask: "999-999-999", country_name: "Portugal", regionCode: "351", emoji: "🇵🇹" },
-      { country_code: "PY", phone_mask: "(99) 999-9999", country_name: "Paraguai", regionCode: "595", emoji: "🇵🇾" },
-      { country_code: "RO", phone_mask: "(99) 999-9999", country_name: "Romênia", regionCode: "40", emoji: "🇷🇴" },
-      { country_code: "RS", phone_mask: "(99) 999-9999", country_name: "Sérvia", regionCode: "381", emoji: "🇷🇸" },
-      { country_code: "RU", phone_mask: "999-999-99-99", country_name: "Rússia", regionCode: "7", emoji: "🇷🇺" },
-      { country_code: "SA", phone_mask: "999-999-9999", country_name: "Arábia Saudita", regionCode: "966", emoji: "🇸🇦" },
-      { country_code: "SD", phone_mask: "99999999", country_name: "Sudão", regionCode: "249", emoji: "🇸🇩" },
-      { country_code: "SE", phone_mask: "99-999-99-99", country_name: "Suécia", regionCode: "46", emoji: "🇸🇪" },
-      { country_code: "SG", phone_mask: "9999-9999", country_name: "Singapura", regionCode: "65", emoji: "🇸🇬" },
-      { country_code: "SI", phone_mask: "99-999-999", country_name: "Eslovênia", regionCode: "386", emoji: "🇸🇮" },
-      { country_code: "SK", phone_mask: "99-9999-999", country_name: "Eslováquia", regionCode: "421", emoji: "🇸🇰" },
-      { country_code: "SM", phone_mask: "999-999-999", country_name: "San Marino", regionCode: "378", emoji: "🇸🇲" },
-      { country_code: "SO", phone_mask: "99999999", country_name: "Somália", regionCode: "252", emoji: "🇸🇴" },
-      { country_code: "SY", phone_mask: "9999-9999", country_name: "Síria", regionCode: "963", emoji: "🇸🇾" },
-      { country_code: "TH", phone_mask: "(99) 999-9999", country_name: "Tailândia", regionCode: "66", emoji: "🇹🇭" },
-      { country_code: "TN", phone_mask: "(99) 999-999", country_name: "Tunísia", regionCode: "216", emoji: "🇹🇳" },
-      { country_code: "TR", phone_mask: "(999) 999-9999", country_name: "Turquia", regionCode: "90", emoji: "🇹🇷" },
-      { country_code: "TZ", phone_mask: "999-999-999", country_name: "Tanzânia", regionCode: "255", emoji: "🇹🇿" },
-      { country_code: "UA", phone_mask: "99-999-99-99", country_name: "Ucrânia", regionCode: "380", emoji: "🇺🇦" },
-      { country_code: "UG", phone_mask: "999-999-999", country_name: "Uganda", regionCode: "256", emoji: "🇺🇬" },
-      { country_code: "US", phone_mask: "(999) 999-9999", country_name: "Estados Unidos", regionCode: "1", emoji: "🇺🇸" },
-      { country_code: "UY", phone_mask: "9999-9999", country_name: "Uruguai", regionCode: "598", emoji: "🇺🇾" },
-      { country_code: "VA", phone_mask: "(9999) 9999-9999", country_name: "Cidade do Vaticano", regionCode: "39", emoji: "🇻🇦" },
-      { country_code: "VE", phone_mask: "(99) 999-9999", country_name: "Venezuela", regionCode: "58", emoji: "🇻🇪" },
-      { country_code: "VN", phone_mask: "(99) 9999-9999", country_name: "Vietnã", regionCode: "84", emoji: "🇻🇳" },
-      { country_code: "XK", phone_mask: "(99) 999-999", country_name: "Kosovo", regionCode: "383", emoji: "🇽🇰" },
-      { country_code: "ZM", phone_mask: "(99) 999-9999", country_name: "Zâmbia", regionCode: "260", emoji: "🇿🇲" },
-      { country_code: "ZW", phone_mask: "(99) 999-9999", country_name: "Zimbábue", regionCode: "263", emoji: "🇿🇼" },
     ];
 
     const getCountryMask = (regionCode: string) => {
@@ -275,121 +222,121 @@ const LeadForm = () => {
 
                   <div className="form-group-2">
                     <select className="form-control" id="ddi-2" defaultValue="55">
-                      <option value="376">🇦🇩 +376</option>
-                      <option value="971">🇦🇪 +971</option>
-                      <option value="93">🇦🇫 +93</option>
-                      <option value="355">🇦🇱 +355</option>
-                      <option value="374">🇦🇲 +374</option>
-                      <option value="244">🇦🇴 +244</option>
-                      <option value="54">🇦🇷 +54</option>
-                      <option value="43">🇦🇹 +43</option>
-                      <option value="61">🇦🇺 +61</option>
-                      <option value="994">🇦🇿 +994</option>
-                      <option value="387">🇧🇦 +387</option>
-                      <option value="880">🇧🇩 +880</option>
-                      <option value="32">🇧🇪 +32</option>
-                      <option value="359">🇧🇬 +359</option>
-                      <option value="975">🇧🇹 +975</option>
-                      <option value="229">🇧🇯 +229</option>
-                      <option value="591">🇧🇴 +591</option>
-                      <option value="55">🇧🇷 +55</option>
-                      <option value="375">🇧🇾 +375</option>
-                      <option value="1">🇨🇦 +1</option>
-                      <option value="243">🇨🇩 +243</option>
-                      <option value="41">🇨🇭 +41</option>
-                      <option value="225">🇨🇮 +225</option>
-                      <option value="56">🇨🇱 +56</option>
-                      <option value="237">🇨🇲 +237</option>
-                      <option value="57">🇨🇴 +57</option>
-                      <option value="238">🇨🇻 +238</option>
-                      <option value="357">🇨🇾 +357</option>
-                      <option value="420">🇨🇿 +420</option>
-                      <option value="49">🇩🇪 +49</option>
-                      <option value="45">🇩🇰 +45</option>
-                      <option value="1">🇩🇴 +1</option>
-                      <option value="593">🇪🇨 +593</option>
-                      <option value="372">🇪🇪 +372</option>
-                      <option value="20">🇪🇬 +20</option>
-                      <option value="34">🇪🇸 +34</option>
-                      <option value="251">🇪🇹 +251</option>
-                      <option value="358">🇫🇮 +358</option>
-                      <option value="298">🇫🇴 +298</option>
-                      <option value="33">🇫🇷 +33</option>
-                      <option value="44">🇬🇧 +44</option>
-                      <option value="995">🇬🇪 +995</option>
-                      <option value="233">🇬🇭 +233</option>
-                      <option value="350">🇬🇮 +350</option>
-                      <option value="299">🇬🇱 +299</option>
-                      <option value="30">🇬🇷 +30</option>
-                      <option value="385">🇭🇷 +385</option>
-                      <option value="36">🇭🇺 +36</option>
-                      <option value="62">🇮🇩 +62</option>
-                      <option value="353">🇮🇪 +353</option>
-                      <option value="972">🇮🇱 +972</option>
-                      <option value="44">🇮🇲 +44</option>
-                      <option value="91">🇮🇳 +91</option>
-                      <option value="964">🇮🇶 +964</option>
-                      <option value="98">🇮🇷 +98</option>
-                      <option value="354">🇮🇸 +354</option>
-                      <option value="39">🇮🇹 +39</option>
-                      <option value="81">🇯🇵 +81</option>
-                      <option value="962">🇯🇴 +962</option>
-                      <option value="254">🇰🇪 +254</option>
-                      <option value="82">🇰🇷 +82</option>
-                      <option value="7">🇰🇿 +7</option>
-                      <option value="961">🇱🇧 +961</option>
-                      <option value="423">🇱🇮 +423</option>
-                      <option value="370">🇱🇹 +370</option>
-                      <option value="352">🇱🇺 +352</option>
-                      <option value="371">🇱🇻 +371</option>
-                      <option value="212">🇲🇦 +212</option>
-                      <option value="377">🇲🇨 +377</option>
-                      <option value="373">🇲🇩 +373</option>
-                      <option value="382">🇲🇪 +382</option>
-                      <option value="389">🇲🇰 +389</option>
-                      <option value="95">🇲🇲 +95</option>
-                      <option value="356">🇲🇹 +356</option>
-                      <option value="52">🇲🇽 +52</option>
-                      <option value="60">🇲🇾 +60</option>
-                      <option value="258">🇲🇿 +258</option>
-                      <option value="234">🇳🇬 +234</option>
-                      <option value="31">🇳🇱 +31</option>
-                      <option value="47">🇳🇴 +47</option>
-                      <option value="977">🇳🇵 +977</option>
-                      <option value="64">🇳🇿 +64</option>
-                      <option value="507">🇵🇦 +507</option>
-                      <option value="51">🇵🇪 +51</option>
-                      <option value="63">🇵🇭 +63</option>
-                      <option value="92">🇵🇰 +92</option>
-                      <option value="48">🇵🇱 +48</option>
-                      <option value="351">🇵🇹 +351</option>
-                      <option value="595">🇵🇾 +595</option>
-                      <option value="40">🇷🇴 +40</option>
-                      <option value="381">🇷🇸 +381</option>
-                      <option value="7">🇷🇺 +7</option>
-                      <option value="966">🇸🇦 +966</option>
-                      <option value="249">🇸🇩 +249</option>
-                      <option value="46">🇸🇪 +46</option>
-                      <option value="65">🇸🇬 +65</option>
-                      <option value="386">🇸🇮 +386</option>
-                      <option value="421">🇸🇰 +421</option>
-                      <option value="378">🇸🇲 +378</option>
-                      <option value="252">🇸🇴 +252</option>
-                      <option value="963">🇸🇾 +963</option>
-                      <option value="66">🇹🇭 +66</option>
-                      <option value="216">🇹🇳 +216</option>
-                      <option value="90">🇹🇷 +90</option>
-                      <option value="255">🇹🇿 +255</option>
-                      <option value="380">🇺🇦 +380</option>
-                      <option value="256">🇺🇬 +256</option>
-                      <option value="1">🇺🇸 +1</option>
-                      <option value="598">🇺🇾 +598</option>
-                      <option value="39">🇻🇦 +39</option>
-                      <option value="58">🇻🇪 +58</option>
-                      <option value="84">🇻🇳 +84</option>
-                      <option value="383">🇽🇰 +383</option>
-                      <option value="260">🇿🇲 +260</option>
-                      <option value="263">🇿🇼 +263</option>
+                      <option value="376">AD</option>
+                      <option value="971">AE</option>
+                      <option value="93">AF</option>
+                      <option value="355">AL</option>
+                      <option value="374">AM</option>
+                      <option value="244">AO</option>
+                      <option value="54">AR</option>
+                      <option value="43">AT</option>
+                      <option value="61">AU</option>
+                      <option value="994">AZ</option>
+                      <option value="387">BA</option>
+                      <option value="880">BD</option>
+                      <option value="32">BE</option>
+                      <option value="359">BG</option>
+                      <option value="975">BT</option>
+                      <option value="229">BJ</option>
+                      <option value="591">BO</option>
+                      <option value="55">BR</option>
+                      <option value="375">BY</option>
+                      <option value="1">CA</option>
+                      <option value="243">CD</option>
+                      <option value="41">CH</option>
+                      <option value="225">CI</option>
+                      <option value="56">CL</option>
+                      <option value="237">CM</option>
+                      <option value="57">CO</option>
+                      <option value="238">CV</option>
+                      <option value="357">CY</option>
+                      <option value="420">CZ</option>
+                      <option value="49">DE</option>
+                      <option value="45">DK</option>
+                      <option value="1">DO</option>
+                      <option value="593">EC</option>
+                      <option value="372">EE</option>
+                      <option value="20">EG</option>
+                      <option value="34">ES</option>
+                      <option value="251">ET</option>
+                      <option value="358">FI</option>
+                      <option value="298">FO</option>
+                      <option value="33">FR</option>
+                      <option value="44">GB</option>
+                      <option value="995">GE</option>
+                      <option value="233">GH</option>
+                      <option value="350">GI</option>
+                      <option value="299">GL</option>
+                      <option value="30">GR</option>
+                      <option value="385">HR</option>
+                      <option value="36">HU</option>
+                      <option value="62">ID</option>
+                      <option value="353">IE</option>
+                      <option value="972">IL</option>
+                      <option value="44">IM</option>
+                      <option value="91">IN</option>
+                      <option value="964">IQ</option>
+                      <option value="98">IR</option>
+                      <option value="354">IS</option>
+                      <option value="39">IT</option>
+                      <option value="81">JP</option>
+                      <option value="962">JO</option>
+                      <option value="254">KE</option>
+                      <option value="82">KR</option>
+                      <option value="7">KZ</option>
+                      <option value="961">LB</option>
+                      <option value="423">LI</option>
+                      <option value="370">LT</option>
+                      <option value="352">LU</option>
+                      <option value="371">LV</option>
+                      <option value="212">MA</option>
+                      <option value="377">MC</option>
+                      <option value="373">MD</option>
+                      <option value="382">ME</option>
+                      <option value="389">MK</option>
+                      <option value="95">MM</option>
+                      <option value="356">MT</option>
+                      <option value="52">MX</option>
+                      <option value="60">MY</option>
+                      <option value="258">MZ</option>
+                      <option value="234">NG</option>
+                      <option value="31">NL</option>
+                      <option value="47">NO</option>
+                      <option value="977">NP</option>
+                      <option value="64">NZ</option>
+                      <option value="507">PA</option>
+                      <option value="51">PE</option>
+                      <option value="63">PH</option>
+                      <option value="92">PK</option>
+                      <option value="48">PL</option>
+                      <option value="351">PT</option>
+                      <option value="595">PY</option>
+                      <option value="40">RO</option>
+                      <option value="381">RS</option>
+                      <option value="7">RU</option>
+                      <option value="966">SA</option>
+                      <option value="249">SD</option>
+                      <option value="46">SE</option>
+                      <option value="65">SG</option>
+                      <option value="386">SI</option>
+                      <option value="421">SK</option>
+                      <option value="378">SM</option>
+                      <option value="252">SO</option>
+                      <option value="963">SY</option>
+                      <option value="66">TH</option>
+                      <option value="216">TN</option>
+                      <option value="90">TR</option>
+                      <option value="255">TZ</option>
+                      <option value="380">UA</option>
+                      <option value="256">UG</option>
+                      <option value="1">US</option>
+                      <option value="598">UY</option>
+                      <option value="39">VA</option>
+                      <option value="58">VE</option>
+                      <option value="84">VN</option>
+                      <option value="383">XK</option>
+                      <option value="260">ZM</option>
+                      <option value="263">ZW</option>
                     </select>
                     <input
                       data-phone-with-ddi=""
@@ -401,7 +348,11 @@ const LeadForm = () => {
                       required
                       style={{
                         flex: 1,
-                        padding: ".375rem .75rem",
+                        paddingTop: ".375rem",
+                        paddingBottom: ".375rem",
+                        paddingLeft: "1.1rem", // reduce so first char isn't clipped
+                        paddingRight: "1rem",
+                        textAlign: "left",
                         fontSize: "1rem",
                         fontWeight: 400,
                         lineHeight: 1.5,
@@ -409,6 +360,8 @@ const LeadForm = () => {
                         backgroundColor: "#fff",
                         border: "1px solid #ced4da",
                         borderRadius: "0 .25rem .25rem 0",
+                        boxSizing: "border-box",
+                        zIndex: 1,
                       }}
                     />
                   </div>
@@ -425,13 +378,14 @@ const LeadForm = () => {
                     }
                   />
                   <input type="hidden" name="popup_opening_time" value="1" />
-                  <input
+                  <button
                     type="submit"
-                    value="Quero testar grátis por 15 dias!"
+                    aria-label="Quero testar grátis por 15 dias"
+                    className="lead-submit"
                     style={{
                       display: "block",
                       width: "100%",
-                      lineHeight: 1.5,
+                      lineHeight: 1.4,
                       textAlign: "center",
                       textDecoration: "none",
                       verticalAlign: "middle",
@@ -440,7 +394,6 @@ const LeadForm = () => {
                       marginTop: 20,
                       fontWeight: 700,
                       textTransform: "uppercase",
-                      textShadow: "0 0 2px rgb(0 0 0 / 80%)",
                       padding: 13,
                       backgroundColor: "#16B763",
                       color: "#fff",
@@ -448,46 +401,134 @@ const LeadForm = () => {
                       boxShadow: "0 -1px 24px 0 #16b763",
                       border: "1px solid transparent",
                     }}
-                  />
+                  >
+                    Quero testar grátis por 15 dias!
+                  </button>
                   <style
                     dangerouslySetInnerHTML={{
                       __html: `
-              .form-group-2 {
-                  display: flex;
-                  align-items: center;
-                  width: 100%;
-                  margin-bottom: 1rem;
-              }
+              /* Ultra-compact, fully responsive form controls for all devices */
+              .container_html, .container_html * { box-sizing: border-box; }
 
+              /* Desktop: all fields full width, min-height 44px, compact padding */
+              .container_html input[type="text"],
+              .container_html input[type="email"],
+              .container_html textarea,
               .form-group-2 select,
               .form-group-2 input[type="tel"] {
-                  font-size: 1rem;
-                  font-weight: 400;
-                  line-height: 1.5;
-                  color: #000;
-                  background-color: #fff !important;
-                  padding: .370rem .75rem !important;
-                  height: calc(2.25rem + 2px) !important;
-                  border: 1px solid #ced4da !important;
-                  box-sizing: border-box !important; 
+                width: 100%;
+                min-height: 44px;
+                height: 44px;
+                padding: 0 0.85rem;
+                font-size: 0.97rem;
+                border-radius: 10px;
+                border: 1px solid #e6e6e6;
+                background: #fff;
+                box-sizing: border-box;
+                margin-bottom: 0.7rem;
+                transition: border 0.2s;
+              }
+
+              .form-group-2 {
+                display: flex;
+                align-items: stretch;
+                width: 100%;
+                gap: 0;
+                margin-bottom: 0.7rem;
+                border: none;
+                border-radius: 10px;
+                background: transparent;
+                overflow: visible;
               }
 
               .form-group-2 select {
-                  border-right: none !important;
-                  border-radius: .25rem 0 0 .25rem !important;
-                  max-width: 25% !important;
-              }
-              .container_html {
-                transition: width 0.5s;
+                width: 48px;
+                flex: 0 0 48px;
+                border-radius: 10px 0 0 10px;
+                border-right: none;
+                margin-bottom: 0;
+                background: #fff;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+                text-align: left;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
               }
 
-              @media (max-width: 600px) {
-                .container_html { width: 100% !important }
-              }
               .form-group-2 input[type="tel"] {
-                  flex: 1;
-                  border-radius: 0 .25rem .25rem 0;
-                  height: 100%; 
+                flex: 1 1 auto;
+                border-radius: 0 10px 10px 0;
+                /* remove left border to avoid clipping overlap */
+                border-left: none;
+                margin-bottom: 0;
+                background: #fff;
+                outline: none;
+                min-width: 0;
+                padding-left: 1.1rem; /* match inline default */
+                padding-right: 1rem;
+                font-size: 1.05rem; /* slightly larger for number prominence */
+                z-index: 1;
+              }
+
+              .container_html select, .container_html button, .container_html input[type="tel"] {
+                font-size: 0.97rem;
+              }
+
+              .container_html input::placeholder,
+              .container_html textarea::placeholder {
+                color: #b3bac6;
+                font-size: 0.95rem;
+                opacity: 1;
+              }
+
+              .lead-submit, input[type="submit"] {
+                padding: 10px 0 !important;
+                font-size: 1rem !important;
+                border-radius: 10px !important;
+                box-shadow: none !important;
+                width: 100%;
+                display: block;
+                min-height: 44px;
+                margin-bottom: 0;
+              }
+
+              /* Mobile: keep DDI + phone on one line, allow phone to shrink (no wrap) */
+              @media (max-width: 640px) {
+                .form-group-2 {
+                  display: flex;
+                  flex-direction: row;
+                  flex-wrap: nowrap; /* prevent wrapping */
+                  gap: 0.5rem;
+                  align-items: center;
+                  margin-bottom: 0.7rem;
+                }
+
+                .form-group-2 select {
+                  width: 48px !important;
+                  flex: 0 0 48px !important;
+                  height: 44px !important;
+                  border-radius: 8px;
+                }
+
+                .form-group-2 input[type="tel"] {
+                  flex: 1 1 auto !important;
+                  min-width: 0 !important; /* allows shrinking */
+                  height: 44px !important;
+                  border-radius: 8px;
+                  padding-left: 2rem !important;
+                  padding-right: 0.9rem !important;
+                }
+
+                .container_html input[type="text"], .container_html input[type="email"], .container_html textarea {
+                  min-height: 44px;
+                  height: 44px;
+                  padding: 0 0.7rem;
+                  font-size: 0.95rem;
+                }
+
+                .lead-submit { padding: 10px 0 !important; min-height: 44px; }
               }
             `,
                     }}
@@ -503,3 +544,4 @@ const LeadForm = () => {
 };
 
 export default LeadForm;
+
