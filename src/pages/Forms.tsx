@@ -130,11 +130,10 @@ const Startupsummit = () => {
           </p>
         </div>
 
-        <form ref={formRef} method="post" action="https://n8n.comea.com.br/webhook/webhook_gfjx0ew4" acceptCharset="UTF-8" target="_blank">
+        <form ref={formRef} method="post" action="https://n8n.comea.com.br/webhook/webhook_cuj0dyp9" acceptCharset="UTF-8" target="_blank">
           <meta charSet="UTF-8" />
           <div className="container_html" style={{ width: '100%' }}>
-            <input type="hidden" name="event" value="invoice_open" />
-            <input type="hidden" name="flowId" value="flow_1757588308844" />
+            <input type="hidden" name="event" value="text" />
             <div style={{ marginBottom: '1rem' }}>
               <input
                 ref={nameRef}
@@ -213,8 +212,8 @@ const Startupsummit = () => {
               />
             </div>
             <input type="hidden" name="redirect_url" value="https://lp.followop.com.br/?name={name}&email={email}&phone={phone}&phonenumber={phone}" />
-            <textarea name="popup_opening_text" style={{ display: 'none' }} defaultValue="Oi {name}, vi que você está buscando aumentar suas vendas com IA no Whatsapp.&#10;Posso entender melhor sua operação em uma reunião rápida?&#10;&#10;Me confirme se esse é seu email {email}?"></textarea>
-            <input type="hidden" name="popup_opening_time" value="1" />
+            <textarea name="popup_opening_text" style={{ display: 'none' }} defaultValue="Olá {name}. Sou a IA da Followop. Você gostaria de uma demonstração das minhas habilidades?"></textarea>
+            <input type="hidden" name="popup_opening_time" value="0" />
             <input
               type="submit"
               value="CONTINUAR"
