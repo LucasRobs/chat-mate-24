@@ -36,7 +36,7 @@ const Pricing = () => {
       price: "R$ 297",
       for: "Pequenos negócios",
       features: [
-        "1 Funcionário de IA",
+        "1 WhatsApp",
         "300 atendimentos/mês",
         "5.000 mensagens",
       ],
@@ -47,7 +47,7 @@ const Pricing = () => {
       isPopular: true,
       for: "Empresas em crescimento",
       features: [
-        "3 Funcionários de IA",
+        "3 WhatsApps",
         "1.500 atendimentos/mês",
         "20.000 mensagens",
       ],
@@ -57,7 +57,7 @@ const Pricing = () => {
       price: "R$ 1.290",
       for: "Operações de alto volume",
       features: [
-        "10 Funcionários de IA",
+        "10 WhatsApps",
         "5.000 atendimentos/mês",
         "50.000 mensagens",
       ],
