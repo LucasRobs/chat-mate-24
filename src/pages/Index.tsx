@@ -8,11 +8,9 @@ import Benefits from "@/components/sections/Benefits";
 import Pricing from "@/components/sections/Pricing";
 import Partners from "@/components/sections/Partners";
 import Testimonials from "@/components/sections/Testimonials";
-import Comparison from "@/components/sections/Comparison";
-import Features from "@/components/sections/Features";
 import IntegrationPartners from "@/components/sections/IntegrationPartners";
 import ClosingCtaSection from "@/components/sections/ClosingCtaSection";
-import LeadForm from "@/components/sections/LeadForm";
+// import LeadForm from "@/components/sections/LeadForm";
 import WistiaScriptLoader from "@/components/utils/WistiaScriptLoader";
 import { Toaster } from "@/components/ui/toaster";
 
@@ -20,7 +18,7 @@ const Index = () => {
   useEffect(() => {
     // Use simple dot patterns instead of gradients
     document.body.classList.add('pattern-background');
-    
+
     // Intersection Observer for revealing elements
     const observer = new IntersectionObserver(
       (entries) => {
@@ -37,13 +35,13 @@ const Index = () => {
     // Apply to all reveal elements
     const revealElements = document.querySelectorAll(".reveal");
     revealElements.forEach((el) => observer.observe(el));
-    
+
     // Apply to all animation classes
     const animatedElements = document.querySelectorAll(
       '.fade-in-left, .fade-in-right, .fade-in-up, .fade-in-down, .fade-in, .scale-in, .rotate-in'
     );
     animatedElements.forEach((el) => observer.observe(el));
-    
+
     // Stagger animations for grouped elements
     const staggerContainers = document.querySelectorAll('.stagger-container');
     staggerContainers.forEach(container => {
@@ -56,7 +54,7 @@ const Index = () => {
 
     // Add Apple-inspired smooth scrolling
     document.documentElement.style.scrollBehavior = 'smooth';
-    
+
     // Animation handler for sections
     const animateSections = () => {
       const sections = document.querySelectorAll('section');
@@ -84,7 +82,7 @@ const Index = () => {
     // Run once on load
     animateSections();
     animateCustomSections();
-    
+
     // Add event listeners
     window.addEventListener('scroll', animateSections);
     window.addEventListener('scroll', animateCustomSections);
@@ -111,15 +109,13 @@ const Index = () => {
 
         <main>
           <Hero />
-          <Benefits />
-          <Comparison />
-          <Features />
-          <Testimonials />
           <Partners />
+          <Benefits />
           <IntegrationPartners />
           <Pricing />
+          <Testimonials />
           <ClosingCtaSection />
-          <LeadForm />
+          {/* <LeadForm /> */}
         </main>
 
         <Footer />

@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import WhatsAppButton from "./components/ui/whatsapp-button";
 import Index from "./pages/Index";
+import ScaleUp from "./pages/ScaleUp";
 import NotFound from "./pages/NotFound";
 import Forms from "./pages/Forms";
 import { UserFormProvider } from "./context/UserFormContext";
@@ -23,6 +24,7 @@ const App = () => {
             <Suspense fallback={<div className="flex items-center justify-center min-h-screen">Carregando...</div>}>
               <Routes>
                 <Route path="/" element={<Index />} />
+                <Route path="/scale-up" element={<ScaleUp />} />
                 <Route path="/startupsummit" element={<Forms />} />
                 <Route path="/forms" element={<Forms />} />
                 {/* Rota catch-all para páginas não encontradas */}
@@ -32,7 +34,7 @@ const App = () => {
           </UserFormProvider>
         </QueryClientProvider>
       </BrowserRouter>
-      <WhatsAppButton phoneNumber="5588997492536" message="Olá! Gostaria de mais informações." />
+      <WhatsAppButton phoneNumber="5585994314736" message="Olá! Gostaria de mais informações." />
     </>
   );
 };

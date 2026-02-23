@@ -25,7 +25,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-gradient-to-b from-white to-gray-50 pt-8 pb-4 md:pt-12 md:pb-8 border-t border-gray-100 relative overflow-hidden">
+    <footer className="bg-gradient-to-b from-white to-gray-50 pt-16 pb-8 md:pt-24 md:pb-12 border-t border-gray-100 relative overflow-hidden">
       <div className="absolute inset-0 impulso-pattern opacity-5 pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-16">
@@ -77,17 +77,17 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-2 md:gap-3">
                 <Phone size={isMobile ? 14 : 20} className="text-primary" />
-                <a href="tel:+5588997492536" className="hover:text-primary transition-colors">
-                  +55 (88) 99749-2536
+                <a href="tel:+5585994314736" className="hover:text-primary transition-colors">
+                  +55 (85) 99431-4736
                 </a>
               </li>
               {!isMobile && (
                 <li className="flex items-start gap-3">
                   <MapPin size={20} className="text-primary mt-1" />
                   <address className="not-italic leading-tight">
-                    R. Antônio Augusto, 290<br />
-                    Meireles, Fortaleza - CE<br />
-                    CEP: 60110-370
+                    BS Design Torre Sul<br />
+                    Aldeota, Fortaleza - CE<br />
+                    CEP: 60150-165
                   </address>
                 </li>
               )}

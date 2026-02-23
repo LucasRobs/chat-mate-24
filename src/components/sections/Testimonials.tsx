@@ -25,18 +25,9 @@ const testimonials = [
   },
   {
     id: 3,
-    name: "Simplo",
-    role: "Informações Técnicas Automotivas",
-    image: "/lovable-uploads/1634667492236.png", // Corrected path to existing file with specific ID
-    content:
-      "Com a API oficial da Followop, superamos os desafios de comunicação e otimizamos a entrega de informações técnicas automotivas aos nossos clientes.",
-    rating: 5,
-  },
-  {
-    id: 4,
     name: "Emergency Talks",
     role: "Educação Médica em Emergência",
-    image: "/lovable-uploads/emergency_talks_logo.png", // Corrected path with underscore
+    image: "/lovable-uploads/emergency_talks_logo.png",
     content:
       "A Followop nos permitiu ampliar o alcance e o engajamento em nossos programas de educação médica em emergência, facilitando a interação com profissionais da saúde.",
     rating: 5,
@@ -75,24 +66,21 @@ const Testimonials = () => {
     const interval = setInterval(() => {
       nextTestimonial();
     }, 8000);
-    
+
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <section id="testimonials" className="py-16 sm:py-20 bg-gray-50 relative overflow-hidden">
+    <section id="testimonials" className="bg-white relative overflow-hidden">
       {/* Background patterns */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
-        <div className="absolute -top-40 -left-40 w-80 h-80 bg-primary/5 rounded-full blur-3xl"></div>
-        <div className="absolute -bottom-40 -right-40 w-80 h-80 bg-blue-500/5 rounded-full blur-3xl"></div>
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 md:px-8 relative">
         <div
-          className={`text-center mb-8 sm:mb-12 transition-all duration-700 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
-          }`}
+          className={`text-center mb-8 sm:mb-12 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
+            }`}
         >
           <span className="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs sm:text-sm font-medium">
             Depoimentos
@@ -132,7 +120,7 @@ const Testimonials = () => {
                     />
                   ))}
                 </div>
-                
+
                 <p className="text-sm sm:text-base md:text-lg text-gray-700 italic leading-relaxed">
                   "{testimonial.content}"
                 </p>

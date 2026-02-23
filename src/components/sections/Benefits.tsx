@@ -32,22 +32,22 @@ const CountUpNumber = ({ end, suffix = "", duration = 2000 }) => {
 
   useEffect(() => {
     if (!isVisible) return;
-    
+
     let startTime;
     let animationFrameId;
-    
+
     const animate = (timestamp) => {
       if (!startTime) startTime = timestamp;
       const progress = Math.min((timestamp - startTime) / duration, 1);
       setCount(Math.floor(progress * end));
-      
+
       if (progress < 1) {
         animationFrameId = requestAnimationFrame(animate);
       }
     };
-    
+
     animationFrameId = requestAnimationFrame(animate);
-    
+
     return () => {
       cancelAnimationFrame(animationFrameId);
     };
@@ -58,12 +58,12 @@ const CountUpNumber = ({ end, suffix = "", duration = 2000 }) => {
 
 const BenefitItem = ({ icon: Icon, title, description, number, suffix, index, isVisible }) => {
   return (
-    <div 
+    <div
       className={cn(
         "flex flex-col items-center text-center transition-all duration-500 ease-in-out",
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
       )}
-      style={{ 
+      style={{
         transitionDelay: `${index * 100}ms`
       }}
     >
@@ -130,12 +130,10 @@ const Benefits = () => {
   ];
 
   return (
-    <section ref={sectionRef} id="benefits" className="py-16 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+    <section ref={sectionRef} id="benefits" className="bg-white relative overflow-hidden">
       {/* Background patterns */}
       <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
-      <div className="absolute top-0 left-0 w-1/3 h-1/3 bg-primary/5 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 right-0 w-1/4 h-1/4 bg-blue-500/5 rounded-full blur-3xl"></div>
-      
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 text-center relative z-10">
         <div className={`mb-10 transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
           <span className="bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-medium">

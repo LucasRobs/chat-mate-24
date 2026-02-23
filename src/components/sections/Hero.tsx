@@ -3,21 +3,21 @@ import { useState, useEffect } from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { ArrowRight, Bell, Calendar, BarChart2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import Dashboard from "@/components/ui-custom/Dashboard";
+
 
 // Meta Tech Partner Badge Component (refinado para linha única no mobile e estilo texto)
 const MetaTechPartnerBadge = () => (
   <div className="flex items-center gap-2 bg-transparent border-none px-0 py-0 text-xs font-medium text-gray-700 max-w-fit mx-auto animate-fade-in-down">
     <div className="w-5 h-5 flex items-center justify-center">
-      <img 
-        src="/lovable-uploads/c5206104-ee78-44ed-b432-e4d2a4bb0863.png" 
-        alt="Meta Logo" 
+      <img
+        src="/lovable-uploads/c5206104-ee78-44ed-b432-e4d2a4bb0863.png"
+        alt="Meta Logo"
         className="w-full h-full object-contain"
       />
     </div>
     <div className="flex flex-wrap sm:flex-nowrap items-center gap-x-1 text-xs sm:text-sm text-gray-700">
       <span className="text-[#0668E1] font-semibold">Meta</span>
-      <span>Tech Partner</span>
+      <span>Business Partner</span>
       <span className="text-gray-400 hidden sm:inline">|</span>
       <span className="text-[10px] sm:text-xs text-gray-500 whitespace-nowrap">
         Powered by WhatsApp Business API
@@ -119,60 +119,65 @@ const Hero = () => {
     }
   };
 
-  const activityData = [
-    { name: "5/04", value: 10 },
-    { name: "8/04", value: 120 },
-    { name: "11/04", value: 60 },
-    { name: "14/04", value: 170 },
-    { name: "17/04", value: 90 },
-  ];
+
 
   return (
-    <section className="relative bg-white overflow-hidden pb-10 pt-16 sm:py-10 lg:py-12 mobile-container">
-      {/* Background patterns */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
-      <div className="absolute -top-40 -right-40 w-80 h-80 bg-primary/5 rounded-full blur-3xl animate-float" style={{ animationDelay: "0s" }}></div>
-      <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-500/5 rounded-full blur-3xl animate-float" style={{ animationDelay: "1s" }}></div>
-      
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Meta badge centralized with proper spacing - adjusted for mobile */}
-        <div className={`${isMobile ? "mb-4 mt-4" : "mb-6 mt-6"}`}>
+    <section className="relative bg-white overflow-hidden min-h-[90vh] flex flex-col justify-center pt-32 pb-20 mobile-container">
+      {/* Background patterns - Enhanced for Antigravity feel */}
+      <div className="absolute inset-0 bg-grid-pattern opacity-[0.03]"></div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+        {/* Meta badge centralized */}
+        <div className={`flex justify-center ${isMobile ? "mb-6 mt-4" : "mb-8 mt-8"}`}>
           <MetaTechPartnerBadge />
         </div>
 
-        <div className="text-center animate-on-scroll from-bottom animate-in mt-4" style={{ animationDelay: "0.3s" }}>
-          <h1 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-light tracking-tight text-black mb-1 sm:mb-3 animate-fade-in-down" style={{ animationDelay: "200ms" }}>
-            Transforme Seu Whatsapp
+        <div className="text-center max-w-5xl mx-auto">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-semibold tracking-tight text-gray-900 mb-6 leading-[1.1] animate-fade-in-down" style={{ animationDelay: "200ms" }}>
+            Transforme Seu Whatsapp em uma <br className="hidden sm:block" />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-700 to-green-600">Máquina de Vendas</span>
           </h1>
 
-          <h2 className="text-lg sm:text-xl md:text-3xl font-light text-black mb-2 sm:mb-3 animate-fade-in-down" style={{ animationDelay: "300ms" }}>
-            Venda no automático com <span className="font-semibold text-[#00af6b] typing-animation">{displayedText}</span>
-          </h2>
+          <div className="h-20 sm:h-24 md:h-28 flex items-center justify-center mb-6">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-light text-gray-600 animate-fade-in-down" style={{ animationDelay: "300ms" }}>
+              Venda no automático com <span className="font-medium text-[#16B763] typing-animation border-b-2 border-[#16B763]/30 pb-1">{displayedText}</span>
+            </h2>
+          </div>
 
-          <p className="mt-2 sm:mt-3 text-xs sm:text-sm text-gray-600 max-w-2xl mx-auto leading-relaxed font-light px-1 animate-fade-in-down" style={{ animationDelay: "400ms" }}>
-            Potencialize seu negócio de forma inteligente e eleve seu atendimento a outro nível.
+          <p className="mt-4 text-base sm:text-lg text-gray-500 max-w-2xl mx-auto leading-relaxed font-light px-4 animate-fade-in-down" style={{ animationDelay: "400ms" }}>
+            Potencialize seu negócio de forma inteligente. Atendimento 24/7, disparos em massa e CRM integrado em uma única plataforma.
           </p>
 
-          <div className="mt-4 sm:mt-6 flex justify-center animate-fade-in" style={{ animationDelay: "600ms" }}>
-            <Button 
+          <div className="mt-10 sm:mt-12 flex justify-center gap-4 animate-fade-in" style={{ animationDelay: "600ms" }}>
+            <Button
               onClick={handleButtonClick}
-              variant="apple"
-              size={isMobile ? "default" : "lg"}
-              className="text-xs sm:text-sm py-2 sm:py-2.5 flex items-center gap-2 h-auto animated-button"
+              size={isMobile ? "lg" : "default"}
+              className="text-sm sm:text-base px-8 py-6 rounded-full bg-gray-900 hover:bg-black text-white shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 h-14"
             >
               Começar agora
-              <span className="bg-[#2D2D4A] text-white p-1 rounded-full">
-                <ArrowRight size={12} />
-              </span>
+              <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
+            </Button>
+
+            <Button
+              variant="outline"
+              size={isMobile ? "lg" : "default"}
+              onClick={() => window.open("https://www.followop.com.br/login", "_blank")}
+              className="text-sm sm:text-base px-8 py-6 rounded-full border-gray-200 hover:bg-gray-50 text-gray-900 transition-all duration-300 h-14"
+            >
+              Ver demonstração
             </Button>
           </div>
         </div>
 
-        <div className="mt-6 sm:mt-8 animate-on-scroll from-bottom animate-in max-w-4xl mx-auto px-1 sm:px-0" style={{ animationDelay: "0.5s" }}>
-          <Dashboard 
-            activityData={activityData} 
-            isMobile={isMobile}
-          />
+        {/* Dashboard Image with sophisticated container */}
+        <div className="mt-20 sm:mt-24 animate-on-scroll from-bottom animate-in max-w-6xl mx-auto relative group" style={{ animationDelay: "0.8s" }}>
+          <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-gray-200/50 bg-white">
+            <img
+              src="/lovable-uploads/Captura de tela 2025-12-01 125703.png"
+              alt="Dashboard followop"
+              className="w-full h-auto transform transition-transform duration-700 hover:scale-[1.01]"
+            />
+          </div>
         </div>
       </div>
     </section>

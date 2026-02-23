@@ -8,7 +8,7 @@ import { useIsMobile } from "@/hooks/use-mobile";
 
 const Features = () => {
   const isMobile = useIsMobile();
-  
+
   const features = [
     {
       icon: MessageSquare,
@@ -49,13 +49,13 @@ const Features = () => {
       stopOnMouseEnter: true,
     })
   );
-  
+
   return (
-    <section id="features" className="py-10 md:py-16 bg-white relative overflow-hidden animated-section">
+    <section id="features" className="bg-white relative overflow-hidden animated-section">
       {/* Background decoration */}
       <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
       <div className="absolute -top-40 -right-40 w-80 h-80 bg-primary/5 rounded-full blur-3xl"></div>
-      
+
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-6 sm:mb-8 fade-in-up">
           <span className="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-medium">
@@ -72,7 +72,7 @@ const Features = () => {
         {/* Carousel for all devices, optimized for mobile */}
         <div className="mx-auto max-w-4xl stagger-container fade-in">
           <Carousel
-            opts={{ 
+            opts={{
               loop: true,
               align: "center",
               dragFree: isMobile,

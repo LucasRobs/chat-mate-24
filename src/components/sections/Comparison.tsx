@@ -40,11 +40,11 @@ const Comparison = () => {
   ];
 
   return (
-    <section ref={sectionRef} id="comparison" className="py-12 sm:py-20 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
+    <section ref={sectionRef} id="comparison" className="bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
       {/* Background patterns */}
       <div className="absolute inset-0 followop-pattern opacity-5"></div>
       <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-primary/5 rounded-full blur-3xl"></div>
-      
+
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-8 sm:mb-16 animate-fade-in-down">
           <span className="bg-primary/10 text-primary px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium">
@@ -59,9 +59,8 @@ const Comparison = () => {
         </div>
 
         <div
-          className={`transition-all duration-700 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
-          }`}
+          className={`transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
+            }`}
         >
           {/* Mobile (cards) */}
           <div className="block sm:hidden space-y-3">

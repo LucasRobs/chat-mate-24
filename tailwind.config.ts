@@ -20,8 +20,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['Poppins', 'sans-serif'],
-        poppins: ['Poppins', 'sans-serif'],
+        sans: ['Outfit', 'sans-serif'],
       },
       colors: {
         border: 'hsl(var(--border))',
@@ -122,11 +121,12 @@ export default {
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
-        'fade-in': 'fade-in 0.7s ease-out',
-        'fade-in-left': 'fade-in-left 0.7s ease-out',
-        'fade-in-right': 'fade-in-right 0.7s ease-out',
+        'fade-in': 'fade-in 0.7s ease-out both',
+        'fade-in-up': 'fade-in 0.7s ease-out both',
+        'fade-in-left': 'fade-in-left 0.7s ease-out both',
+        'fade-in-right': 'fade-in-right 0.7s ease-out both',
         'fade-in-down': 'fade-in-down 0.4s ease-out both',
-        'zoom-in': 'zoom-in 0.7s ease-out',
+        'zoom-in': 'zoom-in 0.7s ease-out both',
         'float': 'float 6s ease-in-out infinite',
         'slide-left': 'slide-left 25s linear infinite',
         'spin-once': 'spin-once 0.5s ease-out',

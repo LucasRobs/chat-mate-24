@@ -1,17 +1,15 @@
 
 import React from "react";
-import { Users, MessageSquare, BarChart2, ArrowRight, Bell, Calendar, TrendingUp } from "lucide-react";
-import DashboardCard from "./DashboardCard";
+import { MessageSquare, Users, TrendingUp, Clock } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { Button } from "@/components/ui/button";
 import {
   ResponsiveContainer,
   AreaChart,
   Area,
-  Tooltip,
   XAxis,
   YAxis,
-  CartesianGrid
+  CartesianGrid,
+  Tooltip
 } from "recharts";
 
 interface DashboardProps {
@@ -22,119 +20,116 @@ interface DashboardProps {
 const Dashboard = ({ activityData, isMobile: propIsMobile }: DashboardProps) => {
   const hookIsMobile = useIsMobile();
   const isMobile = propIsMobile !== undefined ? propIsMobile : hookIsMobile;
-  const simplifiedData = isMobile ? activityData.filter((_, idx) => idx % 2 === 0) : activityData;
-
-  const handleViewMore = () => {
-    window.open("https://www.followop.com.br/register", "_blank");
-  };
 
   return (
-    <div className="w-full max-w-3xl mx-auto rounded-xl sm:rounded-2xl overflow-hidden shadow-md border border-gray-100 transition-all duration-500 bg-white hover:shadow-lg">
-      <div className="p-3 sm:p-5 flex-1 flex flex-col gap-2 sm:gap-4">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-1.5 sm:gap-2.5">
-            <img src="/lovable-uploads/669aaab1-10dd-437a-a1b9-789ae5f02809.png" alt="followop Logo" className="h-4 sm:h-6" />
-            <span className="font-medium text-[10px] sm:text-sm text-gray-800">Painel de Controle</span>
-        </div>
-          <div className="flex items-center gap-1.5 sm:gap-2.5">
-            <div className="text-[8px] sm:text-xs text-primary/90 bg-primary/10 px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border border-primary/20">Premium</div>
-            <div className="h-5 w-5 sm:h-6 sm:w-6 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center">
-              <span className="text-[9px] sm:text-xs font-medium text-primary">AU</span>
-            </div>
+    <div className="w-full max-w-5xl mx-auto bg-white rounded-2xl shadow-xl border border-gray-200 p-6">
+      {/* Header */}
+      <div className="flex items-center justify-between mb-6">
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10 bg-gradient-to-br from-primary to-primary/80 rounded-xl flex items-center justify-center">
+            <MessageSquare className="w-6 h-6 text-white" />
           </div>
+          <div>
+            <h3 className="text-lg font-semibold text-gray-900">Dashboard</h3>
+            <p className="text-xs text-gray-500">Visão geral do sistema</p>
+          </div>
+        </div>
+        <div className="flex items-center gap-2">
+          <div className="px-3 py-1 bg-green-50 text-green-700 text-xs font-medium rounded-full">Ativo</div>
+        </div>
+      </div>
+
+      {/* Stats Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+        <div className="bg-gradient-to-br from-blue-50 to-blue-100/50 rounded-xl p-4 border border-blue-200">
+          <div className="flex items-center justify-between mb-2">
+            <div className="w-10 h-10 bg-blue-500 rounded-lg flex items-center justify-center">
+              <Users className="w-5 h-5 text-white" />
+            </div>
+            <span className="text-xs text-blue-600 font-medium">+12%</span>
+          </div>
+          <p className="text-2xl font-bold text-gray-900">1,234</p>
+          <p className="text-xs text-gray-600">Total de Usuários</p>
         </div>
 
-        <div className="grid grid-cols-3 gap-1.5 sm:gap-3 animate-fade-in" style={{ animationDelay: "100ms" }}>
-          <DashboardCard title="Atendimentos" value={329} icon={Users} trend={+12} />
-          <DashboardCard title="Mensagens" value={2559} icon={MessageSquare} trend={+28} />
-          <DashboardCard title="Conversões" value={43} icon={BarChart2} trend={+8} />
+        <div className="bg-gradient-to-br from-green-50 to-green-100/50 rounded-xl p-4 border border-green-200">
+          <div className="flex items-center justify-between mb-2">
+            <div className="w-10 h-10 bg-green-500 rounded-lg flex items-center justify-center">
+              <MessageSquare className="w-5 h-5 text-white" />
+            </div>
+            <span className="text-xs text-green-600 font-medium">+23%</span>
+          </div>
+          <p className="text-2xl font-bold text-gray-900">5,678</p>
+          <p className="text-xs text-gray-600">Mensagens Enviadas</p>
         </div>
 
-        <div className="grid grid-cols-2 gap-1.5 sm:gap-3 animate-fade-in" style={{ animationDelay: "200ms" }}>
-          <div className="bg-white rounded-lg p-2 sm:p-3 shadow-sm border flex items-center hover:border-primary/30 transition-all duration-300">
-            <div className="w-5 h-5 sm:w-7 sm:h-7 bg-blue-50 rounded-lg flex items-center justify-center mr-2 sm:mr-3">
-              <Bell className="w-2.5 h-2.5 sm:w-4 sm:h-4 text-blue-500" />
+        <div className="bg-gradient-to-br from-purple-50 to-purple-100/50 rounded-xl p-4 border border-purple-200">
+          <div className="flex items-center justify-between mb-2">
+            <div className="w-10 h-10 bg-purple-500 rounded-lg flex items-center justify-center">
+              <TrendingUp className="w-5 h-5 text-white" />
             </div>
-            <div>
-              <p className="text-[8px] sm:text-xs text-gray-500">Notificações</p>
-              <p className="text-[10px] sm:text-sm font-medium">12 novas</p>
-            </div>
+            <span className="text-xs text-purple-600 font-medium">+8%</span>
           </div>
-          <div className="bg-white rounded-lg p-2 sm:p-3 shadow-sm border flex items-center hover:border-primary/30 transition-all duration-300">
-            <div className="w-5 h-5 sm:w-7 sm:h-7 bg-green-50 rounded-lg flex items-center justify-center mr-2 sm:mr-3">
-              <Calendar className="w-2.5 h-2.5 sm:w-4 sm:h-4 text-green-500" />
-            </div>
-            <div>
-              <p className="text-[8px] sm:text-xs text-gray-500">Agendamentos</p>
-              <p className="text-[10px] sm:text-sm font-medium">5 hoje</p>
-            </div>
-          </div>
+          <p className="text-2xl font-bold text-gray-900">89%</p>
+          <p className="text-xs text-gray-600">Taxa de Conversão</p>
         </div>
 
-        <div className="w-full h-[120px] sm:h-[180px] border border-gray-100 rounded-lg p-2 shadow-sm animate-fade-in" style={{ animationDelay: "300ms" }}>
-          <div className="flex justify-between items-center mb-1">
-            <div className="flex items-center gap-1">
-              <TrendingUp size={isMobile ? 14 : 16} className="text-primary" />
-              <span className="text-[9px] sm:text-xs font-medium text-gray-800">Desempenho</span>
+        <div className="bg-gradient-to-br from-orange-50 to-orange-100/50 rounded-xl p-4 border border-orange-200">
+          <div className="flex items-center justify-between mb-2">
+            <div className="w-10 h-10 bg-orange-500 rounded-lg flex items-center justify-center">
+              <Clock className="w-5 h-5 text-white" />
             </div>
-            <span className="text-[7px] sm:text-[9px] text-gray-500">Últimos 5 dias</span>
+            <span className="text-xs text-orange-600 font-medium">-5%</span>
           </div>
-          <ResponsiveContainer width="100%" height="88%">
-            <AreaChart data={simplifiedData}>
+          <p className="text-2xl font-bold text-gray-900">2.5m</p>
+          <p className="text-xs text-gray-600">Tempo Médio</p>
+        </div>
+      </div>
+
+      {/* Chart */}
+      <div className="bg-gray-50 rounded-xl p-4 border border-gray-200">
+        <div className="flex items-center justify-between mb-4">
+          <h4 className="text-sm font-semibold text-gray-900">Atividade Recente</h4>
+          <span className="text-xs text-gray-500">Últimos 7 dias</span>
+        </div>
+        <div className="h-64">
+          <ResponsiveContainer width="100%" height="100%">
+            <AreaChart data={activityData}>
               <defs>
-                <linearGradient id="colorPrimary" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#00af6b" stopOpacity={0.1} />
-                  <stop offset="95%" stopColor="#00af6b" stopOpacity={0.01} />
+                <linearGradient id="colorValue" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="5%" stopColor="#00af6b" stopOpacity={0.3} />
+                  <stop offset="95%" stopColor="#00af6b" stopOpacity={0} />
                 </linearGradient>
               </defs>
-              <CartesianGrid strokeDasharray="3 3" stroke="#f5f5f5" vertical={false} />
+              <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
               <XAxis 
                 dataKey="name" 
-                tick={{ fontSize: isMobile ? 9 : 11 }} 
+                tick={{ fontSize: 12, fill: "#6b7280" }}
                 tickLine={false}
-                axisLine={{ stroke: "#eee" }}
-                dy={5}
+                axisLine={{ stroke: "#e5e7eb" }}
               />
               <YAxis 
-                hide={isMobile}
-                tick={{ fontSize: 10 }}
+                tick={{ fontSize: 12, fill: "#6b7280" }}
                 tickLine={false}
-                axisLine={false}
-                tickFormatter={(value) => `${value}`}
+                axisLine={{ stroke: "#e5e7eb" }}
               />
               <Tooltip
-                contentStyle={{ 
-                  backgroundColor: "white", 
-                  border: "1px solid #e2e8f0", 
-                  fontSize: isMobile ? "10px" : "12px",
-                  padding: isMobile ? "4px" : "8px",
-                  borderRadius: "6px",
-                  boxShadow: "0 2px 8px rgba(0,0,0,0.05)"
+                contentStyle={{
+                  backgroundColor: "white",
+                  border: "1px solid #e5e7eb",
+                  borderRadius: "8px",
+                  boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1)"
                 }}
-                labelStyle={{ color: "#333", fontWeight: 500 }}
-                formatter={(value) => [`${value}`, 'Valor']}
               />
               <Area
                 type="monotone"
                 dataKey="value"
                 stroke="#00af6b"
-                fill="url(#colorPrimary)"
-                strokeWidth={2}
+                strokeWidth={3}
+                fill="url(#colorValue)"
               />
             </AreaChart>
           </ResponsiveContainer>
-        </div>
-
-        <div className="flex justify-end animate-fade-in" style={{ animationDelay: "400ms" }}>
-          <Button
-            onClick={handleViewMore}
-            variant="outline"
-            size="sm"
-            className="text-[10px] sm:text-xs font-medium flex items-center gap-1.5 p-1.5 sm:p-2.5 h-auto border-primary/20 text-primary hover:bg-primary/5"
-          >
-            Ver Painel Completo
-            <ArrowRight size={isMobile ? 10 : 12} />
-          </Button>
         </div>
       </div>
     </div>
