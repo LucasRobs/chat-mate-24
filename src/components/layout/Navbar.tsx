@@ -53,7 +53,7 @@ export default function Navbar() {
   };
 
   const navItems = [
-    { id: "features", label: "Funções", icon: Rocket },
+    { id: "features", label: "Funcionalidades", icon: Rocket },
     { id: "partners", label: "Parceiros", icon: Users },
     { id: "pricing", label: "Planos", icon: PieChart }
   ];

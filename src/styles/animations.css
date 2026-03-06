@@ -88,11 +88,36 @@
   .in-view {
     opacity: 1;
     transform: translate(0);
+    filter: blur(0);
   }
   
+  .blur-reveal {
+    opacity: 0;
+    filter: blur(12px);
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, filter 0.8s ease-out, transform 0.8s ease-out;
+  }
+  
+  .blur-reveal.in-view {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+
+  /* Smoke effect */
+  @keyframes smoke {
+    0% { filter: blur(5px); opacity: 0; transform: translateY(10px) scale(0.95); }
+    100% { filter: blur(0); opacity: 1; transform: translateY(0) scale(1); }
+  }
+  
+  .animate-smoke {
+    animation: smoke 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
   /* Staggered animation delay utilities */
   .delay-100 {
     transition-delay: 100ms;
+    animation-delay: 100ms;
   }
   
   .delay-200 {

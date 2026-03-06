@@ -1,104 +1,70 @@
-
-import React, { useRef } from "react";
-import { CheckCircle, MessageSquare, BarChart, Clock, Heart, Smartphone } from "lucide-react";
-import FeatureCard from "../ui-custom/FeatureCard";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import Autoplay from "embla-carousel-autoplay";
-import { useIsMobile } from "@/hooks/use-mobile";
+import React from "react";
+import { Users, Bot, Send, Map, BarChart4 } from "lucide-react";
 
 const Features = () => {
-  const isMobile = useIsMobile();
-
   const features = [
     {
-      icon: MessageSquare,
-      title: "Respostas personalizadas",
-      description: "Mensagens personalizadas que fazem o cliente se sentir único e especial",
+      icon: Send,
+      title: "Acorde a sua base de clientes.",
+      description: "Mande sua oferta para milhares de contatos em 1 clique e veja vendas acontecendo no piloto automático.",
+      className: "md:col-span-2 bg-[#FAFAFA]"
     },
     {
-      icon: CheckCircle,
-      title: "Mais conversões",
-      description: "Aumente suas taxas de conversão com atendimento rápido e eficiente",
+      icon: Users,
+      title: "Sua equipe inteira em um número.",
+      description: "Sistemas de roteamento inteligente que entregam o cliente certo para o vendedor certo.",
+      className: "md:col-span-1 bg-[#FAFAFA]"
     },
     {
-      icon: BarChart,
-      title: "Insights poderosos",
-      description: "Análise detalhada de todas as interações para otimizar seu negócio",
+      icon: Bot,
+      title: "Seu melhor vendedor de madrugada.",
+      description: "Uma inteligência focada no seu negócio que qualifica leads e agenda reuniões enquanto você dorme.",
+      className: "md:col-span-1 bg-white border-2 border-[#16B763]/10"
     },
     {
-      icon: Clock,
-      title: "Atendimento 24/7",
-      description: "Nunca perca uma oportunidade com atendimento automatizado 24h por dia",
-    },
-    {
-      icon: Heart,
-      title: "Clientes satisfeitos",
-      description: "Melhore a satisfação do cliente com respostas rápidas e precisas",
-    },
-    {
-      icon: Smartphone,
-      title: "Integração com WhatsApp",
-      description: "Conecte-se com seus clientes no canal que eles já utilizam diariamente",
+      icon: Map,
+      title: "O mapa completo do seu funil.",
+      description: "Saiba exatamente onde seu dinheiro está. Visão total dos contatos, do primeiro 'oi' até a venda.",
+      className: "md:col-span-2 bg-[#FAFAFA]"
     }
   ];
 
-  const autoplayPlugin = useRef(
-    Autoplay({
-      delay: 3000,
-      stopOnInteraction: true,
-      stopOnMouseEnter: true,
-    })
-  );
-
   return (
-    <section id="features" className="bg-white relative overflow-hidden animated-section">
-      {/* Background decoration */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
-      <div className="absolute -top-40 -right-40 w-80 h-80 bg-primary/5 rounded-full blur-3xl"></div>
-
+    <section id="features" className="py-24 bg-white relative overflow-hidden animated-section">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-6 sm:mb-8 fade-in-up">
-          <span className="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-medium">
-            Funcionalidades
+        <div className="text-center mb-16 blur-reveal" style={{ transitionDelay: "100ms" }}>
+          <span className="bg-[#16B763]/10 text-[#16B763] px-3 py-1 rounded-full text-xs font-medium tracking-wide border border-[#16B763]/20 animate-pulse">
+            O Cérebro da Operação
           </span>
-          <h2 className="mt-3 text-xl sm:text-2xl md:text-3xl font-light text-secondary">
-            Recursos <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/70">poderosos</span>
+          <h2 className="mt-6 text-3xl sm:text-4xl md:text-5xl font-semibold text-gray-900 tracking-tight leading-[1.1]">
+            O cérebro por trás da <br className="hidden sm:block" />
+            <span className="text-[#16B763]">sua nova máquina de vendas.</span>
           </h2>
-          <p className="mt-2 text-xs sm:text-sm text-gray-600 max-w-xl mx-auto">
-            Transforme a experiência do atendimento ao cliente com a followop
+          <p className="mt-6 text-base sm:text-lg text-gray-500 max-w-2xl mx-auto font-light leading-relaxed">
+            Gestão invisível, resgate ativo e operação centralizada.<br className="hidden sm:block" /> Trabalhando nos bastidores para lotar sua agenda.
           </p>
         </div>
 
-        {/* Carousel for all devices, optimized for mobile */}
-        <div className="mx-auto max-w-4xl stagger-container fade-in">
-          <Carousel
-            opts={{
-              loop: true,
-              align: "center",
-              dragFree: isMobile,
-            }}
-            plugins={[autoplayPlugin.current]}
-            className="w-full"
-          >
-            <CarouselContent>
-              {features.map((feature, index) => (
-                <CarouselItem key={index} className="basis-[85%] sm:basis-1/2 lg:basis-1/3 pl-4 stagger-item">
-                  <div className="h-full pb-1">
-                    <FeatureCard
-                      icon={feature.icon}
-                      title={feature.title}
-                      description={feature.description}
-                      className="h-full"
-                    />
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <div className="flex justify-center mt-4 fade-in-up delay-300">
-              <CarouselPrevious className="relative static translate-y-0 mr-2 h-8 w-8" />
-              <CarouselNext className="relative static translate-y-0 h-8 w-8" />
+        <div className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-6 -mx-4 px-4 sm:mx-0 sm:px-0 sm:pb-0 sm:grid sm:grid-cols-1 md:grid-cols-3 max-w-5xl mx-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+          {features.map((feature, index) => (
+            <div
+              key={index}
+              className={`blur-reveal shrink-0 snap-center w-[85%] sm:w-auto rounded-[2rem] p-8 sm:p-10 border border-gray-100 bg-white hover:bg-gray-50/50 shadow-sm transition-all duration-500 transform hover:-translate-y-1 group relative overflow-hidden ${feature.className}`}
+              style={{ transitionDelay: `${200 + index * 100}ms` }}
+            >
+              <div className="relative z-10">
+                <div className="w-14 h-14 rounded-2xl bg-white border border-gray-100 shadow-sm flex items-center justify-center mb-6 group-hover:scale-105 transition-transform duration-500 border-gray-100">
+                  <feature.icon className="w-6 h-6 text-[#16B763]" />
+                </div>
+                <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-3 tracking-tight">
+                  {feature.title}
+                </h3>
+                <p className="text-gray-500 font-light leading-relaxed text-sm sm:text-base">
+                  {feature.description}
+                </p>
+              </div>
             </div>
-          </Carousel>
+          ))}
         </div>
       </div>
     </section>

@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Hero from "@/components/sections/Hero";
+import Features from "@/components/sections/Features";
 import Benefits from "@/components/sections/Benefits";
 import Pricing from "@/components/sections/Pricing";
 import Partners from "@/components/sections/Partners";
@@ -38,7 +39,7 @@ const Index = () => {
 
     // Apply to all animation classes
     const animatedElements = document.querySelectorAll(
-      '.fade-in-left, .fade-in-right, .fade-in-up, .fade-in-down, .fade-in, .scale-in, .rotate-in'
+      '.fade-in-left, .fade-in-right, .fade-in-up, .fade-in-down, .fade-in, .scale-in, .rotate-in, .blur-reveal'
     );
     animatedElements.forEach((el) => observer.observe(el));
 
@@ -109,6 +110,7 @@ const Index = () => {
 
         <main>
           <Hero />
+          <Features />
           <Partners />
           <Benefits />
           <IntegrationPartners />

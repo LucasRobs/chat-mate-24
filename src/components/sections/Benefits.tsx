@@ -60,21 +60,19 @@ const BenefitItem = ({ icon: Icon, title, description, number, suffix, index, is
   return (
     <div
       className={cn(
-        "flex flex-col items-center text-center transition-all duration-500 ease-in-out",
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
+        "relative flex flex-col items-center text-center p-8 rounded-3xl border border-gray-100 bg-white/50 backdrop-blur-sm shadow-sm transition-all duration-500 transform hover:-translate-y-1 group overflow-hidden blur-reveal",
+        isVisible && "in-view"
       )}
-      style={{
-        transitionDelay: `${index * 100}ms`
-      }}
+      style={{ transitionDelay: `${200 + index * 100}ms` }}
     >
-      <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-3">
-        <Icon className="w-6 h-6 text-primary" />
+      <div className="relative z-10 w-16 h-16 rounded-2xl bg-white border border-gray-100 shadow-sm flex items-center justify-center mb-6 group-hover:scale-105 transition-transform duration-500">
+        <Icon className="w-8 h-8 text-primary" />
       </div>
-      <h3 className="text-base font-light text-black mb-2">{title}</h3>
-      <div className="text-2xl font-bold mb-1 text-primary">
+      <h3 className="relative z-10 text-lg font-semibold text-gray-900 mb-2">{title}</h3>
+      <div className="relative z-10 text-4xl font-bold mb-3 text-primary">
         <CountUpNumber end={number} suffix={suffix} />
       </div>
-      <p className="text-sm text-gray-500 max-w-xs font-light">{description}</p>
+      <p className="relative z-10 text-sm text-gray-500 max-w-xs font-light leading-relaxed">{description}</p>
     </div>
   );
 };
@@ -135,28 +133,32 @@ const Benefits = () => {
       <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 text-center relative z-10">
-        <div className={`mb-10 transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-          <span className="bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-medium">
-            Benefícios
+        <div className={`mb-16 blur-reveal relative z-10`} style={{ transitionDelay: "100ms" }}>
+          {/* Decorative smoke effect behind the title */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-primary/20 blur-[50px] rounded-full point-events-none"></div>
+          
+          <span className="relative bg-primary/10 text-primary px-4 py-1.5 rounded-full text-sm font-medium tracking-wide animate-pulse">
+            O Impacto Real
           </span>
-          <h2 className="mt-3 text-2xl sm:text-3xl font-light text-black">Turbine Suas Vendas</h2>
-          <p className="mt-3 text-base text-gray-500 max-w-2xl mx-auto font-light">
-            Tecnologia de ponta gerando resultados incríveis para o seu negócio.
+          <h2 className="relative mt-6 text-3xl sm:text-4xl font-semibold text-gray-900 tracking-tight">Fature com Previsibilidade</h2>
+          <p className="relative mt-4 text-base sm:text-lg text-gray-500 max-w-2xl mx-auto font-light leading-relaxed">
+            Elimine o desperdício de leads e transforme sua base num ativo que gera dinheiro todos os dias de forma automática.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 px-6">
+        <div className="flex overflow-x-auto snap-x snap-mandatory gap-10 pb-6 -mx-4 px-4 sm:mx-0 sm:px-6 sm:pb-0 sm:grid sm:grid-cols-3 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
           {benefits.map((benefit, index) => (
-            <BenefitItem
-              key={index}
-              icon={benefit.icon}
-              title={benefit.title}
-              description={benefit.description}
-              number={benefit.number}
-              suffix={benefit.suffix}
-              index={index}
-              isVisible={isVisible}
-            />
+            <div key={index} className="shrink-0 snap-center w-[85%] sm:w-auto">
+              <BenefitItem
+                icon={benefit.icon}
+                title={benefit.title}
+                description={benefit.description}
+                number={benefit.number}
+                suffix={benefit.suffix}
+                index={index}
+                isVisible={isVisible}
+              />
+            </div>
           ))}
         </div>
       </div>

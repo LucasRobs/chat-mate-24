@@ -79,17 +79,20 @@ const Testimonials = () => {
 
       <div className="container mx-auto px-4 sm:px-6 md:px-8 relative">
         <div
-          className={`text-center mb-8 sm:mb-12 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
-            }`}
+          className={`text-center mb-12 sm:mb-16 blur-reveal`}
+          style={{ transitionDelay: "100ms" }}
         >
-          <span className="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs sm:text-sm font-medium">
+          {/* Decorative smoke effect behind the title */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-32 bg-primary/20 blur-[50px] rounded-full pointer-events-none"></div>
+
+          <span className="relative bg-primary/10 text-primary px-4 py-1.5 rounded-full text-sm font-medium tracking-wide animate-pulse">
             Depoimentos
           </span>
-          <h2 className="mt-4 text-xl sm:text-2xl md:text-3xl font-bold text-secondary">
-            O que nossos clientes dizem
+          <h2 className="relative mt-6 text-3xl sm:text-4xl md:text-5xl font-semibold text-gray-900 tracking-tight leading-[1.1]">
+            O que <span className="text-[#16B763]">nossos clientes</span> dizem
           </h2>
-          <p className="mt-2 sm:mt-4 text-sm sm:text-base text-gray-600 max-w-2xl mx-auto">
-            Empresas que transformaram seu atendimento com a followop
+          <p className="relative mt-4 text-base sm:text-lg text-gray-500 max-w-2xl mx-auto font-light leading-relaxed">
+            Empresas que transformaram seu atendimento com a followop.
           </p>
         </div>
 
@@ -98,14 +101,15 @@ const Testimonials = () => {
             {testimonials.map((testimonial, index) => (
               <motion.div
                 key={testimonial.id}
-                initial={{ opacity: 0, x: 100 }}
+                initial={{ opacity: 0, x: 100, filter: "blur(10px)" }}
                 animate={{
                   opacity: activeIndex === index ? 1 : 0,
                   x: activeIndex === index ? 0 : 100,
+                  filter: activeIndex === index ? "blur(0px)" : "blur(10px)"
                 }}
-                transition={{ duration: 0.5 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
                 className={cn(
-                  "bg-white rounded-2xl p-6 sm:p-8 shadow-lg border border-gray-100",
+                  "bg-white/70 backdrop-blur-md rounded-3xl p-8 sm:p-10 shadow-sm hover:shadow-md transition-all duration-500 border border-gray-100",
                   activeIndex !== index && "hidden"
                 )}
               >
@@ -146,7 +150,7 @@ const Testimonials = () => {
             <div className="flex justify-center mt-6 sm:mt-8 space-x-4">
               <button
                 onClick={prevTestimonial}
-                className="p-1.5 sm:p-2 rounded-full bg-white shadow-md hover:bg-gray-100 transition-colors transform hover:scale-105"
+                className="p-1.5 sm:p-2 rounded-full bg-white border border-gray-100 shadow-sm hover:bg-gray-50 transition-colors transform hover:scale-105"
                 aria-label="Depoimento anterior"
               >
                 <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 text-gray-600" />
@@ -168,7 +172,7 @@ const Testimonials = () => {
               </div>
               <button
                 onClick={nextTestimonial}
-                className="p-1.5 sm:p-2 rounded-full bg-white shadow-md hover:bg-gray-100 transition-colors transform hover:scale-105"
+                className="p-1.5 sm:p-2 rounded-full bg-white border border-gray-100 shadow-sm hover:bg-gray-50 transition-colors transform hover:scale-105"
                 aria-label="Próximo depoimento"
               >
                 <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 text-gray-600" />

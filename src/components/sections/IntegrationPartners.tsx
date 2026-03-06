@@ -28,15 +28,15 @@ const IntegrationPartners = () => {
       <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 relative z-10">
-        <div className="text-center mb-8 sm:mb-10 fade-in-up">
-          <span className="bg-primary/10 text-primary px-4 py-1 rounded-full text-xs sm:text-sm font-medium">
+        <div className="text-center mb-10 sm:mb-16 blur-reveal">
+          <span className="bg-primary/10 text-primary px-4 py-1.5 rounded-full text-sm font-medium tracking-wide animate-pulse">
             Integrações
           </span>
-          <h2 className="mt-3 sm:mt-4 text-xl sm:text-2xl md:text-3xl font-light text-secondary">
-            Integrações <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/70">disponíveis</span>
+          <h2 className="mt-6 text-2xl sm:text-3xl md:text-4xl font-semibold text-gray-900 tracking-tight leading-[1.1]">
+            Integrações <span className="text-[#16B763]">disponíveis</span>
           </h2>
-          <p className="mt-2 sm:mt-4 text-xs sm:text-sm md:text-base text-gray-600 max-w-2xl mx-auto">
-            A followop se integra com as principais plataformas de cursos e produtos digitais
+          <p className="mt-4 text-sm sm:text-base md:text-lg text-gray-500 font-light max-w-2xl mx-auto">
+            A followop se conecta de maneira fluida às principais plataformas de cursos e produtos digitais.
           </p>
         </div>
 
@@ -65,6 +65,26 @@ const IntegrationPartners = () => {
               ))}
             </CarouselContent>
           </Carousel>
+        </div>
+
+        <div className="mt-12 sm:mt-16 text-center blur-reveal" style={{ transitionDelay: "400ms" }}>
+          <div className="inline-flex flex-col items-center p-6 sm:p-8 bg-[#FAFAFA] border border-gray-100 rounded-[2rem] max-w-2xl mx-auto shadow-sm">
+            <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">
+              Não usa nenhuma dessas plataformas? Não tem problema.
+            </h3>
+            <p className="text-gray-500 font-light text-sm sm:text-base mb-6">
+              A followop possui uma API aberta e recebe webhooks de qualquer sistema. Se o seu sistema envia dados, nós conectamos.
+            </p>
+            <a 
+              href="https://www.followop.com.br/register" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-white border border-gray-200 text-gray-900 hover:bg-gray-50 rounded-full text-sm font-medium transition-colors shadow-sm"
+            >
+              Começar a integrar agora
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+            </a>
+          </div>
         </div>
       </div>
     </section>
