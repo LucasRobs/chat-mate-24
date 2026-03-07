@@ -56,11 +56,12 @@ const CountUpNumber = ({ end, suffix = "", duration = 2000 }) => {
   return <span ref={countRef}>{count}{suffix}</span>;
 };
 
-const BenefitItem = ({ icon: Icon, title, description, number, suffix, index, isVisible }) => {
+const BenefitItem = ({ icon: Icon, title, description, number, suffix, index, isVisible, className = "" }) => {
   return (
     <div
       className={cn(
-        "relative flex flex-col items-center text-center p-8 rounded-3xl border border-gray-100 bg-white/50 backdrop-blur-sm shadow-sm transition-all duration-500 transform hover:-translate-y-1 group overflow-hidden blur-reveal",
+        "relative flex h-full flex-col items-center text-center p-6 sm:p-8 rounded-3xl border border-gray-100 bg-white/70 backdrop-blur-sm shadow-sm transition-all duration-500 transform hover:-translate-y-1 group overflow-hidden blur-reveal",
+        className,
         isVisible && "in-view"
       )}
       style={{ transitionDelay: `${200 + index * 100}ms` }}
@@ -79,7 +80,6 @@ const BenefitItem = ({ icon: Icon, title, description, number, suffix, index, is
 
 const Benefits = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const isMobile = useIsMobile();
   const sectionRef = useRef(null);
 
   useEffect(() => {
@@ -146,9 +146,9 @@ const Benefits = () => {
           </p>
         </div>
 
-        <div className="flex overflow-x-auto snap-x snap-mandatory gap-10 pb-6 -mx-4 px-4 sm:mx-0 sm:px-6 sm:pb-0 sm:grid sm:grid-cols-3 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+        <div className="grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-3">
           {benefits.map((benefit, index) => (
-            <div key={index} className="shrink-0 snap-center w-[85%] sm:w-auto">
+            <div key={index} className={cn("h-full", index === 0 && "col-span-2 lg:col-span-1")}>
               <BenefitItem
                 icon={benefit.icon}
                 title={benefit.title}
@@ -157,6 +157,7 @@ const Benefits = () => {
                 suffix={benefit.suffix}
                 index={index}
                 isVisible={isVisible}
+                className={index === 0 ? "items-start text-left sm:items-center sm:text-center" : ""}
               />
             </div>
           ))}
