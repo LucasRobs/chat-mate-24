@@ -34,7 +34,10 @@ const App = () => {
           </UserFormProvider>
         </QueryClientProvider>
       </BrowserRouter>
-      <WhatsAppButton phoneNumber="5585994314736" message="Olá! Gostaria de mais informações." />
+      <WhatsAppButton
+        phoneNumber={import.meta.env.VITE_WHATSAPP_PHONE ?? "5585994314736"}
+        message={import.meta.env.VITE_WHATSAPP_MESSAGE ?? "Olá! Gostaria de mais informações."}
+      />
     </>
   );
 };
