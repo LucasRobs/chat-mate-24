@@ -8,6 +8,7 @@ import Features from "@/components/sections/Features";
 import Benefits from "@/components/sections/Benefits";
 import Pricing from "@/components/sections/Pricing";
 import Partners from "@/components/sections/Partners";
+import AffiliateCTA from "@/components/sections/AffiliateCTA";
 import Testimonials from "@/components/sections/Testimonials";
 import IntegrationPartners from "@/components/sections/IntegrationPartners";
 import ClosingCtaSection from "@/components/sections/ClosingCtaSection";
@@ -19,6 +20,7 @@ const Index = () => {
   useEffect(() => {
     // Use simple dot patterns instead of gradients
     document.body.classList.add('pattern-background');
+    document.body.classList.add('apple-animations');
 
     // Intersection Observer for revealing elements
     const observer = new IntersectionObserver(
@@ -92,6 +94,7 @@ const Index = () => {
 
     return () => {
       document.body.classList.remove('pattern-background');
+      document.body.classList.remove('apple-animations');
       revealElements.forEach((el) => observer.unobserve(el));
       animatedElements.forEach((el) => observer.unobserve(el));
       document.documentElement.style.scrollBehavior = 'auto';
@@ -112,6 +115,7 @@ const Index = () => {
           <Hero />
           <Features />
           <Partners />
+          <AffiliateCTA />
           <Benefits />
           <IntegrationPartners />
           <Pricing />

@@ -1,5 +1,6 @@
 
 import type { Config } from "tailwindcss";
+import tailwindcssAnimate from "tailwindcss-animate";
 
 export default {
   darkMode: ["class"],
@@ -97,10 +98,6 @@ export default {
           '0%': { opacity: '0', transform: 'translateY(-10px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' }
         },
-        'zoom-in': {
-          '0%': { opacity: '0', transform: 'scale(0.95)' },
-          '100%': { opacity: '1', transform: 'scale(1)' }
-        },
         'float': {
           '0%, 100%': { transform: 'translateY(0)' },
           '50%': { transform: 'translateY(-10px)' }
@@ -130,7 +127,6 @@ export default {
         'fade-in-left': 'fade-in-left 0.7s ease-out both',
         'fade-in-right': 'fade-in-right 0.7s ease-out both',
         'fade-in-down': 'fade-in-down 0.4s ease-out both',
-        'zoom-in': 'zoom-in 0.7s ease-out both',
         'float': 'float 6s ease-in-out infinite',
         'slide-left': 'slide-left 25s linear infinite',
         'spin-once': 'spin-once 0.5s ease-out',
@@ -139,5 +135,5 @@ export default {
       }
     }
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [tailwindcssAnimate],
 } satisfies Config;

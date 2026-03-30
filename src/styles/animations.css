@@ -46,13 +46,22 @@
     background-size: 40px 40px;
   }
   
-  /* Section animations */
-  section {
-    @apply opacity-0 translate-y-4 transition-all duration-700;
+  /* Section animations (scoped to pages that opt-in) */
+  body.apple-animations section {
+    opacity: 0;
+    transform: translateY(1rem);
+    transition: opacity 0.7s ease, transform 0.7s ease;
   }
-  
-  section.animate-in {
-    @apply opacity-100 translate-y-0;
+
+  body.apple-animations section.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Defensive fallback: keep /afiliados visible even if legacy global rules exist */
+  .afiliados-page section {
+    opacity: 1;
+    transform: translateY(0);
   }
   
   /* Enhanced animations */

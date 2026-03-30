@@ -28,7 +28,7 @@ const PopupForm: React.FC = () => {
   }, [ddi]);
 
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    let value = e.target.value.replace(/\D/g, '');
+    const value = e.target.value.replace(/\D/g, '');
     let maskedValue = '';
     let maskIndex = 0;
     for (let i = 0; i < phoneMask.length && maskIndex < value.length; i++) {
