@@ -1,16 +1,31 @@
 import { useEffect } from "react";
 
+type Country = {
+  country_code: string;
+  phone_mask: string;
+  country_name: string;
+  regionCode: string;
+  emoji: string;
+  selected?: boolean;
+};
+
+type PhoneInputWithDataset = HTMLInputElement & {
+  dataset: DOMStringMap & {
+    phoneWithDdi?: string;
+  };
+};
+
 const LeadForm = () => {
   useEffect(() => {
     const form = document.getElementById("leadform-n8n") as HTMLFormElement | null;
-    const phoneInput = document.getElementById("tel-2") as HTMLInputElement | null;
+    const phoneInput = document.getElementById("tel-2") as PhoneInputWithDataset | null;
     const emailInput = document.getElementById("email-2") as HTMLInputElement | null;
     const nameInput = document.getElementById("name-2") as HTMLInputElement | null;
     const ddiSelect = document.getElementById("ddi-2") as HTMLSelectElement | null;
 
     if (!form || !phoneInput || !ddiSelect) return;
 
-    const countryList2 = [
+    const countryList2: Country[] = [
       { country_code: "AD", phone_mask: "999-999", country_name: "Andorra", regionCode: "376", emoji: "🇦🇩" },
       { country_code: "AE", phone_mask: "(99) 999-9999", country_name: "Emirados Árabes Unidos", regionCode: "971", emoji: "🇦🇪" },
       { country_code: "AF", phone_mask: "(99) 999-9999", country_name: "Afeganistão", regionCode: "93", emoji: "🇦🇫" },
@@ -90,8 +105,8 @@ const LeadForm = () => {
       input.placeholder = mask.replace(/9/g, "0");
     };
 
-    const maskPhone = (event: any) => {
-      if (event?.inputType && (event.inputType === "deleteContentBackward" || event.inputType === "deleteContentForward")) {
+    const maskPhone = (event: InputEvent) => {
+      if (event.inputType && (event.inputType === "deleteContentBackward" || event.inputType === "deleteContentForward")) {
         return;
       }
 
@@ -104,13 +119,13 @@ const LeadForm = () => {
       applyMask(phoneInput, mask);
       updatePlaceholder(phoneInput, mask);
       const phoneWithDdi = "+" + ddiSelect.value + phoneInput.value.replace(/\D/g, "");
-      (phoneInput as any).dataset.phoneWithDdi = phoneWithDdi;
+      phoneInput.dataset.phoneWithDdi = phoneWithDdi;
     };
 
     // Initialize placeholder and listeners
     const initialMask = getCountryMask(ddiSelect.value);
     updatePlaceholder(phoneInput, initialMask);
-    phoneInput.addEventListener("input", maskPhone as any);
+    phoneInput.addEventListener("input", maskPhone);
     const ddiChangeHandler = () => {
       const m = getCountryMask(ddiSelect.value);
       if (m) updatePlaceholder(phoneInput, m);
@@ -119,7 +134,7 @@ const LeadForm = () => {
     ddiSelect.addEventListener("change", ddiChangeHandler);
 
     const submitHandler = (e: Event) => {
-      const phoneWithDdi = (phoneInput as any).dataset.phoneWithDdi || "";
+      const phoneWithDdi = phoneInput.dataset.phoneWithDdi || "";
       phoneInput.value = phoneWithDdi;
       setTimeout(() => {
         phoneInput.value = "";
@@ -147,7 +162,7 @@ const LeadForm = () => {
     }
 
     return () => {
-      phoneInput.removeEventListener("input", maskPhone as any);
+      phoneInput.removeEventListener("input", maskPhone);
       ddiSelect.removeEventListener("change", ddiChangeHandler);
       form.removeEventListener("submit", submitHandler);
     };

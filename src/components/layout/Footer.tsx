@@ -1,6 +1,7 @@
 
 import { Instagram, Linkedin, Mail, Phone, MapPin, Globe } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -14,6 +15,7 @@ const Footer = () => {
     ],
     company: [
       { name: "Sobre", href: "#partners" },
+      { name: "Afiliados", href: "/afiliados" },
       { name: "Parceiros", href: "#partners" },
       { name: "Contato", href: "#" },
     ],
@@ -111,12 +113,21 @@ const Footer = () => {
             <ul className="space-y-1 md:space-y-2">
               {footerLinks.product.map((link, index) => (
                 <li key={index}>
-                  <a
-                    href={link.href}
-                    className="text-gray-500 hover:text-primary text-xs md:text-sm transition-colors"
-                  >
-                    {link.name}
-                  </a>
+                  {link.href.startsWith("/") ? (
+                    <Link
+                      to={link.href}
+                      className="text-gray-500 hover:text-primary text-xs md:text-sm transition-colors"
+                    >
+                      {link.name}
+                    </Link>
+                  ) : (
+                    <a
+                      href={link.href}
+                      className="text-gray-500 hover:text-primary text-xs md:text-sm transition-colors"
+                    >
+                      {link.name}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>
@@ -127,12 +138,21 @@ const Footer = () => {
             <ul className="space-y-1 md:space-y-2">
               {footerLinks.company.map((link, index) => (
                 <li key={index}>
-                  <a
-                    href={link.href}
-                    className="text-gray-500 hover:text-primary text-xs md:text-sm transition-colors"
-                  >
-                    {link.name}
-                  </a>
+                  {link.href.startsWith("/") ? (
+                    <Link
+                      to={link.href}
+                      className="text-gray-500 hover:text-primary text-xs md:text-sm transition-colors"
+                    >
+                      {link.name}
+                    </Link>
+                  ) : (
+                    <a
+                      href={link.href}
+                      className="text-gray-500 hover:text-primary text-xs md:text-sm transition-colors"
+                    >
+                      {link.name}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>
@@ -143,12 +163,21 @@ const Footer = () => {
             <ul className="space-y-1 md:space-y-2">
               {footerLinks.legal.map((link, index) => (
                 <li key={index}>
-                  <a
-                    href={link.href}
-                    className="text-gray-500 hover:text-primary text-xs md:text-sm transition-colors"
-                  >
-                    {link.name}
-                  </a>
+                  {link.href.startsWith("/") ? (
+                    <Link
+                      to={link.href}
+                      className="text-gray-500 hover:text-primary text-xs md:text-sm transition-colors"
+                    >
+                      {link.name}
+                    </Link>
+                  ) : (
+                    <a
+                      href={link.href}
+                      className="text-gray-500 hover:text-primary text-xs md:text-sm transition-colors"
+                    >
+                      {link.name}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>
