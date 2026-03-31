@@ -208,11 +208,10 @@ const Afiliados = () => {
 
       <main>
         {/* Hero Section */}
-        <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-gradient-to-b from-[#F0FBF4] to-white">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-[100px] pointer-events-none"></div>
+        <section className="relative pt-20 pb-12 lg:pt-28 lg:pb-16 overflow-hidden bg-white">
           
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="flex flex-col items-center gap-12 lg:gap-16">
+            <div className="flex flex-col items-center gap-8 lg:gap-10">
               <motion.div 
                 initial="hidden"
                 animate="visible"
@@ -223,16 +222,16 @@ const Afiliados = () => {
                   <Users className="w-4 h-4 mr-2" /> Programa de Afiliados Followop
                 </motion.div>
                 
-                <motion.h1 variants={textBlurVariants} className="text-4xl md:text-6xl lg:text-7xl font-semibold tracking-tight text-gray-900 mb-6 leading-[1.05]">
+                <motion.h1 variants={textBlurVariants} className="text-4xl md:text-6xl lg:text-7xl font-semibold tracking-tight text-gray-900 mb-4 leading-[1.05]">
                   Entre para o Clube de <br />
                   <span className="text-[#16B763]">Afiliados Followop</span>
                 </motion.h1>
                 
-                <motion.h2 variants={textBlurVariants} className="text-2xl lg:text-3xl font-medium text-gray-600 mb-8 max-w-3xl">
+                <motion.h2 variants={textBlurVariants} className="text-2xl lg:text-3xl font-medium text-gray-600 mb-4 max-w-3xl">
                   Indique uma solução que resolve de verdade e receba <span className="text-[#16B763] font-bold">comissão recorrente</span> todos os meses.
                 </motion.h2>
                 
-                <motion.div variants={itemVariants} className="grid grid-cols-1 sm:grid-cols-2 gap-8 w-full mb-10 max-w-4xl">
+                <motion.div variants={itemVariants} className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full mb-4 max-w-4xl">
                   <div className="flex items-start gap-4 p-4 rounded-2xl bg-white/50 backdrop-blur-sm border border-gray-100 shadow-sm transition-all hover:shadow-md">
                     <div className="w-12 h-12 bg-[#16B763]/10 rounded-xl flex items-center justify-center shrink-0">
                       <Zap className="w-6 h-6 text-[#16B763]" />
@@ -255,6 +254,7 @@ const Afiliados = () => {
 
               </motion.div>
 
+              {/* 
               <motion.div 
                 initial={{ opacity: 0, scale: 0.9, y: 40 }}
                 whileInView={{ opacity: 1, scale: 1, y: 0 }}
@@ -280,18 +280,19 @@ const Afiliados = () => {
                   </Button>
                 </div>
               </motion.div>
+              */}
             </div>
           </div>
         </section>
 
         {/* Benefícios com entrada sequencial */}
-        <section className="py-24 bg-white">
+        <section className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-center max-w-3xl mx-auto mb-20"
+              className="text-center max-w-3xl mx-auto mb-12"
             >
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight">O que você ganha como afiliado</h2>
               <p className="text-gray-500 text-xl font-light">Estrutura completa para indicar com confiança e transformar indicações em receita recorrente.</p>
@@ -302,7 +303,7 @@ const Afiliados = () => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-100px" }}
-              className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
+              className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
             >
               {[
                 { icon: Repeat, title: "Comissão Recorrente", desc: "Cada cliente ativo indicado por você gera comissão mensal. Escale sua renda sem teto de indicações." },
@@ -314,9 +315,9 @@ const Afiliados = () => {
                   key={i} 
                   variants={itemVariants}
                   whileHover={{ y: -10, scale: 1.02 }}
-                  className="bg-gray-50/50 border border-gray-100 rounded-[2rem] p-10 transition-all hover:bg-white hover:shadow-2xl hover:border-primary/20 group"
+                  className="bg-gray-50/50 border border-gray-100 rounded-[2rem] p-6 transition-all hover:bg-white hover:shadow-2xl hover:border-primary/20 group"
                 >
-                  <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-8 shadow-sm group-hover:scale-110 transition-transform group-hover:shadow-[#16B763]/20 border border-gray-100">
+                  <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-sm group-hover:scale-110 transition-transform group-hover:shadow-[#16B763]/20 border border-gray-100">
                     <item.icon className="text-[#16B763] w-8 h-8" />
                   </div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-4">{item.title}</h3>
@@ -328,18 +329,18 @@ const Afiliados = () => {
         </section>
 
         {/* Como Funciona com Efeito de Escada */}
-        <section className="py-32 bg-gray-50 overflow-hidden">
+        <section className="py-20 bg-white overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.h2 
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="text-4xl md:text-5xl font-bold text-gray-900 text-center mb-24 tracking-tight"
+              className="text-4xl md:text-5xl font-bold text-gray-900 text-center mb-12 tracking-tight"
             >
               Simples como deve ser.
             </motion.h2>
             
-            <div className="grid md:grid-cols-3 gap-20 relative">
+            <div className="grid md:grid-cols-3 gap-10 relative">
               <div className="hidden md:block absolute top-[60px] left-[15%] right-[15%] h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
               
               {[
@@ -355,7 +356,7 @@ const Afiliados = () => {
                   transition={{ delay: i * 0.2 }}
                   className="relative flex flex-col items-center text-center group"
                 >
-                  <div className="w-24 h-24 bg-white border border-gray-100 shadow-[0_20px_40px_rgba(0,0,0,0.05)] rounded-3xl flex items-center justify-center mb-8 z-10 group-hover:rotate-6 transition-transform group-hover:border-primary">
+                  <div className="w-24 h-24 bg-white border border-gray-100 shadow-[0_20px_40px_rgba(0,0,0,0.05)] rounded-3xl flex items-center justify-center mb-6 z-10 group-hover:rotate-6 transition-transform group-hover:border-primary">
                     <step.icon className="text-[#16B763] w-10 h-10" />
                   </div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-4">{step.title}</h3>
@@ -367,19 +368,19 @@ const Afiliados = () => {
         </section>
 
         {/* FAQ com entrada suave */}
-        <section className="py-32 bg-white">
+        <section className="py-20 bg-white">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0, scale: 0.98 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="text-center mb-16"
+              className="text-center mb-10"
             >
               <h2 className="text-4xl font-bold text-gray-900 mb-4 tracking-tight">Perguntas frequentes</h2>
               <p className="text-gray-500 text-lg font-light">Sem letrinhas miúdas: veja como funciona sua parceria com a Followop.</p>
             </motion.div>
             
-            <div className="space-y-6">
+            <div className="space-y-4">
               {[
                 { q: "Quanto eu ganho por indicação?", a: "Você recebe 15% fixos sobre o valor líquido da mensalidade, enquanto o cliente indicado permanecer ativo." },
                 { q: "Quando e como recebo minhas comissões?", a: "O fechamento acontece no último dia do mês e o pagamento é realizado via PIX até o dia 10 do mês seguinte." },
@@ -394,13 +395,13 @@ const Afiliados = () => {
                   transition={{ delay: i * 0.1 }}
                   className="group bg-gray-50/50 border border-gray-100 rounded-[2rem] overflow-hidden cursor-pointer transition-all hover:bg-white hover:shadow-lg"
                 >
-                  <summary className="flex justify-between items-center font-bold p-8 text-gray-900 text-lg outline-none select-none">
+                  <summary className="flex justify-between items-center font-bold p-6 text-gray-900 text-lg outline-none select-none">
                     {faq.q}
                     <div className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center group-open:rotate-180 transition-transform">
                       <ChevronDown className="w-5 h-5 text-gray-400" />
                     </div>
                   </summary>
-                  <div className="px-8 pb-8 text-gray-500 text-lg leading-relaxed font-light">
+                  <div className="px-6 pb-6 text-gray-500 text-lg leading-relaxed font-light">
                     {faq.a}
                   </div>
                 </motion.details>
@@ -409,7 +410,7 @@ const Afiliados = () => {
           </div>
         </section>
 
-        <section id="cadastro" className="py-24 bg-gradient-to-b from-white to-gray-50 border-t border-gray-100">
+        <section id="cadastro" className="py-12 bg-white border-t border-gray-100">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -418,10 +419,10 @@ const Afiliados = () => {
               transition={{ duration: 0.6 }}
               className="relative"
             >
-              <div className="absolute -inset-2 bg-gradient-to-r from-[#A2DE5D]/25 to-[#16B763]/25 rounded-[2.5rem] blur-2xl opacity-40"></div>
-              <div className="relative bg-white border border-gray-100 rounded-[2rem] p-8 md:p-12 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.1)]">
+
+              <div className="relative bg-white border border-gray-100 rounded-[2rem] p-6 md:p-10 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.1)]">
                 <h2 className="text-3xl font-bold text-gray-900 mb-2">Cadastre-se e comece hoje</h2>
-                <p className="text-gray-500 mb-8">Preencha seus dados para receber seu link de indicação exclusivo em poucos segundos.</p>
+                <p className="text-gray-500 mb-6">Preencha seus dados para receber seu link de indicação exclusivo em poucos segundos.</p>
 
                 <form ref={formRef} className="space-y-5" onSubmit={handleSubmit}>
                   <div className="grid md:grid-cols-2 gap-5">
@@ -490,7 +491,7 @@ const Afiliados = () => {
                   <Button 
                     type="submit" 
                     variant="apple" 
-                    className="group w-full h-14 flex items-center justify-center gap-3 text-lg mt-6 shadow-xl shadow-[#A2DE5D]/20"
+                    className="group w-full h-14 flex items-center justify-center gap-3 text-lg mt-4 shadow-xl shadow-[#A2DE5D]/20"
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? 'Enviando...' : 'QUERO MEU LINK DE AFILIADO'}
@@ -498,7 +499,7 @@ const Afiliados = () => {
                       <ArrowRight size={14} />
                     </span>
                   </Button>
-                  <div className="flex items-center justify-center gap-2 mt-6">
+                  <div className="flex items-center justify-center gap-2 mt-4">
                     <ShieldCheck size={14} className="text-gray-400" />
                     <p className="text-[10px] text-gray-400 uppercase tracking-widest font-black">Ambiente seguro • Programa oficial Followop</p>
                   </div>

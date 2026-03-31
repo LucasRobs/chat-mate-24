@@ -18,6 +18,20 @@ import { Toaster } from "@/components/ui/toaster";
 
 const Index = () => {
   useEffect(() => {
+    // Handle hash scrolling on mount
+    const hash = window.location.hash;
+    if (hash) {
+      setTimeout(() => {
+        const id = hash.replace('#', '');
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 300);
+    }
+  }, []);
+
+  useEffect(() => {
     // Use simple dot patterns instead of gradients
     document.body.classList.add('pattern-background');
     document.body.classList.add('apple-animations');
