@@ -224,11 +224,11 @@ const Afiliados = () => {
                 
                 <motion.h1 variants={textBlurVariants} className="text-4xl md:text-6xl lg:text-7xl font-semibold tracking-tight text-gray-900 mb-4 leading-[1.05]">
                   Entre para o Clube de <br />
-                  <span className="text-[#16B763]">Afiliados Followop</span>
+                  <span className="text-[#16B763]">CRM Autônomo Followop</span>
                 </motion.h1>
                 
                 <motion.h2 variants={textBlurVariants} className="text-2xl lg:text-3xl font-medium text-gray-600 mb-4 max-w-3xl">
-                  Indique uma solução que resolve de verdade e receba <span className="text-[#16B763] font-bold">comissão recorrente</span> todos os meses.
+                  Indique a maior revolução em <span className="text-[#16B763] font-bold">IA para vendas</span> e receba comissão recorrente todos os meses.
                 </motion.h2>
                 
                 <motion.div variants={itemVariants} className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full mb-4 max-w-4xl">
@@ -306,10 +306,10 @@ const Afiliados = () => {
               className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
             >
               {[
-                { icon: Repeat, title: "Comissão Recorrente", desc: "Cada cliente ativo indicado por você gera comissão mensal. Escale sua renda sem teto de indicações." },
-                { icon: TrendingUp, title: "Métricas em Tempo Real", desc: "Acompanhe cliques, cadastros e faturamento em um painel simples para otimizar sua divulgação." },
-                { icon: Users, title: "Materiais Prontos para Conversão", desc: "Use roteiros, mensagens e criativos validados para acelerar resultados desde os primeiros contatos." },
-                { icon: Eye, title: "Atribuição Inteligente", desc: "Cookie de 60 dias: se a venda acontecer depois, a comissão continua sendo sua." },
+                { icon: Repeat, title: "Comissão Recorrente", desc: "Você ganha por cada plano de Agente AI que seus indicados mantiverem ativos. Sem teto fixo." },
+                { icon: TrendingUp, title: "Métricas de IA", desc: "Acompanhe cliques, conversões e o impacto da nossa IA nos seus indicados em tempo real." },
+                { icon: Users, title: "Materiais de Elite", desc: "Tenha acesso a criativos e roteiros validados que vendem a facilidade da operação autônoma." },
+                { icon: Zap, title: "Venda o Futuro", desc: "O mercado está sedento por IA. Indicar o Followop é oferecer a solução mais moderna do Brasil." },
               ].map((item, i) => (
                 <motion.div 
                   key={i} 

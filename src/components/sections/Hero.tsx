@@ -13,6 +13,7 @@ import {
   MousePointer2,
   Play,
   QrCode,
+  Send,
   Smartphone,
   Sparkles,
   Users,
@@ -388,7 +389,7 @@ const InstanciasTab = () => (
             </div>
             <div>
               <h4 className="font-semibold text-gray-800 text-sm sm:text-base">
-                Suporte Central
+                Atendimento Central
               </h4>
               <p className="text-[10px] sm:text-xs text-gray-500 mt-0.5">
                 +55 11 99999-9999
@@ -563,18 +564,18 @@ const InteractiveDashboard = () => {
   const tabs = [
     {
       id: "disparo",
-      label: "Disparo em Massa",
-      icon: <Play className="w-4 h-4" />,
+      label: "Agente Caçador",
+      icon: <Send className="w-4 h-4" />,
     },
     {
       id: "followup",
-      label: "Follow-up automáticos",
+      label: "Agente Fechador",
       icon: <ListTodo className="w-4 h-4" />,
     },
-    { id: "crm", label: "CRM com IA", icon: <Bot className="w-4 h-4" /> },
+    { id: "crm", label: "Agente Analista", icon: <Bot className="w-4 h-4" /> },
     {
       id: "instancias",
-      label: "Instâncias WhatsApps",
+      label: "Agente Guardião",
       icon: <Smartphone className="w-4 h-4" />,
     },
   ];
@@ -698,14 +699,14 @@ const Hero = () => {
   const [typingSpeed, setTypingSpeed] = useState(150);
 
   const words = [
-    "Follow-up",
-    "Tempo da Equipe",
-    "Organização",
-    "Gestão de clientes",
-    "Resposta Rápida",
-    "Nutrição de Contatos",
-    "Pós-venda",
-    "Falta de acompanhamento",
+    "Autonomia de Vendas",
+    "Atendimento 24/7",
+    "Follow-up Infinito",
+    "Fechamento Automático",
+    "Gestão Inteligente",
+    "Recuperação de Receita",
+    "SDR Digital",
+    "Escala de Vendas",
   ];
 
   const isMobile = useIsMobile();
@@ -780,13 +781,13 @@ const Hero = () => {
               className="blur-reveal text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-gray-900 leading-[1.08] whitespace-nowrap"
               style={{ transitionDelay: "100ms" }}
             >
-              A nova geração de CRM com IA
+              A nova era do CRM Autônomo
             </h1>
             <p
               className="blur-reveal mt-3 text-lg sm:text-xl md:text-2xl font-normal text-[#16B763]/80 tracking-wide"
               style={{ transitionDelay: "200ms" }}
             >
-              Simples de usar. Poderoso para crescer.
+              Sua máquina de vendas que nunca dorme.
             </p>
 
             <div
@@ -828,7 +829,7 @@ const Hero = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Assinar a followop
+                  Contratar meu Agente AI
                   <span className="bg-[#2D2D4A] text-white p-1 rounded-full flex items-center justify-center w-5 h-5 ml-1">
                     <ArrowRight size={12} />
                   </span>

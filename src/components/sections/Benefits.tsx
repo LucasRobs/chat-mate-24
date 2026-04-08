@@ -106,23 +106,23 @@ const Benefits = () => {
   const benefits = [
     {
       icon: Rocket,
-      title: "Atendimento 24/7",
-      description: "Esteja disponível para seus clientes a qualquer hora do dia, aumentando suas chances de venda.",
+      title: "Autonomia Total",
+      description: "Sua operação roda 24/7 sem depender de supervisão humana constante, garantindo que nenhum lead seja ignorado.",
       number: 100,
       suffix: "%"
     },
     {
       icon: Flame,
-      title: "Redução de custos",
-      description: "Substitua gastos com atendimento humano por uma solução eficiente de apenas R$ 0,44/hora.",
-      number: 97,
+      title: "Eficiência de Custo",
+      description: "Reduza drasticamente o custo por aquisição (CAC). Um agente de IA custa uma fração de um SDR humano.",
+      number: 95,
       suffix: "%"
     },
     {
       icon: MessageCircle,
-      title: "Conversão Inteligente",
-      description: "Sistema automatizado que engaja leads e acelera o processo de conversão em vendas.",
-      number: 300,
+      title: "Escalabilidade Infinita",
+      description: "Atenda 10 ou 10.000 leads simultaneamente com a mesma qualidade e velocidade de resposta.",
+      number: 500,
       suffix: "%"
     }
   ];
@@ -142,7 +142,7 @@ const Benefits = () => {
           </span>
           <h2 className="relative mt-6 text-3xl sm:text-4xl font-semibold text-gray-900 tracking-tight">Fature com Previsibilidade</h2>
           <p className="relative mt-4 text-base sm:text-lg text-gray-500 max-w-2xl mx-auto font-light leading-relaxed">
-            Elimine o desperdício de leads e transforme sua base num ativo que gera dinheiro todos os dias de forma automática.
+            Delegue o trabalho pesado para a IA e transforme sua base de contatos em uma verdadeira máquina de lucro recorrente.
           </p>
         </div>
 

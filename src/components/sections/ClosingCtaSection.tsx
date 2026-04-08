@@ -48,7 +48,7 @@ const MetaPartnerSection = () => {
               </li>
               <li className="flex items-start gap-2 stagger-item">
                 <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
-                <span>Suporte direto da <strong>infraestrutura oficial</strong></span>
+                <span>Acesso direto à <strong>infraestrutura oficial</strong></span>
               </li>
             </ul>
             <div className="mt-8 blur-reveal delay-500">

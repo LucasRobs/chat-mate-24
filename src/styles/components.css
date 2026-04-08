@@ -348,8 +348,8 @@
     height: 64px !important;
     min-width: 220px !important;
     font-size: 1.35rem !important;
-    font-family: 'Poppins', sans-serif !important;
-    font-weight: 400 !important;
+    font-family: inherit !important;
+    font-weight: 500 !important;
     letter-spacing: 0.01em !important;
     border-radius: 18px !important;
     background: #A2DE5D !important;

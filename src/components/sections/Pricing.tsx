@@ -41,7 +41,6 @@ const Pricing = () => {
       features: [
         "1 Conexão WhatsApp",
         "Atendimento Básico IA",
-        "Suporte em até 48h",
         "600 atendimentos",
         "5.000 mensagens"
       ],
@@ -58,7 +57,6 @@ const Pricing = () => {
         "Follow-up Automático",
         "Integração API Oficial",
         "Painel de Métricas",
-        "Suporte Prioritário",
         "2.500 atendimentos",
         "20.000 mensagens"
       ],
@@ -73,7 +71,6 @@ const Pricing = () => {
         "Follow-up Inteligente com IA",
         "Integração API Oficial",
         "Painel de Métricas Avançado",
-        "Suporte Prioritário",
         "6.000 atendimentos",
         "50.000 mensagens"
       ],
