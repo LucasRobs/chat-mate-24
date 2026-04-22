@@ -10,6 +10,7 @@ import ScaleUp from "./pages/ScaleUp";
 import Afiliados from "./pages/Afiliados";
 import NotFound from "./pages/NotFound";
 import Forms from "./pages/Forms";
+import RecuperaCash from "./pages/RecuperaCash";
 import { UserFormProvider } from "./context/UserFormContext";
 import React from "react";
 
@@ -59,6 +60,7 @@ const App = () => {
                 <Route path="/afiliados" element={<ErrorBoundary><Afiliados /></ErrorBoundary>} />
                 <Route path="/startupsummit" element={<Forms />} />
                 <Route path="/forms" element={<Forms />} />
+                <Route path="/recupera-cash" element={<RecuperaCash />} />
                 {/* Rota catch-all para páginas não encontradas */}
                 <Route path="*" element={<NotFound />} />
               </Routes>

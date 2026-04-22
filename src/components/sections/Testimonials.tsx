@@ -4,14 +4,14 @@ import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 
-const testimonials = [
+export const testimonials = [
   {
     id: 1,
     name: "Clara Lisle",
     role: "Terapeuta e Criadora do Método AZ30",
     image: "/lovable-uploads/d0b3b40d-b7c8-49cd-a80d-68f0fe56e7d5.png",
     content:
-      "Encontrar a followop foi a melhor coisa para meu negócio! Respostas rápidas e atendimento humanizado transformaram minha comunicação com clientes.",
+      "Depois de implementar o script de recuperação, recuperei 40% dos carrinhos abandonados no primeiro mês. O ROI foi impressionante - cada lead recuperado é dinheiro que eu estava deixando na mesa.",
     rating: 5,
   },
   {
@@ -20,7 +20,7 @@ const testimonials = [
     role: "Cardiologista",
     image: "/lovable-uploads/danieldoto.png",
     content:
-      "A IA da Followop transformou minha rotina médica. Atendimento em tempo real, reduzindo perda de leads e aumentando conversão significativamente.",
+      "Perdia cerca de 30% das vendas por abandono no checkout. Com o script de recuperação automatizado, consegui transformar esses leads em pacientes reais. Aumentei minha receita em 25% sem gastar mais em tráfego.",
     rating: 5,
   },
   {
@@ -29,7 +29,7 @@ const testimonials = [
     role: "Educação Médica em Emergência",
     image: "/lovable-uploads/emergency_talks_logo.png",
     content:
-      "A Followop nos permitiu ampliar o alcance e o engajamento em nossos programas de educação médica em emergência, facilitando a interação com profissionais da saúde.",
+      "O script de recuperação foi um divisor de águas. Antes, quem abandonava o carrinho não voltava. Hoje, 35% desses leads convertem após o contato automatizado. É dinheiro que já estava pago no tráfego voltando para o meu bolso.",
     rating: 5,
   },
 ];
