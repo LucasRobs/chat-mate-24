@@ -343,7 +343,7 @@ Este ebook reúne estratégias comprovadas que podem transformar seus resultados
                             </div>
                             <div>
                               <h4 id="modal-title" className="text-lg font-bold">Solicitação recebida</h4>
-                              <p className="text-sm text-gray-600">Obrigado! Em instantes você receberá o material por e-mail.</p>
+                              <p className="text-sm text-gray-600">Obrigado! Em instantes você receberá o material por WhatsApp.</p>
                             </div>
                           </div>
 
