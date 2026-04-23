@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import { ArrowRight, TrendingUp, DollarSign, AlertTriangle, Clock, Shield, Zap, CheckCircle2 } from "lucide-react";
+import { ArrowRight, TrendingUp, DollarSign, AlertTriangle, Clock, Shield, Zap, CheckCircle2, Calendar, X } from "lucide-react";
 import { testimonials } from "@/components/sections/Testimonials";
 
 const RecuperaCash = () => {
@@ -51,7 +51,7 @@ const RecuperaCash = () => {
     };
 
     try {
-      const resp = await fetch('https://n8n.comea.com.br/webhook/webhook_718dpyim', {
+      const resp = await fetch('https://n8n.comea.com.br/webhook/webhook_us8hnnfd', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
@@ -68,6 +68,7 @@ const RecuperaCash = () => {
   };
 
   const [showStickyCTA, setShowStickyCTA] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -75,6 +76,118 @@ const RecuperaCash = () => {
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Inicializa comportamento do formulário estático inserido como HTML
+  useEffect(() => {
+    const RAW_QUERY = window.location.search ? window.location.search.slice(1) : ""; // sem "?"
+    const form = document.getElementById("meuForm") as HTMLFormElement | null;
+    if (!form) return;
+
+    const btn = document.getElementById("btn-continuar") as HTMLInputElement | null;
+    const selDdi = document.getElementById("ddi-2") as HTMLSelectElement | null;
+    const inpTel = document.getElementById("tel-2") as HTMLInputElement | null;
+    const inpName = document.getElementById("name-2") as HTMLInputElement | null;
+    const inpEmail = document.getElementById("email-2") as HTMLInputElement | null;
+    const redirectInput = form.querySelector('input[name="redirect_url"]') as HTMLInputElement | null;
+    const formInput = form.querySelector('input[name="formId"]') as HTMLInputElement | null;
+    const rawQueryInput = form.querySelector('input[name="raw_query_string"]') as HTMLInputElement | null;
+    const phoneHidden = form.querySelector('input[name="phone"]') as HTMLInputElement | null;
+
+    if (selDdi) {
+      selDdi.innerHTML = `
+        <option value="+55" selected>Brasil (+55)</option>
+        <option value="+1">EUA (+1)</option>
+        <option value="+351">Portugal (+351)</option>
+        <option value="+34">Espanha (+34)</option>
+      `;
+    }
+
+    if (rawQueryInput) rawQueryInput.value = RAW_QUERY;
+
+    const onlyDigits = (s: string) => (s || "").replace(/\D+/g, "");
+
+    let sending = false;
+
+    const onClick = async () => {
+      if (sending) return;
+
+      const name = inpName?.value.trim() || "";
+      const email = inpEmail?.value.trim() || "";
+      const phone = onlyDigits(inpTel?.value || "");
+
+      // Reset previous error states
+      [inpName, inpEmail, inpTel].forEach(field => {
+        if (field) (field.style as any).borderColor = '';
+      });
+
+      let isValid = true;
+      if (!name) {
+        if (inpName) { (inpName.style as any).borderColor = 'red'; inpName.placeholder = 'Por favor, insira seu nome'; }
+        isValid = false;
+      }
+      if (!email) {
+        if (inpEmail) { (inpEmail.style as any).borderColor = 'red'; inpEmail.placeholder = 'Por favor, insira seu e-mail'; }
+        isValid = false;
+      } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        if (inpEmail) { (inpEmail.style as any).borderColor = 'red'; inpEmail.value = ''; inpEmail.placeholder = 'E-mail inválido'; }
+        isValid = false;
+      }
+      if (!phone) {
+        if (inpTel) { (inpTel.style as any).borderColor = 'red'; inpTel.placeholder = 'Por favor, insira seu telefone'; }
+        isValid = false;
+      } else if (phone.length < 10) {
+        if (inpTel) { (inpTel.style as any).borderColor = 'red'; inpTel.value = ''; inpTel.placeholder = 'Telefone inválido'; }
+        isValid = false;
+      }
+
+      if (!isValid) return;
+
+      sending = true;
+      if (btn) btn.disabled = true;
+
+      const phoneFull = onlyDigits(inpTel?.value || "");
+      if (phoneHidden) phoneHidden.value = phoneFull;
+
+      let url = redirectInput?.value || "";
+      const extraParams = `&name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&phone=${encodeURIComponent(phoneFull)}&phonenumber=${encodeURIComponent(phoneFull)}`;
+      url += extraParams;
+      if (RAW_QUERY) {
+        url = url + (url.includes("?") ? "&" : "?") + RAW_QUERY;
+      }
+
+      const formDataObj = Object.fromEntries(new FormData(form).entries()) as Record<string,string>;
+
+      const payload = {
+        ...formDataObj,
+        redirect_url: url,
+        form_id: formInput?.value
+      };
+
+      try {
+        const resp = await fetch("https://n8n.comea.com.br/webhook/webhook_us8hnnfd", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+        const text = await resp.text();
+        console.log("✅ Resposta do servidor:", text);
+        // Em vez de redirecionar imediatamente, abrir modal de confirmação
+        setModalOpen(true);
+      } catch (err) {
+        console.error("❌ Erro ao enviar:", err);
+        // Mesmo em caso de erro, mostrar modal para oferecer agendamento
+        setModalOpen(true);
+      } finally {
+        sending = false;
+        if (btn) btn.disabled = false;
+      }
+    };
+
+    btn?.addEventListener('click', onClick);
+    return () => {
+      btn?.removeEventListener('click', onClick);
+    };
   }, []);
 
   return (
@@ -163,67 +276,109 @@ const RecuperaCash = () => {
                     <h3 className="text-xl font-bold text-gray-900 mb-2">Receba seu Script</h3>
                     <p className="text-sm text-gray-600">Preencha o formulário para liberar o seu script gratuitamente.</p>
                   </div>
-                  <form onSubmit={handleSubmit} className="space-y-3">
-                    <div>
-                      <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        placeholder="Insira seu nome"
-                        value={formData.name}
-                        onChange={(e) => setFormData({...formData, name: e.target.value})}
-                        className="w-full px-4 py-3 text-base text-gray-900 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                        required
-                      />
-                    </div>
+                  {/* Substituído pelo formulário provido pelo cliente (HTML + JS adaptado) */}
+                  <div>
+                    <form id="meuForm" accept-charset="UTF-8">
+                      <meta charSet="UTF-8" />
+                      <input type="hidden" name="event" value="approved" />
+                      <input type="hidden" name="flowId" value="" />
+                      <input type="hidden" name="formId" value="form_1776965521256" />
+                      <input type="hidden" name="redirect_url" value="?" />
+                      <input type="hidden" name="raw_query_string" value="" />
+                      <input type="hidden" name="phone" value="" />
 
-                    <div>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        placeholder="Insira seu melhor e-mail"
-                        value={formData.email}
-                        onChange={(e) => setFormData({...formData, email: e.target.value})}
-                        className="w-full px-4 py-3 text-base text-gray-900 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                        required
-                      />
-                    </div>
+                      <div className="container_html">
+                        <div className="mb-1">
+                          <input type="text" id="name-2" name="name" placeholder="Insira seu nome" className="input" />
+                        </div>
 
-                    <div className="flex">
-                      <select
-                        id="ddi"
-                        name="ddi"
-                        value={formData.ddi}
-                        onChange={(e) => setFormData({...formData, ddi: e.target.value})}
-                        className="w-[25%] px-3 py-3 text-base text-gray-900 bg-white border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent border-r-0"
-                      >
-                        <option value="+55">Brasil (+55)</option>
-                        <option value="+1">EUA (+1)</option>
-                        <option value="+351">Portugal (+351)</option>
-                        <option value="+34">Espanha (+34)</option>
-                      </select>
-                      <input
-                        type="tel"
-                        id="tel"
-                        name="phone_display"
-                        placeholder="(00) 00000-0000"
-                        maxLength={15}
-                        value={formData.phone_display}
-                        onChange={(e) => setFormData({...formData, phone_display: e.target.value})}
-                        className="flex-1 px-4 py-3 text-base text-gray-900 bg-white border border-gray-300 rounded-r-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                        required
-                      />
-                    </div>
+                        <div className="mb-1">
+                          <input type="email" id="email-2" name="email" placeholder="Insira seu melhor e-mail" required className="input" />
+                        </div>
 
-                    <button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="w-full py-4 px-6 text-lg font-bold text-white bg-[#16B763] hover:bg-[#14A357] rounded-xl shadow-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed uppercase"
-                    >
-                      {isSubmitting ? 'Enviando...' : 'Quero o meu script de recuperação'}
-                    </button>
-                  </form>
+                        <div className="form-group-2">
+                          <select id="ddi-2" className="select"></select>
+                          <input data-phone-with-ddi type="tel" id="tel-2" name="phone_display" maxLength={15} placeholder="(00) 00000-0000" required className="tel" />
+                        </div>
+
+                        <textarea name="popup_opening_text" className="hidden">Você deu o primeiro passo para recuperar vendas perdidas. 
+Este ebook reúne estratégias comprovadas que podem transformar seus resultados: https://firebasestorage.googleapis.com/v0/b/followop.firebasestorage.app/o/training-files%2Fe0e572b3-8816-43ca-8b9b-603123703f25%2FBlueprint_Funil_Blindado.pdf?alt=media&token=5575d47e-a236-4347-a288-ba435d8a7b01</textarea>
+                        <input type="hidden" name="popup_opening_time" value="3" />
+
+                        <input type="button" id="btn-continuar" value="CONTINUAR" className="btn" />
+                      </div>
+
+                      <style>{`
+                        .container_html { width: 100%; transition: width .5s; }
+                        .mb-1 { margin-bottom: 1rem; }
+                        .input, .select, .tel {
+                          width: 100%; padding: .375rem .75rem; font-size: 1rem; line-height: 1.5;
+                          color: #212529; background: #fff; border: 1px solid #ced4da; border-radius: .25rem; box-sizing: border-box;
+                        }
+                        .form-group-2 { display: flex; align-items: center; width: 100%; margin-bottom: 1rem; }
+                        .select { max-width: 25%; border-right: none; border-radius: .25rem 0 0 .25rem; height: calc(2.25rem + 2px); }
+                        .tel { flex: 1; border-radius: 0 .25rem .25rem 0; height: calc(2.25rem + 2px); }
+                        .btn {
+                          display: block; width: 100%; margin-top: 20px; padding: 13px; line-height: 1.5; text-align: center;
+                          cursor: pointer; font-size: 1rem; font-weight: 700; text-transform: uppercase;
+                          text-shadow: 0 0 2px rgb(0 0 0 / 80%); color: #fff; background: #16B763; border-radius: 15px;
+                          box-shadow: 0 -1px 24px 0 BUTTOM_COLOR; border: 1px solid transparent;
+                        }
+                        .hidden { display:none; }
+                      `}</style>
+                    </form>
+                    {/* Script adapted para execução dentro do componente React */}
+                    {/* Modal de confirmação exibido após envio do formulário */}
+                    {modalOpen && (
+                      <div className="fixed inset-0 z-50 flex items-center justify-center" aria-modal="true" role="dialog">
+                        <div className="absolute inset-0 bg-black opacity-40 backdrop-blur-sm" onClick={() => setModalOpen(false)} />
+                        <div className="relative bg-white rounded-2xl p-6 max-w-md mx-4 shadow-2xl animate-modalEntrance" role="document" aria-labelledby="modal-title">
+                          <button aria-label="Fechar" className="absolute top-3 right-3 text-gray-400 hover:text-gray-600" onClick={() => setModalOpen(false)}>
+                            <X className="w-5 h-5" />
+                          </button>
+
+                          <div className="flex items-center gap-3 mb-3">
+                            <div className="flex items-center justify-center w-12 h-12 bg-green-50 rounded-full">
+                              <CheckCircle2 className="w-6 h-6 text-green-600" />
+                            </div>
+                            <div>
+                              <h4 id="modal-title" className="text-lg font-bold">Solicitação recebida</h4>
+                              <p className="text-sm text-gray-600">Obrigado! Em instantes você receberá o material por e-mail.</p>
+                            </div>
+                          </div>
+
+                          <p className="text-sm text-gray-700 mb-4">Enquanto isso, se quiser falar com um especialista, agende uma reunião rápida. Temos disponibilidade para analisar seu caso e sugerir ações imediatas.</p>
+
+                          <div className="flex flex-col sm:flex-row gap-3">
+                            <a
+                              href="https://calendar.app.google/NXHv8QdFM9Bb48q3A"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              aria-label="Agendar reunião com especialista"
+                              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#16B763] hover:bg-[#14A357] text-white font-semibold text-sm py-2.5 px-4 rounded-xl shadow-sm"
+                              style={{ minWidth: 220 }}
+                            >
+                              <Calendar className="w-5 h-5" />
+                              <span>Agendar reunião com especialista</span>
+                            </a>
+                            <button
+                              className="w-full sm:w-auto inline-flex items-center justify-center bg-gray-100 hover:bg-gray-200 text-gray-800 font-medium text-sm py-2.5 px-4 rounded-xl"
+                              onClick={() => setModalOpen(false)}
+                              aria-label="Fechar modal"
+                              style={{ minWidth: 120 }}
+                            >
+                              Fechar
+                            </button>
+                          </div>
+
+                          <style>{`
+                            @keyframes modalIn { from { opacity: 0; transform: translateY(12px) scale(.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+                            .animate-modalEntrance { animation: modalIn 260ms cubic-bezier(.2,.9,.2,1); }
+                          `}</style>
+                        </div>
+                      </div>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
@@ -480,7 +635,7 @@ Sem um contato rápido e a mensagem certa, esse lead esfria e compra do concorre
               <div className="text-center">
                 <Button
                   className="bg-[#16B763] hover:bg-[#14A357] text-white text-base px-8 py-3 rounded-xl"
-                  onClick={() => window.open('https://api.whatsapp.com/send?phone=5511912903777&text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20o%20Followop%20e%20como%20ele%20pode%20me%20ajudar%20a%20recuperar%20vendas.', '_blank')}
+                  onClick={() => window.open('https://calendar.app.google/NXHv8QdFM9Bb48q3A', '_blank')}
                 >
                   Falar com consultor
                 </Button>
