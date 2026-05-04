@@ -3,7 +3,6 @@ import { Toaster as DefaultToaster } from "@/components/ui/toaster";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Suspense } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import WhatsAppButton from "./components/ui/whatsapp-button";
 import Afiliados from "./pages/Afiliados";
 import Forms from "./pages/Forms";
 import GrupoRecupera from "./pages/GrupoRecupera";
@@ -86,13 +85,13 @@ const App = () => {
           </UserFormProvider>
         </QueryClientProvider>
       </BrowserRouter>
-      <WhatsAppButton
+      {/*<WhatsAppButton
         phoneNumber={import.meta.env.VITE_WHATSAPP_PHONE ?? "5585994314736"}
         message={
           import.meta.env.VITE_WHATSAPP_MESSAGE ??
           "Olá! Gostaria de mais informações."
         }
-      />
+      />*/}
     </>
   );
 };
