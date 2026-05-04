@@ -8,7 +8,6 @@ import {
   ArrowRight,
   CheckCircle2,
   Clock,
-  DollarSign,
   Shield,
   TrendingUp,
   Zap,
@@ -56,9 +55,9 @@ const VideoCarousel = () => {
   }, [current]);
 
   return (
-    <div className="relative w-full max-w-md">
+    <div className="relative w-full max-w-sm mx-auto">
       {/* Video container */}
-      <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-black aspect-[9/16] max-h-[520px]">
+      <div className="relative rounded-2xl mx-auto overflow-hidden shadow-2xl bg-black aspect-[9/16] max-h-[520px]">
         <video
           ref={videoRef}
           key={videos[current].src}
@@ -393,7 +392,7 @@ const GrupoRecupera = () => {
 
           <div className="container mx-auto max-w-6xl relative z-10">
             {/* Meta Business Partner Badge - Top Centered */}
-            <div className="flex justify-center mb-6 mt-6">
+            <div className=" flex justify-center mb-6 mt-6">
               <div className="flex items-center gap-2 bg-transparent border-none px-0 mt-2 py-0 text-xs font-medium text-gray-700 max-w-fit mx-auto">
                 <div className="w-5 h-5 flex items-center justify-center">
                   <img
@@ -415,13 +414,6 @@ const GrupoRecupera = () => {
             <div className="grid md:grid-cols-2 gap-6 md:gap-8 items-center">
               {/* Left Column - Headline and Proofs */}
               <div className="order-1 md:order-1">
-                <div className="inline-flex items-center gap-2 bg-green-50 border border-green-200 rounded-full px-4 py-2 mb-4">
-                  <DollarSign className="w-4 h-4 text-green-600" />
-                  <span className="text-sm font-medium text-green-700">
-                    E-book Gratuito
-                  </span>
-                </div>
-
                 <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-3">
                   Descubra o script exato{" "}
                   <p className=" text-red-600 font-extrabold ">
@@ -532,7 +524,7 @@ const GrupoRecupera = () => {
                   <AlertTriangle className="w-6 h-6 text-green-600" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-2">
-                  O fim do V.F.V. (Vazamento no Funil de Vendas)
+                  Vazamento no Funil de Vendas (V.F.V.)
                 </h3>
                 <p className="text-gray-600">
                   Escalar não é apenas trazer novos leads, é parar de
@@ -546,40 +538,31 @@ const GrupoRecupera = () => {
 
         {/* Urgency CTA Section */}
         <section className="py-10 md:py-16 lg:py-20 px-4 bg-gray-50">
-          <div className="container mx-auto max-w-6xl">
-            <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
-              <div>
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-4">
-                  O seu funil não vai parar de vazar sozinho
-                </h2>
-                <p className="text-lg text-gray-600 mb-3">
-                  Quem abandona o carrinho quase nunca volta sozinho. Na “janela
-                  de ouro”, qualquer dúvida ou distração rouba a venda. Sem um
-                  contato rápido e a mensagem certa, esse lead esfria e compra
-                  do concorrente.
-                </p>
-                <p className="text-lg text-gray-600 mb-4">
-                  Acompanhe os resultados de quem já está usando o script e veja
-                  como é transformador recuperar esses leads que você já pagou
-                  para ter na base.
-                </p>
-                <Button
-                  className="bg-[#16B763] hover:bg-[#14A357] text-white text-lg px-8 py-6 rounded-2xl shadow-lg"
-                  onClick={() =>
-                    window.open(
-                      "https://chat.whatsapp.com/Ih9MWLN4Jnl4lw3bfar1Nf?mode=gi_t",
-                      "_blank",
-                    )
-                  }
-                >
-                  Quero o meu script agora
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </Button>
-              </div>
-              {/* Video Carousel - Social Proof */}
-              <div className="flex justify-center">
-                <VideoCarousel />
-              </div>
+          <div className="container mx-auto max-w-3xl text-center">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-4">
+              O seu funil não vai parar de vazar sozinho
+            </h2>
+            <p className="text-lg text-gray-600 mb-6">
+              Acompanhe os resultados de quem já está usando o script e veja
+              como é transformador recuperar esses leads que você já pagou para
+              ter na base.
+            </p>
+            <div className="w-full mb-6">
+              <VideoCarousel />
+            </div>
+            <div className="flex justify-center">
+              <Button
+                className="bg-[#16B763] hover:bg-[#14A357] text-white text-lg px-8 py-6 rounded-2xl shadow-lg"
+                onClick={() =>
+                  window.open(
+                    "https://chat.whatsapp.com/Ih9MWLN4Jnl4lw3bfar1Nf?mode=gi_t",
+                    "_blank",
+                  )
+                }
+              >
+                Quero o meu script agora
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
             </div>
           </div>
         </section>
@@ -722,10 +705,7 @@ const GrupoRecupera = () => {
         <section className="py-10 md:py-16 lg:py-20 px-4 bg-gray-50">
           <div className="container mx-auto max-w-4xl">
             <div className="bg-white border border-gray-100 rounded-2xl md:rounded-[2rem] p-5 md:p-8 shadow-sm">
-              <div className="flex items-start gap-4 mb-6">
-                <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center border border-green-200">
-                  <Shield className="w-6 h-6 text-green-600" />
-                </div>
+              <div className="flex md:flex-col items-start gap-4 mb-6">
                 <div className="flex-1">
                   <h3 className="text-2xl font-bold text-gray-900 mb-2">
                     Não sabe tecnologia? Não tem problema
