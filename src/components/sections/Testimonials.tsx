@@ -1,23 +1,22 @@
-
-import { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
+import { ChevronLeft, ChevronRight, Star } from "lucide-react";
+import { useEffect, useState } from "react";
 
 export const testimonials = [
   {
     id: 1,
     name: "Clara Lisle",
-    role: "Terapeuta e Criadora do Método AZ30",
+    role: "Infoprodutora e Criadora do Método AZ30",
     image: "/lovable-uploads/d0b3b40d-b7c8-49cd-a80d-68f0fe56e7d5.png",
     content:
-      "Depois de implementar o script de recuperação, recuperei 40% dos carrinhos abandonados no primeiro mês. O ROI foi impressionante - cada lead recuperado é dinheiro que eu estava deixando na mesa.",
+      "Depois de implementar o script de recuperação, recuperei 40% dos carrinhos abandonados no primeiro mês. O retorno do investimento foi impressionante, cada lead recuperado é dinheiro que eu estava deixando na mesa.",
     rating: 5,
   },
   {
     id: 2,
     name: "Dr. Daniel Aguiar",
-    role: "Cardiologista",
+    role: "Infoprodutor e Cardiologista",
     image: "/lovable-uploads/danieldoto.png",
     content:
       "Perdia cerca de 30% das vendas por abandono no checkout. Com o script de recuperação automatizado, consegui transformar esses leads em pacientes reais. Aumentei minha receita em 25% sem gastar mais em tráfego.",
@@ -26,10 +25,10 @@ export const testimonials = [
   {
     id: 3,
     name: "Emergency Talks",
-    role: "Educação Médica em Emergência",
+    role: "Escola de Educação Médica em Emergência",
     image: "/lovable-uploads/emergency_talks_logo.png",
     content:
-      "O script de recuperação foi um divisor de águas. Antes, quem abandonava o carrinho não voltava. Hoje, 35% desses leads convertem após o contato automatizado. É dinheiro que já estava pago no tráfego voltando para o meu bolso.",
+      "O script de recuperação é essencial. Antes, quem abandonava o carrinho não voltava. Hoje, 35% desses leads convertem após o contato automatizado. É dinheiro que já estava pago no tráfego voltando para o meu bolso.",
     rating: 5,
   },
 ];
@@ -53,7 +52,7 @@ const Testimonials = () => {
           setIsVisible(true);
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
     const target = document.getElementById("testimonials");
@@ -105,12 +104,12 @@ const Testimonials = () => {
                 animate={{
                   opacity: activeIndex === index ? 1 : 0,
                   x: activeIndex === index ? 0 : 100,
-                  filter: activeIndex === index ? "blur(0px)" : "blur(10px)"
+                  filter: activeIndex === index ? "blur(0px)" : "blur(10px)",
                 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
                 className={cn(
                   "bg-white/70 backdrop-blur-md rounded-3xl p-8 sm:p-10 shadow-sm hover:shadow-md transition-all duration-500 border border-gray-100",
-                  activeIndex !== index && "hidden"
+                  activeIndex !== index && "hidden",
                 )}
               >
                 <div className="flex mb-4 sm:mb-6">
@@ -119,7 +118,9 @@ const Testimonials = () => {
                       key={i}
                       className={cn(
                         "w-4 h-4 sm:w-5 sm:h-5",
-                        i < testimonial.rating ? "text-yellow-500 fill-yellow-500" : "text-gray-300"
+                        i < testimonial.rating
+                          ? "text-yellow-500 fill-yellow-500"
+                          : "text-gray-300",
                       )}
                     />
                   ))}
@@ -141,7 +142,9 @@ const Testimonials = () => {
                     <h4 className="font-bold text-base sm:text-lg text-secondary">
                       {testimonial.name}
                     </h4>
-                    <p className="text-xs sm:text-sm text-gray-600">{testimonial.role}</p>
+                    <p className="text-xs sm:text-sm text-gray-600">
+                      {testimonial.role}
+                    </p>
                   </div>
                 </div>
               </motion.div>
@@ -164,7 +167,7 @@ const Testimonials = () => {
                       "w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full transition-colors",
                       activeIndex === index
                         ? "bg-primary"
-                        : "bg-gray-300 hover:bg-gray-400"
+                        : "bg-gray-300 hover:bg-gray-400",
                     )}
                     aria-label={`Ir para depoimento ${index + 1}`}
                   />
