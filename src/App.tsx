@@ -10,6 +10,9 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import RecuperaCash from "./pages/RecuperaCash";
 import ScaleUp from "./pages/ScaleUp";
+import VSL3 from "./pages/VSL3";
+import VSL30 from "./pages/VSL3-0";
+import VSL31 from "./pages/VSL3-1";
 
 import React from "react";
 import { UserFormProvider } from "./context/UserFormContext";
@@ -78,6 +81,9 @@ const App = () => {
                 <Route path="/forms" element={<Forms />} />
                 <Route path="/recupera-cash" element={<RecuperaCash />} />
                 <Route path="/grupo-recuperacao" element={<GrupoRecupera />} />
+                <Route path="/vsl3" element={<VSL3 />} />
+                <Route path="/vsl3-0" element={<VSL30 />} />
+                <Route path="/vsl3-1" element={<VSL31 />} />
                 {/* Rota catch-all para páginas não encontradas */}
                 <Route path="*" element={<NotFound />} />
               </Routes>
